@@ -1,18 +1,18 @@
-THE BOOTSTRAPPED FRAME FLOOR: A FRAME THEOREM FROM INTEGRALITY OF THE INDEX                      v3, 2026-11-18
+THE BOOTSTRAPPED FRAME FLOOR: A FRAME THEOREM FROM INTEGRALITY OF THE INDEX                      v4, 2026-11-18
 =====================================================================================================================
 NOTE FOR READERS OF THE REPOSITORY. This is the project note, unchanged below the next line. Folder names such as
 ../n11-frame-floor-20261118 and bound/... refer to the working tree of the project. In this repository: the auditor is
 frame/audit_frame_bound.py; the determinant lemma is frame/DETERMINANT-LEMMA-GENERAL-N-v1.txt with frame/check_det_n_v1.py;
 the odd-order lemma is frame/ODD-ORDER-EXCLUSION-v1.txt with frame/check_odd_order_v1.py; included are the first three
 rounds of dimension 11 (frame/n11/r1, r2, r3) and the single rounds of dimensions 12 and 13 (frame/n12/r1, frame/n13/r1),
-all with premise files regenerated for the repository (same statements and numbers). Dimensions 10 and 14, the
-table-based route and the referee folders are not included.
+all with premise files regenerated for the repository (same statements and numbers; see section 8). The generators of
+the premise files, dimensions 10 and 14, the table-based route and the referee folders are not included.
 =====================================================================================================================
 Status: elementary; one author (Claude), one session. An automated referee (not a human) re-derived the proof, the
 induction and the numbers and found no error (section 5). NOT reviewed by a human. The bounds obtained are CONDITIONAL
 on the determinant lemma of the dimension (DETERMINANT-LEMMA-GENERAL-N-v1.txt, numerical step check_det_n_v1.py), on
 the earlier bound used as input, and on the soundness of the exact audits; on nothing else (no lemma tables).
-v3 replaces v2 (kept): the sharpening of section 4 is carried out (Theorem B2); it adds a second elementary lemma
+v4 = v3 plus section 8 (a check made from the public repository alone, and the regenerated premise files). v3 replaced v2 (kept): the sharpening of section 4 is carried out (Theorem B2); it adds a second elementary lemma
 (ODD-ORDER-EXCLUSION-v1.txt, finite exact check check_odd_order_v1.py) to the assumptions of the results that use it.
 The automated review of section 5 concerns Theorem B; that of Theorem B2 and of the odd-order lemma is in section 7.
 
@@ -122,3 +122,16 @@ n <= 14, one does for n = 15. The Coxeter-Todd lattice, to which the dimension-1
 has no class with twelve short pairs. Remarks taken over: the generator reads PASS lines from logs instead of re-running
 the checks (both checks are in the repository and take seconds); B was not hash-bound in the scratch premise files (the
 repository copies name the file and its sha256 in the DATA line).
+
+8. CHECK FROM THE REPOSITORY (18 November 2026; one automated checker, not a human; folder review-R4)
+Working only from the repository clone: replayed the five audits (dimension 11 rounds 1-3, dimensions 12 and 13) and the
+determinant and odd-order checks, all identical to the stored outputs; recomputed every class budget WITH THE FRAME CASE
+by two own programmes (a slot programme and a forward programme, neither a copy of the auditor's), in agreement on all
+122 values of every bundle; tested the case split against brute force on 400 synthetic instances; recomputed the numbers
+of all five premise files at 80 digits and checked the chain of bounds and hashes. No discrepancy in any number that
+enters a bound. Its remarks on presentation led to regenerated premise files in the repository (generators
+gen_boot_premise_v6.py, gen_boot2_premise_v2.py): the decimals are now rounded outward, so every printed interval
+encloses its number and every printed inequality is true as printed (one "<=" had been off in the 16th digit), and every
+file names the audit its starting bound comes from together with that file's sha256. Statements, numbers S0 and J, and
+audited values are unchanged. Not changed: the auditor's comment about how the complement is rounded (it pads by a relative
+1e-11 and prints 14 digits, which is still an upper bound); the bundle field candidate_sha256 is recorded but not enforced.

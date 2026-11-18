@@ -59,6 +59,6 @@
   },
   "candidate_sha256": "e31acc0c71ccdda505426f4840340012e3b1e2d8ddf8afecee7ca8a22d1104d4",
   "auditor_sha256": "714fb96b0e7c6826fac705b2facf577d46a896ae031c01e10ecdbf6effcab1b4",
-  "seconds": 0.9337172508239746,
+  "seconds": 0.9172122478485107,
   "scope": "Universal actual-length cross-product kernel plus positive2x2source moment matrix. For ALL classcounts, pairenergy >=(1-B)a(a-1)-sum(c*t^2-b*t+B). No finite count cap assumed. Root sign domains and source matrix checked exactly. No density claim."
 }

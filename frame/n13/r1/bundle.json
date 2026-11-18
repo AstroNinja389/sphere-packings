@@ -146,7 +146,7 @@
     "multiplier": "0.16177481660789",
     "index_cap": 8,
     "premise": "BOOT2-PREMISE-n13-r1.txt",
-    "premise_sha256": "5907151cc91459f0773740cd3559dbeb1a0df56cf41d112045dcbaa63809b079",
+    "premise_sha256": "ae7d4c633c0840b221269e88f57529ad6b686c1f081ddfa7253981f97398c16c",
     "review_status": "COMPUTER_CHECKED_NOT_REVIEWED_BY_SECOND_PARTY"
   },
   "note": "Bootstrapped frame floor with odd-order exclusion in dimension 13 (run of 18 November 2026); joint cuts with multiplier 0 are omitted (the auditor skips them)."

@@ -134,10 +134,10 @@
   "dependencies": {
     "fourier.json": "53a40e47d9da54eec2b1fd76fb12dd5c7b1d6ec6a86e99eae0eafbdb57b1cd04",
     "kernel0.json": "94d7a7877feef3b8308f0a62d16058498404132e5cb7509679692c8acc3b8624",
-    "audit-kernel0.json": "a5ae566ba2e7c936d3d06c649691a59adfa76a0b95fe7d1a2b60dfe9ff68cf3b",
-    "BOOT-PREMISE-n11-r3.txt": "a7a0c4e48a5312b6e1ca67de86b28285cd2eca6488121617e91466ef29530a00"
+    "audit-kernel0.json": "afce9b8629113f966fef8679935e3f961631bc9d2a32781040c63c3ace68e78c",
+    "BOOT-PREMISE-n11-r3.txt": "bad81037c591be2324596f84d515c99186c5cb0ff497b80cccaa568910e5622d"
   },
-  "bundle_sha256": "b6f73ff1b7c7a2b83b0c89e852f09289f51242a6d302bd1bedad5b58714cac9d",
+  "bundle_sha256": "b170fac4b6782e4cde1c0f3d11df14d147072e2fb51315b98d42f6586fc1af69",
   "auditor_sha256": "bc25bbab93e6ac5f06faaef0560ebe61e7a4f1fd16fddec80e4ab7986faac7f6",
   "final_bound": "0.092981475168202",
   "frame": {
@@ -147,11 +147,11 @@
     "multiplier": "0.10500177171144",
     "index_cap": "4",
     "premise": "BOOT-PREMISE-n11-r3.txt",
-    "premise_sha256": "a7a0c4e48a5312b6e1ca67de86b28285cd2eca6488121617e91466ef29530a00",
+    "premise_sha256": "bad81037c591be2324596f84d515c99186c5cb0ff497b80cccaa568910e5622d",
     "review_status": "COMPUTER_CHECKED_NOT_REVIEWED_BY_SECOND_PARTY"
   },
   "frame_complement_density": "0.083266414349363",
   "binding_term": "audited density",
   "condition": "The audited density is a bound only for lattices of density above the frame complement, and only if the premise file proves the frame floor. The final bound is the maximum of the two.",
-  "seconds": 2.481980085372925
+  "seconds": 2.4648520946502686
 }

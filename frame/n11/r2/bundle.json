@@ -148,7 +148,7 @@
     "multiplier": "0.10288877929784",
     "index_cap": 4,
     "premise": "BOOT-PREMISE-n11-r2.txt",
-    "premise_sha256": "228221609c2701e0d1a150084d8b9b69e47513394de8ba71397173d57933d043",
+    "premise_sha256": "c0aad546b07772aa06157b5873dce07a79aa440bccfe8203dbd21d46f4678eca",
     "review_status": "COMPUTER_CHECKED_NOT_REVIEWED_BY_SECOND_PARTY"
   },
   "note": "Round 2 of the bootstrapped frame floor in dimension 11 (run of 18 November 2026); joint cuts with multiplier 0 are omitted (the auditor skips them)."

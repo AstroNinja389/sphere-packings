@@ -158,6 +158,9 @@ notes, the final audit outputs with their hash lists, and an inventory of what t
   reused), in agreement on all 97 rows in every dimension. No human has reviewed any of this.
 - The odd-order lemma behind dimensions 12 and 13 was written on 18 November 2026 and checked by an automated
   reviewer (not a human); see section 7 of `frame/BOOTSTRAPPED-FRAME-FLOOR.txt`.
+- A further automated checker, working from this repository alone, replayed the five `frame/` bundles and recomputed
+  their class budgets, including the frame case, with two programs of its own; all values agree (section 8 of
+  `frame/BOOTSTRAPPED-FRAME-FLOOR.txt`).
 - The dimension-11 frame floor was written on 18 November 2026. An automated reviewer (not a human) re-derived the
   six steps, the induction over the rounds and the numbers; see the end of `frame/BOOTSTRAPPED-FRAME-FLOOR.txt`.
   The determinant lemma it uses was reviewed with the dimension-15 lemmas (automated review only). No human has
