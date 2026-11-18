@@ -42,6 +42,17 @@
       "location": "joint/n13"
     },
     {
+      "n": 15,
+      "density_upper": "0.025212337452388",
+      "hermite_upper": "2.7845247148532",
+      "comparison": "0.0255112",
+      "earlier_published": "0.0256118267",
+      "method": "Theorem 1 certificate plus one joint cut plus a fifteen-pair frame floor",
+      "conditional_on": "determinant lemma, index bound and two-class lemma DV(21/52) (project lemmas; automated review only)",
+      "replayable_from_this_repository": "audit yes; the two-class lemma certificates no",
+      "location": "dim15"
+    },
+    {
       "n": 16,
       "density_upper": "0.0172314323416",
       "hermite_upper": "2.88496372280",

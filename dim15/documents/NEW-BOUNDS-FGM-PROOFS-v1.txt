@@ -1,0 +1,128 @@
+THE BOUNDS (F), (G), (M) AND (SMALL') FOR N_Q: STATEMENTS AND PROOFS                         v1, 2026-11-17
+=====================================================================================================================
+Status: PROOFS, written by one author (Claude) in one session; NOT reviewed by a second party. These are the bounds
+that dv_scheme_v2.py / dv_scheme_v4.py add to the tools of GLUE-INDEX-REDUCTION-v2.txt, section 4 (file in
+../n16-fifteen-frame-theorem-20261112). Until now their derivations stood only in the program headers. Both computer
+checks of 2026-11-16/17 (Lemma DV(21/52), DV-21_52-FULL-RANGE-RESULT-v1.txt, and the levelled lemma at 8/25) rest on
+them. Nothing here is a density statement.
+Floating-point sanity test (proves nothing): test_new_bounds_v1.py, log test-new-bounds-v1-D21_52-n400-seed7.log:
+17,256 comparisons with the exact minimum over lifts, no bound below the exact value, least gap 0.0066.
+
+0. SETTING AND THE GENERAL PRINCIPLE (as in GLUE-INDEX-REDUCTION-v2.txt, section 4)
+Q = diag(1 + delta_i) + E on R^15, delta_i >= 0, |E_ij| <= cap_ij := (delta_i + delta_j)/2 (i != j), Delta = sum
+delta_i. N_Q(q) = min of Q over q + D15. Write q = n + r with n integral, |r_i| <= 1/2, t_i = |r_i| in [0, 1/2],
+e_i = 1/2 - t_i, parity of the class = sum n_i mod 2. After changing signs of coordinates (which changes the signs of
+some E_ij but not the caps), the class contains the vectors
+      z = (t_i - f_i),   f in {0,1}^15,   sum f_i = parity (mod 2),
+and Q(z) = sum (1 + delta_i) z_i^2 + sum_{i != j} E'_ij z_i z_j with |E'_ij| <= cap_ij. Hence for every probability
+measure on the admissible f ("random lift of the right parity"):
+  (P)   N_Q(q) <= E Q(z) <= sum_i (1 + delta_i) E z_i^2 + sum_{i != j} cap_ij |E z_i z_j|.
+  (I)   For real x_i, y_i:  sum_{i != j} cap_ij x_i y_j = (1/2) sum_i delta_i [ x_i (Y - y_i) + y_i (X - x_i) ],
+        X = sum x_j, Y = sum y_j;  in particular  sum_{i != j} cap_ij x_i x_j = sum_i delta_i x_i (X - x_i).
+        (Expand cap_ij and use the symmetry i <-> j.)
+Thresholds tau_1 > tau_2 > tau_3 > 1/4 (3604/8192, 3359/8192, 3113/8192), H_j = { i : t_i >= tau_j }, H_0 empty,
+Y_0 = sum t_i, Y_j = sum_{H_j} e_i + sum_{off H_j} t_i. On H_j put w_i := t_i - e_i = 2 t_i - 1/2; then
+      0 < w_i <= 1/2,   w_i <= t_i   (because t_i <= 1/2),   D_j := sum_{H_j} w_i = Y_0 - Y_j.
+A g-cell prescribes Y_j in (y_(c_j - 1), y_(c_j)] for j = 0..3 with grid points y; cells with Y_0 <= 2 are excluded
+(section 4 below), so on every cell that is used  y_0 := y_(c_0) >= Y_0 > 2.  On a cell
+      Dlo := y_(c_0 - 1) - y_(c_j) <= D_j <= Dhi := y_(c_0) - y_(c_j - 1).
+"Cell form" of a bound: an upper bound of the form  sum_i [ f0(t_i) + delta_i f1(t_i) ]  in which f0, f1 depend on
+the coordinate only through t_i and through its membership in the sets H_1, H_2, H_3 (and on the constants of the
+cell). The certificates use: if the class is valid at level L (N_Q >= L), then sum_i [f0 + delta_i f1] >= L.
+
+1. BOUND (F): ODD CLASSES, FLIP EXACTLY ONE LARGE COORDINATE
+Statement. Let the class be odd, H = H_j, D = D_j >= 1, pi_i := w_i/D on H and 0 elsewhere. Then
+      N_Q <= sum_i [ t_i^2 + pi_i (1 - 2 t_i) ] + sum_i delta_i [ (t_i - pi_i)(Y_0 - 1) + 2 pi_i (1 - pi_i) ].
+Proof. Draw J in H with P(J = i) = pi_i (sum pi = 1) and flip coordinate J only: z_i = t_i - [J = i]; one flip, so
+the parity is odd. Then
+   E z_i^2 = (1 - pi_i) t_i^2 + pi_i (1 - t_i)^2 = t_i^2 + pi_i (1 - 2 t_i),
+   mu_i := E z_i = t_i - pi_i >= 0          (pi_i = w_i/D <= w_i <= t_i since D >= 1),
+   E z_i z_j = t_i t_j - t_i pi_j - t_j pi_i = mu_i mu_j - pi_i pi_j   (i != j; [J = i][J = j] = 0),
+so |E z_i z_j| <= mu_i mu_j + pi_i pi_j. By (I), with sum mu = Y_0 - 1 and sum pi = 1,
+   sum_{i != j} cap_ij (mu_i mu_j + pi_i pi_j) = sum_i delta_i [ mu_i (Y_0 - 1 - mu_i) + pi_i (1 - pi_i) ].
+Insert in (P). The coefficient of delta_i is
+   t_i^2 + pi_i (1 - 2 t_i) + mu_i (Y_0 - 1) - (t_i - pi_i)^2 + pi_i (1 - pi_i) = (t_i - pi_i)(Y_0 - 1) + 2 pi_i (1 - pi_i).  QED
+Cell form (used when Dlo >= 1 and H_j is not empty). With qu := w/Dlo >= pi >= ql := w/Dhi on members:
+   member of H_j:   f0 = t^2 + qu (1 - 2t),    f1 = (t - ql)(y_0 - 1) + 2 qu (1 - ql);
+   non-member:      f0 = t^2,                  f1 = t (y_0 - 1).
+These dominate the class form term by term: 1 - 2t >= 0; 0 <= t - pi <= t - ql and 0 < Y_0 - 1 <= y_0 - 1;
+pi (1 - pi) <= qu (1 - ql) (0 <= ql <= pi <= qu <= 1/2); delta_i >= 0.
+(The programs use the bound only if the floating-point number just below Dlo is >= 1, so the case Dlo = 1 exactly
+is not used by them; this loses strength, not validity.)
+
+2. BOUND (G): EVEN CLASSES, FLIP NONE OR TWO LARGE COORDINATES
+Statement. Let the class be even, H = H_j, D = D_j >= 1, q_i := w_i/D on H and 0 elsewhere, p_i := q_i (1 - q_i).
+Then, with S := sum_j (t_j - p_j) = Y_0 - 1 + sum q_j^2,
+      N_Q <= sum_i [ t_i^2 + p_i (1 - 2 t_i) ] + sum_i delta_i [ 2 p_i - p_i^2 + (t_i - p_i) S ].
+Proof. Let B be a fair coin and I, J independent draws from q, independent of B. If B = 1 flip the coordinates of
+the symmetric difference of {I} and {J} (none if I = J, two otherwise); if B = 0 flip nothing. The number of flips
+is even. With X_i := [exactly one of I, J equals i]:  z_i = t_i - B X_i,  P(X_i = 1) = 2 q_i (1 - q_i), so
+   E B X_i = p_i,      E z_i^2 = t_i^2 + p_i (1 - 2 t_i),      mu_i := E z_i = t_i - p_i >= 0  (p_i <= q_i <= w_i <= t_i),
+   X_i X_j = [ {I, J} = {i, j} ]  (i != j),  E B X_i X_j = q_i q_j,
+   E z_i z_j = t_i t_j - t_i p_j - t_j p_i + q_i q_j = mu_i mu_j + (q_i q_j - p_i p_j),   0 <= q_i q_j - p_i p_j <= q_i q_j.
+So |E z_i z_j| <= mu_i mu_j + q_i q_j, and by (I) (sum q = 1)
+   sum_{i != j} cap_ij (mu_i mu_j + q_i q_j) = sum_i delta_i [ mu_i (S - mu_i) + q_i (1 - q_i) ] = sum_i delta_i [ mu_i S - mu_i^2 + p_i ].
+The coefficient of delta_i in (P) is  t_i^2 + p_i (1 - 2 t_i) + mu_i S - (t_i - p_i)^2 + p_i = 2 p_i - p_i^2 + (t_i - p_i) S.  QED
+Cell form (used when Dlo >= 1 and H_j is not empty). sum q^2 <= max q <= (1/2)/Dlo, so S <= M := y_0 - 1 + 1/(2 Dlo).
+With qu = w/Dlo, ql = w/Dhi, pu := qu (1 - ql) >= p >= pl := ql (1 - qu) (0 <= ql <= q <= qu <= 1/2):
+   member of H_j:   f0 = t^2 + pu (1 - 2t),    f1 = 2 pu + (t - pl) M;
+   non-member:      f0 = t^2,                  f1 = t M.
+Domination: -p^2 <= 0 is dropped; 0 <= t - p <= t - pl; 0 <= S <= M.
+(D >= 1 forces at least two members of H, since each w_i <= 1/2; the same holds in (F).)
+
+3. BOUND (M): EXACTLY ONE COORDINATE ABOVE THE FIRST THRESHOLD, EITHER PARITY
+Statement. Let H_1 = {k}, j in {2, 3}, S := H_j \ {k}, D' := sum_S w_i >= 1/2, q_i := w_i/D' on S and 0 elsewhere,
+Y' := Y_0 - t_k, M' := Y' - 1/2. Then, for a class of either parity,
+      N_Q <= (1 + delta_k)(1/4 + e_k^2) + delta_k [ e_k Y' + (1/2 + e_k)/2 ]
+             + sum_{i != k} [ t_i^2 + (q_i/2)(1 - 2 t_i) ]
+             + sum_{i != k} delta_i [ (t_i - q_i/2) M' + e_k t_i + q_i - q_i^2/2 + q_i e_k/2 ].
+Proof. B a fair coin, J a draw from q independent of B (sum_S q = 1).
+   even class:  B = 1: flip k and J (two flips);   B = 0: flip nothing.
+   odd class:   B = 1: flip k only (one flip);     B = 0: flip J only (one flip).
+In both cases z_k = t_k - B, so E z_k = -e_k and E z_k^2 = (t_k^2 + (1 - t_k)^2)/2 = 1/4 + e_k^2. For i != k,
+z_i = t_i - C [J = i] with C = B (even) or C = 1 - B (odd), so
+   mu_i := E z_i = t_i - q_i/2 >= 0     (q_i/2 = w_i/(2 D') <= w_i <= t_i since D' >= 1/2),
+   E z_i^2 = t_i^2 + (q_i/2)(1 - 2 t_i),
+   E z_i z_j = t_i t_j - t_i q_j/2 - t_j q_i/2 = mu_i mu_j - q_i q_j/4      (i, j != k, i != j),
+   E z_k z_i = -e_k t_i + (q_i/2)(1/2 + e_k)   (even: E B.B[J=i] = q_i/2),
+             = -e_k t_i - (q_i/2)(1/2 - e_k)   (odd:  E B(1-B) = 0).
+So |E z_i z_j| <= mu_i mu_j + q_i q_j/4 and, in both parities, |E z_k z_i| <= c_i := e_k t_i + (q_i/2)(1/2 + e_k).
+In (P): the pairs (k, i) and (i, k) give  sum_{i != k} (delta_k + delta_i) c_i,  with
+   sum_{i != k} c_i = e_k Y' + (1/2 + e_k)/2;
+the pairs inside the complement of k give, by (I) applied there (sum_{i != k} mu_i = M', sum q_i/2 = 1/2),
+   sum_{i != k} delta_i [ mu_i (M' - mu_i) + (q_i/2)(1/2 - q_i/2) ].
+Coefficient of delta_k: (1/4 + e_k^2) + e_k Y' + (1/2 + e_k)/2. Coefficient of delta_i, i != k:
+   t_i^2 + (q_i/2)(1 - 2 t_i) + c_i + mu_i M' - (t_i - q_i/2)^2 + (q_i/4)(1 - q_i)
+   = mu_i M' + e_k t_i + q_i - q_i^2/2 + q_i e_k/2.                                                           QED
+Cell form (used for the g-cases whose count at the first threshold is exactly 1, when D'lo >= 1/2). On a cell
+D' = D_j - w_k with w_k in [2 tau_1 - 1/2, 1/2], so D'lo := Dlo - 1/2 <= D' <= D'hi := Dhi - (2 tau_1 - 1/2).
+t_k >= tau_1 gives e_k <= eb := 1/2 - tau_1, Y' <= y_0 - tau_1, M' <= Mc := y_0 - tau_1 - 1/2. With qu = w/D'lo,
+ql = w/D'hi on members of S:
+   the coordinate in H_1:        f0 = 1/4 + e^2,              f1 = f0 + e (y_0 - tau_1) + (1/2 + e)/2;
+   member of H_j, not of H_1:    f0 = t^2 + (qu/2)(1 - 2t),   f1 = (t - ql/2) Mc + eb t + qu + qu eb/2;
+   other coordinates:            f0 = t^2,                    f1 = t (Mc + eb).
+Domination: 0 <= t - q/2 <= t - ql/2 and 0 <= M' <= Mc (M' is a sum of the non-negative mu_i); -q^2/2 <= 0 is
+dropped; e_k <= eb. The three kinds of coordinate are told apart by t alone (t >= tau_1; tau_j <= t < tau_1; t <
+tau_j), which is what the per-coordinate certificate needs.
+
+4. (SMALL'): CLASSES WITH sum t_i <= 2
+Statement. If Y := sum t_i <= 2 and Delta <= Delta0 (no bound on the single delta_i is needed), then
+      N_Q <= 1 + (533/225) Delta0.
+So such a class is not valid at any level above that number (1.9567 at Delta0 = 21/52; 1.7581 at Delta0 = 8/25), and
+the cells with Y_0 <= 2 (for g) or sum t' <= 2 (for 2g) need no certificate at such levels.
+Proof. Let m = max t_i <= 1/2. For any z with |z_i| =: x_i, by (I):  Q(z) <= sum x_i^2 + (sum delta_i x_i)(sum x_j).
+Even class, z = t: sum t^2 <= m Y and sum delta_i t_i <= m Delta0, so Q <= m Y (1 + Delta0) <= 1 + Delta0.
+Odd class, flip one coordinate of size m: x = t except one entry 1 - m >= 1/2 >= every other entry, so
+   sum x^2 <= m (Y - m) + (1 - m)^2,   sum delta_i x_i <= Delta0 (1 - m),   sum x = Y + 1 - 2m,
+   Q <= m (Y - m) + (1 - m)^2 + Delta0 (1 - m)(Y + 1 - 2m),   increasing in Y,   and Y <= min(2, 15 m).
+ m >= 2/15, Y = 2:  m (2 - m) + (1 - m)^2 = 1, so Q <= 1 + Delta0 (1 - m)(3 - 2m), decreasing in m on [2/15, 1/2];
+                    at m = 2/15 it is 1 + Delta0 (13/15)(41/15) = 1 + (533/225) Delta0.
+ m <= 2/15, Y = 15 m: Q <= 15 m^2 - 2m + 1 + Delta0 (1 + 12 m - 13 m^2), convex in m (second derivative
+                    30 - 26 Delta0 > 0), with values 1 + Delta0 at m = 0 and 1 + (533/225) Delta0 at m = 2/15.  QED
+
+5. WHAT THE PROGRAMS DO WITH THESE
+dv_scheme_v2.py (F), dv_scheme_v4.py (G), (M): per-coordinate functions f0, f1 as in the cell forms above, evaluated
+in float64 interval arithmetic on 4096 boxes of t; right-hand side the level. recheck_dv_v2.py / recheck_dv_v3.py:
+the same formulas typed again, exact rational cell data, arb balls. A bound is a constraint of a (case, cell) only
+under the conditions stated above (parity, non-empty H_j, Dlo >= 1 or D'lo >= 1/2, count at the first threshold
+equal to 1 for (M)); the re-check asserts these conditions exactly.

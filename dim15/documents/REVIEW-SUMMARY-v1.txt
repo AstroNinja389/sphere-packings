@@ -1,0 +1,81 @@
+REVIEW OF THE LEMMAS BEHIND THE DIMENSION-15 FRAME FLOOR                                        summary v1, 2026-11-18
+=====================================================================================================================
+What this is: five automated reviewers (subagents of the session that produced the dimension-15 bound), each given
+the documents and programs of one link but NOT the author's reasoning or conclusions, with the task of finding
+errors. It is an independent re-derivation and attack by the same kind of system that wrote the proofs. It is NOT a
+review by a human mathematician, and it does not make the result a published theorem.
+The reviewers could not save their own report files; their scripts and logs are in the folders R1..R5 next to this
+file, and their reports were delivered to the session and are condensed here (every ERROR/GAP/MINOR item is listed).
+
+OUTCOME: no ERROR in any link; no uncovered case; no counterexample. Three gaps of exposition (now written in
+DV-SCHEME-ADDENDUM-v1.txt) and a number of minor points.
+
+R1  DETERMINANT LEMMA (../n16-fifteen-frame-theorem-20261112/DETERMINANT-LEMMA-v1.txt)
+ Verdict: det Q >= 1 under the stated hypotheses is established, both cases; equality only at Q = I.
+ Checked: every step by hand; the rank-two determinant identity in exact rational arithmetic (300 cases); checks D1-D4
+ again in exact and ball arithmetic; own search over 150,416 admissible matrices plus 548 sign-pattern descents:
+ smallest det at Delta = 3/8 is 1175/1024 = 1.14746 (claimed bound 1.1469); no violation of det Q >= Phi >= F, F_neg.
+ MINOR: (1) positivity of the bracket at the largest gamma is used but not stated (true: 47/80 and 0.5795 at 3/8);
+ (2) the range [-3/52, 1/4] of the logarithm inequality fits Delta <= 3/8 only (the inequality holds on (-1, 1/4]);
+ (3) the lemma's own sanity sampler puts almost all one-negative samples outside Delta <= 3/8 (non-probative block);
+ (4) two script assertions are weaker than the text (1.146 for 1.1469), one line of arithmetic is cryptic.
+
+R2  PROPOSITION G (a), (b); THEOREM N15 (v1); THE AUDITOR audit_frame_floor_bound_v2.py
+ Verdict: all three correct, given Lemma D, Lemma DV(21/52) and Theorem 1 of the method.
+ Checked: Steps 1-4 of Proposition G by hand and on random exact frames (Step 1 on 3,826 frames; order-2 minima
+ exhaustively for w = 2, 4, 6; the character-sum identity on 40 random subgroups of R^15/D15); the reduction, the
+ covolume and density arithmetic and the bins form of N15; Lambda15 = D15 + simplex/2 (minimum 2, covolume 1/8, 2340
+ minimal vectors). Auditor: class_max against a maximiser written from the meaning "first fifteen pairs in bin order"
+ (32,000 cases), against the sweep's own backward programme (6,000), all 97 row maxima of the reported run recomputed
+ independently, full replay 0.025212337452388.
+ MINOR: A1 Step 2 uses the sum bound where delta_i <= 1/8 suffices; A2 positive definiteness of Q not stated; A3 Step 4
+ relies silently on the non-validity of the class e_1 + D15 shown in Step 2; B1 "=" should be "<=" in the corollary;
+ B2 at 21/52 Proposition G applies as literally stated; B3 non-zero class is automatic; B4 stale auditor name; B5 the
+ identification of Lambda15 was unreferenced (corrected in N15-FRAME-FLOOR-THEOREM-v2.txt); C1 the auditor does not
+ record hashes of the verifier modules it imports; C2 the theorem hash is compared with a hash from the same bundle
+ (the constants are hard-coded, so harmless); C3 the built-in selftest compares with the same cumulative formula.
+ Note I1: with weaker floor constants the same dual solution gives 0.0254146 (DV(8/25)) and 0.0255617 (DV(7/25));
+ most of the gain rests on DV(21/52).
+ Not checked by R2: Theorem 1 itself (that it holds lattice by lattice), the cap formulas, the joint-cut assembly.
+
+R3  THE UPPER BOUNDS FOR N_Q (GLUE-INDEX-REDUCTION-v2.txt section 4; NEW-BOUNDS-FGM-PROOFS-v1.txt)
+ Verdict: every displayed bound follows; no counterexample.
+ Checked: each bound re-derived by hand ((P), (I), B3, B2, B1, B0e, B0o, L1, AM, SMALL, F, G, M, SMALL', and the cell
+ forms); own test on 2,740 classes from 14 families, 9 delta patterns, about 30 matrices per class including the E
+ that is worst for each bound's own measure: about 3.4 million comparisons with the exact one-flip minimum, 0
+ violations (several bounds are attained with equality); with a hypothesis deliberately dropped the test does find
+ violations. (SMALL), (SMALL'): largest value found 1.215 against the claimed 1.9567.
+ GAP: the cell form of (L1) is not written in the text (it is correct; now in the addendum, section 2).
+ MINOR: (B3) is false if Z_H, Y_H are read as sums over H only (programs use the right reading; addendum section 4);
+ the (SMALL) sketch omits two true steps; (G) does not need D >= 1 in class form; (M) class form does not use
+ H_1 = {k}; parity is representative-dependent when some |r_i| = 1/2 (harmless); the author's own tests do not
+ exercise the reflection step or adversarial E.
+
+R4  THE CERTIFICATE SCHEME, THE RE-CHECK AND THE BOOKKEEPING OF LEMMA DV(21/52)
+ Verdict: completeness holds; the criterion is sound given the bounds; recheck_dv_v2.py checks what is claimed.
+ Checked: reconstruction of cases, cells and constraints (addendum section 1); every boundary; own enumeration of the
+ 118,440 keys (73,480 / 44,352 / 608, each once); own emptiness rule reproduces the 44,352 empty rows; exhaustive
+ covering of all 608 subdivided cells at depth 3 (17,772,544 boxes, 0 exceptions); 45,501 random classes, each in a
+ certified row or exactly one certified piece; own float evaluation of 1,200 rows and 150 pieces (all at or below the
+ stored values; largest -1.050723); the reported maxima reproduced; all 626 file hashes verified.
+ GAP-1: no single text states the scheme as run; cell forms of the older bounds unwritten. GAP-2: boundary conventions
+ not argued. (Both verified correct by the reviewer; now in the addendum.)
+ MINOR: the cells re-check files a result under the stored index without asserting it matches the stored cell (all
+ 608 agree); the re-check output does not record part index or table scheme; the bookkeeping only matches lists;
+ stale status lines; nine small differences between text and code (addendum section 5).
+ Not checked by R4: the full re-check was not re-run; R4's own evaluations are floating point and sampled.
+
+R5  NUMERICAL ATTACK ON LEMMA DV(21/52) AND ON THE INDEX BOUND
+ Outcome: no counterexample. Largest psi(g) with N_Q(g) >= 2 and N_Q(2g) >= 2: -3.116 (needed: >= -1). Largest
+ min(N_Q(g), N_Q(2g)) with psi >= -1: 1.7758 (needed: >= 2). Largest group with all non-zero classes valid: 16.
+ Cyclic groups of order 17..24: best 1.41 to 1.48 (needed: 2).
+ Method: for fixed g the best Q is found exactly by a linear programme with cutting planes and complete lattice
+ enumeration; local search over g from about 770 starts in several families, both parities. Positive control: with the
+ budget on sum delta raised, the same search finds violations from about 0.7 (0.404 is the lemma's budget).
+ Limits: local search over g, floating point, non-cyclic groups of order above 16 not searched.
+
+WHAT REMAINS UNREVIEWED
+ - Any review by a human.
+ - Theorem 1 of the linear-programming method and the published verifiers (from the earlier paper) were taken as given.
+ - The full re-check of the 118,440 certificates was not re-run by a reviewer (only sampled).
+ - Lemma DV(8/25) and the older runs were not part of this review (the dimension-15 result does not use them).

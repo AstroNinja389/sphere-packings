@@ -1,0 +1,56 @@
+DETERMINANT LEMMA FOR PERTURBED FIFTEEN-FRAMES (v1, 2026-11-15)
+================================================================
+Status: proof written by one author (Claude) in one session; checks in verify_det_lemma_v2.py (exact rationals and
+ball arithmetic; its floating-point part is a sanity test). NOT reviewed by a second party. Not a density statement;
+the certified global bound stays 0.0172314323416. This settles open item (ii) of ROBUST-COVERING-LEMMA-v1.txt
+(det Q >= 1), including the case of one negative delta_i, and gives an explicit lower bound that grows with the trace.
+
+SETTING. delta in R^15 with delta_i <= 1/8, delta_i + delta_j >= 0 for i != j (so at most one delta_i is negative and
+then every other delta_j >= |delta_i|), Delta = sum delta_i <= 21/52. Q = I + diag(delta) + E, E symmetric with zero
+diagonal and |E_ij| <= cap_ij := (delta_i + delta_j)/2.
+
+LEMMA D.  det Q >= Phi(delta) := prod_i (1 + 2 delta_i) * [ (1 - Delta/2)^2 - gamma (7/4 + Delta/2) ],
+          gamma := sum_i delta_i^2/(1 + 2 delta_i),
+with equality for E_ij = -cap_ij. Consequently:
+ (a) if all delta_i >= 0 and Delta <= 3/8:  det Q >= F(Delta) := exp(1.784 Delta)(1 - 47 Delta/40 + Delta^2/5) >= 1,
+     F increasing, F(3/8) >= 1.1469;
+ (b) if one delta_i is negative and Delta <= 3/8:  det Q >= F_neg(Delta) >= 1, and F_neg >= 28/25 for Delta >= 39/112,
+     F_neg(D) := exp((2 - 2.16 g) D) [ (1 - D/2)^2 - g D (7/4 + D/2) ],  g = 111/1000.
+
+PROOF.
+Step 1 (comparison).  Let C be the matrix with zero diagonal and C_ij = cap_ij >= 0, Dg = I + diag(delta) (positive:
+delta_i >= -1/8), and for t in [0,1]:  Q(t) = Dg + t E,  M(t) = Dg - t C.  Row sums: sum_{j != i} cap_ij =
+(Delta + 13 delta_i)/2, and  (1 + delta_i) - (Delta + 13 delta_i)/2 = 1 - Delta/2 - (11/2) delta_i >= 1 - Delta/2
+- 11/16 >= 23/208 > 0   (CHECK D1).  So B_M := t Dg^{-1} C >= 0 has all row sums < 1, and B_Q := -t Dg^{-1} E
+satisfies |B_Q| <= B_M entrywise. The Neumann series give
+      Q(t)^{-1} = (sum_k B_Q^k) Dg^{-1},     |Q(t)^{-1}| <= (sum_k B_M^k) Dg^{-1} = M(t)^{-1}  entrywise,  M(t)^{-1} >= 0.
+Both determinants are positive on [0,1] (they equal prod(1 + delta_i) at t = 0 and never vanish), and
+      d/dt ln det Q(t) = tr(Q(t)^{-1} E) >= - sum_{i != j} |Q(t)^{-1}|_ij cap_ij >= - tr(M(t)^{-1} C) = d/dt ln det M(t).
+Since Q(0) = M(0):  det Q = det Q(1) >= det M(1).
+Step 2 (evaluation).  C = (delta 1^t + 1 delta^t)/2 - diag(delta), so M(1) = L - (delta 1^t + 1 delta^t)/2 with
+L = I + 2 diag(delta) (positive: 1 + 2 delta_i >= 3/4). By the determinant lemma for this rank-two update,
+      det M(1) = det L * [ (1 - alpha/2)^2 - beta' gamma/4 ],
+alpha = 1^t L^{-1} delta = sum delta_i/(1 + 2 delta_i) = Delta - 2 gamma,  beta' = 1^t L^{-1} 1 = 15 - 2 alpha,
+gamma = delta^t L^{-1} delta. Substituting:  (1 - alpha/2)^2 - beta' gamma/4 = (1 - Delta/2)^2 - gamma (7/4 + Delta/2).
+This is Phi(delta); for E = -C every inequality of Step 1 is an equality.
+Step 3 (lower bounds).  For t in [-3/52, 1/4]:  ln(1 + t) >= t - (27/50) t^2/(1 + t)   (CHECK D2; t = 2 delta_i).
+Hence ln prod(1 + 2 delta_i) >= 2 Delta - (54/25) gamma, and Phi >= exp(2 Delta - 2.16 gamma)[(1 - Delta/2)^2
+- gamma (7/4 + Delta/2)], which decreases in gamma while the bracket is positive.
+ (a) delta_i in [0, 1/8]:  delta_i^2/(1 + 2 delta_i) <= delta_i/10, so gamma <= Delta/10 and Phi >= F(Delta);
+     (ln F)' > 0 on [0, 3/8] (CHECK D3: a convex quadratic, positive with negative slope at 3/8), F(0) = 1.
+ (b) one negative entry -nu:  nu <= Delta/13 and nu <= 3/104, the other entries sum to Delta + nu <= 14 Delta/13, so
+     gamma <= (14/130) Delta + nu^2/(1 - 2 nu) <= (14/130 + (3/104)(104/(13*98))) Delta <= g Delta, and Phi >=
+     F_neg(Delta); CHECK D4 ((ln F_neg)' > 0 on [0, 3/10]; enclosures on [3/10, 3/8]).                           QED
+
+CONSEQUENCES FOR THE COVERING REQUIREMENT.  A contender with section index 16 needs covering bound
+< 2 - 0.18214/det Q. With Lemma D:
+   all delta_i >= 0:           det Q >= 1 always (requirement 1.81786), and det Q >= 1.1469 at Delta = 3/8 (1.8411);
+   one negative delta_i:       det Q >= 1 always, and det Q >= 1.12 when Delta >= 39/112 (requirement 1.8373).
+The second line is what the negative case of PARITY-CERTIFICATE needs: raising the negative diagonal entry to 1 gives
+Q' >= Q, admissible with non-negative entries and sum delta' = Delta + nu <= 14 Delta/13; if sum delta' <= 3/8 Theorem P
+applies to Q'; if 3/8 < sum delta' <= 21/52 then Delta >= 39/112 and a covering bound below 1.8373 for Q' suffices.
+
+CHECKS.  verify_det_lemma_v2.py: D1-D4 PASS (psi(1/4) >= 1.4e-4; F(3/8) >= 1.14696; F_neg >= 1.1174 on [3/10, 3/8],
+>= 1.1211 on [39/112, 3/8]); sanity on 12,000 random admissible matrices: det Q - Phi >= -3e-15 (equality at E = -C),
+|det M(1) - Phi| <= 3e-15. v1 of the script failed in CHECK D4 (direct enclosure near Delta = 0 too wide; log kept).
+WHAT IS NOT COVERED.  Nothing about the section type (item (iii)) or other sections (item (iv)).

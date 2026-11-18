@@ -1,0 +1,67 @@
+LEMMA DV(21/52) (TWO-CLASS LEMMA AT THE FULL RANGE): COMPUTER CHECK PASSED            v1, 2026-11-17
+=====================================================================================================================
+Status: CHECKED BY COMPUTER with my own two programs; written by one author (Claude) in one session; NOT reviewed by
+a second party. Nothing here is a density statement. The certified global bound stays 0.0172314323416.
+
+1. STATEMENT CHECKED
+Lemma DV(Delta0) of ../n16-fifteen-frame-theorem-20261112/GLUE-INDEX-REDUCTION-v2.txt (section 1), with Delta0 = 21/52:
+   delta_i in [0, 1/8], sum delta_i <= 21/52, |E_ij| <= (delta_i + delta_j)/2, Q = diag(1 + delta) + E on R^15.
+   If N_Q(g) >= 2 and N_Q(2g) >= 2, then psi(g) = sum_i cos(2 pi g_i) < -1.
+What the re-check confirms is the stronger number: psi(g) < -103/100 in every (case, cell).
+
+2. WHAT THE CHECK RESTS ON (all of it mine, none reviewed)
+ a. Cases, cells, thresholds and the older bounds: GLUE-INDEX-REDUCTION-v2.txt, sections 4 and 7 (40 cases for g x 329
+    cells x 9 case/cells for 2g = 118,440 pairs; cells with sum t <= 2 excluded by (SMALL) there, which holds for
+    every Delta0 because it uses only delta_i <= 1/8).
+ b. Three bounds added on 2026-11-16, stated with their derivations in the headers of dv_scheme_v2.py (bound (F), odd
+    classes: flip exactly one large coordinate) and dv_scheme_v4.py (bound (G), even classes: flip the symmetric
+    difference of two draws with probability 1/2; bound (M), exactly one coordinate above the first threshold).
+    Each is "N_Q <= expectation of Q over a random lift of the right parity", worked out per coordinate.
+    On 2026-11-17 I derived all three again by hand from the definitions (second moments, the identity
+    sum_{i != j} cap_ij x_i x_j = sum_i delta_i x_i (sum_j x_j - x_i), the cell replacements) and found no error.
+    Floating-point sanity test (proves nothing): test_new_bounds_v1.py 21/52 400 7 - 400 random classes x 4 matrices,
+    exact minimum over the 2^14 lifts of the right parity against the class form and the cell form of each bound:
+    17,256 comparisons, no bound below the exact value; the least gap is 0.0066, so the test is sensitive
+    (log test-new-bounds-v1-D21_52-n400-seed7.log).
+    A written proof of (F), (G), (M) outside the program headers is still owed (planned: ITEM-IV-REDUCTION-v2.txt).
+ c. The certificate criterion (Lagrange multipliers, 15 * sup over one coordinate) as in GLUE-INDEX-REDUCTION-v2.txt 7.
+
+3. RUNS (2026-11-17, one process per core, two cores)
+ First program (float64 interval arithmetic, outward rounding; multipliers from a floating-point linear programme):
+   dv_scheme_v4.py 21/52 0 0 -1.05 part 0 2   and   ... part 1 2
+     each half: 59,220 pairs = 36,740 certified + 22,176 empty + 304 left; largest certified -1.05048.
+   dv_scheme_v4.py 21/52 0 0 -1.05 cell gi pi ci d 4     for the 608 pairs left (queue script chain_v4.sh, step cellsf)
+     608 of 608 pass (every piece below -1.05 or empty; at most 4 halvings; largest value -1.05140; slowest 14 s).
+ Independent re-check (second implementation, arb ball arithmetic at 100 bits, exact rational cell data, own
+ derivation of the order of constraints, nothing imported from the first program), target -103/100:
+   DV_TABLE_SCHEME=4 recheck_dv_v2.py 21/52 0 0 -1.03 table all:0:2 <both tables>   PASS: 36,740 rows, largest -1.04341
+   DV_TABLE_SCHEME=4 recheck_dv_v2.py 21/52 0 0 -1.03 table all:1:2 <both tables>   PASS: 36,740 rows, largest -1.04506
+     all 44,352 empty rows confirmed empty; no negative multiplier.
+   recheck_dv_v2.py 21/52 0 0 -1.03 cells 0 1 <cell files>, three batches (250 + 250 + 108 files)
+     PASS: 608 cell files, 16,537 pieces, every piece re-checked, covering of each cell by its pieces checked,
+     the stored constraint names equal the order derived by the re-check; largest -1.04909.
+ Bookkeeping (matches lists only, reads the re-check outputs and the two tables):
+   bookkeeping_v1.py 21/52 0 0 -1.03 ...      RESULT COMPLETE:
+   118,440 pairs = 73,480 certified rows confirmed + 44,352 empty confirmed + 608 covered by confirmed cell files;
+   0 pairs not covered (DV-BOOKKEEPING-v1-D21_52-A0-B0-T-1.03.json, log bookkeeping-v1-D21_52-A0-B0-T-1.03.log).
+ Files: DV4-D21_52-A0-B0-T-1.05-part{0,1}of2.npy/.json, DV4-CELL-D21_52-A0-B0-T-1.05-g*.json (608),
+   DV-RECHECK-v2-D21_52-A0-B0-T-1.03-table-all-{0,1}of2.json, DV-RECHECK-v2-D21_52-A0-B0-T-1.03-cells-batch{0,1,2}.json,
+   logs dv4-*.log, recheck-dv-v2-D21_52-*.log, chain-C-v4.log, chain-D-v4.log; hashes in SHA256SUMS-DV-21_52-v1.txt.
+ Known limits of the re-check: it shares with the first program the mathematical input of section 2 (the bounds and
+ the case/cell scheme); it is independent only as an implementation. The multipliers are data found by the first
+ program; the re-check does not trust the stored values.
+
+4. CONSEQUENCE (given the proof of Proposition G in GLUE-INDEX-REDUCTION-v2.txt, sections 2-4, also unreviewed)
+Proposition G now holds in the whole frame case, i.e. for every perturbed fifteen-frame of trace excess D <= 3/4
+(sum delta_i <= 3/8, at most one delta_i negative): for the section group G,
+   (a) elements of order 2 are c/2 with c of even weight >= 8;   (b) j (z + 1) <= 16;
+   (c) j = 16 forces the simplex-code group (Assumption A1).
+This is open item (iii) of ROBUST-COVERING-LEMMA-v1.txt for the full range. Before today it was checked for
+D <= 0.5943 (GLUE-INDEX-REDUCTION-v2-ADDENDUM-D8_25-v1.txt).
+
+5. NOT ESTABLISHED
+ - Item (iv) (sections that are not of simplex type): the levelled lemma is still being certified at Delta0 = 8/25
+   (ITEM-IV-REDUCTION-v1.txt); at 21/52 the present scheme does not reach the values that reduction needs.
+ - No outside review of any link: the reduction, the bounds, the two programs.
+ - Nothing reaches the linear programme: a fifteen-pair case in the class engine is not built. The density bound is
+   unchanged.

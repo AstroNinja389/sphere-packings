@@ -1,0 +1,96 @@
+ADDENDUM TO THE WRITE-UP OF LEMMA DV: THE SCHEME AS RUN, CELL FORMS, BOUNDARY CONVENTIONS            v1, 2026-11-18
+=====================================================================================================================
+Purpose: the review of 18 November 2026 found no error in Lemma DV(21/52) but three gaps of exposition: no single
+text states the complete scheme that was run; the cell forms of the older bounds are implemented but not written;
+the boundary conventions are not argued. This file writes them down. Sections 1, 3, 5 are transcribed from the
+reconstruction of reviewer 4 (who derived them from the programs and checked them by hand, by enumeration and
+numerically); section 2 was re-derived by the author against dv_scheme_v4.py (lines 186-236) for this file;
+section 4 is from reviewer 3. Nothing here is a new computation. Not reviewed by a human second party.
+Texts supplemented: ../n16-fifteen-frame-theorem-20261112/GLUE-INDEX-REDUCTION-v2.txt (sections 4, 7.1),
+../n16-fifteen-frame-item4-20261116/NEW-BOUNDS-FGM-PROOFS-v1.txt, DV-21_52-FULL-RANGE-RESULT-v1.txt.
+
+1. THE SCHEME AS RUN AT Delta0 = 21/52 (dv_scheme_v4.py; re-check recheck_dv_v2.py with DV_TABLE_SCHEME=4)
+Per coordinate: s = ||g_i|| in [0, 1/2], t = s, e = 1/2 - t, t' = ||2 g_i|| = min(2s, 1 - 2s), delta in [0, 1/8].
+ g-case (40):   parity of the class g + D15, and k_j = min(|H_j|, 3), H_j = {i : t_i >= tau_j},
+                tau = 3604/8192, 3359/8192, 3113/8192. All 20 non-decreasing triples (k_1, k_2, k_3), two parities.
+                Count constraints: k_j = 3 means |H_j| >= 3; k_j = 2, 1, 0 mean |H_j| = k_j.
+ g-cell (329):  Y_j := sum_{H_j} e_i + sum_{off H_j} t_i (j = 1, 2, 3), Y_0 := sum t_i; Y_j in (y_{c_j - 1}, y_{c_j}] on the
+                grid 0, 2, 2.5, 3, 3.5, 4, 4.5, 5, 7.5, with c_0 >= 2 and c_0 >= c_1 >= c_2 >= c_3.
+ 2g-case/cell (9): '3' (|H'| >= 3 for the threshold set H' of 2g; no cell), or |H'| <= 2 with the parity of 2g even or
+                odd and sum t' in (2,3], (3,4], (4,5], (5,7.5].
+ Constraints of a (case, cell), each of the form  sum_i [ f0(s_i) + delta_i f1(s_i) ] >= c  (or = c for a count):
+   - sum delta_i <= 21/52; the cell constraints; the count constraints;
+   - N0:  (B0e) or (B0o) for g, as "bound >= 2";
+   - N_j: (B3) if k_j = 3; (B2) if k_j = 2; (L1) if k_j = 1 and ylo_j := y_{c_j - 1} - (1/2 - tau_j) > 1;
+   - F_j: bound (F), odd classes, k_j >= 1, Dlo := y_{c_0 - 1} - y_{c_j} > 1;
+   - G_j: bound (G), even classes, k_j >= 1, Dlo > 1;
+   - M_j: bound (M), k_1 = 1, j = 2, 3, Dlo - 1/2 > 1/2;
+   - P2:  for 2g: (B3) with (AM) in case '3'; (B0e) or (B0o) otherwise.
+ Certificate: multipliers mu_k >= 0 for inequalities (free sign for count equalities) with
+        15 * sup over (s, delta, memberships) of [ cos 2 pi s + sum_k mu_k f_k ]  -  sum_k mu_k c_k  <  target.
+ Why it implies psi(g) < target: for a pair (Q, g) in the (case, cell) each inequality holds as sum_i f_k >= c_k, so
+        psi = sum_i cos <= sum_i [cos + sum_k mu_k f_k] - sum_k mu_k c_k <= 15 sup - sum_k mu_k c_k.
+ Totals at 21/52: 118,440 pairs = 73,480 certified rows + 44,352 empty + 608 subdivided (16,537 pieces: 14,130
+ certified, 2,407 empty, depth at most 3). Excluded cells: Y_0 <= 2, and sum t' <= 2 in the cases with |H'| <= 2, by
+ (SMALL'): N_Q <= 1 + (533/225)(21/52) = 1.95667 < 2.
+
+2. CELL FORMS OF THE OLDER BOUNDS
+Rule for (B0e), (B0o), (B3), (B2), (AM): in the class form an aggregate Y enters the coefficient of each coordinate;
+it is replaced by the upper end y of its cell where it multiplies a non-negative quantity, and 1/Y by the reciprocal
+of the lower end. Since delta_i >= 0 and the multiplied quantities (u_i, t_i, t_i(1 - 2 t_i)) are >= 0, the cell form
+dominates the class form coordinate by coordinate.
+(L1), distinguished coordinate k (the one member of H_j), class form (GLUE-INDEX-REDUCTION-v2.txt, section 4):
+   N_Q <= (1+delta_k)(1/4 + e_k^2) + sum_{i != k} (1+delta_i)(t_i^2 + t_i(1-2t_i)/(2Y'))
+          + (1 - 1/Y') sum_{i != k} delta_i t_i (Y' - t_i) + (delta_k Y' + Z')(e_k + (1/2 + e_k)/(2Y')),
+   Y' = sum_{i != k} t_i = Y_j - e_k,  Z' = sum_{i != k} delta_i t_i,  valid for Y' >= 1.
+ Cell quantities: y := y_{c_j} (upper end of the cell of Y_j), ylo := y_{c_j - 1} - (1/2 - tau_j), eb := 1/2 - tau_j.
+ On the cell: Y' <= Y_j <= y;  Y' = Y_j - e_k > y_{c_j - 1} - eb = ylo (because e_k <= eb, k being in H_j);  e_k <= eb.
+ The bound is used only if ylo >= 1 (the programs: only if the rounded-down ylo is > 1), which gives Y' >= 1.
+ Cell form, per coordinate (f0 + delta f1):
+   member (i = k):   f0 = 1/4 + e^2,                      f1 = f0 + e y + (1/2 + e)/2;
+   other  (i != k):  f0 = t^2 + t(1 - 2t)/(2 ylo),        f1 = f0 + t(y - 1) - (1 - 1/ylo) t^2 + t (eb + (1/2 + eb)/(2 ylo)).
+ Domination, term by term:
+   member:  the class coefficient of delta_k is (1/4 + e_k^2) + Y'(e_k + (1/2 + e_k)/(2Y')) = f0 + e_k Y' + (1/2 + e_k)/2
+            <= f0 + e_k y + (1/2 + e_k)/2, by Y' <= y;
+   other, constant part:  t(1 - 2t)/(2Y') <= t(1 - 2t)/(2 ylo), by Y' >= ylo and 1 - 2t >= 0;
+   other, delta part:  (1 - 1/Y') t (Y' - t) = t(Y' - 1) - (1 - 1/Y') t^2 <= t(y - 1) - (1 - 1/ylo) t^2
+            (Y' <= y; and 1/Y' <= 1/ylo makes the subtracted term at least (1 - 1/ylo) t^2);
+            t (e_k + (1/2 + e_k)/(2Y')) <= t (eb + (1/2 + eb)/(2 ylo)), by e_k <= eb and Y' >= ylo.
+ All replaced factors multiply delta_i >= 0 or are constants, so the sum over coordinates of the cell form is >= the
+ class form >= N_Q. (Numerical confirmation by reviewer 3: 3,325 cell instances, least (cell - class) 1.4e-3.)
+
+3. BOUNDARY CONVENTIONS
+ 1. A pair (Q, g) is assigned to cells by the half-open intervals of section 1, so it lies in exactly one cell
+    (and, after subdivision, in exactly one piece).
+ 2. A certificate uses the closed constraints Y_j <= y_{c_j} and (only if c_j >= 2) Y_j >= y_{c_j - 1}; these are weaker
+    than membership, hence valid on the cell.
+ 3. "Empty" rows (k_j = 0 forces Y_j = Y_0 while the intervals of Y_j and Y_0 are disjoint as half-open sets) and the
+    rule that skips impossible pieces in a subdivision (upper end of the interval of Y_j at most the lower end of
+    that of Y_{j+1}) rely on the half-open assignment and on Y_j >= Y_{j+1}.
+ 4. Y_j = 0 is not in (0, 2]; for c_j = 1 no lower constraint is imposed, so the certified set is [0, 2].
+ 5. A coordinate with t = tau_j: the box of s below a threshold is evaluated with both memberships. A coordinate with
+    t = 1/2 or t' = 1/2 (the parity of the class then depends on the representative): both parities are separate
+    cases, and every constraint holds for the representative chosen.
+ 6. No relation between the parity of 2g and g is assumed: all nine 2g-cases are run for all forty g-cases.
+ Y_0 >= Y_1 >= Y_2 >= Y_3 holds because t >= e on members of H_j (tau_j > 1/4).
+
+4. NOTATION IN (B3)
+In GLUE-INDEX-REDUCTION-v2.txt, section 4, the formula  N_Q <= sum_i [u_i^2 + 1_H(i)(1+delta_i)/4] + Z_H Y_H  is to be
+read with  Y_H = sum over ALL fifteen coordinates of u_i  and  Z_H = sum over ALL fifteen of delta_i u_i  (u = e on H,
+t off H). Read as sums over H only, the formula is false (reviewer 3: below the exact minimum in 32 of 128 trials).
+The programs use the correct reading.
+
+5. WHERE TEXT AND PROGRAMS DIFFER (none affects validity)
+ - GLUE 7.1 gives the constant in the rule for H' as "the float nearest 0.14"; the programs use Delta0/2 (0.2019 at
+   21/52). (B3) holds for any set of at least three coordinates, so the constant does not matter.
+ - DV-21_52-FULL-RANGE-RESULT-v1.txt cites (SMALL) for the excluded cells; the programs assert (SMALL'). Both hold.
+ - The texts say "Dlo >= 1", "D'lo >= 1/2", "ylo >= 1"; the programs use a bound only for strict inequality.
+ - GLUE 7.1 lists B0/B3/B2/L1 and the 2g bound only; (F), (G), (M) were added on 16 November (section 1 above).
+ - "at most 4 halvings" in the result file: 4 is the cap of the first program, the deepest piece has depth 3.
+ - "No negative multiplier" in the result file means none on an inequality; multipliers of count equalities may be
+   negative (and are, in 100,679 stored entries).
+ - Stale status lines: the header and section 8 of GLUE-INDEX-REDUCTION-v2.txt still say DV(21/52) is not proved, and
+   the result file says a written proof of (F), (G), (M) is owed; both were superseded on 17 November.
+ - recheck_dv_v2.py, cells mode: the covering is checked from the stored field `cell` and filed under the stored
+   index `ci` without asserting that they agree (reviewer 4 checked all 608 files: they agree). The re-check output
+   does not record the part index or the table scheme (the queue logs do).

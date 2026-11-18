@@ -1,0 +1,259 @@
+SECTION TYPE OF A PERTURBED FIFTEEN-FRAME: REDUCTION TO A TWO-CLASS LEMMA, A COMPUTER CHECK OF THE LEMMA AT REDUCED
+RANGE, AND WHERE THE FULL RANGE STANDS (v2, 2026-11-15; replaces the draft GLUE-INDEX-REDUCTION-v1.txt, which has
+unfilled placeholders and was written before any rigorous run)
+=====================================================================================================================
+Status: PARTIAL. Written by one author (Claude) in one session; NOT reviewed by a second party.
+ PROVED here (elementary, sections 2-4): Proposition G - open item (iii) of ROBUST-COVERING-LEMMA-v1.txt (Assumption
+   A1, the section type) FOLLOWS from one statement about two classes, Lemma DV(Delta0) below; a list of upper bounds
+   for the shortest vector of a class modulo D15; a remark that Theorem P needs less than A1.
+ CHECKED BY COMPUTER (interval arithmetic, section 7; own code; every certificate re-checked by a second program of
+   mine in ball arithmetic; two defects of the first program found and disclosed in 7.1; no outside review):
+   Lemma DV(7/25). Consequence: index bound and section type for frames of trace excess D <= 0.52 (D <= 0.56 if no
+   frame vector is shorter than the minimum, i.e. all delta_i >= 0).
+ NOT PROVED: Lemma DV(21/52), which is what the full range D <= 3/4 needs. Section 5 gives numerical evidence,
+   section 6 the certificate attempts and where they stop. Item (iii) is still OPEN for 0.52 < D <= 0.75.
+Nothing here is a density statement. The certified global bound stays 0.0172314323416.
+Notation as in ROBUST-COVERING-LEMMA-v1.txt and PARITY-CERTIFICATE-v1.txt.
+
+0. SETTING
+Q = diag(1 + delta_i) + E on R^15, |E_ij| <= cap_ij = (delta_i + delta_j)/2, delta_i <= 1/8.
+ Frame case: delta_i + delta_j >= 0, sum delta_i = Delta <= 3/8 (trace excess D = 2 Delta <= 3/4); at most one
+ delta_i is negative.   Non-negative case: all delta_i >= 0, sum delta_i <= Delta0.
+For q in R^15:  N_Q(q) := min { Q(v) : v in q + D15 },   psi(q) := sum_i cos(2 pi q_i)   (psi is Z^15-periodic).
+A class q + D15 is VALID (for Q) if N_Q(q) >= 2.
+The section M = Lambda n V of a lattice Lambda of minimum 2 containing the frame lattice D15 (in the coordinates of
+the frame) gives a finite subgroup G = M/D15 of R^15/D15 all of whose non-zero classes are valid; j = |G|;
+z = number of coordinates i with g_i in Z for every g in G.
+
+1. STATEMENTS
+LEMMA DV(Delta0) (two-class lemma).  Let all delta_i be in [0, 1/8], sum delta_i <= Delta0. If g and 2g are both
+valid for Q, then psi(g) < -1.
+   Status: DV(7/25) checked by computer (section 7). DV(21/52) NOT PROVED.
+   (Exact case Q = I: psi(g) <= about -5, by section 9 of EXACT-FRAME-THEOREM-v1.txt. Probe, section 5: the largest
+   value found at Delta0 = 21/52 is -3.23 for classes of even parity and -3.35 for odd parity.)
+
+PROPOSITION G (proved, given Lemma DV(Delta0)).  Let Q be in the frame case with (14/13) Delta <= Delta0, or with all
+delta_i >= 0 and Delta <= Delta0. For every G as above:
+   (a) every element of order 2 is c/2 modulo Z^15 with c a 0/1 word of even weight >= 8
+       [no use of Lemma DV; holds in the whole frame case Delta <= 3/8];
+   (b) j (z + 1) <= 16;
+   (c) if j = 16, then G is the simplex-code group: every non-zero class is c/2 with c of weight 8, and the fifteen
+       coordinate columns are the distinct non-zero functionals. That is Assumption A1.
+ With Delta0 = 21/52 this is the whole frame case. With Delta0 = 7/25 it is: Delta <= 0.26 (D <= 0.52) in the frame
+ case, Delta <= 0.28 (D <= 0.56) when all delta_i >= 0.
+
+2. PROOF OF PROPOSITION G
+Step 1 (one negative entry). If delta_1 = -nu < 0, then delta_j >= nu for j >= 2, so Delta >= 13 nu.
+Q' := Q + nu e_1 e_1^t has delta'_1 = 0, the same E, |E_1j| <= (delta_j - nu)/2 <= (delta'_1 + delta'_j)/2, and
+sum delta' = Delta + nu <= (14/13) Delta <= Delta0 (for Delta <= 3/8: <= 21/52). Q' >= Q, so N_Q' >= N_Q: every
+class valid for Q is valid for Q'. So it is enough to treat all delta_i >= 0, sum delta_i <= Delta0 <= 21/52.
+Step 2 (order 2).  2g in D15 means g in (1/2) Z^15 with sum 2 g_i even. If g is integral it is an odd vector, and
+Q(e_i) = 1 + delta_i < 2: not valid. Otherwise g = c/2 mod Z^15, c a non-zero 0/1 word, and the parity condition
+makes its weight w even. The vectors of the class with all entries in {0, +-1/2} are the sign patterns on the
+support of c with a fixed parity of the number of minus signs. For w >= 4 their average has E s_i s_j = 0 (i != j),
+so the shortest has Q-norm <= w/4 + delta(supp c)/4 <= (w + 21/52)/4, which is < 2 for w <= 6; for w = 2 any of them
+has Q-norm <= (2 + delta_a + delta_b)/4 + cap_ab/2 < 1. Hence w >= 8, and psi(g) = 15 - 2w <= -1.
+Step 3 (other elements).  If 2g != 0 in G, both g and 2g are non-zero classes of G, hence valid; Lemma DV gives
+psi(g) < -1.
+Step 4 (group identity).  For i not in the set of uncovered coordinates, g -> exp(2 pi i g_i) is a non-trivial
+character of G, so sum_{g in G} psi(g) = j z. With psi(0) = 15 and psi(g) <= -1 for g != 0:
+      j z <= 15 - (j - 1),   i.e.   j (z + 1) <= 16.
+Step 5 (j = 16).  Then z = 0 and every non-zero g has psi(g) = -1 exactly. By Step 3 (strict inequality) no element
+has 2g != 0, so G is elementary abelian of order 16, a binary linear code of length 15 with all non-zero weights
+even, >= 8, and 15 - 2w = -1: all weights are 8. The counting argument of section 1 of SIMPLEX-SECTION-THEOREM-v1.txt
+(sum of weights = 120 = 8 * number of non-zero columns; sum of squared weights forces distinct columns) gives the
+simplex code.                                                                                                   QED
+
+3. WHAT THE COVERING THEOREM REALLY USES (remark; proved)
+The selection step of ROBUST-COVERING-LEMMA-v1.txt / PARITY-CERTIFICATE-v1.txt uses A1 only through
+      sum_{m in G} c_i(y+m) = 0,   sum_{m in G} c_i c_j (y+m) = 0,   sum_{m in G} S_i S_j (y+m) = 0   (i != j, all y),
+c = cos 2 pi q, S = sin 2 pi q. Since c_i c_j and S_i S_j are (cos(q_i - q_j) +- cos(q_i + q_j))/2, these hold exactly
+when, for all i != j, the characters chi_i, chi_i chi_j and chi_i chi_j^{-1} of G are non-trivial (chi_i(g) =
+exp(2 pi i g_i)). Call such a G of STRENGTH TWO. Theorem P is a statement about a single class, so:
+   for every section whose glue group has strength two, every y has Q-distance^2 < 1.81786 from M (non-negative
+   delta, sum <= 3/8; 1.837 in the one-negative case as in section 8 of the parity file; status of Theorem P as
+   stated in those files).
+With j <= 16 (Proposition G) and det Q >= 1 this excludes a contender for EVERY strength-two section, not only the
+simplex one, because the height threshold (j/16)^2 * 0.18214/det Q only decreases with j.
+So, wherever Lemma DV is available, open item (iv) shrinks to the sections that are NOT of strength two: some
+coordinate uncovered (z >= 1), or two coordinates i != j with g_i = +-g_j for all g in G ("repeated columns").
+
+4. UPPER BOUNDS FOR N_Q (all proved; these are the tools for Lemma DV)
+Non-negative case. Write q = n + r, n integral, |r_i| <= 1/2, t_i = |r_i|, e_i = 1/2 - t_i, p = sum n_i mod 2 (the
+parity of the class). After changing signs of coordinates (E_ij -> E'_ij = E_ij sgn r_i sgn r_j, same caps) the
+vectors of the class with at most one flip per coordinate are z = (t_i - f_i), f in {0,1}^15, sum f_i = p mod 2, and
+      Q(z) = sum (1+delta_i) z_i^2 + sum_{i != j} E'_ij z_i z_j.
+For any probability measure on admissible f:   N_Q(q) <= sum (1+delta_i) E z_i^2 + sum_{i != j} cap_ij |E z_i z_j|.
+If E z_i z_j = mu_i mu_j for i != j (means mu), then with u_i = |mu_i|, Y = sum u_i, Z = sum delta_i u_i:
+      sum_{i != j} cap_ij u_i u_j = sum_i delta_i u_i (Y - u_i) = Z Y - sum delta_i u_i^2.
+(B3) H a set of at least three coordinates, f uniform on the patterns on H with the right parity, f = 0 off H.
+     The f_i (i in H) are uniform and pairwise independent; mean -e_i, second moment 1/4 + e_i^2 on H. Hence
+        N_Q <= sum_i [ u_i^2 + 1_H(i)(1+delta_i)/4 ] + Z_H Y_H,     u = e on H, t off H.            (parity free)
+(B2) H = {a, b}: the two patterns of the right parity, each with probability 1/2. Marginals as before,
+     E z_a z_b = e_a e_b +- 1/4.  N_Q <= (B3 formula) + cap_ab/2 = (B3 formula) + (delta_a + delta_b)/4.
+(B1) H = {k}: the sign of coordinate k is forced; |z_k| <= 1/2 + e_k.  N_Q <= sum u'^2 + (sum delta u')(sum u'),
+     u'_k = 1/2 + e_k, u' = t elsewhere.
+(B0e) p even, nearest vector:  N_Q <= sum t_i^2 + (sum delta_i t_i)(sum t_j).
+(B0o) p odd, Y = sum t_i >= 2: flip exactly one coordinate, coordinate i with probability t_i/Y. Then
+     E z_i^2 = t_i^2 + t_i(1-2t_i)/Y, E z_i z_j = t_i t_j (1 - 2/Y), and
+        N_Q <= sum_i [ t_i^2 + delta_i t_i (Y - 2 + 2 t_i/Y) + (1+delta_i) t_i (1 - 2 t_i)/Y ].
+(L1) one distinguished coordinate k, Y' = sum_{j != k} t_j >= 1, Z' = sum_{j != k} delta_j t_j: with probability 1/2
+     flip k, together with (p even) or instead of (p odd) one other coordinate J, P(J = j) = t_j/Y'. Then
+        N_Q <= (1+delta_k)(1/4 + e_k^2) + sum_{j != k} (1+delta_j)(t_j^2 + t_j(1-2t_j)/(2Y'))
+               + (1 - 1/Y') sum_{j != k} delta_j t_j (Y' - t_j) + (delta_k Y' + Z')(e_k + (1/2 + e_k)/(2Y')).
+(AM) for (B3): sum_{i != j} cap_ij u_i u_j <= sum_i A_i u_i^2, A_i = sum_{j != i} cap_ij = (13 delta_i + Delta)/2,
+     which needs no aggregate quantity: N_Q <= sum_{off H} w_i t_i^2 + sum_{H} ((1+delta_i)/4 + w_i e_i^2),
+     w_i = 1 + delta_i + A_i.
+(SMALL) if sum t_i <= 2 then N_Q < 2.  [With m = max t_i and one flip at the largest coordinate if needed:
+     Q <= m Y + 1 - 2m + (Y + 1 - 2m)^2/8, increasing in Y; for m >= 2/15 at Y = 2 it is 1 + (3-2m)^2/8 <=
+     1 + 1681/1800 < 2; for m < 2/15 at Y = 15 m it is convex in m with values 9/8 and < 1.94 at the ends.]
+Floating-point sanity test (proves nothing): test_glue_bounds_v2.py, 200 random classes, random and adversarial E,
+exact minimum over all 2^14 lifts: 8,200 comparisons, no bound below the exact value (log test-glue-bounds-v2-seed7.log).
+Tightness: eval_bounds_on_probe_v1.py - at the eleven feasible end points of the even-parity probe the least value
+of (B0e)/(B3) over all H is 2.0000-2.0101 for g (attained by H = empty) and 2.16-2.45 for 2g.
+
+5. NUMERICAL EVIDENCE FOR LEMMA DV(21/52) (heuristic searches; evidence, not proof)
+probe_double_validity_v1.py: for fixed g the existence of an admissible Q making g and 2g valid is a linear
+programme in (delta, E) (all 2^14 one-flip lifts of each class, cutting planes); hill climbing on g.
+ even parity, Delta0 = 21/52: 12 starts x 2500 steps (seed 1) and 3 starts (seed 2, stopped by me to free a job
+   slot): end values of psi between -3.56 and -3.23; largest -3.2285. Typical extremal shape: five coordinates near
+   0.445, five near 0.265, the rest smaller; delta spread over the large coordinates; E coherent.
+ odd parity (probe_double_validity_v2.py, class g + e_1, seed 3): 3 starts completed, end values -3.3512, -3.3777,
+   -3.4481; then stopped by me to free a job slot (log probe-double-validity-v2-D040385-odd-s3.log; no json).
+So the lemma has, numerically, a margin of about two units of psi at the full range. The searches are local, few
+(15 + 3 starts), and cannot exclude a better configuration.
+
+6. CERTIFICATE ATTEMPTS AT THE FULL RANGE Delta0 = 21/52 (floating point; nothing certified at this range)
+Plan: as for Theorem P - bound N_Q(g) and N_Q(2g) above by sums of per-coordinate functions on cells of a few
+aggregate quantities, and show by Lagrange multipliers that psi < -1 on every cell and case. The linear relaxation
+over "coordinate types" (s on a grid, delta on a grid) is the dual of such a certificate; its value must be < -1
+in every case and cell, with room for the rigorous version. Files explore_glue_cells_v1..v19.py, logs explore-glue-*.
+The difficulty is the cross term Z_H Y_H of (B3): it has to be charged on a cell of Y_H, and the best set H depends
+on the class through both factors (H = { e + delta/4 < (Z_H + delta Y_H)(t - e) } at the optimum).
+   version  idea                                                              main case   worst case seen
+   v1-v2    one threshold rule for H, cell in Y                                 -0.06..-0.70   +2.3
+   v3-v4    H optimal per coordinate at the cell's level                        -0.79          +2.2
+   v5-v6    cells in two prices (first form)                                    -0.71          -
+   v7       v4 with an assumed price                                            -0.38          -
+   v8       no cells (arithmetic-geometric mean for the cross term)             -0.79          +4.0
+   v9       separate indices for the rule level and the charged level           -0.81          -
+   v10-v12  the two adjacent rule levels imposed together                       -1.41..-1.61   -0.10 .. +0.85
+   v13-v15  two fixed thresholds (plain box cells), lone-member bound (L1)      -1.31..-1.64   -0.41
+   v16-v17  cells in two prices with neighbours (exact maximality condition)    -1.73..-1.77   -0.96 and worse
+   v18-v19  three fixed thresholds 0.44, 0.41, 0.38                             -1.36          -0.76 (odd parity)
+(2g side: arithmetic-geometric-mean bound when 2g has at least three coordinates worth randomising, otherwise the
+nearest-lift / one-flip bounds with a cell in sum ||2 g_i||; step 0.5 in all cells; Delta0 = 21/52.)
+Where it stops. With three fixed thresholds every even-parity case examined is at or below -1.05, but odd-parity
+classes with no coordinate above 0.44 reach -0.76: for them the only parity-aware bound used is (B0o), which flips
+a coordinate chosen in proportion to t over ALL coordinates; flipping among the largest coordinates only is better
+and is not implemented. The two-price cells (v16-v17) are sharper on the main case but a class can have several
+locally consistent price pairs, and the conditions that single out the right one are not linear.
+verify_glue_cells_v1.py is an unfinished interval-arithmetic verifier written for the v10 scheme; it was never
+run and certifies nothing.
+
+7. COMPUTER CHECK OF LEMMA DV(7/25) (three-threshold scheme of v18-v19; interval arithmetic)
+7.1 What is checked.  s_i = ||g_i|| in [0, 1/2] (4096 dyadic boxes), t = s, t' = ||2 g_i|| = min(2s, 1 - 2s).
+ Sets for g: H_0 = empty, H_j = { t >= tau_j }, tau = 3604/8192, 3359/8192, 3113/8192 (0.43994, 0.41003, 0.38000);
+   u_j = 1/2 - t on H_j, t off H_j; Y_j = sum u_j (Y_0 >= Y_1 >= Y_2 >= Y_3).
+ g-case: parity of the class (even/odd) and the counts k_j = min(|H_j|, 3), k_1 <= k_2 <= k_3: 2 x 20 = 40 cases.
+ g-cell: Y_j in (y_(c_j - 1), y_(c_j)], grid 0, 2, 2.5, 3, 3.5, 4, 4.5, 5, 7.5; Y_0 > 2 (otherwise g is not valid
+   by (SMALL)); c_0 >= c_1 >= c_2 >= c_3: 329 cells.
+ Set for 2g: H' = { (1+delta)/4 < (1 + c + 7.5 delta)(t' - 1/4) } u { t' = 1/2 }, c = the float nearest 0.14.
+ 2g-case: '3' (|H'| >= 3: bound (B3) with (AM), no cell) or |H'| <= 2 with the parity of 2g even/odd (bounds
+   (B0e)/(B0o), cell of sum t' in the grid 2, 3, 4, 5, 7.5; sum t' > 2 by (SMALL)): 1 + 4 + 4 = 9.
+ Constraints valid for every pair (g, 2g) of valid classes in a given case and cell: sum delta <= Delta0; the cell
+   and count conditions; and "bound >= 2" for: H_0 ((B0e) or (B0o)); each H_j with k_j = 3 (B3), k_j = 2 (B2),
+   k_j = 1 ((L1), when the cell guarantees Y' >= 1); and the 2g bound. Every bound is, on the cell, at most a sum of
+   per-coordinate functions f(s, delta) affine in delta (the aggregate factor Y is replaced by the cell's upper end,
+   1/Y by the reciprocal of its lower end).
+ ERROR IN THE PROGRAM, found on 2026-11-15 by the re-check (7.4): verify_glue_thr_v1.py lists the name 'N2' twice,
+   for the bound of H_2 and for the bound of 2g, and its table of per-coordinate functions keeps only the latter.
+   In every certificate it computed, the slot "bound of H_2" therefore carries the 2g function: the bound of the
+   second threshold set H_2 is NOT used (its cell and count conditions are), and the 2g bound appears twice. The
+   inequality that was checked uses only valid constraints, so the certificates stand; the scheme that was run is
+   weaker than the one described in the program's header, which is one reason for the thin margins below. The
+   program file is kept as run; a corrected version (verify_glue_thr_v2.py) has not been run.
+ SECOND DEFECT, found the same day: the program sets multipliers with |mu| < 1e-12 to zero but does not enforce
+   mu >= 0 for inequalities; the linear programme can return slightly negative values (81 such entries in the
+   stored rows, the most negative -1.12e-9), and the program then checked its inequality with that value. Strictly
+   this is not a certificate (the effect on the checked quantity is tiny against the margins, but it is not
+   bounded here). The re-check v4 (7.4) replaces negative multipliers of inequalities by zero and checks the
+   inequality for the modified multipliers, so the statement rests on the re-check, not on the program's own
+   verdict, wherever this occurs. The 32 supplement certificates contain no such multiplier.
+ Certificate for a case and cell: multipliers mu_k (>= 0 for inequalities) with
+        15 * sup_{s, delta} [ cos 2 pi s + sum_k mu_k f_k(s, delta) ] - sum_k mu_k c_k  <  -1,
+   the sup over all boxes, all memberships compatible with the box, and the delta-interval compatible with the
+   membership in H'. Then psi(g) = sum_i cos 2 pi s_i <= the left side < -1.
+ 40 x 329 x 9 = 118,440 certificates.
+7.2 Arithmetic.  verify_glue_thr_v1.py: float64 intervals with outward rounding (nextafter) for every operation,
+ cos bounded above per box with arb; affine in delta, so the two ends of the delta-interval suffice; multipliers
+ from a floating-point linear programme with cutting planes (they need no justification: only the displayed
+ inequality is checked, rigorously, for the multipliers found).
+7.3 Result of the run (2026-11-15, two halves of 59,220, 4121 s and 4086 s):
+   part 0: 59,220 of 59,220 certified, largest certified value -1.09161;
+   part 1: 59,219 of 59,220 certified, largest certified value -1.00407; ONE cell not certified:
+           g odd with counts (0, 2, 3), 2g odd, Y_0 in (4, 4.5], Y_1 in (3.5, 4], Y_2 in (3, 3.5], Y_3 in (2, 2.5],
+           sum t' in (4, 5]: best rigorous value -0.88572 (unchanged after 40 rounds). The program's own verdict
+           for part 1 is therefore FAIL (log and json kept as written).
+   Supplement for that cell (verify_glue_thr_supp_v1.py, the verifier's own functions on refined grids): each of
+           the five intervals halved, 32 sub-cells, all certified, largest value -1.94915.
+           (Remark: count 0 at the first threshold means H_1 is empty and Y_1 = Y_0, so this cell contains no
+           class at all; the relaxation only sees the closed conditions Y_0 >= 4 >= Y_1.)
+   Together: every case and cell is certified. Margins are thin in places (-1.004 against -1).
+7.4 Checks of the check.
+ crosscheck_glue_thr_v1.py (floating point, sanity only): on random configurations the verifier's per-coordinate
+   functions, summed, dominate the bounds of section 4 evaluated directly (1,743 comparisons, smallest slack 3.7e-7),
+   and the cell/count constraints hold (4,377 checked); no problem found. It did NOT find the name collision,
+   because it looks functions up by the same names (it compared the 2g function with the 2g bound twice).
+ Second implementation, arb ball arithmetic only, formulas typed again from the program's header, cos enclosed per
+   box, no use of "affine in delta":
+   recheck_glue_thr_v1.py (64 fixed delta-intervals): too coarse; stopped after about 25 rows with two thin rows
+     flagged (log ...-INCONCLUSIVE-too-coarse.log).
+   recheck_glue_thr_v2.py (delta bisected adaptively until membership in H' is decided): the two flagged rows pass
+     (difference to the stored values 2.4e-5), but 70 of 840 sampled rows FAILED, all with a non-zero multiplier in
+     the slot "bound of H_2" (log ...-STOPPED-slot-mismatch.log). debug_glue_thr_row_v1.py showed the cause: the
+     name collision described in 7.1.
+   recheck_glue_thr_v3.py (the slot read as the program used it): the six disputed rows pass; a sample of 600 rows
+     (the 60 with the thinnest margins and 540 random) passes, largest value -1.00341, largest difference to the
+     stored value 0.0035 among rows above -3. A run over all rows stopped at once at an assertion of the re-check
+     (the slightly negative multiplier of 7.1); logs ...-CRASHED-negative-multiplier.log, ...-STOPPED.log.
+   recheck_glue_thr_v4.py (v3 with negative multipliers of inequalities replaced by zero), ALL 118,439 stored rows,
+     two halves (rows of even / odd index; 10,049 s and 10,076 s; logs recheck-glue-thr-v4-D7_25-all-part0of2.log,
+     -part1of2.log; json GLUE-THR-RECHECK-v4-D7_25-all-part0of2.json, -part1of2.json):
+       even half: 59,220 of 59,220 pass, largest re-checked value -1.00341, 42 negative multipliers replaced;
+       odd half:  59,219 of 59,219 pass, largest re-checked value -1.08831, 39 negative multipliers replaced;
+       most negative replaced multiplier -1.12e-9; no failure.
+     Largest difference (re-check minus stored value): 0.102 overall (on rows far below -1), 0.035 among rows with
+     stored value above -3. The re-checked value of the thinnest row is -1.00341 against the stored -1.00407.
+ check_glue_thr_coverage_v1.py (bookkeeping): the 118,439 stored rows are pairwise distinct combinations of
+   (g-case, 2g-case, g-cell, 2g-cell), and the only one of the 118,440 combinations missing is the cell of the
+   supplement (log check-glue-thr-coverage-v1-D7_25.log).
+ recheck_glue_thr_supp_v1.py (uses the function of recheck v1, i.e. the slot read as the bound of H_2, which is
+   also a valid constraint): all 32 sub-cell certificates pass (largest value -1.78823), and the 32 pieces cover the
+   cell (1,024 quarter-boxes, none uncovered).
+ Not done: any review by a second party; a run of a corrected program; a formal proof of the reduction
+   "valid => bound >= 2 on the cell" beyond the derivations of section 4 and the floating-point cross-check.
+   The re-check shares with the program the description of the scheme (cases, cells, order of the constraints);
+   an error in that description common to both would not be found by it.
+7.5 Consequence (given 7.3 and 7.4).  Lemma DV(7/25); hence by Proposition G: for every lattice of minimum 2 containing a
+ fifteen-frame with Delta <= 0.26 (trace excess D <= 0.52), or with all delta_i >= 0 and Delta <= 0.28 (D <= 0.56),
+ the section has j (z + 1) <= 16, and j = 16 forces the simplex type (Assumption A1). By section 3, in that range
+ every strength-two section is covered by Theorem P.
+
+8. WHAT IS AND IS NOT ESTABLISHED
+Established (subject to review): Proposition G(a) unconditionally (2-torsion of the glue group of a perturbed frame
+is a binary code of even weights >= 8, hence of order <= 16, with order 16 only for the simplex code); the
+implication Lemma DV => (b), (c) and Assumption A1 for j = 16; the strength-two remark; the bounds of section 4.
+Established by computation (own code; all 118,439 stored certificates and the 32 of the supplement pass a second
+program of mine; both programs share the description of the scheme; no outside review): Lemma DV(7/25), hence the
+index bound and A1 for D <= 0.52 (0.56 without a short frame vector). Before this the only argument for the index
+bound was the linear estimate of ROBUST-EXTENSION-NOTES-v1.txt (D < 0.43; an estimate there, not a proof).
+NOT established: Lemma DV(21/52); the index bound j <= 16 and A1 for 0.52 < D <= 0.75.
+What the full range still needs: (1) a parity-aware bound for odd classes without near-half coordinates (one
+flip among the largest coordinates); (2) either a fourth threshold or delta-dependent thresholds, with the cell
+count this implies (adaptive refinement, as in the supplement, will be needed); (3) the rigorous run. The scheme
+AS RUN in section 7 (without the bound of H_2) has a thinnest margin of 0.004 at 7/25. A corrected program, which
+uses that bound, should have more room and may reach a larger Delta0; it has not been run, and intermediate values
+(for example 0.30 or 0.32) were not tried rigorously. In floating point the intended scheme fails at 21/52
+(section 6).
+The numerical margin at the full range (two units of psi) says the statement is very likely true.
