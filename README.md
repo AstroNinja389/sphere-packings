@@ -8,8 +8,8 @@ Nothing here is a claim of optimality, of priority, or about non-lattice packing
 | n | Upper bound (this repository) | Comparison value | Best known lattice | Check it here |
 |---:|---|---|---|---|
 | 11 | 0.092981475168202 (conditional) | none (general packings: ≈0.10664) | 0.066238 | `frame/n11` |
-| 12 | 0.06770167234454 | none (general packings: ≈0.079503) | 0.049454 | `joint/n12` |
-| 13 | 0.0486832075907 | none (general packings: ≈0.059905) | 0.032014 | `joint/n13` |
+| 12 | 0.066670465797823 (conditional) | none (general packings: ≈0.079503) | 0.049454 | `frame/n12` |
+| 13 | 0.047947694667495 (conditional) | none (general packings: ≈0.059905) | 0.032014 | `frame/n13` |
 | 15 | 0.025212337452388 (conditional) | 0.0255112 | 0.0168575 | `dim15` |
 | 16 | 0.0172314323416 | 0.0186552 | 0.0147081 | not yet, see [dim16](dim16/README.md) |
 | 18 | 0.010336520221586 | 0.0103439 | 0.00592836 | `mixed/n18` |
@@ -30,6 +30,8 @@ Weaker bounds that are also in this repository and are checked by other programs
 | n | Upper bound | Check it here | Method |
 |---:|---|---|---|
 | 11 | 0.094565500874952 | `joint/n11` | certificate plus one joint cut (unconditional) |
+| 12 | 0.06770167234454 | `joint/n12` | certificate plus one joint cut (unconditional) |
+| 13 | 0.0486832075907 | `joint/n13` | certificate plus one joint cut (unconditional) |
 | 19 | 0.0078055517781953 | `joint/n19` | certificate plus joint cuts |
 | 20 | 0.0059269594018778 | `joint/n20` | certificate plus one joint cut |
 | 20 | 0.0059274281468171 | `certificates/n020.json` | plain certificate, four verifiers |
@@ -102,6 +104,23 @@ for the Gram matrix of a near-frame. That is the determinant lemma, written out 
 computation done by `frame/check_det_n_v1.py` (a few seconds; the stored output is `frame/n11/check-det-n-v1-N11-D1_4.log`).
 Each round is also conditional on the bound it starts from and on the audit program. Needs mpmath.
 
+**Dimensions 12 and 13 (`frame/`), conditional on the determinant lemma and an odd-order lemma.** The same integrality
+argument, with one more elementary ingredient: the index is the order of a finite group of "glue" classes, and such
+a group cannot contain an element of order 3, 5 or 7 in dimension 12 (3 or 5 in dimension 13), because the multiples
+of such an element cannot all be as long as the minimum requires. This is a finite computation over residue patterns
+([`frame/ODD-ORDER-EXCLUSION-v1.txt`](frame/ODD-ORDER-EXCLUSION-v1.txt), `frame/check_odd_order_v1.py`, exact
+rational arithmetic, seconds). In dimension 12 a lattice denser than 4 times D₁₂ with a near-frame would have index 5,
+6 or 7, in dimension 13 a lattice denser than 8 times D₁₃ would have index 9 or 10; all are excluded, which gives the
+full floor in one round:
+
+```
+python -B frame/check_det_n_v1.py 12 1/4
+python -B frame/check_odd_order_v1.py 12 1/4 3 5 7
+python -B frame/audit_frame_bound.py frame/n12/r1/bundle.json my-n12.json
+```
+
+and likewise for 13 (`check_odd_order_v1.py 13 1/4 3 5`). The thinnest place is dimension 13, order 3: 17.92 against 18.
+
 **Dimension 15 (`dim15/`), conditional.** A constraint special to this dimension: in a 15-dimensional lattice denser
 than the laminated lattice Λ₁₅, any fifteen distinct pairs of one class modulo 2L, each of squared length at most
 9/4 (minimum 1), have Σ max(|x|², 2) > 123/4. The statement and its short proof are in
@@ -137,6 +156,8 @@ notes, the final audit outputs with their hash lists, and an inventory of what t
   automated reviewer worked from this repository alone: it replayed the six bundles and recomputed the class budget
   of each with its own program (a different dynamic programme; the joint-cut part of dimensions 18 and 19 was
   reused), in agreement on all 97 rows in every dimension. No human has reviewed any of this.
+- The odd-order lemma behind dimensions 12 and 13 was written on 18 November 2026 and checked by an automated
+  reviewer (not a human); see section 7 of `frame/BOOTSTRAPPED-FRAME-FLOOR.txt`.
 - The dimension-11 frame floor was written on 18 November 2026. An automated reviewer (not a human) re-derived the
   six steps, the induction over the rounds and the numbers; see the end of `frame/BOOTSTRAPPED-FRAME-FLOOR.txt`.
   The determinant lemma it uses was reviewed with the dimension-15 lemmas (automated review only). No human has
@@ -164,7 +185,7 @@ No licence has been chosen yet; none is granted by this checkout.
 - `verify/` – the four verifiers, the GP script, and `run_all.py`.
 - `joint/` – auditor, kernel auditors, theorem note, and one bundle per dimension.
 - `mixed/` – the mixed relative bound (note with proof), its auditor, and one bundle per dimension 18–23.
-- `frame/` – the bootstrapped frame floor: note, determinant check, auditor with the frame case, three rounds for dimension 11.
+- `frame/` – the bootstrapped frame floor: note, determinant check, auditor with the frame case, three rounds for dimension 11, one round each for dimensions 12 and 13 (with the odd-order lemma and its check).
 - `dim15/` – auditor, bundle, theorem note, the lemma documents and the review summary.
 - `dim16/` – statement, documents, final audit outputs (paths inside them are replaced by `<TREE-A>`, `<TREE-B>`).
 - `results.json` – the table above in machine-readable form.

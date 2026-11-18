@@ -1,0 +1,62 @@
+NO ELEMENTS OF SMALL ODD PRIME ORDER IN THE GLUE GROUP OF A NEAR-FRAME                           v1, 2026-11-18
+=====================================================================================================================
+Status: elementary proof plus a finite exact check (check_odd_order_v1.py, rational arithmetic, seconds). One author
+(Claude), one session. NOT reviewed by a second party at the time of writing.
+
+1. SETTING
+n >= 9, D >= 0. Q' = I + diag(delta) + E on R^n with delta_a in [0, 1/8], sum_a delta_a <= D, E symmetric with zero
+diagonal and |E_ab| <= (delta_a + delta_b)/2. D_n := the vectors of Z^n with even coordinate sum.
+G: a finite subgroup of R^n/D_n such that every non-zero class c of G has N(c) := min{Q'(w) : w in c} >= 2.
+(In the frame setting: Lambda a lattice of minimum 2 containing the frame lattice Gamma = {sum c_i f_i : c in D_n},
+Q the Gram matrix of the f_i, G = Lambda/Gamma written in the coordinates of the f_i; a non-zero class consists of
+non-zero vectors of Lambda, so its least Q-norm is >= 2; if one diagonal excess of Q is negative, Q' is Q with that
+diagonal entry raised to 1, Q' >= Q, and the least Q'-norm is >= the least Q-norm. |G| is the index of Gamma.)
+
+2. STATEMENT
+LEMMA O(n, D, p).  If `check_odd_order_v1.py n D p` prints PASS, then G has no element of order p (p an odd prime).
+Checked instances (log check-odd-order-v1.log):
+      n = 12, D = 1/4:  p = 3, 5, 7.        n = 13, D = 1/4:  p = 3, 5.        n = 14, D = 1/8:  p = 3, 5, 7, 11, 13.
+
+3. PROOF
+(X) For every real vector w:   Q'(w) <= |w|^2 + |w|_1 * sum_a delta_a |w_a|.
+    Proof: Q'(w) = sum_a (1 + delta_a) w_a^2 + sum_{a != b} E_ab w_a w_b <= |w|^2 + sum_a delta_a w_a^2
+    + sum_{a != b} ((delta_a + delta_b)/2) |w_a| |w_b|, and the last sum equals sum_a delta_a |w_a| (|w|_1 - |w_a|).
+Let g in G have order p. Choose a representative g~ in R^n; p g~ =: u lies in D_n. For k = 1, ..., p-1 let r_k be the
+vector of signed residues of k u modulo p (entries in (-p/2, p/2)), z_k := (k u - r_k)/p in Z^n, v_k := r_k/p = k g~ - z_k.
+(a) r_1 != 0: otherwise g~ is in Z^n, so 2 g = 0 in R^n/D_n, and with p g = 0, p odd, g = 0.
+(b) Type. The class k g is non-zero for 1 <= k <= p-1. v_k lies in it iff z_k is in D_n, i.e. iff sum_i z_(k,i) is even.
+    As p is odd and sum_i u_i is even:  sum_i z_(k,i) = sum_i (k u_i - r_(k,i)) = sum_i r_(k,i)  (mod 2).
+    EVEN TYPE (sum_i r_(k,i) even): v_k is a representative of k g.
+    ODD TYPE: for every coordinate i and sign s, v_k - s e_i is a representative of k g.
+    Since r is reduced modulo 2 with |r|, the type is the parity of sum_i |r_(k,i)|.
+(c) Bounds for N(k g). Put mu := max_a |v_(k,a)| (< 1/2).
+    even type:  N(k g) <= Q'(v_k) <= |v_k|^2 + |v_k|_1 D mu                                            by (X).
+    odd type:   let i be, among the c coordinates with |v_(k,i)| = mu, one with the least delta, so delta_i <= D/c;
+                w := v_k - sign(v_(k,i)) e_i, |w_i| = 1 - mu, the other entries unchanged; mu' := max_{a != i} |v_(k,a)|.
+                |w|^2 = |v_k|^2 + 1 - 2 mu,  |w|_1 = |v_k|_1 + 1 - 2 mu,
+                sum_a delta_a |w_a| <= (D - delta_i) mu' + delta_i (1 - mu) <= D mu' + (D/c)(1 - mu - mu')   (as 1 - mu >= mu'),
+                N(k g) <= |v_k|^2 + (1 - 2 mu) + (|v_k|_1 + 1 - 2 mu) D [mu' + (1 - mu - mu')/c]            by (X).
+(d) p = 3 (only k = 1 matters; 2g = -g). v = s/3 on a set M of m >= 1 coordinates, s_a = +-1; type odd iff m odd.
+    m even:  9 N(g) <= 9 Q'(v) = m + sum_M delta_a + T,   T := sum_{a != b in M} E_ab s_a s_b,  |T| <= (m-1) sum_M delta_a,
+             so 9 N(g) <= m (1 + D).
+    m odd:   for i in M let w^(i) := v - s_i e_i (entry -2 s_i/3 at i). With R_i := sum_{a in M, a != i} E_ai s_a s_i:
+             9 Q'(w^(i)) = (m - 1) + sum_{M \ i} delta_a + 4 (1 + delta_i) + (T - 2 R_i) - 4 R_i
+                         = (m + 3) + sum_M delta_a + 3 delta_i + T - 6 R_i,
+             and sum_{i in M} R_i = T. The least of the m values is at most their mean:
+             9 N(g) <= (m + 3) + (1 + 3/m) sum_M delta_a + (1 - 6/m) T <= (m + 3) + D (1 + 3/m) + (m - 1) D |1 - 6/m|.
+(e) Conclusion. All of k g (1 <= k <= p-1) are non-zero classes, so N(k g) >= 2 for each. The bounds in (c), (d)
+    depend only on the counts c_t := #{i : |r_(1,i)| = t}, t = 1, ..., (p-1)/2 (the residues of k u are those of u
+    permuted and signed), with 1 <= sum c_t <= n by (a), and they are non-decreasing in D. The program enumerates all
+    count vectors and checks that for each of them some k in {1, ..., (p-1)/2} has its bound < 2 (for p = 3 the smaller
+    of (c) and (d)). So no such g exists.                                                                      QED
+
+4. CONSEQUENCE USED
+If |G| = j and j is divisible by an odd prime p for which Lemma O(n, D, p) holds, then by Cauchy's theorem G has an
+element of order p: impossible. So j has no such prime factor.
+Dimension 12, D = 1/4: |G| is not 5, 6, 7 (nor any multiple of 3, 5, 7). Dimension 13, D = 1/4: |G| is not 9, 10.
+Dimension 14, D = 1/8: |G| is not 9, 10, 11, 12, 13, 14, 15.
+
+5. REMARKS
+ - Thin place: n = 13, p = 3, thirteen non-zero coordinates: 9 N <= 233/13 = 17.92 against 18.
+ - At D = 0 the bounds give the exact picture for p = 3: (1/3)^(m-1) (-2/3) has norm (m+3)/9, which reaches 2 at m = 15.
+   In dimension 15 an element of order 3 exists for the exact frame, so nothing of this kind holds from 15 on.

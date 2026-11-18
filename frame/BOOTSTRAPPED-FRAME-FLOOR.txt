@@ -1,16 +1,20 @@
-THE BOOTSTRAPPED FRAME FLOOR: A FRAME THEOREM FROM INTEGRALITY OF THE INDEX                      v2, 2026-11-18
+THE BOOTSTRAPPED FRAME FLOOR: A FRAME THEOREM FROM INTEGRALITY OF THE INDEX                      v3, 2026-11-18
 =====================================================================================================================
 NOTE FOR READERS OF THE REPOSITORY. This is the project note, unchanged below the next line. Folder names such as
-../n11-frame-floor-20261118 refer to the working tree of the project. In this repository: the auditor is
-frame/audit_frame_bound.py, the determinant lemma is frame/DETERMINANT-LEMMA-GENERAL-N-v1.txt with frame/check_det_n_v1.py,
-and only the first three rounds of dimension 11 are included (frame/n11/r1, r2, r3, with regenerated premise files).
-Dimensions 10, 12 and 13, the table-based route and the referee folder are not included.
+../n11-frame-floor-20261118 and bound/... refer to the working tree of the project. In this repository: the auditor is
+frame/audit_frame_bound.py; the determinant lemma is frame/DETERMINANT-LEMMA-GENERAL-N-v1.txt with frame/check_det_n_v1.py;
+the odd-order lemma is frame/ODD-ORDER-EXCLUSION-v1.txt with frame/check_odd_order_v1.py; included are the first three
+rounds of dimension 11 (frame/n11/r1, r2, r3) and the single rounds of dimensions 12 and 13 (frame/n12/r1, frame/n13/r1),
+all with premise files regenerated for the repository (same statements and numbers). Dimensions 10 and 14, the
+table-based route and the referee folders are not included.
 =====================================================================================================================
 Status: elementary; one author (Claude), one session. An automated referee (not a human) re-derived the proof, the
 induction and the numbers and found no error (section 5). NOT reviewed by a human. The bounds obtained are CONDITIONAL
 on the determinant lemma of the dimension (DETERMINANT-LEMMA-GENERAL-N-v1.txt, numerical step check_det_n_v1.py), on
 the earlier bound used as input, and on the soundness of the exact audits; on nothing else (no lemma tables).
-v2 replaces v1 (kept): results for dimensions 12 and 13, the referee's findings, exact wording of what is assumed.
+v3 replaces v2 (kept): the sharpening of section 4 is carried out (Theorem B2); it adds a second elementary lemma
+(ODD-ORDER-EXCLUSION-v1.txt, finite exact check check_odd_order_v1.py) to the assumptions of the results that use it.
+The automated review of section 5 concerns Theorem B; that of Theorem B2 and of the odd-order lemma is in section 7.
 
 1. THEOREM B
 Let n >= 9, d_n := V_n 2^(-n/2-1) (the density of D_n), B an upper bound for the density of lattices in dimension n,
@@ -60,15 +64,32 @@ J must be at most floor(B/d_n), and J d_n has to end below the bound.
    Folders: ../n11-frame-floor-20261118/bound/n11-boot-r1..r4, ../n10-frame-floor-20261118/bound/n10-boot-r1,
    bound/n12-boot-r1..r4 and bound/n13-boot-r1..r2 here; logs chain-boot-n<n>-v2.log.
 
-4. A POSSIBLE SHARPENING (not carried out)
-The index is the order of a finite group G in R^n/D_n all of whose non-zero classes have norm >= 2. An element of odd
-prime order p has all its multiples in G, and the sum of their norms is small: at Q = I the norms of g, 2g, ..., ((p-1)/2) g
-add up to at most m (p^2-1)/(24 p) + (p-1)^2/(4p) for m non-zero coordinates (the second term for classes whose nearest
-integer vector has odd coordinate sum), which is below the required p - 1 when m < 18 - 12/(p+1). So for exact frames in
-dimension n <= 14 the group is a 2-group and the index is a power of 2; with a perturbed Q the same computation with
-N_Q(w) <= |w|^2 + D+ |w|_inf |w|_1 excludes orders 3, 5, 7 in dimension 12 for D+ <= 0.21 and orders 3, 5 in dimension 13
-for D+ <= 0.13. That would turn "j >= J + 1" into "j >= next power of 2" and give lemma-free floors of about 0.43 in
-dimension 12 (index <= 4) and 0.26 in dimension 13 (index <= 8). Only sketched; every constant here needs checking.
+4. THE SHARPENING: THEOREM B2 (odd-order exclusion)
+The index j is the order of the group G = Lambda/Gamma inside R^n/D_n, all of whose non-zero classes have norm >= 2.
+Lemma O(n, D, p) of ODD-ORDER-EXCLUSION-v1.txt: for the checked triples (n, D, p), p an odd prime, G has no element of
+order p (the multiples of such an element cannot all have norm >= 2: a finite computation over residue patterns, with
+the elementary bound Q'(w) <= |w|^2 + |w|_1 sum delta_a |w_a|, and for p = 3 an average over the flipped coordinate).
+By Cauchy's theorem j is then not divisible by p.
+THEOREM B2.  n, B, d_n, D0 as in Theorem B, S0 <= 2 D0, J >= 1, JTOP := the largest integer below (B/d_n) exp(S0/4).
+If every integer j with J < j <= JTOP is divisible by an odd prime p for which Lemma O(n, D0, p) holds, then a lattice of
+dimension n and minimum 1 with density > J d_n has no n distinct pairs of one class modulo 2L, each of squared length
+< 9/4, with sum max(|x|^2, 2) <= 2n + S0.
+Proof (premise files BOOT2-PREMISE-n<n>-r<k>.txt): as Theorem B up to j > J; Hadamard and density <= B give
+j <= (B/d_n) exp(S0/4), so J < j <= JTOP; such a j has a forbidden prime factor.                              QED
+Checked instances of Lemma O (check-odd-order-v1.log, check-odd-order-v1-N14-D7_50.log):
+   n = 12, D = 1/4: p = 3, 5, 7;   n = 13, D = 1/4: p = 3, 5;   n = 14, D = 1/8 and 7/50: p = 3, 5, 7, 11, 13.
+RESULTS (exact audits):
+   n    B_0                  J   excluded indices     floor   audited final                 folder
+   12   0.06770167234454     4   5, 6, 7              1/2     0.066670465797823             bound/n12-boot2-r1
+   13   0.0486832075907      8   9, 10                1/2     0.047947694667495             bound/n13-boot2-r1
+   14   0.035173336781537    8   9, ..., 15           1/4 -> 0.03504538418914; 53/200 -> 0.035027883257038;
+                                                      267/1000 -> 0.035025537340885          bound/n14-boot2-r1..r3
+   Dimensions 12 and 13: the SAME numbers as the table-based frame theorems of ../n12-23-frame-floor-20261118 (same floor
+   1/2; the index caps 4 and 8 are smaller than the table-based 5 and 9), now resting on the determinant lemma, Lemma O
+   and integrality only. Dimension 14: the index 16 cannot be excluded this way (a 2-group), so the floor stops near
+   0.27 and the result is weaker than the table-based 0.034720460327639.
+   From dimension 15 on an element of order 3 exists already for the exact frame ((1/3)^14 (-2/3) has norm 2), and the
+   method ends.
 
 5. AUTOMATED REVIEW (18 November 2026; one referee, not a human; folder ../n11-frame-floor-20261118/review-B1)
 Re-derived steps (1)-(6) including the covolume of the D_n-frame lattice, the density formula (checked on D_n, E_8,
@@ -85,3 +106,19 @@ copies are regenerated with the same n, B, J, S0); the statement also holds with
 The sweep report DIMENSION-10-REPORT-v1.json mentions a "prior stronger bound pi^5/(120 * 2^(35/8)) < 0.122903". That
 number is Mordell's inequality applied to gamma_9 = 2, the conjectured value, not a proved bound. I know of no proved
 bound for lattices in dimension 10 below 0.129; to be checked by the owner before the dimension-10 value is used.
+
+7. AUTOMATED REVIEW OF THEOREM B2 AND LEMMA O
+18 November 2026; one automated referee, not a human; folder review-O1. Re-derived the lemma's proof (the bound (X), the
+parity criterion, the even and odd bounds, the averaging for p = 3, the reduction to count vectors) and found it correct;
+read check_odd_order_v1.py line by line, re-ran it, and wrote an independent implementation with explicit vectors: the
+worst values agree in all ten checked cases (12: 170/99, 419/250, 78/49; 13: 233/117, 44/25; 14 at 1/8: 49/26, 257/140,
+153/98, 347/242, 244/169). Attack: the supremum over admissible Q' of the least norm in the classes is a linear programme;
+solved for every pattern at D = 1/4 (n = 12: p = 3, 5, 7; n = 13: p = 3, 5), it never exceeds the lemma's bound and stays
+below 2. For p = 3 the bound is EXACT: in dimension 13 the value 233/117 = 1.9915 is attained at Q' = I + J/52, and
+Lemma O(13, D, 3) is false from D = 13/50 on. So in dimension 13 the floor cannot exceed 0.52 by this route; 1/2 is used.
+Premise files of dimensions 12 and 13: steps and constants confirmed (own rational enclosures); (B/d_13) e^(1/8) = 10.966
+is close to 11, harmlessly (order 11 is excludable too: 375/242). Exact frames: no order-3 class reaches norm 2 for
+n <= 14, one does for n = 15. The Coxeter-Todd lattice, to which the dimension-12 statement applies (density 4.74 d_12),
+has no class with twelve short pairs. Remarks taken over: the generator reads PASS lines from logs instead of re-running
+the checks (both checks are in the repository and take seconds); B was not hash-bound in the scratch premise files (the
+repository copies name the file and its sha256 in the DATA line).

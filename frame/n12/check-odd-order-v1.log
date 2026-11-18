@@ -1,0 +1,13 @@
+n = 12, D = 1/4, p = 3: 12 patterns; largest (over patterns) of the least bound (over k): 170/99 = 1.717172 at counts (11,) (k = 1, odd, averaged): PASS (< 2: no element of order 3)
+n = 12, D = 1/4, p = 5: 90 patterns; largest (over patterns) of the least bound (over k): 419/250 = 1.676000 at counts (5, 7) (k = 2, odd): PASS (< 2: no element of order 5)
+n = 12, D = 1/4, p = 7: 454 patterns; largest (over patterns) of the least bound (over k): 78/49 = 1.591837 at counts (3, 4, 5) (k = 3, odd): PASS (< 2: no element of order 7)
+RESULT PASS n 12 D 1/4 primes [3, 5, 7]
+n = 13, D = 1/4, p = 3: 13 patterns; largest (over patterns) of the least bound (over k): 233/117 = 1.991453 at counts (13,) (k = 1, odd, averaged): PASS (< 2: no element of order 3)
+n = 13, D = 1/4, p = 5: 104 patterns; largest (over patterns) of the least bound (over k): 44/25 = 1.760000 at counts (6, 7) (k = 1, even): PASS (< 2: no element of order 5)
+RESULT PASS n 13 D 1/4 primes [3, 5]
+n = 14, D = 1/8, p = 3: 14 patterns; largest (over patterns) of the least bound (over k): 49/26 = 1.884615 at counts (13,) (k = 1, odd, averaged): PASS (< 2: no element of order 3)
+n = 14, D = 1/8, p = 5: 119 patterns; largest (over patterns) of the least bound (over k): 257/140 = 1.835714 at counts (7, 7) (k = 1, odd): PASS (< 2: no element of order 5)
+n = 14, D = 1/8, p = 7: 679 patterns; largest (over patterns) of the least bound (over k): 153/98 = 1.561224 at counts (4, 5, 5) (k = 2, even): PASS (< 2: no element of order 7)
+n = 14, D = 1/8, p = 11: 11627 patterns; largest (over patterns) of the least bound (over k): 347/242 = 1.433884 at counts (2, 2, 4, 3, 3) (k = 3, odd): PASS (< 2: no element of order 11)
+n = 14, D = 1/8, p = 13: 38759 patterns; largest (over patterns) of the least bound (over k): 244/169 = 1.443787 at counts (2, 2, 2, 3, 2, 3) (k = 2, even): PASS (< 2: no element of order 13)
+RESULT PASS n 14 D 1/8 primes [3, 5, 7, 11, 13]
