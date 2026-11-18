@@ -1,0 +1,38 @@
+{
+  "label": "certified 0.0172314323416",
+  "outputs": [
+    {
+      "published_file": "union-integrity.json.gz",
+      "original_name": "groupfloor-v1-COMPLETE-DENSITY-INTEGRITY-v1.json",
+      "original_sha256": "af486542281ddc9aa012809902848fff2b4ddbe441f47c0f2ca03efc750c15a4",
+      "scrubbed_json_sha256": "18d7d785309ff1be1d7baaf6e993e115e1045e87501b013c9e9dacaa6c47ddc3",
+      "bytes_gz": 452897
+    },
+    {
+      "published_file": "low-integrity.json.gz",
+      "original_name": "LOW-INTEGRITY-v1.json",
+      "original_sha256": "e87aa3568fb522c4db3a963a25e0aa0eeedab30ff7d0f7bfdadb2311de4a71ca",
+      "scrubbed_json_sha256": "02f8afd37d4d4383917adc3051963ffe247239d86be3ab83d5a37d3a0bdd7a8d",
+      "bytes_gz": 185632
+    },
+    {
+      "published_file": "high-integrity.json.gz",
+      "original_name": "HIGH-INTEGRITY-v2.json",
+      "original_sha256": "92d32ee1d57a9251a36457ff93457f3751f1f574f8ecc96dc58ba7bc870e13bb",
+      "scrubbed_json_sha256": "b7f0d519c269603c05f87fda0a13967705918db34a856050db83dc3103643c60",
+      "bytes_gz": 207430
+    }
+  ],
+  "documents": [
+    {
+      "published_file": "RESULT-20261111-GROUPFLOOR-v1.txt",
+      "original_sha256": "c3101edcdabce4effa0598af4ecfdaa0789aebd31caaaafacce145eef9910a6a",
+      "identical_to_original": true
+    },
+    {
+      "published_file": "GROUPED-FLOOR-THEOREM-v1.txt",
+      "original_sha256": "da62b613dcc2c9465badc5f9008f00893421ec5f8c34cc616e6cd69ffa10c1fa",
+      "identical_to_original": true
+    }
+  ]
+}

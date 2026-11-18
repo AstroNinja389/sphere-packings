@@ -1,0 +1,49 @@
+GROUPED FLOOR MULTIPLIERS FOR THE N=16 FIVE-CASE CLASS BUDGET (v1, 2026-11-11)
+
+Setting. Everything is as in the certified trace33 pipeline
+(d1-kernel-audit/trace33-cert-v4, trace33-high-cert-v3, trace33-union-v2):
+the class budget K is an upper bound for the physical score of every actual
+class modulo 2L of a contender lattice, obtained as a maximum over a complete
+finite family D of parent rows (cumulative-capacity envelopes with at most one
+mandatory short anchor below squared length 2, in a fixed bin).
+
+Reviewed row-wise statement (unchanged). For a parent row r, an actual-count
+tag N in {<=15,16,17,18,19}, and ANY floor vector lam=(lam16,lam17,lam18,lam19)
+with nonnegative rational entries, the reviewed exact support module
+(exact_five_case_floor_support_v1.py, sha 54016f3a...) computes a number
+M(r,lam) such that every actual class covered by r has physical score at most
+M(r,lam). The floor term for tag N>=16 is lam_N*(S-floor_N), where S is the
+upper-endpoint length sum of the N actual pairs and floor_N is 33, 575/16,
+779/20, 42. It is nonnegative on every actual class of a contender that is
+strictly denser than pi^8/645120 (N16: capped trace33 family theorem; N17..19:
+universal floors). The reviewed grouped engine returns max_{r in D} M(r,lam).
+
+Lemma (row-wise multipliers). Let D be partitioned into parts D_0,...,D_{k-1}
+by ANY rule depending only on the parent row, and let lam^(0),...,lam^(k-1) be
+nonnegative floor vectors. Then every actual class has physical score at most
+    max_g max_{r in D_g} M(r,lam^(g)).
+Proof. An actual class is covered by some r in D, which lies in exactly one
+part D_g; apply the reviewed row-wise statement to r with lam=lam^(g).  QED
+
+No new geometric premise is used. The floors, the trace33 family complement,
+the count tags, the PSD moment matrix Z, all source penalties and all physical
+weights are identical in every part. Only the nonnegative Lagrange multiplier
+of an already proven inequality is allowed to depend on the part.
+
+Rule used here. Part index = bisect_right((600,716,717), b) where b is the bin
+of the row's short anchor, and the last part (3) when the row has no short
+anchor. On the certified grid (J=717) this is: 0 for b<600, 1 for 600<=b<716,
+2 for b=716, 3 for no short pair. The short anchor is ordinal 0 of the row and
+is not moved by the forward or backward clipping, so both directions see the
+same partition. Correctness does not depend on this; exact forward/backward
+equality of all 32 source maxima is nevertheless still required by the union
+audit.
+
+Implementation. moment_engine_support.py in this folder is the only changed
+program. It calls the byte-identical reviewed bridge once per part with that
+part's 4-vector and takes the maximum of the per-source values. The search
+order of the sixteen multipliers is N-major: index (N-16)*4+part.
+
+Scope. Class budget only. Fresh exact Fourier, spatial, bin, physical,
+combined Gaussian tail, source-cover, frame, count-union and trace-complement
+checks remain mandatory for every new function.

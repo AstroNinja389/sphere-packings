@@ -1,0 +1,77 @@
+DIMENSION-GENERAL JOINT LENGTH / SOURCE-MATRIX COMPOSITION
+4 November 2026. Applies to actual lattices; no extremality or section assumption.
+
+Normalize the squared minimum to 1. Choose 2<S<3. Opposite pairs x,y in the
+same nonzero class modulo 2L have actual nonzero half-vectors u=(x+y)/2,
+v=(x-y)/2. If both sources have squared norm <S, then a=|u|^2,b=|v|^2
+belong to [1,S-1), a+b<S, and the two source norms are a+b+2z,a+b-2z,
+z=<u,v>. Conversely the unordered opposite root pair determines the
+unordered opposite source pair. Ordered multiplicities agree on both sides.
+
+For dimension n, use normalized Gegenbauer harmonics with lambda=(n-2)/2.
+PSD radial coefficient matrices give a genuinely positive-definite kernel
+on actual vectors, not an abstract substitute for geometric projectors.
+The independent recurrence is
+ k C_k = (2k+n-4)t C_(k-1) - (k+n-4) C_(k-2).
+The sign auditor proves K<=0 on the full distinct-root domain
+ |z| <= (a+b-1)/2, 1<=a,b<=S-1,
+and K<=-psi(a+b+2z,a+b-2z) on a+b+2|z|<=S.
+Rational cube parameterizations and ALL Bernstein controls cover these
+closed domains, including endpoints; strict source counts lie inside them.
+
+Ordinary psi=1 yields sum_c N_c(S)(N_c(S)-1) <= sum_roots C(a).
+For psi=1-b(t_i+t_j)/2+c t_i t_j with t_i=(s_i-2)/(S-2), and
+ [[c,-b/2],[-b/2,B]] PSD, 0<=B<=1,
+the exact class pair energy is at least
+ (1-B)N(N-1) - sum_i (c t_i^2-b t_i+B).
+The difference is [sum t_i,N] M [sum t_i,N]^T>=0. This holds for every
+class size; a singleton may clip t_i to [-1,1] since the subtracted
+quadratic is globally nonnegative and its true pair energy is zero.
+
+The degree-zero root matrix M0 permits any rational tangent anchor w:
+ m^T M0 m >= 2 w^T M0 m - w^T M0 w.
+Consequently each audited cut has form
+ coef sum_c N_c(S)(N_c(S)-1) <= sum_vectors cost(|x|^2) + beta,
+with beta>=0 included exactly. Radial root costs and source quadratics
+are convex, so their endpoint maxima provide safe interval upper bounds.
+
+For nonnegative multipliers ell_j, the total test-function sum is bounded
+by the sum of class budgets with adjusted radial weights
+ g + sum_j ell_j cost_j,
+minus the cumulative count penalties ell_j coef_j N_c(S_j)(N_c(S_j)-1),
+plus the indispensable global sum_j ell_j beta_j.
+
+Every nonzero parity class has at most one opposite pair of squared norm<2.
+Enumerate no short pair, or one short pair in EACH short interval. In each
+case the prior independently proved general parity caps bound all long
+prefix counts. No E8, Barnes--Wall, minimum frame, or n16-only cap is used.
+The search uses a forward integer-count dynamic program. The independent
+density audit uses a backward dynamic program over EVERY permissible count.
+Finite caps require n(1-2/Emax)^2<1; every dimension's grid checks this.
+420 small exhaustive comparisons of both programs passed. These are QA,
+not substitutes for the full exact audit of each final bound.
+
+Sources may extend beyond an earlier test-function cutoff. The unchanged
+function is already nonpositive there, so zero additional bin weights are
+valid; the original sign certificate is rechecked over the enlarged grid.
+The final Fourier reoptimization is verified from its own coefficients,
+never accepted merely because a numerical optimizer returned success.
+
+For the final audit, all combined radial weights are rounded UP to a common
+integer grid and all nonnegative count penalties DOWN. The resulting
+backward maximum is an upper bound, including negative radial weights.
+With N=2^n-1, scaled class budget kappa and scaled bonus beta/N, the result
+is rho <= (p(0)+kappa+beta/N)/q(0). Here the numerical convention scales
+all bin weights and cut multipliers by 2N; the rational auditor reconstructs
+this convention explicitly from the Fourier majorants and multipliers.
+The exact density comparison uses rational powers; in odd dimensions it
+squares the positive claim and uses the independently proved lower bound
+for pi. No floating-point comparison determines acceptance.
+
+Zero new multipliers recover the baseline. Preserve any stronger older
+certificate independently (in particular the n16 bound 0.0179749179458).
+Do not attribute grid refinement or ordinary Fourier retuning to the new
+joint constraints when all their multipliers are zero. A successful
+candidate audit establishes an upper bound, not an optimality theorem or
+a new lattice. The full negative-tail correction has not been ported into
+this initial cross-dimensional campaign; it remains a follow-up avenue.

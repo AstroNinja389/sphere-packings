@@ -1,0 +1,44 @@
+VERIFIED N=16 LATTICE-PACKING UPPER-BOUND IMPROVEMENT (grouped floor multipliers)
+
+Density <= 0.0172314323416; gamma16 <= 2.88496372280.
+Previous certified density: 0.0172470908426 (trace33 union). Relative reduction: 0.090789%.
+
+Branches (same actual short count, complete cover 0..4528):
+  low  0..3700     0.0172314323416   d1-kernel-audit/groupfloor-low-cert-v2   (LOW-INTEGRITY-v1.json)
+  high 3651..4528  0.0171947666811   d1-kernel-audit/groupfloor-high-cert-v1  (HIGH-INTEGRITY-v2.json)
+  trace-family complement (Barnes-Wall) 0.014708164397431, unchanged.
+
+What is new. No new geometric premise. The proven length-sum floors (N16: 33 under the capped trace33 family
+theorem; N17: 575/16; N18: 779/20; N19: 42) previously entered the class budget with ONE Lagrange multiplier per N.
+They now enter with one multiplier per N and per part of the parent-row domain, the parts being defined by the bin
+of the row's unique short anchor (below bin 600 / bins 600..715 / bin 716 / no short pair). The reviewed class
+bound is valid row by row for every nonnegative floor vector, so the maximum over the parts of the reviewed
+engine's value is a valid class budget (groupfloor-support-v1/GROUPED-FLOOR-THEOREM-v1.txt). Both Fourier
+functions were reoptimized numerically with the sixteen multipliers; all values here are recomputed exactly.
+
+What was changed in the proof chain. Exactly one program: moment_engine_support.py (grouped helper). The reviewed
+exact support module and bridge are byte-identical and hash-checked; every other verification program is
+byte-identical to the certified trace33 folders (ADAPTER-SOURCE-MANIFEST.json in each branch). Exact QA of the
+helper against the reviewed per-row recurrences, both directions, on a stratified real sample:
+groupfloor-support-v1/GROUPED-HELPER-QA-t2.json (73 rows, 8250 exact inner evaluations, exact equality).
+Drivers only have longer time bounds. No auditor was weakened.
+
+Repairs to the numerical candidates (whole inequalities only): every Gaussian-paying conditional multiplier scaled
+by 999999/1000000 (both branches, as in trace33); in the low branch the single wide-window source cut
+(29/12..139/48, numerical weight 5.5e-12) has the exact multiplier 0 (WIDE-SOURCE-ZERO-v1.json). Linear class
+weights are rounded upward to 2^-120 as in trace33.
+
+Checks passed: exact Fourier/spatial/bin signs, physical inputs, one combined Gaussian spatial-tail payment per
+branch, all 16 source-count cases, frame branch, forward and independent backward class maxima equal exactly for
+all 32 cases in each branch, conditional integrity audits, complete count union and trace-complement union.
+Final integrity file: d1-kernel-audit/groupfloor-union-v1/groupfloor-v1-COMPLETE-DENSITY-INTEGRITY-v1.json
+Integrity SHA256: af486542281ddc9aa012809902848fff2b4ddbe441f47c0f2ca03efc750c15a4
+Dependency hashes rechecked: 10005.
+
+Preserved failures: groupfloor-low-cert-v1 (exact shared-tail obstruction at preflight; PREFLIGHT-STOP-v1.txt);
+groupfloor-high-cert-v1 first integrity attempt (missing provenance manifest only; INTEGRITY-RERUN-NOTE-v1.txt).
+
+Scope and caveats. A lattice upper bound. The grouped-floor lemma and helper were written and checked in one
+session (Claude) and have not yet been reviewed by a second party; the union auditor is the trace33 auditor with
+the previous-bound path and a floor-part consistency check changed. All earlier dependencies (Fable trace33
+theorem, gamma9=2, earlier exact inputs) remain dependencies. Not recorded in the paper repository.
