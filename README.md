@@ -5,24 +5,24 @@ Nothing here is a claim of optimality, of priority, or about non-lattice packing
 
 ## Results
 
-| n | Upper bound (this repository) | Comparison value | Published earlier (arXiv:2610.35830, Table 1) | Best known lattice | Check it here |
-|---:|---|---|---|---|---|
-| 11 | 0.094565500874952 | none (general packings: ≈0.10664) | 0.0949892088 | 0.066238 | `joint/n11` |
-| 12 | 0.06770167234454 | none (general packings: ≈0.079503) | 0.0680145536 | 0.049454 | `joint/n12` |
-| 13 | 0.0486832075907 | none (general packings: ≈0.059905) | 0.0488231948 | 0.032014 | `joint/n13` |
-| 15 | 0.025212337452388 (conditional) | 0.0255112 | 0.0256118267 | 0.0168575 | `dim15` |
-| 16 | 0.0172314323416 | 0.0186552 | 0.0187461206 | 0.0147081 | not yet, see [dim16](dim16/README.md) |
-| 19 | 0.0078055517781953 | 0.00780844 | 0.00782447361 | 0.00412080 | `joint/n19` |
-| 20 | 0.0059269594018778 | 0.00595464 | 0.00595808443 | 0.00322586 | `joint/n20` |
-| 20 | 0.0059274281468171 | 0.00595464 | 0.00595808443 | 0.00322586 | `certificates/n020.json` |
-| 21 | 0.0045221361589603 | 0.00455796 | 0.00456045297 | 0.00246588 | `certificates/n021.json` |
-| 22 | 0.0034531371421659 | 0.00348294 | 0.00348596988 | 0.00212766 | `certificates/n022.json` |
+| n | Upper bound (this repository) | Comparison value | Best known lattice | Check it here |
+|---:|---|---|---|---|
+| 11 | 0.094565500874952 | none (general packings: ≈0.10664) | 0.066238 | `joint/n11` |
+| 12 | 0.06770167234454 | none (general packings: ≈0.079503) | 0.049454 | `joint/n12` |
+| 13 | 0.0486832075907 | none (general packings: ≈0.059905) | 0.032014 | `joint/n13` |
+| 15 | 0.025212337452388 (conditional) | 0.0255112 | 0.0168575 | `dim15` |
+| 16 | 0.0172314323416 | 0.0186552 | 0.0147081 | not yet, see [dim16](dim16/README.md) |
+| 19 | 0.0078055517781953 | 0.00780844 | 0.00412080 | `joint/n19` |
+| 20 | 0.0059269594018778 | 0.00595464 | 0.00322586 | `joint/n20` |
+| 20 | 0.0059274281468171 | 0.00595464 | 0.00322586 | `certificates/n020.json` |
+| 21 | 0.0045221361589603 | 0.00455796 | 0.00246588 | `certificates/n021.json` |
+| 22 | 0.0034531371421659 | 0.00348294 | 0.00212766 | `certificates/n022.json` |
 
 "Comparison value" is the lattice-only upper bound listed in
 [alexlegeartis/SpherePackings, `LATTICE_RESULTS.md`](https://github.com/alexlegeartis/SpherePackings/blob/main/LATTICE_RESULTS.md)
 as read on 18 November 2026 (its release notes are dated 17 November 2026). Those values were not replayed here.
 That table starts at dimension 14; for 11–13 the value in brackets is the upper bound for general packings in the same
-repository (`RESULTS.md`), which also bounds lattices. In 11–13 the gain over the earlier publication is 0.3–0.5%.
+repository (`RESULTS.md`), which also bounds lattices.
 "Best known lattice" is the density of the densest lattice known, rounded down, for orientation only.
 Dimension 20 has two rows: the second is a plain certificate, the first adds one joint cut.
 
