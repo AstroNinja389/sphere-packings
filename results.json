@@ -74,6 +74,16 @@
       "superseded_in_this_repository_by": "frame/n13 (conditional)"
     },
     {
+      "n": 14,
+      "density_upper": "0.034664418153345",
+      "hermite_upper": "2.6622004624735",
+      "comparison": "0.0347128",
+      "method": "Theorem 1 certificate plus one joint cut plus the frame theorem of dimension 14 (floor 5/8, index of the frame at most 14)",
+      "conditional_on": "frame theorem of dimension 14 (frame/n14/r1/FRAME-PREMISE-n14-v2.txt): determinant lemma at range 5/16 and a computer-checked hybrid lemma (two programs of the same author); no second-party review",
+      "replayable_from_this_repository": "audit and determinant check yes; the hybrid lemma certificates no (logs, bookkeeping files and programs are here, the tables and cell files are not)",
+      "location": "frame/n14"
+    },
+    {
       "n": 15,
       "density_upper": "0.025212337452388",
       "hermite_upper": "2.7845247148532",
@@ -91,6 +101,27 @@
       "method": "class linear programme with dimension-16 length floors, count branches and frame branch",
       "replayable_from_this_repository": false,
       "location": "dim16"
+    },
+    {
+      "n": 17,
+      "density_upper": "0.013763319803959",
+      "hermite_upper": "3.0421804146678",
+      "comparison": "0.0138325",
+      "method": "Theorem 1 certificate plus one joint cut plus the frame theorem of dimension 17 (floor 11/25, index of the frame at most 64)",
+      "conditional_on": "frame theorem of dimension 17 (frame/n17/r1/FRAME-PREMISE-n17-v1.txt): determinant lemma, a computer-checked hybrid lemma (two programs of the same author) and the bound of joint/n17 as a priori input; no second-party review",
+      "replayable_from_this_repository": "audit, determinant check and a priori index cap yes; the hybrid lemma certificates no (logs, bookkeeping files and programs are here, the tables and cell files are not)",
+      "location": "frame/n17"
+    },
+    {
+      "n": 17,
+      "density_upper": "0.013875579669877",
+      "hermite_upper": "3.0450891870571",
+      "comparison": "0.0138325",
+      "method": "Theorem 1 certificate plus one joint cut",
+      "replayable_from_this_repository": true,
+      "location": "joint/n17",
+      "superseded_in_this_repository_by": "frame/n17 (conditional)",
+      "remark": "weaker than the comparison value; it is here because the dimension-17 frame theorem uses it"
     },
     {
       "n": 18,

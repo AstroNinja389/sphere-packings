@@ -1,0 +1,11 @@
+start 04:21
+cell 29 2 113 3 at -0.45: RESULT PASS: 771 pieces (270 empty, max depth 5), 0 not certified, largest value -0.4506506578538633, 35 s [04:21]
+cell 23 2 122 3 at -0.45: RESULT PASS: 646 pieces (344 empty, max depth 5), 0 not certified, largest value -0.4509742426688987, 21 s [04:22]
+A PRIORI INDEX CAP 79: B exp(11/100)/c in [79.5513531092689381668252963141843583131097833, 79.5513531092689381668252963141843583131318238] ; 64 c <= [0.0124610870900368369141417574421775305516371469, 0.0124610870900368369141417574421775305516371469]
+one-class recheck table: RESULT PASS_ALL_ROWS_OF_THIS_PART: 7582 certified rows re-checked (largest -0.55107), 0 failures; 4928 empty rows checked, 0 not confirmed; negative multipliers replaced 0; 776 s [04:35]
+RESULT INCOMPLETE: n=17, 13160 pairs = 7582 certified rows confirmed + 4928 empty confirmed + 650 needing cells (0 confirmed); 650 not covered; problems []; largest re-checked: table -0.5510730294788925, cells None
+two-class recheck part 1: RESULT FAIL: 2931 cell files, 15237 pieces, largest re-checked -0.4506506418080659, 9 cells not confirmed, 2657 s [05:06]
+two-class recheck part 0: RESULT FAIL: 2932 cell files, 12696 pieces, largest re-checked -0.4509742266255112, 4 cells not confirmed, 2432 s [05:15]
+RESULT COMPLETE: n=17 claim -9/20: 12510 pairs by the one-class lemma, 650 by the two-class lemma, 0 not covered; problems []; largest two-class value re-checked -0.4506506418080659
+FRAME_BOUND n=17 S0=11/25 T=9/4: search density 0.0137631346967, audited 0.013763319803959, frame complement 0.012461087090161, FINAL 0.013763319803959 (audited density); previous audited 0.013875579669877; 47 s
+CHAIN DONE 05:16

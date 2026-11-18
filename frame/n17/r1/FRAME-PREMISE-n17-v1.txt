@@ -1,0 +1,39 @@
+FRAME THEOREM IN DIMENSION 17 (premise of the frame case of the class budget)                   v1, 2026-11-18
+=====================================================================================================================
+Status: written by one author (Claude) in one session; computational steps CHECKED BY COMPUTER with my own programs
+ONLY IF chain-n17-final-v1.log ends with the lines named in step 5 and 6 below (the file was written before the
+re-checks finished). NOT reviewed by a second party. By itself it changes no density bound.
+
+STATEMENT.  Let L be a lattice of dimension 17 and minimum squared length 1 with
+      density(L) > 64 V_17 2^(-19/2)        (the number is 0.0124610...).
+Then any seventeen distinct pairs of one class modulo 2L, each of squared length < 9/4, satisfy
+      sum_i max(|x_i|^2, 2) > 34 + 11/25.
+
+PROOF.  Suppose seventeen such pairs have sum_i max(|x_i|^2, 2) <= 34 + 11/25; we show density(L) <= 64 V_17 2^(-19/2).
+ 1. Reduction as in FRAME-PREMISE-n14-v1.txt (step 1) with 17 coordinates: Lambda = sqrt 2 L, Gamma = image of D17,
+    Q = diag(1 + delta_i) + E, delta_i <= 1/8, delta_i + delta_j >= 0, caps, sum_i max(delta_i, 0) <= 11/50 (< 1/4).
+ 2. 1 <= det Q <= exp(11/50): lower bound check_det_n_v1.py 17 1/4 PASS; upper bound Hadamard, det Q <= prod (1 +
+    delta_i) <= exp(sum max(delta_i, 0)). covol(Gamma) = 2 sqrt(det Q).
+ 3. G = Lambda/Gamma, valid for Q' (excesses max(delta_i, 0)), as in dimension 14, step 3.
+ 4. Elements of order two: g = c/2 with c of even weight >= 8 (dimension 14, step 4; uses sum delta' < 2), so
+    psi(g) = 17 - 2w <= 1.
+ 5. Other elements: g and 2g valid.  HYBRID LEMMA (17; 1/4): N_Q'(q) >= 2 and N_Q'(2q) >= 2 imply psi(q) < -9/20.
+    Computer check by the 13,160 (case, cell) pairs of q: one-class table frame_u_scheme_v2.py 17 1/4 0 -0.55
+    (7,582 certified, 4,928 empty, 650 left); for the 650 pairs left, the nine two-class combinations each, cell mode
+    of frame_u2_scheme_v1.py (FRAME_N=17) at -0.55 (5,839 pass), eleven at -0.52 or -0.45 with deeper subdivision.
+    Re-checks frame_u_recheck_v2.py and frame_u2_recheck_v2.py; the statement is established only if
+    chain-n17-final-v1.log contains "RESULT COMPLETE: n=17 claim -0.45" (bookkeeping_hybrid_v1.py).
+ 6. A priori bound for the index. Every lattice of dimension 17 has density <= B := 0.013875579669877 (audited bound
+    of the 4 November sweep, feedback2/n17/r1/DENSITY-AUDIT-v1.json). density(L) = |G| V_17 2^(-17/2)/covol(Gamma)
+    = |G| c/sqrt(det Q) with c := V_17 2^(-19/2). Hence |G| <= B sqrt(det Q)/c <= B exp(11/100)/c < 80
+    (check_apriori_n17_v1.py; the line "A PRIORI INDEX CAP 79" in the chain log), so |G| <= 79.
+ 7. Character identity. sum_{g in G} psi(g) = |G| z >= 0, psi(0) = 17. Let a = 2^r - 1 be the number of elements of
+    order two (r the 2-rank) and b = |G| - 2^r the number of other non-zero elements:
+          0 <= 17 + a - (9/20) b      (strict if b >= 1),   i.e.   (9/20) b <= 17 + a.
+    For 65 <= |G| <= 79: 2^r divides |G|, so 2^r <= 8 (the only multiples of 16 in the range are 80 > 79 and 64 < 65),
+    a <= 7 and b >= 65 - 8 = 57 with (9/20) 57 = 25.65 > 24 >= 17 + a. Contradiction. Hence |G| <= 64.
+ 8. density(L) = |G| c/sqrt(det Q) <= 64 c.                                                                   QED
+
+USE.  Frame case with n = 17, S0 = 11/25, T = 9/4, index_cap = 64. Frame complement 0.012461 < the bound sought.
+REMARK.  The range 11/25 instead of 1/2 is forced by step 6-7: at 1/2 the a priori cap is 80 and the group
+(Z/2)^4 x Z/5 would need psi < -1/2 on all its 64 elements of order > 2, while one cell reaches only -0.455.

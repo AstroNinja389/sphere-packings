@@ -1,0 +1,14 @@
+{
+ "n": 17,
+ "delta0": "1/4",
+ "claim": "-9/20",
+ "pairs": 13160,
+ "pairs_by_one_class": 12510,
+ "pairs_by_two_class": 650,
+ "pairs_not_covered": [],
+ "two_class_pieces_files": 2,
+ "largest_rechecked_two_class": -0.4506506418080659,
+ "one_class_bookkeeping": "FU1-BOOKKEEPING-N17-D1_4-A0-T-0.45.json",
+ "problems": [],
+ "result": "COMPLETE"
+}

@@ -1,0 +1,53 @@
+FRAME THEOREM IN DIMENSION 14 (premise of the frame case of the class budget)                   v1, 2026-11-18
+=====================================================================================================================
+Status: written by one author (Claude) in one session; the computational steps are CHECKED BY COMPUTER with my own
+programs (first programs and independent re-checks); NOT reviewed by a second party. By itself it changes no
+density bound.
+
+STATEMENT.  Let L be a lattice of dimension 14 and minimum squared length 1 with
+      density(L) > 14 V_14 2^(-8)           (V_14 = pi^7/5040; the number is 0.0327722...).
+Then any fourteen distinct pairs +-x_1, ..., +-x_14 of one class modulo 2L, each of squared length < 9/4, satisfy
+      sum_i max(|x_i|^2, 2) > 28 + 1/2.
+
+PROOF.  Suppose fourteen such pairs have sum_i max(|x_i|^2, 2) <= 28 + 1/2; we show density(L) <= 14 V_14 2^(-8).
+ 1. Reduction (as in dimension 12). d_i := |x_i|^2 - 2; x_i +- x_j are non-zero elements of 2L, so d_i + d_j >= 0
+    and |x_i . x_j| <= (d_i + d_j)/2; at most one d_i is negative. Lambda := sqrt 2 L (minimum 2), f_i := x_i/sqrt 2,
+    Gamma := {sum c_i f_i : c in D14} is a sublattice of Lambda; Gram matrix Q = diag(1 + delta_i) + E,
+    delta_i = d_i/2 <= 1/8, delta_i + delta_j >= 0, |E_ij| <= (delta_i + delta_j)/2, sum_i max(delta_i, 0) <= 1/4.
+ 2. det Q >= 1: check_det_n_v1.py 14 1/4 PASS (proof in its header; log check-det-n-v1-D1_4.log).
+    So Gamma has rank 14 and covol(Gamma) = 2 sqrt(det Q) >= 2.
+ 3. G := Lambda/Gamma is a finite subgroup of R^14/D14; every non-zero class q has N_Q(q) >= 2. With Q' := Q + nu
+    e_1 e_1^t if delta_1 = -nu < 0 (Q' := Q otherwise): Q' >= Q has excesses max(delta_i, 0) in [0, 1/8] with sum
+    <= 1/4 and the same caps, so N_Q'(q) >= 2 for every non-zero class of G. From here on Q' is used.
+ 4. Elements of order two. Let g != 0 with 2g = 0 in G, i.e. 2g in D14. If g were integral, its class would contain a
+    unit vector e_i, of Q'-norm 1 + delta'_i < 2. So g = c/2 modulo Z^14 for a non-zero 0/1 word c, of even weight w
+    (the sum of the entries of 2g is even). The vectors with entries +-1/2 on the support of c and 0 elsewhere, with a
+    fixed parity of the number of minus signs, lie in the class. For w >= 4 their signs are pairwise uncorrelated
+    under the uniform distribution, so the shortest has Q'-norm <= sum_{supp c} (1 + delta'_i)/4 <= (w + 1/4)/4 < 2
+    for w <= 6; for w = 2 any of them has Q'-norm <= (2 + delta'_a + delta'_b)/4 + cap_ab/2 < 1. Hence w >= 8 and
+          psi(g) = 14 - 2w <= -2.
+ 5. Other elements. If 2g != 0 in G, both g and 2g are non-zero classes: N_Q'(g) >= 2 and N_Q'(2g) >= 2.
+    HYBRID LEMMA (14; 1/4).  For Q' as above: N_Q'(q) >= 2 and N_Q'(2q) >= 2 imply psi(q) < -1.
+    Computer check, by the 13,160 (case, cell) pairs of q (scheme of GLUE-INDEX-REDUCTION-v2.txt, sections 4 and 7,
+    with the bounds (F), (G), (M) of NEW-BOUNDS-FGM-PROOFS-v1.txt; fourteen coordinates):
+      one class only (N_Q'(q) >= 2 implies psi(q) < -1): frame_u_scheme_v1.py 14 1/4 0 -1.75 part 0 1:
+          8,199 pairs certified below -1.75 + 4,928 empty + 33 left; of the 33, 32 pass in cell mode at -1.05;
+          the pair (19, 34) does not (it contains the configurations near eight coordinates at 1/2, i.e. the
+          order-two glue of step 4, where psi is as large as -2 + small and only N(q) >= 2 is not enough at this range);
+      for the pair (19, 34) the two-class statement: its nine (2q-case, 2q-cell) combinations in cell mode of
+          frame_u2_scheme_v1.py (FRAME_N=14) at -1.05: all pass (values below -44; the cell is nearly empty once
+          2q is required to be valid).
+      re-checks: frame_u_recheck_v1.py (rows at -1.75, 32 cell files at -1.05), frame_u2_recheck_v2.py (the nine
+          two-class pieces at -1.05); bookkeeping_fu_v2.py and bookkeeping_hybrid_v1.py: see the result lines in
+          HYBRID-BOOKKEEPING-N14-D1_4-T-1.json and chain-n14-hybrid-v1.log.
+      [frame_u2_recheck_v1.py rejected two of the nine pieces; the cause is documented in the header of
+       make_frame_u2_recheck_v2.py: v1 did not refine the delta-range on the two boxes next to t' = 1/2 and therefore
+       allowed a membership pattern that no point realises. v2 refines them; it is still an outer bound.]
+    Not used but also run: the full two-class table (118,440 rows) passes in the first program below -2.5.
+ 6. Index. sum_{g in G} psi(g) = |G| z >= 0 and psi(0) = 14. Let a be the number of elements of order two and b the
+    number of the other non-zero elements. If b >= 1: 0 <= 14 + sum_{g != 0} psi(g) < 14 - 2a - b <= 14 - (a + b),
+    so |G| - 1 < 14. If b = 0: 0 <= 14 - 2a, so |G| <= 8. In both cases |G| <= 14.
+ 7. covol(Lambda) = covol(Gamma)/|G| >= 2/14, and density(L) = V_14 2^(-7)/covol(Lambda) <= 14 V_14 2^(-8).  QED
+
+USE.  Frame case of audit_frame_bound_v1.py with n = 14, S0 = 1/2, T = 9/4, index_cap = 14. The frame complement
+0.03277 is below the bound being proved (about 0.0347), so the final bound is the audited density.

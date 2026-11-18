@@ -1,0 +1,5 @@
+DETERMINANT LEMMA n = 12, sum of positive excess <= 1/4: PASS. row margin >= 3/8; nu <= 1/44 <= 3/104; least L >= 0.386676 (ln det Q >= D+ L); largest x <= 0.262649; 8000 cells
+DETERMINANT LEMMA n = 13, sum of positive excess <= 1/4: PASS. row margin >= 5/16; nu <= 1/48 <= 3/104; least L >= 0.355235 (ln det Q >= D+ L); largest x <= 0.268893; 8000 cells
+DETERMINANT LEMMA n = 14, sum of positive excess <= 1/4: PASS. row margin >= 1/4; nu <= 1/52 <= 3/104; least L >= 0.322416 (ln det Q >= D+ L); largest x <= 0.275138; 8000 cells
+DETERMINANT LEMMA n = 15, sum of positive excess <= 1/4: PASS. row margin >= 3/16; nu <= 1/56 <= 3/104; least L >= 0.288451 (ln det Q >= D+ L); largest x <= 0.281384; 8000 cells
+DETERMINANT LEMMA n = 17, sum of positive excess <= 1/4: PASS. row margin >= 1/16; nu <= 1/64 <= 3/104; least L >= 0.217712 (ln det Q >= D+ L); largest x <= 0.293877; 8000 cells

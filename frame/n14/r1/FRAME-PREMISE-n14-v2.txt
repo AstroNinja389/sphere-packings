@@ -1,0 +1,44 @@
+FRAME THEOREM IN DIMENSION 14, WIDER RANGE (premise of the frame case of the class budget)       v2, 2026-11-18
+=====================================================================================================================
+Status: written by one author (Claude) in one session; the computational steps are CHECKED BY COMPUTER with my own
+programs ONLY IF chain-n14-wide-v1.log contains the lines named in steps 2 and 5 below (this file was written before
+those runs finished; the counts of the runs are in that log and in the bookkeeping files, not here). NOT reviewed by
+a second party. By itself it changes no density bound. FRAME-PREMISE-n14-v1.txt (floor 1/2) is unchanged and is
+implied by this statement.
+
+STATEMENT.  Let L be a lattice of dimension 14 and minimum squared length 1 with
+      density(L) > 14 V_14 2^(-8)           (V_14 = pi^7/5040; the number is 0.0327722...).
+Then any fourteen distinct pairs +-x_1, ..., +-x_14 of one class modulo 2L, each of squared length < 9/4, satisfy
+      sum_i max(|x_i|^2, 2) > 28 + 5/8.
+
+PROOF.  Suppose fourteen such pairs have sum_i max(|x_i|^2, 2) <= 28 + 5/8; we show density(L) <= 14 V_14 2^(-8).
+The proof is that of FRAME-PREMISE-n14-v1.txt with the range 1/4 replaced by 5/16; the steps where the range enters:
+ 1. Reduction, unchanged: d_i := |x_i|^2 - 2, d_i + d_j >= 0, |x_i . x_j| <= (d_i + d_j)/2, at most one d_i negative;
+    Lambda := sqrt 2 L, f_i := x_i/sqrt 2, Gamma := {sum c_i f_i : c in D14}, Gram matrix Q = diag(1 + delta_i) + E,
+    delta_i = d_i/2 <= 1/8, delta_i + delta_j >= 0, |E_ij| <= (delta_i + delta_j)/2, and now
+    sum_i max(delta_i, 0) <= 5/16.
+ 2. det Q >= 1: check_det_n_v1.py 14 5/16 must print PASS (log check-det-n-v1-D5_16.log; the line is copied into
+    chain-n14-wide-v1.log). So covol(Gamma) = 2 sqrt(det Q) >= 2.
+ 3. G := Lambda/Gamma; Q' := Q + nu e_1 e_1^t if delta_1 = -nu < 0; Q' has excesses max(delta_i, 0) in [0, 1/8] with
+    sum <= 5/16 and the same caps; N_Q'(q) >= 2 for every non-zero class of G.
+ 4. Elements of order two: g = c/2 modulo Z^14 with c a 0/1 word of even weight w. For 4 <= w <= 6 the shortest vector
+    of the class with entries +-1/2 on the support has Q'-norm <= (w + 5/16)/4 <= 6.3125/4 < 2; for w = 2 it has
+    Q'-norm <= (2 + delta'_a + delta'_b)/4 + cap_ab/2 <= 2.25/4 + 1/16 < 1. Hence w >= 8 and psi(g) = 14 - 2w <= -2.
+ 5. Other elements: g and 2g are non-zero classes, N_Q'(g) >= 2 and N_Q'(2g) >= 2.
+    HYBRID LEMMA (14; 5/16).  For Q' as above: N_Q'(q) >= 2 and N_Q'(2q) >= 2 imply psi(q) < -1.
+    Computer check by the 13,160 (case, cell) pairs of q, same scheme and programs as in v1 at the range 5/16:
+      one-class table frame_u_scheme_v1.py 14 5/16 0 -1.75; the pairs it leaves in cell mode at -1.05 (depth <= 2);
+      re-checks frame_u_recheck_v1.py (table at -1.75, cells at -1.05); bookkeeping_fu_v2.py with claim -1 lists the
+      pairs not covered by the one-class statement;
+      for those pairs the nine two-class combinations each: frame_u2_cells_batch_v2.py (FRAME_N=14) 5/16 0 0 -1.05,
+      re-check frame_u2_recheck_cells_batch_v2.py (frame_u2_recheck_v2.py);
+      bookkeeping_hybrid_v1.py 14 5/16 -1.
+    The lemma is established only if chain-n14-wide-v1.log contains "RESULT COMPLETE: n=14 claim -1" from
+    bookkeeping_hybrid_v1.py (file HYBRID-BOOKKEEPING-N14-D5_16-T-1.json).
+ 6. Index, unchanged: sum_{g in G} psi(g) = |G| z >= 0, psi(0) = 14; with a elements of order two and b other non-zero
+    elements: if b >= 1 then 0 < 14 - 2a - b <= 14 - (a + b), so |G| - 1 < 14; if b = 0 then |G| <= 8. So |G| <= 14.
+ 7. covol(Lambda) >= 2/14 and density(L) = V_14 2^(-7)/covol(Lambda) <= 14 V_14 2^(-8).                         QED
+
+USE.  Frame case of audit_frame_bound_v1.py with n = 14, S0 = 5/8, T = 9/4, index_cap = 14. Frame complement 0.03277,
+below the bound being proved (about 0.0347). The floor 5/8 was chosen because the floating-point pricing
+(price-v3-n14.log) no longer improves beyond about 9/16.

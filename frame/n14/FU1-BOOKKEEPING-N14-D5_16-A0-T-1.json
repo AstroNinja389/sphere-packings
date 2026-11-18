@@ -1,0 +1,78 @@
+{
+ "n": 14,
+ "delta0": "5/16",
+ "A": "0",
+ "target": "-1",
+ "pairs": 13160,
+ "certified_rows_confirmed": 8136,
+ "empty_rows_confirmed": 4928,
+ "pairs_needing_cells": 96,
+ "cells_confirmed": 81,
+ "pairs_not_covered": [
+  [
+   9,
+   54
+  ],
+  [
+   15,
+   44
+  ],
+  [
+   18,
+   18
+  ],
+  [
+   18,
+   38
+  ],
+  [
+   18,
+   44
+  ],
+  [
+   19,
+   14
+  ],
+  [
+   19,
+   15
+  ],
+  [
+   19,
+   34
+  ],
+  [
+   19,
+   35
+  ],
+  [
+   19,
+   38
+  ],
+  [
+   35,
+   44
+  ],
+  [
+   38,
+   38
+  ],
+  [
+   39,
+   34
+  ],
+  [
+   39,
+   35
+  ],
+  [
+   39,
+   38
+  ]
+ ],
+ "problems": [],
+ "largest_stored_value_of_confirmed_rows": -1.750359990245755,
+ "largest_rechecked_table": -1.750359977154314,
+ "largest_rechecked_cells": -1.0505244404954892,
+ "result": "INCOMPLETE"
+}
