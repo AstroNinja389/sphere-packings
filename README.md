@@ -76,7 +76,8 @@ python -B mixed/audit_mixed_bound.py mixed/n20/bundle.json my-n20-audit.json
 ```
 
 and likewise for `n18`, `n19`, `n21`, `n22`, `n23`. The output file must not exist; the reference outputs are `audit.json`
-in each folder. Needs mpmath. A few seconds each. The gain from the new inequality grows with the dimension: against
+in each folder; a replay agrees with them in every field except the timing and, for `n18` and `n19`, the names and
+hashes of the freshly written kernel-audit files. Needs mpmath. A few seconds each. The gain from the new inequality grows with the dimension: against
 the same method without it, 0.2% in dimension 18 and 1.9% in dimension 23.
 
 **Dimension 15 (`dim15/`), conditional.** A constraint special to this dimension: in a 15-dimensional lattice denser
