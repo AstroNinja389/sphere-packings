@@ -9,6 +9,39 @@
   "earlier_publication": "arXiv:2610.35830, Table 1",
   "results": [
     {
+      "n": 11,
+      "density_upper": "0.094565500874952",
+      "hermite_upper": "2.3217235980737",
+      "comparison": null,
+      "comparison_general_packings_approx": "0.10664",
+      "earlier_published": "0.0949892088",
+      "method": "Theorem 1 certificate plus one joint cut",
+      "replayable_from_this_repository": true,
+      "location": "joint/n11"
+    },
+    {
+      "n": 12,
+      "density_upper": "0.06770167234454",
+      "hermite_upper": "2.4335042038134",
+      "comparison": null,
+      "comparison_general_packings_approx": "0.079503",
+      "earlier_published": "0.0680145536",
+      "method": "Theorem 1 certificate plus one joint cut",
+      "replayable_from_this_repository": true,
+      "location": "joint/n12"
+    },
+    {
+      "n": 13,
+      "density_upper": "0.0486832075907",
+      "hermite_upper": "2.54902152515",
+      "comparison": null,
+      "comparison_general_packings_approx": "0.059905",
+      "earlier_published": "0.0488231948",
+      "method": "Theorem 1 certificate plus one joint cut",
+      "replayable_from_this_repository": true,
+      "location": "joint/n13"
+    },
+    {
       "n": 16,
       "density_upper": "0.0172314323416",
       "hermite_upper": "2.88496372280",

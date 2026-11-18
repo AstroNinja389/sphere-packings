@@ -1,4 +1,4 @@
-# Lattice sphere-packing density: upper bounds in dimensions 16 and 19–22
+# Lattice sphere-packing density: upper bounds in dimensions 11–13, 16 and 19–22
 
 Upper bounds for the density of **lattice** sphere packings, with the exact data needed to check them.
 Nothing here is a claim of optimality, of priority, or about non-lattice packings.
@@ -7,6 +7,9 @@ Nothing here is a claim of optimality, of priority, or about non-lattice packing
 
 | n | Upper bound (this repository) | Comparison value | Published earlier (arXiv:2610.35830, Table 1) | Best known lattice | Check it here |
 |---:|---|---|---|---|---|
+| 11 | 0.094565500874952 | none (general packings: ≈0.10664) | 0.0949892088 | 0.066238 | `joint/n11` |
+| 12 | 0.06770167234454 | none (general packings: ≈0.079503) | 0.0680145536 | 0.049454 | `joint/n12` |
+| 13 | 0.0486832075907 | none (general packings: ≈0.059905) | 0.0488231948 | 0.032014 | `joint/n13` |
 | 16 | 0.0172314323416 | 0.0186552 | 0.0187461206 | 0.0147081 | not yet, see [dim16](dim16/README.md) |
 | 19 | 0.0078055517781953 | 0.00780844 | 0.00782447361 | 0.00412080 | `joint/n19` |
 | 20 | 0.0059269594018778 | 0.00595464 | 0.00595808443 | 0.00322586 | `joint/n20` |
@@ -17,6 +20,8 @@ Nothing here is a claim of optimality, of priority, or about non-lattice packing
 "Comparison value" is the lattice-only upper bound listed in
 [alexlegeartis/SpherePackings, `LATTICE_RESULTS.md`](https://github.com/alexlegeartis/SpherePackings/blob/main/LATTICE_RESULTS.md)
 as read on 18 November 2026 (its release notes are dated 17 November 2026). Those values were not replayed here.
+That table starts at dimension 14; for 11–13 the value in brackets is the upper bound for general packings in the same
+repository (`RESULTS.md`), which also bounds lattices. In 11–13 the gain over the earlier publication is 0.3–0.5%.
 "Best known lattice" is the density of the densest lattice known, rounded down, for orientation only.
 Dimension 20 has two rows: the second is a plain certificate, the first adds one joint cut.
 
@@ -34,7 +39,7 @@ python -B verify/run_all.py --gp /path/to/gp
 `pari` needs PARI/GP. A verifier that cannot run is reported as skipped, never as passed. On the author's machine
 all applicable verifiers pass for the three files (four for n = 20, 22; three for n = 21).
 
-**Dimensions 19 and 20 (`joint/`).** The same kind of function, plus "joint cuts" that couple the lengths of two
+**Dimensions 11, 12, 13, 19 and 20 (`joint/`).** The same kind of function, plus "joint cuts" that couple the lengths of two
 vectors of one class with the lengths of their half-sum and half-difference through positive-definite Gegenbauer
 kernels. The statement and proof sketch are in [`joint/THEOREM.txt`](joint/THEOREM.txt). The audit program
 re-verifies the Fourier function, audits every kernel exactly, and runs a backward dynamic programme over all
@@ -42,12 +47,11 @@ admissible class counts in rational arithmetic:
 
 ```
 python -B joint/audit_joint_bound.py joint/n19/bundle.json my-n19-audit.json
-python -B joint/audit_joint_bound.py joint/n20/bundle.json my-n20-audit.json
 ```
 
-The output file must not exist; the reference outputs of the author's run are `joint/n19/audit.json` and
-`joint/n20/audit.json`. A replay agrees with them in every field except the timing and the names and hashes of the
-freshly written kernel-audit files. Needs mpmath. About ten seconds each.
+and likewise for `n11`, `n12`, `n13`, `n20`. The output file must not exist; the reference output of the author's
+run is `audit.json` in each folder. A replay agrees with them in every field except the timing and the names and hashes of the
+freshly written kernel-audit files. Needs mpmath. Two to ten seconds each.
 
 **Dimension 16 (`dim16/`).** The value 0.0172314323416 is the end of a long chain of exact certificates that uses
 structure specific to dimension 16. **It cannot be replayed from this repository yet**: the chain's programs and
