@@ -1,0 +1,87 @@
+THE BOOTSTRAPPED FRAME FLOOR: A FRAME THEOREM FROM INTEGRALITY OF THE INDEX                      v2, 2026-11-18
+=====================================================================================================================
+NOTE FOR READERS OF THE REPOSITORY. This is the project note, unchanged below the next line. Folder names such as
+../n11-frame-floor-20261118 refer to the working tree of the project. In this repository: the auditor is
+frame/audit_frame_bound.py, the determinant lemma is frame/DETERMINANT-LEMMA-GENERAL-N-v1.txt with frame/check_det_n_v1.py,
+and only the first three rounds of dimension 11 are included (frame/n11/r1, r2, r3, with regenerated premise files).
+Dimensions 10, 12 and 13, the table-based route and the referee folder are not included.
+=====================================================================================================================
+Status: elementary; one author (Claude), one session. An automated referee (not a human) re-derived the proof, the
+induction and the numbers and found no error (section 5). NOT reviewed by a human. The bounds obtained are CONDITIONAL
+on the determinant lemma of the dimension (DETERMINANT-LEMMA-GENERAL-N-v1.txt, numerical step check_det_n_v1.py), on
+the earlier bound used as input, and on the soundness of the exact audits; on nothing else (no lemma tables).
+v2 replaces v1 (kept): results for dimensions 12 and 13, the referee's findings, exact wording of what is assumed.
+
+1. THEOREM B
+Let n >= 9, d_n := V_n 2^(-n/2-1) (the density of D_n), B an upper bound for the density of lattices in dimension n,
+J >= 1 an integer with (J+1) d_n > B, D0 a range at which the determinant lemma holds in dimension n, and S0 a number with
+        0 < S0 <= 2 D0     and     S0 < 4 ln((J+1) d_n / B).                                                   (*)
+Then a lattice L of dimension n and minimum 1 with density(L) > J d_n has no n distinct pairs of one class modulo 2L,
+each of squared length < 9/4, with sum max(|x|^2, 2) <= 2n + S0.
+Proof (written out with the numbers of each instance in the premise files BOOT-PREMISE-n<n>-r<k>.txt). Suppose such
+pairs x_i exist. (1) d_i := |x_i|^2 - 2; x_i +- x_j are non-zero elements of 2L, so d_i + d_j >= 0 and
+|x_i . x_j| <= (d_i + d_j)/2; with Lambda := sqrt 2 L and f_i := x_i/sqrt 2 the lattice Gamma := {sum c_i f_i : c in D_n}
+lies in Lambda, and the Gram matrix Q of the f_i has diagonal 1 + delta_i, delta_i = d_i/2 <= 1/8, off-diagonal entries
+bounded by (delta_i + delta_j)/2, and sum max(delta_i, 0) <= S0/2 <= D0. (2) det Q >= 1 (determinant lemma), so Gamma
+has rank n and covolume 2 sqrt(det Q), j := [Lambda : Gamma] is a positive integer, and
+density(L) = j d_n/sqrt(det Q). (3) density(L) > J d_n and det Q >= 1 give j > J, so j >= J + 1. (4) density(L) <= B gives
+sqrt(det Q) >= (J+1) d_n/B. (5) Hadamard: det Q <= prod (1 + delta_i) <= exp(sum delta_i) <= exp(S0/2). (6) So
+S0 >= 4 ln((J+1) d_n/B), against (*).                                                                         QED
+The whole content: THE INDEX IS AN INTEGER. Step (3) needs det Q >= 1; in dimension 2, where the lemma is not claimed,
+the conclusion is false (referee's example).
+
+2. USE AND ITERATION
+The frame case of the auditor (index_cap = J, S0, T = 9/4) gives an audited density B' for lattices denser than J d_n;
+the final bound is max(B', J d_n). If J d_n <= B' < B the theorem applies again with B' in place of B.
+Induction (U_k := "every lattice of the dimension has density <= B_k"; P_k := the statement of premise file k):
+U_(k-1) and the determinant lemma imply P_k (it uses B_(k-1), never B_k); P_k and the audit of round k imply U_k.
+So U_0 => P_1 => U_1 => P_2 => ... , strictly forward. The last bound is conditional on U_0, the determinant lemma, and
+the soundness of the audit program in EVERY round: all premise files and all audits of the chain are part of the proof.
+J must be at most floor(B/d_n), and J d_n has to end below the bound.
+
+3. RESULTS (exact audits; B_0 = audited value of the 4 November sweep)
+   n    B_0                  J   rounds: floor S0 -> audited final
+   10   0.13010849917496     3   1/2 (capped by the range 1/4 of the determinant lemma) -> 0.12905059600947
+   11   0.094565500874952    4   383/1000 -> 0.093329630746561;  87/200 -> 0.093045523827957;
+                                 447/1000 -> 0.092981475168202;  9/20 -> 0.092981475148541
+   12   0.06770167234454     6   151/500 -> 0.067198911585768;  331/1000 -> 0.067111875866938;
+                                 337/1000 -> 0.067093538198056;  169/500 -> 0.0670904706951
+   13   0.0486832075907      9   13/100 -> 0.048674639854163;  131/1000 -> 0.048672921799008
+   Dimension 11: the table-based frame theorem (../n11-frame-floor-20261118/FRAME-PREMISE-n11-v1.txt: Lemma U(11; 1/4),
+   floor 1/2, index <= 4) gives 0.092981475041441: the two routes agree to nine digits, because the floor stops binding
+   near 0.447 (round 4 improves round 3 by 2e-11 only). Three rounds are enough.
+   Dimension 10: same floor and index cap as the table-based route (../n10-frame-floor-20261118/FRAME-PREMISE-n10-v1.txt),
+   same value. The determinant lemma fails its condition (C2) at range 3/8 in dimension 10, so the floor is capped at 1/2
+   although (*) would allow 0.81.
+   Dimensions 12, 13: weaker than the table-based theorems of ../n12-23-frame-floor-20261118 (0.066670465797823 and
+   0.047947694667495), because B/d_n = 6.49 and 9.68 leave a small integrality gap.
+   Dimensions 14, 15: B/d_n = 15.03 and 24.28, the complement J d_n would be above the table-based bounds; from 17 on
+   B/d_n is 71 ... 3923 and the floors are below 0.05. Not useful there.
+   Folders: ../n11-frame-floor-20261118/bound/n11-boot-r1..r4, ../n10-frame-floor-20261118/bound/n10-boot-r1,
+   bound/n12-boot-r1..r4 and bound/n13-boot-r1..r2 here; logs chain-boot-n<n>-v2.log.
+
+4. A POSSIBLE SHARPENING (not carried out)
+The index is the order of a finite group G in R^n/D_n all of whose non-zero classes have norm >= 2. An element of odd
+prime order p has all its multiples in G, and the sum of their norms is small: at Q = I the norms of g, 2g, ..., ((p-1)/2) g
+add up to at most m (p^2-1)/(24 p) + (p-1)^2/(4p) for m non-zero coordinates (the second term for classes whose nearest
+integer vector has odd coordinate sum), which is below the required p - 1 when m < 18 - 12/(p+1). So for exact frames in
+dimension n <= 14 the group is a 2-group and the index is a power of 2; with a perturbed Q the same computation with
+N_Q(w) <= |w|^2 + D+ |w|_inf |w|_1 excludes orders 3, 5, 7 in dimension 12 for D+ <= 0.21 and orders 3, 5 in dimension 13
+for D+ <= 0.13. That would turn "j >= J + 1" into "j >= next power of 2" and give lemma-free floors of about 0.43 in
+dimension 12 (index <= 4) and 0.26 in dimension 13 (index <= 8). Only sketched; every constant here needs checking.
+
+5. AUTOMATED REVIEW (18 November 2026; one referee, not a human; folder ../n11-frame-floor-20261118/review-B1)
+Re-derived steps (1)-(6) including the covolume of the D_n-frame lattice, the density formula (checked on D_n, E_8,
+D_12^+, D_16^+ and on about 12,500 skewed frames), strictness of every inequality, and the match with the premise the
+auditor assumes; spelled out the induction (section 2 is its formulation); recomputed the numbers of all rounds of
+dimension 11 at 120 digits; re-ran the determinant check and tested 600,000 random matrices (least determinant 1.000006).
+No error. Its remarks, all taken over: the determinant lemma was cited by reference to the fifteen-coordinate note
+(now written out: DETERMINANT-LEMMA-GENERAL-N-v1.txt); "valid if B is" was too short (section 2 now lists what is
+assumed); the premise files printed interval end points clumsily and did not bind the previous audit by hash (the
+generator gen_boot_premise_v5.py does both; the scratch rounds keep their original premise files, the repository
+copies are regenerated with the same n, B, J, S0); the statement also holds with "squared length <= 9/4".
+
+6. REMARK ON DIMENSION 10
+The sweep report DIMENSION-10-REPORT-v1.json mentions a "prior stronger bound pi^5/(120 * 2^(35/8)) < 0.122903". That
+number is Mordell's inequality applied to gamma_9 = 2, the conjectured value, not a proved bound. I know of no proved
+bound for lattices in dimension 10 below 0.129; to be checked by the owner before the dimension-10 value is used.

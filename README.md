@@ -7,7 +7,7 @@ Nothing here is a claim of optimality, of priority, or about non-lattice packing
 
 | n | Upper bound (this repository) | Comparison value | Best known lattice | Check it here |
 |---:|---|---|---|---|
-| 11 | 0.094565500874952 | none (general packings: ≈0.10664) | 0.066238 | `joint/n11` |
+| 11 | 0.092981475168202 (conditional) | none (general packings: ≈0.10664) | 0.066238 | `frame/n11` |
 | 12 | 0.06770167234454 | none (general packings: ≈0.079503) | 0.049454 | `joint/n12` |
 | 13 | 0.0486832075907 | none (general packings: ≈0.059905) | 0.032014 | `joint/n13` |
 | 15 | 0.025212337452388 (conditional) | 0.0255112 | 0.0168575 | `dim15` |
@@ -25,10 +25,11 @@ as read on 18 November 2026 (its release notes are dated 17 November 2026). Thos
 That table starts at dimension 14; for 11–13 the value in brackets is the upper bound for general packings in the same
 repository (`RESULTS.md`), which also bounds lattices.
 "Best known lattice" is the density of the densest lattice known, rounded down, for orientation only.
-Weaker bounds for dimensions 19–22 that are also in this repository and are checked by other programs:
+Weaker bounds that are also in this repository and are checked by other programs:
 
 | n | Upper bound | Check it here | Method |
 |---:|---|---|---|
+| 11 | 0.094565500874952 | `joint/n11` | certificate plus one joint cut (unconditional) |
 | 19 | 0.0078055517781953 | `joint/n19` | certificate plus joint cuts |
 | 20 | 0.0059269594018778 | `joint/n20` | certificate plus one joint cut |
 | 20 | 0.0059274281468171 | `certificates/n020.json` | plain certificate, four verifiers |
@@ -63,7 +64,7 @@ and likewise for `n11`, `n12`, `n13`, `n20`. The output file must not exist; the
 run is `audit.json` in each folder. A replay agrees with them in every field except the timing and the names and hashes of the
 freshly written kernel-audit files. Needs mpmath. Two to ten seconds each.
 
-**Dimensions 18–23 (`mixed/`).** The same kind of function and joint cuts, plus one new inequality for the vectors of a
+**Dimensions 18–23 (`mixed/`).** The same kind of function (with one joint cut in dimensions 18 and 19), plus one new inequality for the vectors of a
 class modulo 2L (the "mixed relative bound"): if y₁, …, y_K lie in one class, are pairwise different up to sign and
 have squared lengths mᵢ between 2 and 2√2 (minimum 1), then Σ (1 − 2/mᵢ)² ≥ K(K − n)/(n(K − 1)). For equal lengths
 this is the relative bound for lines, which the class budget of the earlier paper uses through cumulative caps; the
@@ -77,8 +78,29 @@ python -B mixed/audit_mixed_bound.py mixed/n20/bundle.json my-n20-audit.json
 
 and likewise for `n18`, `n19`, `n21`, `n22`, `n23`. The output file must not exist; the reference outputs are `audit.json`
 in each folder; a replay agrees with them in every field except the timing and, for `n18` and `n19`, the names and
-hashes of the freshly written kernel-audit files. Needs mpmath. A few seconds each. The gain from the new inequality grows with the dimension: against
-the same method without it, 0.2% in dimension 18 and 1.9% in dimension 23.
+hashes of the freshly written kernel-audit files. Needs mpmath. A few seconds each. The gain grows with the dimension: against the earlier entries of this
+repository listed above it is 0.49% in dimension 19, 0.79% in 20, 1.17% in 21 and 1.57% in 22.
+
+**Dimension 11 (`frame/`), conditional on a determinant lemma.** A class with eleven pairs of squared length about 2
+(a "frame") forces the lattice to contain a perturbed copy of D₁₁, so its density is (index) × (density of that copy),
+and the index is an integer. If the lattice is denser than 4 times the density of D₁₁, the index is at least 5, and
+the bound already known for dimension 11 then forces the Gram determinant of the frame, hence the excess
+Σ max(|x|², 2) − 22, to be large. This gives a floor on such classes with no further input; the bound it yields is
+used as the known bound of the next round. Three rounds (`frame/n11/r1`, `r2`, `r3`), each with its own premise file
+(statement, numbers, six-line proof) and exact audit:
+
+```
+python -B frame/check_det_n_v1.py 11 1/4
+python -B frame/audit_frame_bound.py frame/n11/r1/bundle.json my-n11-r1.json
+```
+
+and likewise `r2`, `r3`. Round 1 starts from the bound of `joint/n11`; rounds 2 and 3 start from the result of the
+previous round (the number in its `audit.json`). The general statement is in
+[`frame/BOOTSTRAPPED-FRAME-FLOOR.txt`](frame/BOOTSTRAPPED-FRAME-FLOOR.txt). **The condition:** the proof uses det Q ≥ 1
+for the Gram matrix of a near-frame. That is the determinant lemma, written out for general dimension in
+[`frame/DETERMINANT-LEMMA-GENERAL-N-v1.txt`](frame/DETERMINANT-LEMMA-GENERAL-N-v1.txt); its last step is an interval
+computation done by `frame/check_det_n_v1.py` (a few seconds; the stored output is `frame/n11/check-det-n-v1-N11-D1_4.log`).
+Each round is also conditional on the bound it starts from and on the audit program. Needs mpmath.
 
 **Dimension 15 (`dim15/`), conditional.** A constraint special to this dimension: in a 15-dimensional lattice denser
 than the laminated lattice Λ₁₅, any fifteen distinct pairs of one class modulo 2L, each of squared length at most
@@ -111,8 +133,14 @@ notes, the final audit outputs with their hash lists, and an inventory of what t
 - The mixed relative bound (dimensions 18–23) was written and machine-tested inside the project on 18 November 2026.
   Two independent automated reviewers (not humans) re-derived the proof, attacked it numerically (including all
   classes of the Barnes–Wall lattice in dimension 16, where it holds with equality on some classes) and recomputed
-  the dimension-20 audit with their own code; they found no error. Their findings are summarised in section 7 of
-  the note. No human has reviewed it. The auditor is a single implementation.
+  a dimension-20 audit of the project with their own code; they found no error (section 7 of the note). A third
+  automated reviewer worked from this repository alone: it replayed the six bundles and recomputed the class budget
+  of each with its own program (a different dynamic programme; the joint-cut part of dimensions 18 and 19 was
+  reused), in agreement on all 97 rows in every dimension. No human has reviewed any of this.
+- The dimension-11 frame floor was written on 18 November 2026. An automated reviewer (not a human) re-derived the
+  six steps, the induction over the rounds and the numbers; see the end of `frame/BOOTSTRAPPED-FRAME-FLOOR.txt`.
+  The determinant lemma it uses was reviewed with the dimension-15 lemmas (automated review only). No human has
+  reviewed either.
 - The dimension-15 constraint rests on three lemmas written and machine-checked inside the project. On
   18 November 2026 five independent automated reviewers (not humans) re-derived them, tested them against brute
   force and searched for counterexamples; they found no error, and three gaps of exposition that are now written
@@ -136,6 +164,7 @@ No licence has been chosen yet; none is granted by this checkout.
 - `verify/` – the four verifiers, the GP script, and `run_all.py`.
 - `joint/` – auditor, kernel auditors, theorem note, and one bundle per dimension.
 - `mixed/` – the mixed relative bound (note with proof), its auditor, and one bundle per dimension 18–23.
+- `frame/` – the bootstrapped frame floor: note, determinant check, auditor with the frame case, three rounds for dimension 11.
 - `dim15/` – auditor, bundle, theorem note, the lemma documents and the review summary.
 - `dim16/` – statement, documents, final audit outputs (paths inside them are replaced by `<TREE-A>`, `<TREE-B>`).
 - `results.json` – the table above in machine-readable form.

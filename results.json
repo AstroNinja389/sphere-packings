@@ -9,13 +9,25 @@
   "results": [
     {
       "n": 11,
+      "density_upper": "0.092981475168202",
+      "hermite_upper": "2.3146037038279",
+      "comparison": null,
+      "comparison_general_packings_approx": "0.10664",
+      "method": "Theorem 1 certificate plus joint cut plus bootstrapped frame floor (three rounds)",
+      "conditional_on": "determinant lemma in dimension 11 (frame/check_det_n_v1.py; automated review only)",
+      "replayable_from_this_repository": true,
+      "location": "frame/n11"
+    },
+    {
+      "n": 11,
       "density_upper": "0.094565500874952",
       "hermite_upper": "2.3217235980737",
       "comparison": null,
       "comparison_general_packings_approx": "0.10664",
       "method": "Theorem 1 certificate plus one joint cut",
       "replayable_from_this_repository": true,
-      "location": "joint/n11"
+      "location": "joint/n11",
+      "superseded_in_this_repository_by": "frame/n11 (conditional)"
     },
     {
       "n": 12,
