@@ -1,0 +1,124 @@
+THE MIXED RELATIVE BOUND FOR THE VECTORS OF ONE CLASS MODULO 2L, AND ITS USE AS A CUT          v2, 2026-11-18
+=====================================================================================================================
+NOTE FOR READERS OF THE REPOSITORY. This is the project note, unchanged below the next line. File names in sections 3, 5,
+6 and 7 refer to the working tree of the project, not to this repository: the auditor here is mixed/audit_mixed_bound.py
+(a portable copy; see its header), the verifier module is verify/bernstein.py, and the referees' folders and the test
+script are not included. "v1" of this note is not included either; it differed as described in the status paragraph.
+=====================================================================================================================
+Status: statement and proof are elementary and written out in full below. Written by one author (Claude) in one
+session; machine tests of the identity, of the inequality and of the auditor are listed in section 5. Two independent
+AUTOMATED referees (not humans) re-derived the proof, attacked it numerically and recomputed an audit; they found no
+error (section 7). NOT reviewed by a human. No frame theorem and no other project lemma is used.
+v2 replaces v1 (kept unchanged): one overstated sentence of section 3 is corrected, Lemma S is stated in its exact form,
+and the referees' findings are recorded. The theorem as used by the auditor is unchanged.
+
+1. STATEMENT
+THEOREM MR.  Let L be a lattice in R^n with |v|^2 >= 1 for every non-zero v in L. Let y_1, ..., y_K (K >= 2) be
+vectors of L lying in one class modulo 2L, with y_i != y_j and y_i != -y_j for i != j, and with
+        2 <= m_i := |y_i|^2 <= 2 sqrt 2      for all i.
+Then, with alpha(m) := 1 - 2/m,
+        sum_{i=1}^K alpha(m_i)^2  >=  R_n(K) := K (K - n) / (n (K - 1)).
+Remarks. (a) For equal lengths m_i = m this reads K (1 - n alpha^2) <= n (1 - alpha^2), the "relative bound" for K
+lines with |cos| <= alpha = 1 - 2/m; that is the bound from which the cumulative caps of the class budget are computed
+(verify/bernstein.py, long_cap). Theorem MR is stronger for classes whose lengths are spread: each vector enters
+with its own alpha.  (b) Equality holds for a frame: K = n, all m_i = 2 (not the only equality case, see section 7).
+(c) The statement holds for every subset of the vectors, hence for the K shortest ones.  (d) The lower limit
+m_i >= 2 is not used by the proof: Lemma S below holds whenever m m' <= 8, so the theorem holds for any vectors of
+one class with m_i m_j <= 8 for all i != j, e.g. with the short pair of the class included (alpha(m)^2 is then
+decreasing on [1, 2)). The cut of section 3 does not use this.  (e) n may be replaced by the rank of the span of
+the y_i (same proof inside the span).
+
+2. PROOF
+(1) For i != j the vectors y_i - y_j and y_i + y_j lie in 2L (same class; and 2 y_j is in 2L) and are non-zero.
+    A non-zero element of 2L has squared length >= 4. So m_i + m_j -+ 2 <y_i, y_j> >= 4, i.e.
+          |<y_i, y_j>| <= c_ij := (m_i + m_j)/2 - 2          (and c_ij >= 0 as m_i, m_j >= 2).
+(2) u_i := y_i / sqrt(m_i), A := sum_i u_i u_i^t, a positive semidefinite n x n matrix of trace K. Its eigenvalues
+    l_1, ..., l_n >= 0 satisfy sum l^2 >= (sum l)^2 / n, i.e. tr(A^2) >= K^2/n. And
+          tr(A^2) = sum_{i,j} <u_i, u_j>^2 = K + sum_{i != j} <y_i, y_j>^2/(m_i m_j) <= K + sum_{i != j} c_ij^2/(m_i m_j).
+(3) LEMMA S.  For m, m' in [2, 2 sqrt 2], with p = alpha(m), q = alpha(m'):
+          ((m + m')/2 - 2)^2 / (m m')  <=  (p^2 + q^2)/2.
+    Proof. m = 2/(1-p), m' = 2/(1-q), and p, q lie in [0, p*], p* := 1 - 1/sqrt 2. Then
+          (m + m')/2 - 2 = (p + q - 2pq)/((1-p)(1-q)),     m m' = 4/((1-p)(1-q)),
+    so the left side is (p + q - 2pq)^2 / (4 (1-p)(1-q)). The identity
+          2 (p^2 + q^2)(1-p)(1-q) - (p + q - 2pq)^2 = (p - q)^2 (1 - 2p - 2q + 2pq)
+    (expand both sides; checked by sympy, section 5) reduces the claim to 1 - 2p - 2q + 2pq >= 0. Now
+    1 - 2p - 2q + 2pq = (1-2p)(1-2q) - 2pq; on [0, p*]^2 the first product is >= (1 - 2p*)^2 = (sqrt 2 - 1)^2
+    = 3 - 2 sqrt 2 (both factors are positive and decreasing), and 2pq <= 2 p*^2 = 3 - 2 sqrt 2.              QED
+    Exact form (referee R1): 1 - 2p - 2q + 2pq = 2(1-p)(1-q) - 1 = 8/(m m') - 1, so
+          (p^2 + q^2)/2 - ((m + m')/2 - 2)^2/(m m') = (m - m')^2 (8 - m m') / (4 m^2 m'^2):
+    the lemma holds exactly when m = m' or m m' <= 8. Beyond that it fails, and so does Theorem MR in the relaxed
+    setting (vectors subject only to (1)): four vectors in R^3 with squared lengths 18/5, 14/5, 14/5, 14/5 (referee's
+    example) satisfy (1) and violate the inequality. The upper limit cannot simply be dropped.
+(4) By (3), sum_{i != j} c_ij^2/(m_i m_j) <= sum_{i != j} (alpha_i^2 + alpha_j^2)/2 = (K - 1) sum_i alpha_i^2. With (2):
+          K + (K - 1) sum_i alpha_i^2 >= K^2/n,    i.e.    sum_i alpha_i^2 >= K (K - n)/(n (K - 1)).           QED
+
+3. THE CUT IN THE CLASS BUDGET
+Setting of Theorem 1 of arXiv:2610.35830 and of the exact auditors (audit_full_dimension_bound_v2.py of the 4 November
+sweep; audit_frame_bound_v1.py): grid 1 = E_0 < ... < E_M, E_J = 2; a non-zero class modulo 2L is described by the
+numbers N_b of its pairs +-x with |x|^2 in bin b = [E_b, E_(b+1)); at most one pair is shorter than 2 ("short pair").
+The auditor maximises a score (bin weights, minus joint penalties, plus frame terms) over all profiles allowed by
+the cumulative caps; the maximum is the class budget.
+CUT (S, lambda): S a grid point with 2 < S and S^2 <= 8, lambda >= 0. For a class let K be the number of its long pairs
+(squared length >= 2) of squared length < S, i.e. in the bins J <= b < index(S), and a_b := alpha(E_(b+1))^2. Then
+          sum_{J <= b < index(S)} N_b a_b  -  max(0, R_n(K))  >=  0          [R_n(K) := 0 for K <= 1].
+Proof. Take one vector from each of those K pairs: they are in one class, pairwise different up to sign, with squared
+lengths in [2, S) and S <= 2 sqrt 2. alpha is increasing and >= 0 on [2, oo), so alpha(m)^2 <= a_b for m in bin b, and the left sum is
+>= sum_i alpha(m_i)^2, which is >= 0 and, for K >= 2, >= R_n(K) by Theorem MR.                               QED
+So lambda times the left side may be added to the score of every class: the auditor adds lambda a_b to the weight of
+each long bin below S and subtracts lambda max(0, R_n(K)) at the bin ending at S, where K is the cumulative number of
+long pairs there (the short pair is not counted). Several cuts (different S) add up. The class budget computed with
+the cuts is an upper bound for the score of every real class, for every choice of the multipliers lambda >= 0.
+(Whether it is smaller than without the cuts depends on the multipliers: profiles that satisfy the inequality strictly
+have their score raised. The search chooses them; the audit certifies whatever results.)
+Rounding: bin weights up, table values down (exact rational arithmetic, denominator 10^16).
+The cut uses nothing about the lattice beyond minimum 1; the bound obtained needs no premise and has no complement.
+
+4. WHY IT HELPS (numerical observation, not part of the proof)
+Without frame case the maximising classes in dimensions 17-23 have many pairs with lengths spread between 2 and the top
+of the grid. The cumulative caps only say "at most cap(S) pairs up to S", each computed as if all those pairs had the
+largest length S; Theorem MR charges every pair with its own length. Search values (whatif-mr-v1.log), change against
+the audited value of the 4 November sweep: n = 17: -0.08 %, 18: -0.24 %, 19: -0.49 %, 20: -0.79 %, 21: -1.18 %,
+22: -1.57 %, 23: -1.95 %. With the frame floor in force it gave nothing in dimensions 11 and 15.
+
+5. MACHINE TESTS (test_audit_mr_v1.py, log test-audit-mr-v1.log; all pass)
+ T1  the dynamic programme with a count table equals brute-force enumeration on 400 random instances (with and
+     without short pair, joint penalties, frame extras);
+ T2  the identity of Lemma S (sympy expansion), the substitution m = 2/(1-p), and 1 - 2p - 2q + 2pq >= 0 on a grid of
+     exact rationals in [0, p*]^2; (1 - 2p*)^2 = 2 p*^2 exactly;
+ T3  Theorem MR on 4000 random configurations satisfying (1) in dimensions 3-8 (least slack 0.015);
+ T4  Theorem MR on the classes modulo 2L of D4, D5, D6 (scaled to minimum 1), all vectors in range: holds, with
+     equality on the frame classes; on E8 with a partial enumeration of the vectors (subsets only; holds).
+ Regression: audit_mr_bound_v1.py without a 'mixed' entry is audit_frame_bound_v1.py (generated by counted
+     replacements, make_audit_mr_bound_v1.py).
+
+6. NOT DONE
+ - Review by a human.
+ - The short pair is ignored by the cut (it could be included with a weight, or by projecting as short_cap does).
+ - The pairwise form before Lemma S (sum over i != j of c_ij^2/(m_i m_j)) is sharper for spread lengths but is not
+   separable; not used.
+ - Lengths beyond 2 sqrt 2 and beyond the present top of the grids (where the equal-length cap degenerates,
+   n alpha^2 >= 1) are not used; Theorem MR itself does not need n alpha^2 < 1.
+ - Higher-degree positivity (Gegenbauer degree 4 and up) for mixed lengths.
+ - Tried and found useless or nearly so (search values, dimension 20): separate multipliers for classes with different
+   numbers of long pairs (no change: the single multiplier per cut is already exact for the optimum); a two-group form
+   that bounds the pairs between near-frame vectors and longer ones without Lemma S (-0.799 % instead of -0.790 %).
+ - Dimensions above 24: with the published certificates (range up to 9/4) and with a wider range the cut changed
+   nothing in dimensions 25 and 28 (search values).
+
+7. AUTOMATED REVIEW (18 November 2026; two independent referees, not humans; folders review-R1, review-R2)
+ R1 (proof): re-derived steps (1)-(4) and Lemma S (own sympy check), checked section 3 for off-by-one errors at the
+   bin ends, K <= 1, and the meaning of max(0, R): no error. Own numerical attack in the relaxed setting (n = 2..8, all
+   K, free lengths): least slack 0 within rounding, attained at frames and at simplex configurations (K = n+1, all
+   m = 2n/(n-1)); mixed-length optima with K > n have slack >= 0.0395. Real lattices: Barnes-Wall in dimension 16 (all
+   classes; least slack 0 at the 135 frame classes; the 30,720 classes with a short pair and 36 pairs of length 5/2
+   have slack 27/175 for n = 16 and EQUALITY for the rank 15 of their span), 20 sections of it, 17,210 random
+   congruence lattices in dimensions 4-8, D4-D8, E8: no violation. Leech lattice by counting (276 pairs of length 5/2
+   in rank 23: equality). Findings taken over in v2: the overstated sentence of section 3, remarks (d), (e), the exact
+   form of Lemma S. (The lattice computations are the referee's; I have not repeated them.)
+ R2 (auditor): the generated auditor differs from its base only by the listed replacements and implements section 3
+   exactly (bins, table index without the short pair, rounding directions); own independent recomputation of the
+   dimension-20 instance agrees on all 97 row values and on the class budget (difference 0); 3000 random instances of
+   the dynamic programme against brute force; regression without cuts identical to the base auditor. Gaps reported:
+   no guard against python -O, the output did not say that the number rests on this statement, the statement file
+   was not hash-bound, the docstring described the base program. All four are addressed in audit_mr_bound_v2.py
+   (make_audit_mr_bound_v2.py); the arithmetic is unchanged.

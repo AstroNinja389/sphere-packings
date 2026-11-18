@@ -57,13 +57,44 @@
       "location": "dim16"
     },
     {
+      "n": 18,
+      "density_upper": "0.010336520221586",
+      "hermite_upper": "3.1771410470473",
+      "comparison": "0.0103439",
+      "method": "Theorem 1 certificate, joint cuts where they help, plus mixed relative bound cuts",
+      "rests_on": "mixed/MIXED-RELATIVE-BOUND.txt (elementary; automated review only)",
+      "replayable_from_this_repository": true,
+      "location": "mixed/n18"
+    },
+    {
+      "n": 19,
+      "density_upper": "0.0077671805985286",
+      "hermite_upper": "3.3123114994643",
+      "comparison": "0.00780844",
+      "method": "Theorem 1 certificate, joint cuts where they help, plus mixed relative bound cuts",
+      "rests_on": "mixed/MIXED-RELATIVE-BOUND.txt (elementary; automated review only)",
+      "replayable_from_this_repository": true,
+      "location": "mixed/n19"
+    },
+    {
       "n": 19,
       "density_upper": "0.0078055517781953",
       "hermite_upper": "3.3140301652048",
       "comparison": "0.00780844",
       "method": "Theorem 1 certificate plus two joint cuts",
       "replayable_from_this_repository": true,
-      "location": "joint/n19"
+      "location": "joint/n19",
+      "superseded_in_this_repository_by": "mixed/n19"
+    },
+    {
+      "n": 20,
+      "density_upper": "0.0058802043811005",
+      "hermite_upper": "3.4500521838708",
+      "comparison": "0.00595464",
+      "method": "Theorem 1 certificate, joint cuts where they help, plus mixed relative bound cuts",
+      "rests_on": "mixed/MIXED-RELATIVE-BOUND.txt (elementary; automated review only)",
+      "replayable_from_this_repository": true,
+      "location": "mixed/n20"
     },
     {
       "n": 20,
@@ -72,7 +103,8 @@
       "comparison": "0.00595464",
       "method": "Theorem 1 certificate plus one joint cut",
       "replayable_from_this_repository": true,
-      "location": "joint/n20"
+      "location": "joint/n20",
+      "superseded_in_this_repository_by": "mixed/n20"
     },
     {
       "n": 20,
@@ -81,7 +113,18 @@
       "comparison": "0.00595464",
       "method": "Theorem 1 certificate, wider length range",
       "replayable_from_this_repository": true,
-      "location": "certificates/n020.json"
+      "location": "certificates/n020.json",
+      "superseded_in_this_repository_by": "mixed/n20"
+    },
+    {
+      "n": 21,
+      "density_upper": "0.0044694365948149",
+      "hermite_upper": "3.5890894251631",
+      "comparison": "0.00455796",
+      "method": "Theorem 1 certificate, joint cuts where they help, plus mixed relative bound cuts",
+      "rests_on": "mixed/MIXED-RELATIVE-BOUND.txt (elementary; automated review only)",
+      "replayable_from_this_repository": true,
+      "location": "mixed/n21"
     },
     {
       "n": 21,
@@ -90,7 +133,18 @@
       "comparison": "0.00455796",
       "method": "Theorem 1 certificate, wider length range",
       "replayable_from_this_repository": true,
-      "location": "certificates/n021.json"
+      "location": "certificates/n021.json",
+      "superseded_in_this_repository_by": "mixed/n21"
+    },
+    {
+      "n": 22,
+      "density_upper": "0.0033989364209325",
+      "hermite_upper": "3.7282147034722",
+      "comparison": "0.00348294",
+      "method": "Theorem 1 certificate, joint cuts where they help, plus mixed relative bound cuts",
+      "rests_on": "mixed/MIXED-RELATIVE-BOUND.txt (elementary; automated review only)",
+      "replayable_from_this_repository": true,
+      "location": "mixed/n22"
     },
     {
       "n": 22,
@@ -99,7 +153,18 @@
       "comparison": "0.00348294",
       "method": "Theorem 1 certificate, wider length range",
       "replayable_from_this_repository": true,
-      "location": "certificates/n022.json"
+      "location": "certificates/n022.json",
+      "superseded_in_this_repository_by": "mixed/n22"
+    },
+    {
+      "n": 23,
+      "density_upper": "0.002581019409686",
+      "hermite_upper": "3.8667510049625",
+      "comparison": "0.00260841",
+      "method": "Theorem 1 certificate, joint cuts where they help, plus mixed relative bound cuts",
+      "rests_on": "mixed/MIXED-RELATIVE-BOUND.txt (elementary; automated review only)",
+      "replayable_from_this_repository": true,
+      "location": "mixed/n23"
     }
   ]
 }
