@@ -1,0 +1,6 @@
+waiting since 10:42
+queues done 14:26
+RESULT COMPLETE: n=10, two-class table at A=53/1000, B=53/250, claim -21/2: 118440 rows = 74088 certified + 44352 empty + 0 left; largest stored -35.69575680191422, largest re-checked -35.6955415728894; problems []
+written TEN-PAIRS-PREMISE-n11-v1.txt
+COUNT_BOUND n=11 count=10 S0=3/4: search density 0.0907707046622, AUDITED 0.090771844556272, complement 0.0905, FINAL 0.090771844556272 (audited density); sweep value 0.094565500874952 (-4.012%); 94 s [14:28]
+FINISH DONE 14:28

@@ -1,0 +1,64 @@
+DETERMINANT LEMMA FOR PERTURBED FRAMES IN DIMENSION n                                            v2, 2026-11-18
+=====================================================================================================================
+Status: this is DETERMINANT-LEMMA-v1.txt (15 November 2026, fifteen coordinates) written out for a general number n of
+coordinates; steps 1 and 2 are the same argument with n in place of 15, step 3 is the one stated in the header of
+check_det_n_v1.py and checked by that program. One author (Claude); automated review only (the fifteen-coordinate
+lemma was reviewed with the dimension-15 lemmas; an automated referee re-derived the formula of step 2, the row margin
+and the reduction of step 3 for n = 11 and tested 600,000 random matrices). NOT reviewed by a human.
+
+CHANGE IN v2 (v1 is kept). ONE change: condition (C2) reads nu <= DELTA0/(n-1) <= 1/8 instead of <= 3/104, and the
+program is check_det_n_v2.py (the same program with that one assertion changed). Why this is enough: nu enters the proof
+only through (a) the inequality ln(1+t) >= t - (27/50) t^2/(1+t) at t = -2 nu, which step 3 proves on all of (-1, 1/4];
+(b) 1 - 2 nu > 0 in the bound for gamma; (c) the grid of the program, which covers r = nu/D+ in [0, 1/(n-1)] (always
+true, as the other n - 1 entries are >= nu); and, in steps 1 and 2, through 1 + delta_i > 0 and 1 + 2 delta_i >= 3/4,
+which hold for nu <= 1/8. In fact nu <= 1/8 always (some other entry is >= nu and <= 1/8). The number 3/104 came from the
+fifteen-coordinate file, whose check of the logarithm inequality covered only [-3/52, 1/4]. The change in v2 has NOT been
+reviewed, not even by an automated referee, at the time of writing.
+
+SETTING.  n >= 9. delta in R^n with delta_i <= 1/8 and delta_i + delta_j >= 0 for i != j (so at most one delta_i is
+negative, and then every other entry is >= its absolute value). Delta := sum_i delta_i, D+ := sum_i max(delta_i, 0).
+Q = I + diag(delta) + E, E symmetric with zero diagonal and |E_ij| <= cap_ij := (delta_i + delta_j)/2.
+RANGE.  D+ <= DELTA0, where DELTA0 is such that `check_det_n_v2.py n DELTA0` prints PASS (it checks (C1)-(C3) below).
+
+LEMMA.  det Q >= 1.   More precisely det Q >= Phi_n(delta) >= exp(D+ L) with L > 0 the number printed by the program,
+        Phi_n(delta) := prod_i (1 + 2 delta_i) * [ (1 - Delta/2)^2 - gamma ((n-8)/4 + Delta/2) ],
+        gamma := sum_i delta_i^2/(1 + 2 delta_i).
+
+PROOF.
+Step 1 (comparison with E = -cap).  Let C be the matrix with zero diagonal and C_ij = cap_ij >= 0, Dg := I + diag(delta)
+(positive, as delta_i >= -1/8), and for t in [0, 1]:  Q(t) := Dg + t E,  M(t) := Dg - t C.
+Row sums: sum_{j != i} cap_ij = (Delta + (n-2) delta_i)/2, so
+      (1 + delta_i) - sum_{j != i} cap_ij = 1 - Delta/2 - ((n-4)/2) delta_i >= 1 - DELTA0/2 - (n-4)/16 > 0     (C1)
+(for delta_i <= 1/8 and Delta <= D+ <= DELTA0; for a negative delta_i the left side is larger).
+So B_M := t Dg^(-1) C >= 0 has all row sums < 1, and B_Q := -t Dg^(-1) E satisfies |B_Q| <= B_M entrywise. Neumann series:
+      Q(t)^(-1) = (sum_k B_Q^k) Dg^(-1),    |Q(t)^(-1)| <= (sum_k B_M^k) Dg^(-1) = M(t)^(-1) entrywise,   M(t)^(-1) >= 0.
+Both determinants are positive on [0, 1] (they equal prod (1 + delta_i) at t = 0 and never vanish), and
+      d/dt ln det Q(t) = tr(Q(t)^(-1) E) >= - sum_{i != j} |Q(t)^(-1)|_ij cap_ij >= - tr(M(t)^(-1) C) = d/dt ln det M(t).
+Since Q(0) = M(0):  det Q = det Q(1) >= det M(1).
+Step 2 (evaluation).  C = (delta 1^t + 1 delta^t)/2 - diag(delta), so M(1) = Lm - (delta 1^t + 1 delta^t)/2 with
+Lm := I + 2 diag(delta) (positive: 1 + 2 delta_i >= 3/4). For this rank-two update
+      det M(1) = det Lm * [ (1 - alpha/2)^2 - beta gamma/4 ],
+      alpha := 1^t Lm^(-1) delta = sum delta_i/(1 + 2 delta_i) = Delta - 2 gamma,
+      beta := 1^t Lm^(-1) 1 = sum 1/(1 + 2 delta_i) = n - 2 alpha,      gamma = delta^t Lm^(-1) delta.
+Substituting:  (1 - alpha/2)^2 - beta gamma/4 = (1 - Delta/2)^2 - gamma ((n-8)/4 + Delta/2).   This is Phi_n(delta).
+Step 3 (Phi_n >= 1).  Let nu >= 0 be minus the negative entry (nu = 0 if there is none); every other entry is >= nu, so
+(n-1) nu <= D+, and Delta = D+ - nu. Suppose
+      nu <= DELTA0/(n-1) <= 1/8.                                                                               (C2)
+For t in (-1, 1/4]:  ln(1 + t) >= t - (27/50) t^2/(1 + t).   [psi(t) := ln(1+t) - t + (27/50) t^2/(1+t) has psi(0) = 0 and
+psi'(t) = t (2/25 - (23/50) t)/(1+t)^2: negative for t < 0, positive on (0, 4/23), negative on (4/23, 1/4]; so psi >= 0 on
+(-1, 4/23], and on [4/23, 1/4] psi >= psi(1/4) = ln(5/4) - 1/4 + 27/1000 > 0.00014. This is CHECK D2 of the
+fifteen-coordinate file.]  It is applied with t = 2 delta_i <= 1/4. Hence ln prod (1 + 2 delta_i) >= 2 Delta - (54/25) gamma.
+gamma <= g := D+/10 + nu^2/(1 - 2 nu)   (delta^2/(1 + 2 delta) <= delta/10 on [0, 1/8]; the negative entry gives nu^2/(1 - 2 nu)).
+Bracket of Phi_n = 1 - x, x := Delta - Delta^2/4 + gamma ((n-8)/4 + Delta/2); if 0 <= x <= 1/2 then ln(1 - x) >= -x - x^2.
+The resulting lower bound 2 Delta - (54/25) gamma - x - x^2 decreases in gamma (x increases with gamma, as (n-8)/4 + Delta/2 >= 0),
+so g may replace gamma. With nu = r D+, 0 <= r <= 1/(n-1):
+      ln det Q >= D+ * L(D+, r),      L := 2 (1 - r) - (54/25) G - X - D+ X^2,
+      G := 1/10 + r^2 D+/(1 - 2 r D+),      X := (1 - r) - D+ (1 - r)^2/4 + G ((n-8)/4 + D+ (1 - r)/2).
+The program checks, with interval arithmetic on 8000 cells covering [0, DELTA0] x [0, 1/(n-1)]:
+      L > 0   and   0 <= D+ X <= 1/2.                                                                           (C3)
+Hence det Q >= exp(D+ L) >= 1.                                                                                   QED
+
+PROGRAM.  check_det_n_v2.py n DELTA0 asserts (C1), (C2), (C3) and prints the row margin, DELTA0/(n-1), the least L
+and the largest x. It refuses n outside 9..24. Example: n = 11, DELTA0 = 1/4: row margin 7/16, least L >= 0.416416.
+With (C2) in this form the range is limited by (C3). Runs of v2: n = 10, DELTA0 = 3/8: row margin 7/16, least L >= 0.367079;
+n = 10, 1/2: 3/8, 0.297005; n = 11, 3/8: 3/8, 0.333463; n = 11, 1/2: 5/16, 0.257985; n = 12..15 at 1/2: (C3) fails (x > 1/2).

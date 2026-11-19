@@ -1,0 +1,1 @@
+DETERMINANT LEMMA n = 11, sum of positive excess <= 3/8: PASS. row margin >= 3/8; nu <= 3/80 <= 1/8 (v2); least L >= 0.333463 (ln det Q >= D+ L); largest x <= 0.375351; 8000 cells

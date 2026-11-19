@@ -1,0 +1,17 @@
+{
+ "n": 10,
+ "delta0": "3/8",
+ "A": "53/250",
+ "target": "-2",
+ "pairs": 13160,
+ "certified_rows_confirmed": 8232,
+ "empty_rows_confirmed": 4928,
+ "pairs_needing_cells": 0,
+ "cells_confirmed": 0,
+ "pairs_not_covered": [],
+ "problems": [],
+ "largest_stored_value_of_confirmed_rows": -2.5095767104625497,
+ "largest_rechecked_table": -2.509576701128813,
+ "largest_rechecked_cells": null,
+ "result": "COMPLETE"
+}

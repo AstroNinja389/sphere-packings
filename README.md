@@ -7,8 +7,8 @@ Nothing here is a claim of optimality, of priority, or about non-lattice packing
 
 | n | Upper bound (this repository) | Comparison value | Best known lattice | Check it here |
 |---:|---|---|---|---|
-| 11 | 0.092981475168202 (conditional) | none (general packings: ≈0.10664) | 0.066238 | `frame/n11` |
-| 12 | 0.066670465797823 (conditional) | none (general packings: ≈0.079503) | 0.049454 | `frame/n12` |
+| 11 | 0.090771844556272 (conditional) | none (general packings: ≈0.10664) | 0.066238 | `count/n11` |
+| 12 | 0.065276234098413 (conditional) | none (general packings: ≈0.079503) | 0.049454 | `count/n12` |
 | 13 | 0.047947694667495 (conditional) | none (general packings: ≈0.059905) | 0.032014 | `frame/n13` |
 | 14 | 0.034664418153345 (conditional) | 0.0347128 | 0.0216240 | `frame/n14` |
 | 15 | 0.025212337452388 (conditional) | 0.0255112 | 0.0168575 | `dim15` |
@@ -31,7 +31,10 @@ Weaker bounds that are also in this repository and are checked by other programs
 
 | n | Upper bound | Check it here | Method |
 |---:|---|---|---|
+| 10 | 0.13010849917496 | `joint/n10` | certificate plus joint cuts (unconditional; not a best bound for dimension 10, here because the dimension-11 row uses it) |
+| 11 | 0.092981475168202 | `frame/n11` | bootstrapped frame floor, three rounds (conditional on the determinant lemma) |
 | 11 | 0.094565500874952 | `joint/n11` | certificate plus one joint cut (unconditional) |
+| 12 | 0.066670465797823 | `frame/n12` | bootstrapped frame floor with odd-order exclusion (conditional) |
 | 12 | 0.06770167234454 | `joint/n12` | certificate plus one joint cut (unconditional) |
 | 13 | 0.0486832075907 | `joint/n13` | certificate plus one joint cut (unconditional) |
 | 17 | 0.013875579669877 | `joint/n17` | certificate plus one joint cut (unconditional; weaker than the comparison value 0.0138325) |
@@ -55,7 +58,7 @@ python -B verify/run_all.py --gp /path/to/gp
 `pari` needs PARI/GP. A verifier that cannot run is reported as skipped, never as passed. On the author's machine
 all applicable verifiers pass for the three files (four for n = 20, 22; three for n = 21).
 
-**Dimensions 11, 12, 13, 17, 19 and 20 (`joint/`).** The same kind of function, plus "joint cuts" that couple the lengths of two
+**Dimensions 10, 11, 12, 13, 17, 19 and 20 (`joint/`).** The same kind of function, plus "joint cuts" that couple the lengths of two
 vectors of one class with the lengths of their half-sum and half-difference through positive-definite Gegenbauer
 kernels. The statement and proof sketch are in [`joint/THEOREM.txt`](joint/THEOREM.txt). The audit program
 re-verifies the Fourier function, audits every kernel exactly, and runs a backward dynamic programme over all
@@ -65,7 +68,7 @@ admissible class counts in rational arithmetic:
 python -B joint/audit_joint_bound.py joint/n19/bundle.json my-n19-audit.json
 ```
 
-and likewise for `n11`, `n12`, `n13`, `n17`, `n20`. The output file must not exist; the reference output of the author's
+and likewise for `n10`, `n11`, `n12`, `n13`, `n17`, `n20`. The output file must not exist; the reference output of the author's
 run is `audit.json` in each folder. A replay agrees with them in every field except the timing and the names and hashes of the
 freshly written kernel-audit files. Needs mpmath. Two to ten seconds each.
 
@@ -86,7 +89,7 @@ in each folder; a replay agrees with them in every field except the timing and, 
 hashes of the freshly written kernel-audit files. Needs mpmath. A few seconds each. The gain grows with the dimension: against the earlier entries of this
 repository listed above it is 0.49% in dimension 19, 0.79% in 20, 1.17% in 21 and 1.57% in 22.
 
-**Dimension 11 (`frame/`), conditional on a determinant lemma.** A class with eleven pairs of squared length about 2
+**Dimension 11 (`frame/`, superseded by `count/n11`), conditional on a determinant lemma.** A class with eleven pairs of squared length about 2
 (a "frame") forces the lattice to contain a perturbed copy of D₁₁, so its density is (index) × (density of that copy),
 and the index is an integer. If the lattice is denser than 4 times the density of D₁₁, the index is at least 5, and
 the bound already known for dimension 11 then forces the Gram determinant of the frame, hence the excess
@@ -107,7 +110,7 @@ for the Gram matrix of a near-frame. That is the determinant lemma, written out 
 computation done by `frame/check_det_n_v1.py` (a few seconds; the stored output is `frame/n11/check-det-n-v1-N11-D1_4.log`).
 Each round is also conditional on the bound it starts from and on the audit program. Needs mpmath.
 
-**Dimensions 12 and 13 (`frame/`), conditional on the determinant lemma and an odd-order lemma.** The same integrality
+**Dimensions 12 (superseded by `count/n12`) and 13 (`frame/`), conditional on the determinant lemma and an odd-order lemma.** The same integrality
 argument, with one more elementary ingredient: the index is the order of a finite group of "glue" classes, and such
 a group cannot contain an element of order 3, 5 or 7 in dimension 12 (3 or 5 in dimension 13), because the multiples
 of such an element cannot all be as long as the minimum requires. This is a finite computation over residue patterns
@@ -123,6 +126,34 @@ python -B frame/audit_frame_bound.py frame/n12/r1/bundle.json my-n12.json
 ```
 
 and likewise for 13 (`check_odd_order_v1.py 13 1/4 3 5`). The thinnest place is dimension 13, order 3: 17.92 against 18.
+
+**Dimensions 11 and 12 (`count/`), conditional on a theorem about n − 1 pairs with computer-checked lemmas.** The rows of the
+first table for dimensions 11 and 12. The floor is put on n − 1 pairs of one class instead of n: in a lattice of
+dimension 11 denser than 0.0905, any ten distinct pairs of one class, each of squared length below 9/4, have
+Σ max(|x|², 2) > 20 + 3/4; in a lattice of dimension 12 denser than 0.065, any eleven such pairs have
+Σ max(|x|², 2) > 22 + 3/4. Ten such pairs span a perturbed copy of D₁₀ inside a 10-dimensional section of the lattice.
+The known bound for dimension 10 (`joint/n10`) and the odd-order lemma leave index 1 or 2 for that copy in the section,
+and the density assumption then makes the next layer of the lattice so close that a point q of it has both q and 2q
+at least as far from the copy as the minimum allows; two table lemmas in ten coordinates say that this cannot happen.
+Dimension 12 is the same one dimension higher, with `joint/n11` as the known bound. The audit program is the frame
+auditor with the floor on n − 1 pairs and the density threshold as an explicit complement:
+
+```
+python -B count/check_det_n_v2.py 10 3/8
+python -B frame/check_odd_order_v1.py 10 3/8 3
+python -B count/audit_count_bound.py count/n11/bundle.json my-n11.json
+python -B count/check_det_n_v2.py 11 3/8
+python -B frame/check_odd_order_v1.py 11 3/8 3 5
+python -B count/audit_count_bound.py count/n12/bundle.json my-n12.json
+```
+
+The proofs are `count/n11/TEN-PAIRS-PREMISE-n11-v1.txt` and `count/n12/ELEVEN-PAIRS-PREMISE-n12-S3_4-v1.txt`.
+**What cannot be replayed here** are the table lemmas (one table of 13,160 cases and one of 118,440 for dimension 11,
+two of 118,440 for dimension 12, with 111 cell files): each was produced by one program and re-checked by a second
+implementation of the same author. The logs, the bookkeeping files and the programs are in `count/n11`, `count/n12`
+and `count/lemma-programs`; the tables and cell files are not. [`count/COUNT-FLOORS-11-12.txt`](count/COUNT-FLOORS-11-12.txt)
+says exactly what is here and what each bound depends on. The bounds of `frame/n11` and `frame/n12` below are weaker
+and rest on fewer assumptions.
 
 **Dimensions 14 and 17 (`frame/`), conditional on a frame theorem with computer-checked lemmas.** Here the frame floor
 is not bootstrapped from a known bound; the index of the perturbed copy of Dₙ is bounded directly. It is the order of a
@@ -190,6 +221,13 @@ notes, the final audit outputs with their hash lists, and an inventory of what t
   six steps, the induction over the rounds and the numbers; see the end of `frame/BOOTSTRAPPED-FRAME-FLOOR.txt`.
   The determinant lemma it uses was reviewed with the dimension-15 lemmas (automated review only). No human has
   reviewed either.
+- The ten-pair and eleven-pair theorems of dimensions 11 and 12 (`count/`) were written on 18 November 2026. For each,
+  an automated referee (not a human) re-derived the proof text and its numbers and found no error; its report is in
+  the folder. It did not check the tables, the bookkeeping or the cell scheme. The table lemmas were checked by two
+  programs of the same author. The determinant lemma is used in a wider form (v2) whose change against v1 has had
+  no separate review, and the level limit SMALL3 used in dimension 12 was checked by the automated referee only.
+  The count auditor is the frame auditor with two lines changed and has not been recomputed by an independent
+  program. No human has reviewed any of this.
 - The frame theorems of dimensions 14 and 17 were written on 18 November 2026. Their hybrid lemmas were checked by
   two programs of the same author (a first program and a re-check in ball arithmetic). Neither the theorems nor the
   lemma programs have had a second-party review, automated or human.
@@ -217,6 +255,7 @@ No licence has been chosen yet; none is granted by this checkout.
 - `joint/` – auditor, kernel auditors, theorem note, and one bundle per dimension.
 - `mixed/` – the mixed relative bound (note with proof), its auditor, and one bundle per dimension 18–23.
 - `frame/` – the bootstrapped frame floor: note, determinant check, auditor with the frame case, three rounds for dimension 11, one round each for dimensions 12 and 13 (with the odd-order lemma and its check); the frame theorems of dimensions 14 and 17 with their bundles, logs and bookkeeping files, the lemma programs (`lemma-programs/`) and a note on what is replayable.
+- `count/` – floors on n − 1 pairs of one class (dimensions 11 and 12): auditor, bundles, premise texts, referee reports, logs and bookkeeping files of the table lemmas, the lemma programs (`lemma-programs/`), determinant lemma v2 with its check, and a note on what is replayable.
 - `dim15/` – auditor, bundle, theorem note, the lemma documents and the review summary.
 - `dim16/` – statement, documents, final audit outputs (paths inside them are replaced by `<TREE-A>`, `<TREE-B>`).
 - `results.json` – the table above in machine-readable form.

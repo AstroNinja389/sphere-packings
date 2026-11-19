@@ -1,0 +1,2 @@
+n = 10, D = 3/8, p = 3: 10 patterns; largest (over patterns) of the least bound (over k): 55/36 = 1.527778 at counts (10,) (k = 1, even): PASS (< 2: no element of order 3)
+RESULT PASS n 10 D 3/8 primes [3]

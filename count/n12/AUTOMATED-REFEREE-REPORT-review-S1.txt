@@ -1,0 +1,212 @@
+REFEREE REPORT S1                                                                                   2026-11-18
+=====================================================================================================================
+Automated referee (Claude), one session, not a human. Objects:
+ (A) ../SMALL3-BOUND-v1.txt  (sha256 11b9cac0...) and its use in ../frame_u2_scheme_s3_v1.py, ../frame_u2_recheck_s3_v1.py
+ (B) the f-string `txt` of ../mk_premise_e12b_v1.py (sha256 0b612d6d...): STATEMENT, INPUTS as stated, PROOF steps 1-8.
+Method: reading line by line, exact rational / 60-digit checks, small numerical attacks (each <= about 1 minute, one thread).
+No existing file was changed; everything written is in this folder. Nothing was sent anywhere.
+
+SUMMARY OF VERDICTS
+ (A) CORRECT. No error and no gap found in the lemma, its proof, the three values, the function _s3, or the use in the
+     programs. The numerical attack did not come near the bound (largest value found 1.2 against 1.5; 1.1 against 89/64;
+     1.0625 against 11/8).
+ (B) CORRECT AS A CONDITIONAL STATEMENT (conditional on (I1)-(I6) as stated). No error and no gap found in steps 1-8;
+     all numbers confirmed. Step 8 (new) is right. Both lemma statements are plausible: at Q' = I their hypothesis sets
+     appear to be EMPTY (so the lemmas are vacuous there), and a search over all admissible Q' at once found nothing.
+ REAL PROBLEMS: none.   Minor remarks: A-m1..A-m6, B-m1..B-m8 below.
+
+---------------------------------------------------------------------------------------------------------------------
+(A) LEMMA (SMALL3)
+---------------------------------------------------------------------------------------------------------------------
+A1. Proof, line by line.
+ (X)  Q'(w) <= |w|^2 + |w|_1 sum_a delta_a |w_a|.  Correct: sum_{a != b} ((delta_a + delta_b)/2)|w_a||w_b| = sum_a delta_a |w_a| (|w|_1 - |w_a|)
+      by symmetry, and the terms delta_a w_a^2 cancel. (Equality iff E_ab w_a w_b = cap_ab |w_a w_b| for all pairs.)
+ Class description.  Correct. q - w0 =: k is in Z^N. If sum k is even, w0 is in q + D_N. If it is odd, k + s e_i has even sum for
+      every i and both signs, so w0 - s e_i = q - (k + s e_i) is in q + D_N. Nothing shorter is needed: the lemma is an upper
+      bound, any vector of the class will do. (If some t_a = 1/2, w0 is not unique and both descriptions apply; harmless.)
+ Even class.  |w0|^2 = sum t^2 <= mY, |w0|_1 = Y, sum delta t <= D0 m; N <= mY(1 + D0) <= 1 + D0 as mY <= 1.  Correct.
+ Odd class.  i with t_i = m, s = sign(w0_i) (either sign if m = 0): |w_i| = 1 - m.
+      |w|^2 = sum_{a != i} t_a^2 + (1-m)^2 <= m(Y - m) + (1-m)^2 = 1 - m(2 - Y) <= 1.   Correct.
+      |w|_1 = (Y - m) + (1 - m) = Y + 1 - 2m <= 3 - 2m.   Correct.
+      sum_a delta_a |w_a| <= delta_i (1-m) + m sum_{a != i} delta_a <= delta_i (1-m) + (D0 - delta_i) m = D0 m + delta_i (1 - 2m)
+      <= D0 m + (1 - 2m)/8   (delta_i <= 1/8, 1 - 2m >= 0).   Correct.
+      Both factors are non-negative, so N <= 1 + (3 - 2m)(D0 m + (1-2m)/8).   Correct.
+ phi.  (3 - 2m)(D0 m + (1-2m)/8) = (3 - 2m)(1/8 + c m) = 3/8 + (3c - 1/4) m - 2c m^2, c = D0 - 1/4; phi(0) = 3/8, phi(1/2) = D0.
+      Checked exactly (s1_exact.py) for 361 values of D0 in [0, 3/2] and 33 values of m.
+      c < 0: convex; c = 0: linear (phi = 3/8 - m/4); both: maximum at an end point. c > 0: concave, vertex (3c - 1/4)/(4c);
+      it lies in (0, 1/2) iff 1/12 < c < 1/4, i.e. 1/3 < D0 < 1/2; otherwise (vertex <= 0 or >= 1/2, including D0 = 1/3 with
+      m* = 0 and D0 = 1/2 with m* = 1/2) the maximum is at an end point. m = 0 is covered (phi(0) = 3/8: w = -+e_i, in fact
+      Q'(w) = 1 + delta_i <= 9/8). The case list of the note is complete.
+      s1_exact.py: S3(note) == 1 + max(D0, max over [0,1/2] of phi) computed independently (calculus, and a grid of 1001 values
+      of m as a lower check) for all 361 D0: equal.
+ Values.  S3(1/4) = 11/8;  S3(3/8) = 89/64 (m* = 1/4, phi(1/4) = (5/2)(5/32) = 25/64);  S3(1/2) = 3/2 (m* = 1/2, not interior).
+      All three confirmed exactly. The quoted old numbers (89/50 = 1.78 for N = 10, 1751/968 = 1.809 for N = 11 at D0 = 3/8, levels
+      0.22 and 0.19 before, 39/64 = 0.609 now) are right.
+A2. Numerical attack (s1_small3_attack.py; logs s1_small3_structured.log, s1_small3_climb.log).
+ Tool: for a fixed q the quantity W(q) := sup over ALL admissible (delta, E) of min over the 2^(N-1) class vectors with
+ |w_a| in {t_a, 1 - t_a} of Q'(w) is a linear programme (Q'(w) is linear in (delta, E)). N(q) <= W(q) for every admissible Q',
+ so W(q) <= S3 confirms the lemma at q for all Q' at once (up to LP solver accuracy), and the LP produces the worst matrix.
+  - N = 4..11, D0 in {1/4, 3/8, 1/2}, both classes, 27-30 points per N: all t = 2/N; 1/2 plus N-1, 3, 2 others; four 1/2;
+    three 1/2 plus spread; k coordinates at m for m in {1/8, 1/5, 1/4, 3/10, 1/3, 2/5, 9/20} (includes eight at 1/4 = the
+    configuration where the proof's bound is largest for D0 = 3/8); one large and the rest equal; near-integral; random.
+    1386 LPs. Largest W:  D0 = 1/4: 1.0625 (S3 1.375);  D0 = 3/8: 1.1000 (S3 1.390625);  D0 = 1/2: 1.2000 (S3 1.5).
+    At each LP-optimal matrix the true N(q) (exact Fincke-Pohst enumeration with parity) equals W to 2e-15, and for N <= 9
+    the enumeration over round(q) + {-1,0,1}^N gives the same number.
+  - 1500 explicit admissible Q' (delta: mass on the 1-4 largest coordinates / spread / 1/8 on the flipped coordinate /
+    random; E: +cap, -cap, +cap with the sign pattern that makes (X) an equality for the proof's representative, random
+    signs, random sizes), N = 6..11, true minimum by exact enumeration: N(q) <= S3 always; closest N - S3 = -0.333.
+  - hill climbing of W over t (sum t <= 2), N = 7, 8, 9, 11: nothing above 1.112 (D0 = 1/2), 1.060 (D0 = 3/8), 1.039 (D0 = 1/4).
+ So N(q) <= S3(D0) in every test, with slack >= 0.29. The lemma is far from sharp (that is no defect).
+ Note on my own scripts: in the FIRST run the exact minimiser was called with the wrong class for odd classes (my bug, it
+ made the cross-check void for odd classes, it could not produce a false alarm or hide an LP value); fixed, re-run; the first
+ logs are kept with FIRST-RUN-parity-bug in the name.
+A3. _s3 in the programs.  The def _s3 was cut out of frame_u2_scheme_s3_v1.py and of frame_u2_recheck_s3_v1.py and executed:
+ it returns exactly S3 of the note (Fractions) for all 361 D0 tested, in particular 11/8, 89/64, 3/2.
+ Differences to the sources (diff): scheme vs ../n12-eleven-pairs-20261118/frame_u2_scheme_v1.py and recheck vs
+ ../n12-eleven-pairs-20261118/frame_u2_recheck_v2.py: (i) one comment line added at the top ("Generated by
+ make_s3_variants_v1.py from ... sha256 ..."; both sha256 values quoted there are the true hashes of the sources),
+ (ii) the single line `SMALLB = 1 + max(...)*D0F` replaced by the six lines of _s3 and
+ `SMALLB = min(1 + max(F(1), (1 - F(2, NDIM))*(3 - F(4, NDIM)))*D0F, _s3(D0F))`. Nothing else. The two programs in W have
+ the hashes listed in SHA256SUMS-PROGRAMS-v1.txt and are identical to those in ../small3-variants-20261118.
+A4. Is "2 - level > SMALLB" the right condition?  Yes (it is the sufficient condition, with the right strictness).
+ What the programs leave out (read from the header and from build()/GCELLS/YG/YG2):
+   for q:  cells run over c0 >= 2, i.e. Y_0 in [2, N/2]; left out: Y_0 = sum t <= 2;
+   for 2q: case '3' (count' >= 3) has no restriction on sum t'; cases 'e', 'o' (count' <= 2) run over sum t' in [2, N/2]
+           (YG2 starts at 2; in cell mode the subdivided grids stay inside); left out: count' <= 2 and sum t' <= 2.
+ The setting of the scheme (delta in [0,1/8]^N, sum <= DELTA0, |E_ij| <= cap) is that of the lemma, and N(2q) is the same
+ function at the point 2q, so (SMALL3) applies to both. If 2 - A > SMALLB >= sup{N : sum t <= 2}, a point with sum t <= 2
+ has N(q) <= SMALLB < 2 - A and violates the hypothesis; the same with B for 2q. The assert uses the exact rationals
+ 2 - A, 2 - B (the float levels LEVG, LEVP are rounded DOWN only inside the constraints, which weakens the hypothesis there
+ and is harmless). Strict ">" is what is needed for the non-strict hypotheses N >= 2 - A, N >= 2 - B.
+ The condition is sufficient, not necessary (the true supremum is about 1.1). No other place of the programs depends on
+ the level being near 2 as far as I could see in the scheme program (the other constraints are upper bounds for N compared
+ with the level, valid for any level); I did not re-derive those bounds.
+Minor remarks (A).
+ A-m1. "N >= 4" in the SETTING is not used anywhere in the proof.
+ A-m2. With SMALLB = min(old, S3) the exclusion is valid only if the SMALLER number is a valid bound. For D0 >= 1/4 and
+       N = 9..19 the minimum is S3 (so the present tables, D0 = 3/8, rest on (SMALL3) alone). For small D0 (N = 11: D0 <= about
+       0.17; N = 9: D0 <= 3/16) the minimum is the OLD number, and then the exclusion rests on (SMALL'), which this note does
+       not prove; the sentence "the exclusion remains valid" in USE presupposes it. (Side check s1_oldsmall_check.py: on the
+       structured points the LP supremum stays below the old number for D0 = 1/20..1/6, N = 9, 11. Not a proof.)
+ A-m3. The (I5) table of text (B) is admissible ONLY through (SMALL3): 2 - 258/625 = 1.5872 < 1.8089 = old limit for N = 11.
+       The (I4) levels (1.9742, 1.8968) pass the old limit as well. (I6) of text (B) says this correctly.
+ A-m4. Cosmetic: the comment on the assert line of the recheck program still says "(SMALL')", and item 1 of the header of the
+       scheme program still describes (SMALL') with 533/225 (fifteen coordinates). "one line changed" is, precisely, one
+       statement replaced by seven lines plus one comment line at the top.
+ A-m5. The even/odd alternative is not exclusive when some t_a = 1/2 (then both bounds hold). Harmless.
+ A-m6. The lemma could be sharpened a lot (e.g. the even-class bound mY(1 + D0) is attained at five coordinates 0.4, D0 = 1/2,
+       value 1.2, but the odd-class bound is never approached). Not needed.
+
+---------------------------------------------------------------------------------------------------------------------
+(B) ELEVEN PAIRS OF ONE CLASS IN DIMENSION 12, EXCESS 3/4
+---------------------------------------------------------------------------------------------------------------------
+The text was also rendered with stub statistics (s1_render_text.py -> s1_rendered_premise_STUB-STATISTICS.txt): the
+f-string is well formed (101 lines), braces come out right.
+B1. Numbers (s1_exact.py, 60 digits; s1_exact.log).
+   V_11 = 2^6 pi^5/10395, V_12 = pi^6/720 (checked against pi^(n/2)/Gamma(n/2+1)).
+   d_11 = 0.02081660358713249..., d_12 = 0.01043174038167648...
+   B_11/d_11 = 4.54279203036783631...;  (B_11/d_11) exp(3/16) = 5.47965316385823857... : > 5 and < 6.   OK
+   (d_12/(13/200))^2 = 0.02575649879069816... < 129/5000 = 0.0258 (margin 4.35e-5).                       OK
+   129/1250 = 4 * 129/5000;  258/625 = 16 * 129/5000;  2 - 258/625 = 992/625 = 1.5872 > 89/64.           OK
+   The interval numbers the program will print: [4.54279203036, 4.54279203037], [5.47965316385, 5.47965316386], 0.0257564987907.
+B2. Steps 1-3.  Step 1: x_i +- x_j in 2L (same class; 2 x_j in 2L), non-zero (distinct pairs), min of 2L is 4: correct; d_i < 1/4,
+   delta_i = d_i/2 < 1/8, sum max(delta_i, 0) <= 3/8, |E_ij| = |x_i.x_j|/2 <= (delta_i + delta_j)/2: correct. f_i +- f_j in
+   Lambda and D11 is generated by the e_i +- e_j: correct. Step 2: the hypotheses of (I1) v2 (delta_i <= 1/8, delta_i + delta_j
+   >= 0, cap, D+ <= 3/8, n = 11) are exactly what step 1 gives; the log line asserted by the program is present (row margin
+   3/8, nu <= 3/80). covol(Gamma) = 2 sqrt(det Q) (index 2 in the lattice of the f_i); Hadamard and 1 + x <= exp(max(x, 0)): correct.
+   Step 3: LEGITIMATE. M = Lambda n V is a lattice of rank 11 in the 11-dimensional space V; all its non-zero vectors have
+   squared length >= 2, so its packing radius is >= 2^(-1/2) and density(M) >= V_11 2^(-11/2)/covol(M) = V_11 2^(-11/2) j/(2 sqrt(det Q))
+   = j d_11/sqrt(det Q) ("at least" is the right word, the minimum may be larger). (I2) as stated is a bound for every
+   lattice of dimension 11, so density(M) <= B_11 and j <= (B_11/d_11) exp(3/16) < 6. What is needed is only
+   B_11 < 6 d_11 exp(-3/16) = 0.103545...; I did not check (I2) itself.
+B3. Step 4.  Q' = Q + nu e_1 e_1^t: Q' >= Q, new diagonal excess 0 at index 1, |E_1j| <= (delta_j - nu)/2 <= (0 + delta_j)/2: correct;
+   the class of Q' is that of (I3), (I4), (I5), (X), (SMALL3).
+   (a) (I3) at D = 3/8: the setting of ODD-ORDER-EXCLUSION-v1.txt (n >= 9, delta in [0,1/8], sum <= D, G with all non-zero classes of
+       least Q'-norm >= 2) is the one at hand; the log has the asserted line; 178/99 re-derived by hand from formula (d)
+       ((14 + (3/8)(14/11) + 10 (3/8)(5/11))/9); 216/125 not re-derived.
+   (b) order 2: g not integral (class of e_i, 1 + delta_i <= 9/8): correct. w even: correct. Class = sign vectors of one parity
+       of minus signs: correct. Pairwise uncorrelated holds already for w >= 3. (w + 3/8)/4 = 1.59375 < 2 for w = 6, 2.09375
+       for w = 8; w = 2: 1/2 + (delta_a + delta_b)/2 <= 5/8. LP check (s1_probe_lp.py step4): the supremum over all admissible
+       Q' of the least norm of these classes is exactly 5/8, 1.09375, 1.59375, 2.09375, 2.59375 for w = 2, 4, 6, 8, 10: the
+       text's bounds are attained, w <= 6 excluded, w = 8, 10 not excluded.
+       Z/2 x Z/2: |c n c'| >= 5, weight of c + c' <= 6, and the case c = c' (third element integral, not in D11): correct.
+       Z/4: 2g of order 2, so w in {8, 10}; g = +-1/4 mod 1 on supp c, 0 or 1/2 mod 1 elsewhere: correct.
+         b >= 1 (w = 8: b = 1, 2, 3; w = 10: b = 1): reduce every entry to its nearest representative; if the integer part has odd
+           sum, change the sign of one entry 1/2 (a shift by 1): the vector has the stated shape. |u|^2 = w/16 + b/4 (largest 5/4 at
+           w = 8, b = 3; 7/8 at w = 10, b = 1), |u|_1 = w/4 + b/2 (largest 7/2), |u|_inf = 1/2: N <= 5/4 + (3/8)(7/2)(1/2) = 61/32.
+         b = 0: if the parity is wrong, one entry +-1/4 becomes -+3/4: |u|^2 <= w/16 + 1/2 <= 9/8, |u|_1 <= w/4 + 1/2 <= 3,
+           |u|_inf <= 3/4: N <= 9/8 + (3/8)(3)(3/4) = 63/32.
+         All sub-cases (w, b, parity) checked exactly (s1_exact.py), the membership/shape claim with integer arithmetic on
+         4000 random g, and by LP over all admissible Q': the largest possible least norm is 1.4375 (b >= 1; w = 8, b = 3)
+         and 1.2094 (b = 0; w = 10, odd), far below 2. So "63/32 against 2" is thin only because (X) is used crudely.
+B4. Steps 5-7.  Lambda/M infinite cyclic (M is the intersection with a subspace); covol(Lambda) = covol(M) h; density(L) =
+   V_12 2^(-12)/covol(L) = V_12 2^(-6)/covol(Lambda) = j d_12/(h sqrt(det Q)): correct; h^2 < j^2 (d_12/(13/200))^2 < j^2 129/5000.
+   Step 6: k w0 + m' (m' in M) has component k h along u0, lies in Lambda, is non-zero; the vectors k p + g + D11 are exactly
+   the V-parts of such vectors with m' in the class g; so the least Q-norm of k p + g + D11 is >= 2 - k^2 h^2, and Q' >= Q.
+   Step 7: strict inequalities N(q) > 2 - 129/5000, N(2q) > 2 - 129/1250 imply the non-strict hypotheses of (I4);
+   psi < -111/10 < -11 <= psi. Correct.
+B5. Step 8 (new).  Correct.
+   - The order-2 analysis of 4(b) does not use j = 4, so g0 = c/2 mod Z^11 with w in {8, 10}, z = 11 - w in {3, 1}.
+   - psi is Z^11-periodic, so psi(p + g0) = sum cos 2 pi (p_i + c_i/2); on supp c the two cosines cancel, off it they are equal:
+     psi(q1) + psi(q2) = 2 sum_(off supp c) cos 2 pi p_i >= -2z >= -6; one of them is >= -3.
+   - N(q) >= 2 - h^2 for q = p + (class 0 or g0) by step 6, k = 1; h^2 < 4 * 129/5000 = 129/1250.
+   - 2 g0 is in D11 (g0 has order 2 in R^11/D11), so 2 q2 = 2p modulo D11, N(2 q2) = N(2p) >= 2 - 4h^2 > 2 - 16 * 129/5000
+     = 2 - 258/625 (step 6, k = 2, zero class). N(2q) is well defined on classes: 2(q + d) = 2q + 2d, 2d in D11.
+   - (I5) has hypotheses N(q) >= 2 - 129/1250 and N(2q) >= 2 - 258/625 (non-strict; we have strict), conclusion psi < -3
+     (strict) against psi >= -3. N is the least Q'-norm in both, classes modulo D11, psi of the same q. Exactly what is needed.
+   - Program arguments (A for q, B for 2q): "3/8 129/1250 258/625" for (I5), "3/8 129/5000 129/1250" for (I4): right order.
+     Table targets -3.2 / cells -3.05 < -3 and -11.5 / cells -11.2 < -111/10: consistent with the claims. 118,440 = 40 x 9 x 329.
+B6. Are (I4), (I5) plausible?
+   Exact frame, Q' = I (s1_probe_frame.py; N is exact there: sum t^2, plus 1 - 2 max t for an odd class; formula tested against
+   brute force). 132,158 structured multisets (entries from {0,1/8,1/6,1/5,1/4,3/10,1/3,3/8,2/5,5/12,7/16,1/2,k/16,...}) x 2 classes and
+   hill climbing from 4000 random/structured starts per objective:
+     (I5), levels 1.8968 / 1.5872: largest min(N(q) - L1, N(2q) - L2) found = -0.2213 (five entries 1/2 and six near 0.266:
+           N(q) = 1.676, N(2q) = 1.366, psi = -5.61). NO feasible point at all, not even after relaxing both levels by 0.2.
+           So there is no psi to report under the two constraints: the hypothesis set looks empty and (I5) is vacuous at Q' = I.
+           With the FIRST hypothesis alone (N(q) >= 2 - 129/1250): largest psi found = -4.7494 (six entries 1/2, one 0.4987,
+           one 0.3848, three 0), i.e. 1.75 below -3. Conversely psi >= -3 forces N(q) <= 7/4 < 1.8968 at Q' = I (t^2 is a convex
+           function of cos 2 pi t, so the maximum is at seven entries 1/2 and four 0; grid over both classes: s1_frame_maxN.py).
+     (I4), levels 1.9742 / 1.8968: largest min-slack found = -0.3921. No q with both hypotheses at Q' = I.
+     Elementary reason for the even/even part: t^2 + t'^2 <= 5/16 per coordinate, 11 * 5/16 = 3.4375 < L1 + L2 (3.484, 3.871).
+   All admissible Q' at once (s1_probe_lp.py I5 / I4, two seeds each, 60 s each, about 3900 LPs each):
+     V(q) := sup over admissible Q' of min(N^(q) - L1, N^(2q) - L2) (LP; N^ >= N over the 2^10 nearest vectors of each class).
+     (I5): largest V over the q searched with psi >= -3: -0.343 and -0.341  (negative: no searched q with psi >= -3 satisfies
+           both hypotheses for ANY admissible Q').
+     (I4): largest V over the q searched: -0.2008 and -0.2007 (near t = 1/3 everywhere, odd class).
+   Heuristic in q, so this is evidence, not proof; it says the two tables are not being asked to certify something false.
+Minor remarks (B).
+ B-m1. The proof works verbatim for squared lengths <= 9/4 (delta_i <= 1/8 is allowed in every input); "< 9/4" is fine.
+ B-m2. Step 4(b), "for w >= 4 ... pairwise uncorrelated": true for w >= 3; no change needed.
+ B-m3. Step 4(b), b = 0: a sharper line costs nothing: sum delta_a |u_a| <= (1/8)(3/4) + (1/4)(1/4) = 5/32, N <= 9/8 + 3 * 5/32 = 51/32.
+       Then the only thin place of the proof is (d_12/(13/200))^2 against 129/5000 (the density threshold could be as low
+       as 0.0649452 with these levels).
+ B-m4. Step 3 needs only B_11 < 0.103545; with B_11 = 0.0945655 the index bound has room (j < 5 would need B_11 < 0.0863).
+ B-m5. Program, not mathematics: in load() the test `certified + empty + rows_needing_cells >= 118440` should be `==`
+       (with n_rows_not_covered == 0 also asserted it cannot let a gap through, but it would not notice double counting);
+       stats() formats largest_rechecked with %.4f and would raise if the bookkeeping stored None there.
+ B-m6. (I6) is accurate: the (I5) run is admissible only with (SMALL3) (see A-m3); so (SMALL3) is a genuine input of the theorem.
+ B-m7. Status line says the model proof "was re-derived by an automated referee"; the present text now has this report
+       (also automated). Neither is a human review.
+ B-m8. Step 8 could say explicitly that psi depends only on q modulo Z^11 (it is used for q2 = p + g0, g0 given modulo Z^11).
+
+WHAT I DID NOT CHECK
+ - The two tables (not run yet), their statistics, the bookkeeping program bookkeeping_fu2_cells_v1.py, run_cells_fu2_v1.py.
+ - The cell scheme itself: the bounds N0..N3, (F), (G), (M), P2, the membership sets H, H', the multiplier search, the
+   float interval arithmetic, the body of the recheck program (only its header and the SMALLB lines were read).
+   GLUE-INDEX-REDUCTION-v2.txt was not opened.
+ - (SMALL') (the old level limit); it is not used at D0 = 3/8.
+ - (I1): the proof of the determinant lemma v2 and check_det_n_v2.py (only: hypotheses match, log line present).
+ - (I3): check_odd_order_v1.py and the proof of Lemma O (only: setting matches, log line present, 178/99 by hand).
+ - (I2): the value and provenance of B_11.
+ - audit_count_bound_v1.py / run_count_bound_v1.py and whether the STATEMENT is exactly the premise the audit uses.
+ - All LP results are floating point (HiGHS); they are attacks and plausibility checks, not certificates.
+
+FILES IN THIS FOLDER
+ s1_exact.py / .log                 exact checks: phi, S3, _s3 of both programs, all numbers of text (B), step 4(b) arithmetic
+ s1_small3_attack.py                attack on (SMALL3): LP over all Q', exact minimiser, hill climbing
+   s1_small3_structured.log, s1_small3_climb.log   (and the two FIRST-RUN-parity-bug logs, kept)
+ s1_oldsmall_check.py / .log        side check of the old number for small D0
+ s1_probe_frame.py / .log           (I4), (I5) at Q' = I
+ s1_frame_maxN.py / .log            largest N(q) at Q' = I among points with psi >= -3 (7/4)
+ s1_probe_lp.py                     step 4(b) by LP (s1_step4.log); (I4), (I5) over all Q' (s1_probe_lp_I4*.log, s1_probe_lp_I5*.log)
+ s1_render_text.py, s1_rendered_premise_STUB-STATISTICS.txt   the text of (B) rendered with placeholder statistics

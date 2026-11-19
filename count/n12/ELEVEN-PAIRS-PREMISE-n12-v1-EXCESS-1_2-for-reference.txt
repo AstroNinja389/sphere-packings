@@ -1,0 +1,100 @@
+ELEVEN PAIRS OF ONE CLASS IN DIMENSION 12 (premise of a floor on eleven pairs)                      v1, 2026-11-18
+=====================================================================================================================
+Status: written by one author (Claude) in one session. The proof (steps 1-8) is elementary; it uses five inputs listed
+below: the determinant lemma (interval check), an earlier computer-assisted density bound for dimension 11, the odd-order
+lemma (exact finite check), and two computer-checked lemmas in eleven coordinates (a two-class table and a one-class table
+of the cell scheme, each re-checked by the second implementation). An automated referee (not a human; folder review-E1)
+re-derived steps 1-8, the numbers and the match with the audit's premise and found no error; it did not check the tables.
+NOT reviewed by a human. By itself it changes no density bound.
+
+STATEMENT.  Let L be a lattice of dimension 12 and minimum squared length 1 with density(L) > 33/500 = 0.066.
+Then any eleven distinct pairs +-x_1, ..., +-x_11 of one class modulo 2L, each of squared length < 9/4, satisfy
+      sum_i max(|x_i|^2, 2) > 22 + 1/2.
+
+INPUTS.
+ (I1) Determinant lemma in eleven coordinates, range 1/4 (DETERMINANT-LEMMA-GENERAL-N-v1.txt; check-det-n-v1-N11-D1_4.log).
+ (I2) B_11 := 0.094565500874952: an upper bound for the density of lattices in dimension 11 that needs no frame premise (certificate
+      plus one joint cut; audited value of the 4 November sweep; public repository joint/n11).
+ (I3) Lemma O(11, 1/4, p) for p = 3, 5 (ODD-ORDER-EXCLUSION-v1.txt; check-odd-order-v1-N11-D1_4.log: 170/99 and 194/125).
+ (I4) LEMMA T2(11; 1/4; 1/40, 1/10).  For Q' = I + diag(delta) + E on R^11, delta_i in [0, 1/8], sum delta_i <= 1/4,
+      |E_ij| <= (delta_i + delta_j)/2:   N(q) >= 2 - 1/40 and N(2q) >= 2 - 1/10 imply psi(q) < -23/2,
+      where N(q) := min of Q' over q + D11 and psi(q) := sum_i cos 2 pi q_i. As psi >= -11 always, the two hypotheses
+      cannot hold together.
+      Computer check (two-class cell scheme of GLUE-INDEX-REDUCTION-v2.txt sections 4, 7 with the bounds (F), (G), (M); program
+      frame_u2_scheme_v1.py with FRAME_N = 11, arguments 1/4 1/40 1/10 -11.5, two parts): 118,440 rows =
+      74088 certified below -23/2 (largest stored value -14.3593) + 44352 empty + 0 left to cells;
+      re-check frame_u2_recheck_v2.py (second implementation, ball arithmetic), two halves: every certified row
+      confirmed (largest re-checked value -14.3593), every empty row confirmed empty;
+      bookkeeping_fu2_full_v2.py: RESULT COMPLETE (FU2-BOOKKEEPING-N11-D1_4-A1_40-B1_10-T-23_2.json).
+ (I5) LEMMA U(11; 1/4; 1/10).  For Q' as in (I4):   N(q) >= 2 - 1/10 implies psi(q) < -3.
+      Computer check (one-class scheme, frame_u_scheme_v2.py 11 1/4 1/10 -3.2): 13,160 pairs = 8228 table rows certified
+      below -3.2 and confirmed by the second implementation (largest re-checked value -3.3161) + 4928 empty rows
+      confirmed + 4 pairs certified in cell mode at -3.05 (subdivision of the cell; 4 confirmed, largest re-checked
+      value -3.0699);
+      bookkeeping_fu_v2.py at -3: RESULT COMPLETE (FU1-BOOKKEEPING-N11-D1_4-A1_10-T-3.json).
+ Numbers (interval arithmetic in mk_premise_e12_v3.py): d_n := V_n 2^(-n/2-1); B_11/d_11 in [4.54279203036, 4.54279203037];
+      (B_11/d_11) exp(1/8) in [5.14765776181, 5.14765776182], so below 6;   (d_12/(33/500))^2 <= 0.0249819117059 < 1/40.
+      (The cell scheme was written for fifteen coordinates; its version for N
+      coordinates, with the grid ending at N/2 and the (SMALL') bound 1 + max(1, (1-2/N)(3-4/N)) * range, is described in the
+      headers of the generators make_frame_u_scheme_v1.py, make_frame_u2_programs_v1.py of ../n12-23-frame-floor-20261118.)
+ Input files (sha256):
+      0dbe6b057eb0460686e4d4ca76194352a300af89e1045a9f9ea3e7811a21efaa  check-det-n-v1-N11-D1_4.log
+      7997650e1ec7e6000e03294b99dd64830a2d220cf795657bf75af983ed3619f9  check-odd-order-v1-N11-D1_4.log
+      d0f1c61d5571f24c140026799b0ce8f16b652890652bc2336ec002b03b3dca2f  FU2-BOOKKEEPING-N11-D1_4-A1_40-B1_10-T-23_2.json
+      3ac67403f4bcae84e3bd8eca00ced043f2c85c726ed519f0bdd7af75dc200f90  FU1-BOOKKEEPING-N11-D1_4-A1_10-T-3.json
+
+PROOF.  Suppose eleven such pairs have sum_i max(|x_i|^2, 2) <= 22 + 1/2.
+ 1. d_i := |x_i|^2 - 2. For i != j the vectors x_i +- x_j are non-zero elements of 2L, so |x_i +- x_j|^2 >= 4:
+    d_i + d_j >= 0 and |x_i . x_j| <= (d_i + d_j)/2; at most one d_i is negative. Lambda := sqrt 2 L (minimum 2),
+    f_i := x_i/sqrt 2 (i = 1..11); f_i +- f_j is in Lambda, so Gamma := {sum c_i f_i : c in D11} is a sublattice of Lambda
+    (D11 := the vectors of Z^11 with even coordinate sum). Gram matrix Q = diag(1 + delta_i) + E of the f_i:
+    delta_i = d_i/2 <= 1/8, delta_i + delta_j >= 0, |E_ij| <= (delta_i + delta_j)/2, sum_i max(delta_i, 0) <= 1/4.
+ 2. det Q >= 1 by (I1). So the f_i are independent; V := their span (dimension 11); covol(Gamma) = 2 sqrt(det Q).
+    Hadamard: det Q <= prod (1 + delta_i) <= exp(sum max(delta_i, 0)) <= exp(1/4).
+ 3. M := Lambda n V is a lattice of rank 11 containing Gamma; j := [M : Gamma]. M is an 11-dimensional lattice whose
+    minimum is >= 2, so its density is at least V_11 2^(-11/2)/covol(M) = j d_11/sqrt(det Q), and at most B_11 (I2). Hence
+          j <= (B_11/d_11) sqrt(det Q) <= (B_11/d_11) exp(1/8) < 6:      j in {1, 2, 3, 4, 5}.
+ 4. G := M/Gamma, written in the coordinates of the f_i, is a subgroup of R^11/D11 of order j; each non-zero class
+    consists of non-zero vectors of Lambda, so its least Q-norm is >= 2. If delta_1 = -nu < 0 put Q' := Q + nu e_1 e_1^t,
+    otherwise Q' := Q: Q' >= Q, diagonal excesses max(delta_i, 0) in [0, 1/8] with sum <= 1/4, |E_1j| <= (delta_j - nu)/2;
+    least Q'-norms are >= least Q-norms. Write N for the least Q'-norm of a class modulo D11.
+    (a) j is not 3 and not 5: by Cauchy's theorem G would have an element of order 3 or 5, against (I3).
+    (b) j is not 4. A group of order 4 is Z/2 x Z/2 or Z/4.
+        Elements of order 2: g with 2g in D11. g is not integral (its class would contain a unit vector e_i, of Q'-norm
+        1 + delta_i < 2). So g = c/2 modulo Z^11 for a non-zero 0/1 word c, of even weight w (the coordinate sum of 2g is
+        even). The vectors with entries +-1/2 on the support of c, 0 elsewhere, and a fixed parity of the number of minus
+        signs lie in the class; for w >= 4 their signs are pairwise uncorrelated under the uniform distribution, so the
+        shortest has Q'-norm <= sum_(supp c) (1 + delta_i)/4 <= (w + 1/4)/4 < 2 for w <= 6; for w = 2 any of them has
+        Q'-norm <= (2 + delta_a + delta_b)/4 + (delta_a + delta_b)/4 < 1. Hence w is 8 or 10.
+        Z/2 x Z/2: words c, c' and c + c' (modulo 2), all of weight >= 8 in length 11: |c n c'| >= 8 + 8 - 11 = 5, so
+        the weight of c + c' is |c u c'| - |c n c'| <= 11 - 5 = 6. Impossible (also if c = c': then the third element is
+        integral and non-zero, which was excluded above).
+        Z/4: g of order 4, 2g = c/2 modulo Z^11 with c of weight w in {8, 10}. So g has entries +-1/4 (modulo 1) on the
+        support of c and 0 or 1/2 (modulo 1) elsewhere; b := number of entries 1/2, b <= 11 - w.
+        For every real vector u:  Q'(u) <= |u|^2 + |u|_1 sum_a delta_a |u_a| <= |u|^2 + (1/4) |u|_1 |u|_inf      (X)
+        ((X) of ODD-ORDER-EXCLUSION-v1.txt). If b >= 1, the class contains a vector u with entries +-1/4 on supp c,
+        +-1/2 on the b places and 0 elsewhere (the sign of one entry 1/2 adjusts the parity of the integer part):
+        |u|^2 = w/16 + b/4 <= 5/4, |u|_1 = w/4 + b/2 <= 7/2, |u|_inf = 1/2, so N(g) <= 5/4 + 7/16 < 2.
+        If b = 0, the class contains a vector with entries +-1/4 on supp c except possibly one entry +-3/4, 0 elsewhere:
+        |u|^2 <= w/16 + 1/2 <= 9/8, |u|_1 <= w/4 + 1/2 <= 3, |u|_inf <= 3/4, so N(g) <= 9/8 + 9/16 < 2. Impossible.
+    So j is 1 or 2.
+ 5. Lambda/M is infinite cyclic (M = Lambda n V). Let w0 = p^ + h u0 generate it, u0 the unit normal of V, h > 0, p^ in V
+    with coordinate vector p in R^11. covol(Lambda) = covol(M) h = 2 sqrt(det Q) h/j, so
+          density(L) = V_12 2^(-6)/covol(Lambda) = j d_12/(h sqrt(det Q)).
+    density(L) > 33/500 and det Q >= 1 give h < j d_12/(33/500), i.e. h^2 < j^2/40.
+ 6. For k in {1, 2} and every m in M the vector k w0 + m is a non-zero vector of Lambda (its component along u0 is k h),
+    so Q(k p + m) + k^2 h^2 >= 2. Hence for every class g of G:  N(k p + g) >= 2 - k^2 h^2  (least Q-norm, a fortiori
+    least Q'-norm, over k p + g + D11; note 2(p + g) = 2p + 2g with 2g in G).
+ 7. j = 1.  q := p has N(q) >= 2 - h^2 > 2 - 1/40 and N(2q) >= 2 - 4 h^2 > 2 - 1/10. By (I4) psi(q) < -23/2 < -11 <= psi(q).
+    Contradiction.
+ 8. j = 2.  G = {0, g0}, g0 = c/2 modulo Z^11 with c of weight w in {8, 10} (step 4(b)); z := 11 - w <= 3 coordinates lie
+    outside the support. For q1 := p and q2 := p + g0:
+          psi(q1) + psi(q2) = sum_i [cos 2 pi p_i + cos 2 pi (p_i + c_i/2)] = 2 sum_(i outside supp c) cos 2 pi p_i >= -2z >= -6,
+    so some q in {q1, q2} has psi(q) >= -3. By step 6, N(q) >= 2 - h^2 > 2 - 4/40 = 2 - 1/10. By (I5) psi(q) < -3.
+    Contradiction.                                                                                              QED
+
+USE.  Floor on COUNT = 11 pairs in the class budget of dimension 12 (audit_count_bound_v1.py: count 11, S0 = 1/2,
+T = 9/4, complement 0.066). The audited density is a bound for lattices denser than 0.066; the final bound is the maximum.
+A class with twelve such pairs contains eleven, so the frame case is included.
+WHAT THE RESULT IS CONDITIONAL ON: (I1), (I4), (I5) (computer-checked, project programs, not reviewed), (I3) (elementary,
+exact finite check, automated review), (I2) (exact audit of 4 November), and the soundness of the audit program.

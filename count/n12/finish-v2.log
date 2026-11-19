@@ -1,0 +1,9 @@
+waiting since 11:13
+streams done 19:49
+T2a cells: cells: 111 rows, 0 not PASS in cell mode; cells re-check of 111 files: RESULT PASS_CELLS_OF_THIS_PART: 111 cell files, 2638 pieces, largest re-checked -11.2054780178179, 0 cells not confirmed, 500 s [20:04]
+T2b cells: rows needing cells: 0 [20:04]
+RESULT COMPLETE: n=11, two-class table at A=129/5000, B=129/1250, claim -111/10: 118440 rows = 73977 certified and confirmed + 44352 empty + 111 needing cells (111 confirmed, 0 not covered); largest re-checked: table -11.502291763814078, cells -11.2054780178179; problems []
+RESULT COMPLETE: n=11, two-class table at A=129/1250, B=258/625, claim -3: 118440 rows = 74088 certified and confirmed + 44352 empty + 0 needing cells (0 confirmed, 0 not covered); largest re-checked: table -3.6214661648467787, cells None; problems []
+written ELEVEN-PAIRS-PREMISE-n12-S3_4-v1.txt
+COUNT_BOUND n=12 count=11 S0=3/4: search density 0.0652753984376, AUDITED 0.065276234098413, complement 0.065, FINAL 0.065276234098413 (audited density); sweep value 0.06770167234454 (-3.583%); 60 s [20:05]
+FINISH DONE 20:05

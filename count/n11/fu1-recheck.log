@@ -1,0 +1,11 @@
+13160 rows in 1 files: 8232 certified, 4928 empty, 0 left to cells; re-checking 8232 certified and 4928 empty  [0s]
+  1000/8232, largest re-checked -2.50958, largest (re-check - stored) 2.71e-06, 0 failures  [91s]
+  2000/8232, largest re-checked -2.50958, largest (re-check - stored) 2.71e-06, 0 failures  [187s]
+  3000/8232, largest re-checked -2.50958, largest (re-check - stored) 2.71e-06, 0 failures  [276s]
+  4000/8232, largest re-checked -2.50958, largest (re-check - stored) 2.71e-06, 0 failures  [360s]
+  5000/8232, largest re-checked -2.50958, largest (re-check - stored) 2.71e-06, 0 failures  [449s]
+  6000/8232, largest re-checked -2.50958, largest (re-check - stored) 2.71e-06, 0 failures  [547s]
+  7000/8232, largest re-checked -2.50958, largest (re-check - stored) 2.71e-06, 0 failures  [641s]
+  8000/8232, largest re-checked -2.50958, largest (re-check - stored) 2.71e-06, 0 failures  [730s]
+  8232/8232, largest re-checked -2.50958, largest (re-check - stored) 2.71e-06, 0 failures  [750s]
+RESULT PASS_ALL_ROWS_OF_THIS_PART: 8232 certified rows re-checked (largest -2.50958), 0 failures; 4928 empty rows checked, 0 not confirmed; negative multipliers replaced 0; 750 s

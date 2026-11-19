@@ -1,0 +1,9 @@
+N 10; DELTA0 3/8; level 1.788000000 (SMALL bound 1.7800); target -2.200; part: 13160 (case, cell) pairs; rounds 8
+  2000/13160  {'empty': 1639, 'ok': 361}  [20s]
+  4000/13160  {'empty': 2464, 'ok': 1536}  [95s]
+  6000/13160  {'empty': 2464, 'ok': 3536}  [223s]
+  8000/13160  {'empty': 3738, 'ok': 4262}  [264s]
+  10000/13160  {'empty': 4928, 'ok': 5072}  [314s]
+  12000/13160  {'empty': 4928, 'ok': 7072}  [456s]
+RESULT PASS: {'empty': 4928, 'ok': 8232}; largest certified -2.5095767104625497; not certified 0
+527 s

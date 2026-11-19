@@ -1,0 +1,21 @@
+{
+ "n": 11,
+ "delta0": "3/8",
+ "A": "129/5000",
+ "B": "129/1250",
+ "claim": "-111/10",
+ "rows": 118440,
+ "certified_rows_confirmed": 73977,
+ "empty_rows_confirmed": 44352,
+ "rows_needing_cells": 111,
+ "cells_confirmed": 111,
+ "rows_not_covered": [],
+ "n_rows_not_covered": 0,
+ "largest_stored_certified": -11.502434484718831,
+ "largest_rechecked": -11.502291763814078,
+ "largest_rechecked_cells": -11.2054780178179,
+ "table_rows_failed_in_recheck": 0,
+ "problems": [],
+ "halves_identified_by": "file names of the re-check outputs",
+ "result": "COMPLETE"
+}

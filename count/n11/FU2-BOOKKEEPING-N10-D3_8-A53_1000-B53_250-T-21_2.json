@@ -1,0 +1,16 @@
+{
+ "n": 10,
+ "delta0": "3/8",
+ "A": "53/1000",
+ "B": "53/250",
+ "claim": "-21/2",
+ "rows": 118440,
+ "certified_rows_confirmed": 74088,
+ "empty_rows_confirmed": 44352,
+ "rows_left_to_cells": 0,
+ "largest_stored_certified": -35.69575680191422,
+ "largest_rechecked": -35.6955415728894,
+ "problems": [],
+ "halves_identified_by": "file names of the re-check outputs",
+ "result": "COMPLETE"
+}

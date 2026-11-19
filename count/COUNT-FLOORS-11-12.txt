@@ -1,0 +1,50 @@
+FLOORS ON n - 1 PAIRS OF ONE CLASS: DIMENSIONS 11 AND 12                                   18 November 2026
+=====================================================================================================================
+WHAT IS CLAIMED (both conditional; see "depends on")
+  dimension 11: density of every lattice packing <= 0.090771844556272
+  dimension 12: density of every lattice packing <= 0.065276234098413
+Each number is the maximum of an audited density (valid for lattices denser than the complement) and the complement
+(0.0905 in dimension 11, 0.065 in dimension 12); in both the audited density is the larger one.
+
+THE THEOREMS (statements; proofs in the premise files, bound to the bundles by sha256)
+  n11/TEN-PAIRS-PREMISE-n11-v1.txt: L of dimension 11, minimum 1, density > 181/2000. Any ten distinct pairs +-x_i of one
+     class modulo 2L, each of squared length < 9/4, satisfy sum max(|x_i|^2, 2) > 20 + 3/4.
+  n12/ELEVEN-PAIRS-PREMISE-n12-S3_4-v1.txt: L of dimension 12, minimum 1, density > 13/200. Any eleven such pairs satisfy
+     sum max(|x_i|^2, 2) > 22 + 3/4.
+  (n12/ELEVEN-PAIRS-PREMISE-n12-v1-EXCESS-1_2-for-reference.txt is the earlier theorem with excess 1/2, which the two
+  texts refer to for the common steps. No bound of this repository uses it.)
+
+WHAT A REPLAY FROM THIS REPOSITORY REPRODUCES
+  python -B count/audit_count_bound.py count/n11/bundle.json OUT.json      (and n12)
+     the class budget with the floor, in exact arithmetic, given the premise; agrees with audit.json in every field
+     except the timing and the name and hash of the freshly written kernel audits.
+  python -B count/check_det_n_v2.py 10 3/8     and     11 3/8             determinant lemma, last step (interval computation)
+  python -B frame/check_odd_order_v1.py 10 3/8 3     and     11 3/8 3 5    odd-order lemma
+  python -B joint/audit_joint_bound.py joint/n10/bundle.json OUT.json      the dimension-10 bound used in dimension 11
+  (the dimension-11 bound used in dimension 12 is joint/n11)
+WHAT IT DOES NOT REPRODUCE
+  The table lemmas (I4), (I5) of the two premise files. Their tables (.npy and .json, about 100 MB) and the 111 cell
+  files of dimension 12 are not here. Here are: the logs of the table runs, of the re-check by the second
+  implementation and of the cell runs, the bookkeeping files (their hashes are quoted in the premise files), and the
+  programs in count/lemma-programs. The programs are byte-identical copies; they were not arranged to run from this
+  repository (they import modules of the project tree).
+
+DEPENDS ON
+  dimension 11: determinant lemma v2 in ten coordinates (DETERMINANT-LEMMA-GENERAL-N-v2.txt; v2 widens the range of v1,
+     the change has had no separate review); joint/n10; odd-order lemma, order 3; table lemmas T2(10; 3/8; 53/1000,
+     53/250) and U(10; 3/8; 53/250); the count auditor.
+  dimension 12: determinant lemma v2 in eleven coordinates; joint/n11; odd-order lemma, orders 3 and 5; table lemmas
+     T2(11; 3/8; 129/5000, 129/1250; -111/10) and T2(11; 3/8; 129/1250, 258/625; -3); the level limit SMALL3
+     (SMALL3-BOUND-v1.txt), without which the second table lemma is not admissible; the count auditor.
+  Thin places named in the premise files: 0.05291 against 0.053 and 3.939 against 4 (dimension 11); 0.02576 against
+  0.0258 and 63/32 against 2 (dimension 12).
+
+REVIEW
+  An automated referee (not a human) re-derived each proof text and its numbers and found no error
+  (n11/AUTOMATED-REFEREE-REPORT-review-T1.txt, n12/AUTOMATED-REFEREE-REPORT-review-S1.txt). It did not check the tables,
+  the bookkeeping or the cell scheme. The table and re-check programs have one author. No human has reviewed any of this.
+
+THE AUDITOR
+  count/audit_count_bound.py is frame/audit_frame_bound.py with the floor on frame["count"] pairs instead of n and the
+  complement density given explicitly in the bundle (it is part of the premise). Its header names the project file it
+  was copied from by hash.
