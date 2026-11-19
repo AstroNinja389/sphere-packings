@@ -1,0 +1,16 @@
+{
+ "d": 314,
+ "scale": 384,
+ "direction": "front",
+ "upper_integer_1e15": 33997149607504,
+ "exact_class_density": "68705834953090941382683375392997152388277637821/2020929276315789276029408634820312500000000000000",
+ "complement": "[0.033818453867394886218247578342973230799039202809796200 +/- 6.98e-55]",
+ "hashes": {
+  "sharp-ref-bundle.json": "0c92ae08fcb8d7451e0a17ae21c14dad1141eb9318ae8dfcc9af773a398f447c",
+  "rank14-adaptive-314.json": "13a8c5c6aea80237396eac4a1f9f68bdc72adc7b340e5fc99cdc82de05fccb03",
+  "rank14-joint-sharp-ref-314-384-front-fourier.json": "3603d9527c86799d04c6fe2ee2c0798c1ec718a9c93512532e14ac49ecff6f6f",
+  "glue-audit.json": "22ad689548e89a3aa649a98406f2a446ae76495a7ff3f93e57c98f869baaf10f",
+  "two-torus-audit.json": "9e5f0cf167faac14f97ed3574514278da74a83199c503a49e5353cc3513324c5",
+  "audit_frame_bound.py": "bc25bbab93e6ac5f06faaef0560ebe61e7a4f1fd16fddec80e4ab7986faac7f6"
+ }
+}

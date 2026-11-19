@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "cyclic_five": "236/125",
+  "cyclic_patterns": 119,
+  "cyclic_sixteen": "147/80",
+  "cyclic_seventeen": "505/289",
+  "noncyclic_four_max": "67/40",
+  "frame_determinants": [
+    [
+      15,
+      "1523/1600"
+    ],
+    [
+      15,
+      "1523/1600"
+    ]
+  ],
+  "old_frame_determinants": [
+    [
+      39,
+      "1"
+    ],
+    [
+      39,
+      "1"
+    ]
+  ],
+  "dependent_fifteen_determinants": [
+    [
+      42,
+      "1469/4096"
+    ],
+    [
+      42,
+      "1469/4096"
+    ]
+  ],
+  "frame_complement": "0.033590516552348",
+  "portable_floor": "7/10",
+  "old_premise_independently_established": true
+}

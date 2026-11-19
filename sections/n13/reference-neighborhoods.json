@@ -1,0 +1,3605 @@
+{
+ "frontier": "4e76bef72b26cf229cd1529f70ed9af04db2af8cdb73da2532d04845e0886f66",
+ "marks": [
+  {
+   "key": "0000:015145001",
+   "kind": "tree",
+   "z": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     -1,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     -1,
+     0,
+     0,
+     1
+    ]
+   ],
+   "dual_length": "5/8",
+   "dual_area_squared": "12/25",
+   "mark_det": "1000",
+   "c_1e4": 9773,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0000:020386920",
+   "kind": "glue",
+   "z": [
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "plane": [
+    [
+     -1,
+     -1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     -1,
+     -1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ]
+   ],
+   "dual_length": "4825/7008",
+   "dual_area_squared": "3125/7008",
+   "mark_det": "16146432/15625",
+   "c_1e4": 9916,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0000:033205806",
+   "kind": "glue",
+   "z": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    0
+   ],
+   "plane": [
+    [
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     1,
+     0
+    ],
+    [
+     0,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "309/496",
+   "dual_area_squared": "185/496",
+   "mark_det": "126976/125",
+   "c_1e4": 9753,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0001:010488327",
+   "kind": "virtual",
+   "z": [
+    -1,
+    0,
+    0,
+    1,
+    0,
+    0,
+    -1,
+    1,
+    0
+   ],
+   "plane": [
+    [
+     -1,
+     0,
+     0,
+     1,
+     0,
+     0,
+     -1,
+     1,
+     0
+    ],
+    [
+     0,
+     -1,
+     0,
+     -1,
+     0,
+     0,
+     1,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "3/4",
+   "dual_area_squared": "1/2",
+   "mark_det": "262144/243",
+   "c_1e4": null,
+   "exact_reference_excluded": false,
+   "exact_orientation_at_reference": [
+    false,
+    false
+   ]
+  },
+  {
+   "key": "0001:017477694",
+   "kind": "glue",
+   "z": [
+    0,
+    0,
+    0,
+    -1,
+    -1,
+    -1,
+    0,
+    1,
+    0
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     -1,
+     -1,
+     -1,
+     0,
+     1,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     -1,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "547/772",
+   "dual_area_squared": "177/386",
+   "mark_det": "247040/243",
+   "c_1e4": 9983,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0001:031751010",
+   "kind": "glue",
+   "z": [
+    0,
+    -1,
+    0,
+    0,
+    0,
+    0,
+    -1,
+    0,
+    1
+   ],
+   "plane": [
+    [
+     0,
+     -1,
+     0,
+     0,
+     0,
+     0,
+     -1,
+     0,
+     1
+    ],
+    [
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     -1
+    ]
+   ],
+   "dual_length": "1301/1928",
+   "dual_area_squared": "819/1928",
+   "mark_det": "133273/128",
+   "c_1e4": 9873,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0003:034263103",
+   "kind": "tree",
+   "z": [
+    0,
+    -1,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "plane": [
+    [
+     0,
+     -1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     0,
+     0,
+     1,
+     1,
+     -2,
+     0
+    ]
+   ],
+   "dual_length": "125/199",
+   "dual_area_squared": "301/796",
+   "mark_det": "995",
+   "c_1e4": 9786,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0007:023890612",
+   "kind": "domain",
+   "z": [
+    -1,
+    0,
+    0,
+    -1,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "plane": [
+    [
+     -1,
+     0,
+     0,
+     -1,
+     0,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     -1,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "162/223",
+   "dual_area_squared": "425/892",
+   "mark_det": "15756288/15625",
+   "c_1e4": null,
+   "exact_reference_excluded": false,
+   "exact_orientation_at_reference": [
+    false,
+    true
+   ]
+  },
+  {
+   "key": "0007:025053484",
+   "kind": "glue",
+   "z": [
+    -1,
+    0,
+    -1,
+    0,
+    -1,
+    -1,
+    0,
+    0,
+    -1
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     1,
+     -1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     -1,
+     0,
+     0,
+     -1,
+     0
+    ]
+   ],
+   "dual_length": "223/319",
+   "dual_area_squared": "1025/2552",
+   "mark_det": "653312/625",
+   "c_1e4": 9863,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0008:019811960",
+   "kind": "tree",
+   "z": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    -1
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     -1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ]
+   ],
+   "dual_length": "265/456",
+   "dual_area_squared": "125/456",
+   "mark_det": "116736/125",
+   "c_1e4": 9625,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0008:022143116",
+   "kind": "virtual",
+   "z": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -1
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     -1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ]
+   ],
+   "dual_length": "2/3",
+   "dual_area_squared": "4/9",
+   "mark_det": "864",
+   "c_1e4": null,
+   "exact_reference_excluded": false,
+   "exact_orientation_at_reference": [
+    false,
+    true
+   ]
+  },
+  {
+   "key": "0009:026215416",
+   "kind": "trace",
+   "z": [
+    -1,
+    0,
+    0,
+    0,
+    -1,
+    0,
+    0,
+    0,
+    1
+   ],
+   "plane": [
+    [
+     -1,
+     0,
+     0,
+     0,
+     -1,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     -1,
+     0,
+     0,
+     0,
+     0,
+     -1,
+     -1,
+     -1,
+     1
+    ]
+   ],
+   "dual_length": "763/1054",
+   "dual_area_squared": "999/2108",
+   "mark_det": "3237888/3125",
+   "c_1e4": 9851,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0010:014566174",
+   "kind": "glue",
+   "z": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ],
+    [
+     0,
+     0,
+     -1,
+     0,
+     0,
+     -1,
+     0,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "2400/4013",
+   "dual_area_squared": "1672/4013",
+   "mark_det": "4013/4",
+   "c_1e4": 9692,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0010:033206072",
+   "kind": "glue",
+   "z": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    1,
+    0
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     1,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     1,
+     1
+    ]
+   ],
+   "dual_length": "209/324",
+   "dual_area_squared": "13/36",
+   "mark_det": "1024",
+   "c_1e4": 9786,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0011:011658070",
+   "kind": "tree",
+   "z": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    -1,
+    0,
+    0,
+    1
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     -1,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "11/15",
+   "dual_area_squared": "7/15",
+   "mark_det": "960",
+   "c_1e4": null,
+   "exact_reference_excluded": false,
+   "exact_orientation_at_reference": [
+    false,
+    true
+   ]
+  },
+  {
+   "key": "0011:018652060",
+   "kind": "tree",
+   "z": [
+    0,
+    0,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    -1
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     1,
+     1,
+     1,
+     0,
+     0,
+     0,
+     -1
+    ],
+    [
+     0,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     -1,
+     0
+    ]
+   ],
+   "dual_length": "17225/27324",
+   "dual_area_squared": "32773/81972",
+   "mark_det": "36179/36",
+   "c_1e4": 9783,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0012:008156089",
+   "kind": "domain",
+   "z": [
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -1
+   ],
+   "plane": [
+    [
+     1,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     -1
+    ],
+    [
+     -1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "613355/925244",
+   "dual_area_squared": "1295172/3007043",
+   "mark_det": "430007149/419904",
+   "c_1e4": 9856,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0012:027962209",
+   "kind": "tree",
+   "z": [
+    0,
+    0,
+    0,
+    -1,
+    0,
+    -1,
+    1,
+    0,
+    0
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     -1,
+     0,
+     -1,
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     1,
+     1,
+     0,
+     -1,
+     0,
+     -1
+    ]
+   ],
+   "dual_length": "84904/129007",
+   "dual_area_squared": "47616/129007",
+   "mark_det": "129007/128",
+   "c_1e4": 9820,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0014:001749549",
+   "kind": "virtual",
+   "z": [
+    -1,
+    -1,
+    0,
+    -1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "plane": [
+    [
+     -1,
+     -1,
+     0,
+     -1,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     -1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "dual_length": "3/4",
+   "dual_area_squared": "1/2",
+   "mark_det": "1024",
+   "c_1e4": null,
+   "exact_reference_excluded": false,
+   "exact_orientation_at_reference": [
+    false,
+    false
+   ]
+  },
+  {
+   "key": "0014:002912669",
+   "kind": "tree",
+   "z": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "plane": [
+    [
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "1553/2384",
+   "dual_area_squared": "957/2384",
+   "mark_det": "610304/625",
+   "c_1e4": 9868,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0015:030291998",
+   "kind": "virtual",
+   "z": [
+    0,
+    0,
+    -1,
+    0,
+    -1,
+    0,
+    -1,
+    -1,
+    0
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     -1,
+     0,
+     -1,
+     0,
+     -1,
+     -1,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "3/4",
+   "dual_area_squared": "1/2",
+   "mark_det": "972",
+   "c_1e4": null,
+   "exact_reference_excluded": false,
+   "exact_orientation_at_reference": [
+    false,
+    false
+   ]
+  },
+  {
+   "key": "0015:030875226",
+   "kind": "tree",
+   "z": [
+    -1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "plane": [
+    [
+     -1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     -1
+    ]
+   ],
+   "dual_length": "1881/2704",
+   "dual_area_squared": "81/208",
+   "mark_det": "692224/729",
+   "c_1e4": 9922,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0016:015729744",
+   "kind": "glue",
+   "z": [
+    -1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "plane": [
+    [
+     -1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ],
+    [
+     -1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "36531/53360",
+   "dual_area_squared": "8829/21344",
+   "mark_det": "43712512000/43046721",
+   "c_1e4": 9916,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0017:001746552",
+   "kind": "virtual",
+   "z": [
+    0,
+    0,
+    0,
+    1,
+    -1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     1,
+     -1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     -1,
+     -1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "dual_length": "2/3",
+   "dual_area_squared": "1/2",
+   "mark_det": "768",
+   "c_1e4": null,
+   "exact_reference_excluded": false,
+   "exact_orientation_at_reference": [
+    false,
+    true
+   ]
+  },
+  {
+   "key": "0017:003493538",
+   "kind": "tree",
+   "z": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -1,
+    0,
+    -1
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     -1,
+     0,
+     -1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     -1,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "11/16",
+   "dual_area_squared": "3/8",
+   "mark_det": "1024",
+   "c_1e4": 9820,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0019:024470752",
+   "kind": "tree",
+   "z": [
+    0,
+    0,
+    -1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     -1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     1,
+     0,
+     -1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "330480/519527",
+   "dual_area_squared": "809433/2078108",
+   "mark_det": "531995648/531441",
+   "c_1e4": 9803,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0019:030884313",
+   "kind": "virtual",
+   "z": [
+    -1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "plane": [
+    [
+     -1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     -1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ]
+   ],
+   "dual_length": "1",
+   "dual_area_squared": "3/4",
+   "mark_det": "5120/9",
+   "c_1e4": null,
+   "exact_reference_excluded": false,
+   "exact_orientation_at_reference": [
+    false,
+    false
+   ]
+  },
+  {
+   "key": "0020:015736231",
+   "kind": "tree",
+   "z": [
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "plane": [
+    [
+     -1,
+     -1,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "dual_length": "300/563",
+   "dual_area_squared": "625/2252",
+   "mark_det": "576512/625",
+   "c_1e4": 9563,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0020:021562447",
+   "kind": "glue",
+   "z": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "plane": [
+    [
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     1,
+     -1,
+     0
+    ]
+   ],
+   "dual_length": "3288/5177",
+   "dual_area_squared": "7975/20708",
+   "mark_det": "15903744/15625",
+   "c_1e4": 9785,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0022:004657641",
+   "kind": "tree",
+   "z": [
+    0,
+    0,
+    -1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     -1,
+     0,
+     0,
+     0,
+     0,
+     1,
+     1
+    ],
+    [
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "17536/28035",
+   "dual_area_squared": "31744/84105",
+   "mark_det": "252315/256",
+   "c_1e4": 9787,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0025:025636711",
+   "kind": "glue",
+   "z": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "plane": [
+    [
+     -1,
+     0,
+     0,
+     0,
+     0,
+     -1,
+     1,
+     1,
+     0
+    ],
+    [
+     -1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "44525/63952",
+   "dual_area_squared": "3625/7994",
+   "mark_det": "16371712/15625",
+   "c_1e4": 9924,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0027:015150361",
+   "kind": "glue",
+   "z": [
+    1,
+    1,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "plane": [
+    [
+     1,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     -1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "4257027/6383720",
+   "dual_area_squared": "2754699/6383720",
+   "mark_det": "1634232320/1594323",
+   "c_1e4": 9866,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0027:024473338",
+   "kind": "glue",
+   "z": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     -1
+    ]
+   ],
+   "dual_length": "3/5",
+   "dual_area_squared": "27/100",
+   "mark_det": "25600/27",
+   "c_1e4": 9598,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0028:004605806",
+   "kind": "domain",
+   "z": [
+    0,
+    1,
+    -1,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "plane": [
+    [
+     0,
+     1,
+     -1,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "177183/262012",
+   "dual_area_squared": "27920/65503",
+   "mark_det": "65503/64",
+   "c_1e4": 9893,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0028:024473364",
+   "kind": "tree",
+   "z": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ]
+   ],
+   "dual_length": "32/57",
+   "dual_area_squared": "16/57",
+   "mark_det": "912",
+   "c_1e4": 9664,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0028:033214179",
+   "kind": "tree",
+   "z": [
+    0,
+    0,
+    0,
+    0,
+    -1,
+    0,
+    1,
+    0,
+    0
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     0,
+     -1,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "589/948",
+   "dual_area_squared": "88/237",
+   "mark_det": "948",
+   "c_1e4": 9810,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0029:000580500",
+   "kind": "domain",
+   "z": [
+    1,
+    0,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "plane": [
+    [
+     1,
+     0,
+     1,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ]
+   ],
+   "dual_length": "115386525/174522712",
+   "dual_area_squared": "37298151/87261356",
+   "mark_det": "44677814272/43046721",
+   "c_1e4": 9840,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0029:015730527",
+   "kind": "tree",
+   "z": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "plane": [
+    [
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "38825/61472",
+   "dual_area_squared": "23925/61472",
+   "mark_det": "15736832/15625",
+   "c_1e4": 9785,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0030:030301719",
+   "kind": "virtual",
+   "z": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     -1,
+     0,
+     0,
+     1,
+     -1,
+     -1,
+     0,
+     1,
+     1
+    ]
+   ],
+   "dual_length": "1/2",
+   "dual_area_squared": "1/2",
+   "mark_det": "512",
+   "c_1e4": 9973,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0032:026805553",
+   "kind": "tree",
+   "z": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ],
+    [
+     -1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "267/410",
+   "dual_area_squared": "171/410",
+   "mark_det": "26240/27",
+   "c_1e4": 9871,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0033:009318518",
+   "kind": "glue",
+   "z": [
+    0,
+    0,
+    0,
+    0,
+    -1,
+    0,
+    0,
+    0,
+    1
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     0,
+     -1,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     -1,
+     0,
+     1,
+     0
+    ]
+   ],
+   "dual_length": "36/55",
+   "dual_area_squared": "21/55",
+   "mark_det": "28160/27",
+   "c_1e4": 9817,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0038:012235224",
+   "kind": "tree",
+   "z": [
+    -1,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "plane": [
+    [
+     -1,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     1,
+     0
+    ],
+    [
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     -1
+    ]
+   ],
+   "dual_length": "586/893",
+   "dual_area_squared": "1451/3572",
+   "mark_det": "15559632/15625",
+   "c_1e4": 9863,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0039:006991833",
+   "kind": "glue",
+   "z": [
+    0,
+    0,
+    -1,
+    0,
+    0,
+    -1,
+    1,
+    0,
+    0
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "1549/2112",
+   "dual_area_squared": "9375/20416",
+   "mark_det": "15679488/15625",
+   "c_1e4": null,
+   "exact_reference_excluded": false,
+   "exact_orientation_at_reference": [
+    false,
+    true
+   ]
+  },
+  {
+   "key": "0039:009323739",
+   "kind": "tree",
+   "z": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     -1,
+     0
+    ]
+   ],
+   "dual_length": "117/212",
+   "dual_area_squared": "81/212",
+   "mark_det": "705536/729",
+   "c_1e4": 9583,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0040:016314894",
+   "kind": "domain",
+   "z": [
+    -1,
+    0,
+    1,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0
+   ],
+   "plane": [
+    [
+     -1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ],
+    [
+     0,
+     1,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     -1
+    ]
+   ],
+   "dual_length": "114939729/173456500",
+   "dual_area_squared": "5052537/12389750",
+   "mark_det": "44404864000/43046721",
+   "c_1e4": 9849,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0041:021554835",
+   "kind": "glue",
+   "z": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "275/384",
+   "dual_area_squared": "325/768",
+   "mark_det": "2038431744/1953125",
+   "c_1e4": 9911,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0041:023884003",
+   "kind": "tree",
+   "z": [
+    1,
+    1,
+    0,
+    0,
+    0,
+    1,
+    -1,
+    -1,
+    1
+   ],
+   "plane": [
+    [
+     1,
+     1,
+     0,
+     0,
+     0,
+     1,
+     -1,
+     -1,
+     1
+    ],
+    [
+     0,
+     1,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "69/101",
+   "dual_area_squared": "191/404",
+   "mark_det": "620544/625",
+   "c_1e4": 9938,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0042:027377870",
+   "kind": "domain",
+   "z": [
+    -1,
+    -1,
+    -1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "plane": [
+    [
+     -1,
+     -1,
+     -1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     -1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "5915/8864",
+   "dual_area_squared": "3699/8864",
+   "mark_det": "2269184/2187",
+   "c_1e4": 9857,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0043:016313198",
+   "kind": "glue",
+   "z": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     -1,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "2097/2992",
+   "dual_area_squared": "1215/2992",
+   "mark_det": "765952/729",
+   "c_1e4": 9868,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0043:016313201",
+   "kind": "glue",
+   "z": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -1,
+    -1,
+    0
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     1,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "2832/4127",
+   "dual_area_squared": "1672/4127",
+   "mark_det": "4127/4",
+   "c_1e4": 9883,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0046:021552255",
+   "kind": "tree",
+   "z": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "686/1119",
+   "dual_area_squared": "1813/4476",
+   "mark_det": "2291712/2401",
+   "c_1e4": 9780,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0047:001165296",
+   "kind": "domain",
+   "z": [
+    0,
+    1,
+    -1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "plane": [
+    [
+     0,
+     1,
+     -1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     -1
+    ]
+   ],
+   "dual_length": "7626/10465",
+   "dual_area_squared": "2781/5980",
+   "mark_det": "20511400/19683",
+   "c_1e4": 9998,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0048:005197823",
+   "kind": "domain",
+   "z": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "plane": [
+    [
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     -1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "1211193/1907420",
+   "dual_area_squared": "14047101/33952076",
+   "mark_det": "43458657280/43046721",
+   "c_1e4": 9792,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0048:005245766",
+   "kind": "tree",
+   "z": [
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "plane": [
+    [
+     -1,
+     -1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     1,
+     -1,
+     -1,
+     -1,
+     0,
+     -1,
+     0,
+     0,
+     1
+    ]
+   ],
+   "dual_length": "269/408",
+   "dual_area_squared": "167/408",
+   "mark_det": "249561088/253125",
+   "c_1e4": 9881,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0048:015381935",
+   "kind": "trace",
+   "z": [
+    0,
+    0,
+    -1,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     -1,
+     0,
+     1,
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     -1,
+     0,
+     0,
+     1,
+     0
+    ]
+   ],
+   "dual_length": "67144/79551",
+   "dual_area_squared": "352928/715959",
+   "mark_det": "2147877/2048",
+   "c_1e4": null,
+   "exact_reference_excluded": false,
+   "exact_orientation_at_reference": [
+    true,
+    false
+   ]
+  },
+  {
+   "key": "0048:022725587",
+   "kind": "tree",
+   "z": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ],
+    [
+     -1,
+     -1,
+     0,
+     -1,
+     1,
+     1,
+     0,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "144/233",
+   "dual_area_squared": "108/233",
+   "mark_det": "932",
+   "c_1e4": 9815,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0049:030880553",
+   "kind": "tree",
+   "z": [
+    -1,
+    -1,
+    -1,
+    -1,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "plane": [
+    [
+     -1,
+     -1,
+     -1,
+     -1,
+     0,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     -1,
+     -1,
+     0,
+     -1,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "3/4",
+   "dual_area_squared": "153/320",
+   "mark_det": "20971520/19683",
+   "c_1e4": null,
+   "exact_reference_excluded": false,
+   "exact_orientation_at_reference": [
+    false,
+    true
+   ]
+  },
+  {
+   "key": "0050:000000557",
+   "kind": "glue",
+   "z": [
+    0,
+    0,
+    0,
+    0,
+    -1,
+    1,
+    0,
+    0,
+    0
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     0,
+     -1,
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     1,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "89/132",
+   "dual_area_squared": "19/48",
+   "mark_det": "1056",
+   "c_1e4": 9841,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0050:024468269",
+   "kind": "virtual",
+   "z": [
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "plane": [
+    [
+     -1,
+     -1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     -1,
+     0,
+     -1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "dual_length": "89/128",
+   "dual_area_squared": "57/128",
+   "mark_det": "8192/9",
+   "c_1e4": null,
+   "exact_reference_excluded": false,
+   "exact_orientation_at_reference": [
+    false,
+    true
+   ]
+  },
+  {
+   "key": "0051:019222526",
+   "kind": "tree",
+   "z": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "51/92",
+   "dual_area_squared": "27/92",
+   "mark_det": "23552/27",
+   "c_1e4": 9681,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0051:034373751",
+   "kind": "tree",
+   "z": [
+    0,
+    -1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "plane": [
+    [
+     0,
+     -1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     1,
+     1,
+     0
+    ]
+   ],
+   "dual_length": "1360/2109",
+   "dual_area_squared": "3331/8436",
+   "mark_det": "719872/729",
+   "c_1e4": 9840,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0052:005247066",
+   "kind": "virtual",
+   "z": [
+    0,
+    -1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    -1,
+    0
+   ],
+   "plane": [
+    [
+     0,
+     -1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     -1,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     -1,
+     -1,
+     0
+    ]
+   ],
+   "dual_length": "7/9",
+   "dual_area_squared": "40/81",
+   "mark_det": "972",
+   "c_1e4": null,
+   "exact_reference_excluded": false,
+   "exact_orientation_at_reference": [
+    false,
+    false
+   ]
+  },
+  {
+   "key": "0052:011076511",
+   "kind": "domain",
+   "z": [
+    -1,
+    0,
+    0,
+    -1,
+    -1,
+    1,
+    1,
+    0,
+    -1
+   ],
+   "plane": [
+    [
+     -1,
+     0,
+     0,
+     -1,
+     -1,
+     1,
+     1,
+     0,
+     -1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     1,
+     0,
+     -1
+    ]
+   ],
+   "dual_length": "1411/2224",
+   "dual_area_squared": "314451/711680",
+   "mark_det": "182190080/177147",
+   "c_1e4": 9774,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0052:016324042",
+   "kind": "tree",
+   "z": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ]
+   ],
+   "dual_length": "4/7",
+   "dual_area_squared": "2/7",
+   "mark_det": "896",
+   "c_1e4": 9697,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0052:024480379",
+   "kind": "domain",
+   "z": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "plane": [
+    [
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "2411/3724",
+   "dual_area_squared": "38525/92169",
+   "mark_det": "401488164/390625",
+   "c_1e4": 9811,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0054:020381877",
+   "kind": "glue",
+   "z": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     -1,
+     1,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "40/63",
+   "dual_area_squared": "22/63",
+   "mark_det": "1008",
+   "c_1e4": 9771,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0056:022142574",
+   "kind": "tree",
+   "z": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ]
+   ],
+   "dual_length": "14/27",
+   "dual_area_squared": "8/27",
+   "mark_det": "864",
+   "c_1e4": 9573,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0058:002326188",
+   "kind": "tree",
+   "z": [
+    -1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "plane": [
+    [
+     -1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     -1,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "411/652",
+   "dual_area_squared": "2161/5216",
+   "mark_det": "978",
+   "c_1e4": 9808,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0059:016902802",
+   "kind": "virtual",
+   "z": [
+    0,
+    0,
+    -1,
+    0,
+    0,
+    1,
+    -1,
+    0,
+    0
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     -1,
+     0,
+     0,
+     1,
+     -1,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     -1,
+     0,
+     0,
+     1,
+     0,
+     1,
+     0
+    ]
+   ],
+   "dual_length": "3/4",
+   "dual_area_squared": "1/2",
+   "mark_det": "1024",
+   "c_1e4": null,
+   "exact_reference_excluded": false,
+   "exact_orientation_at_reference": [
+    false,
+    false
+   ]
+  },
+  {
+   "key": "0060:012815567",
+   "kind": "tree",
+   "z": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    -1,
+    0,
+    0,
+    0
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     -1,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "51/88",
+   "dual_area_squared": "27/88",
+   "mark_det": "22528/27",
+   "c_1e4": 9799,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0060:020969238",
+   "kind": "tree",
+   "z": [
+    -1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "plane": [
+    [
+     -1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "53/77",
+   "dual_area_squared": "117/308",
+   "mark_det": "78848/81",
+   "c_1e4": 9877,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0060:026796245",
+   "kind": "tree",
+   "z": [
+    -1,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "plane": [
+    [
+     -1,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     1,
+     0
+    ],
+    [
+     0,
+     -1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ]
+   ],
+   "dual_length": "267/404",
+   "dual_area_squared": "83/202",
+   "mark_det": "1787166720/1771561",
+   "c_1e4": 9864,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0061:001165638",
+   "kind": "glue",
+   "z": [
+    0,
+    0,
+    0,
+    -1,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     -1,
+     0,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "57/88",
+   "dual_area_squared": "351/968",
+   "mark_det": "247808/243",
+   "c_1e4": 9794,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0061:006999913",
+   "kind": "glue",
+   "z": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -1,
+    0
+   ],
+   "plane": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     -1,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     -1,
+     -1,
+     1,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "36/55",
+   "dual_area_squared": "21/55",
+   "mark_det": "28160/27",
+   "c_1e4": 9817,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  },
+  {
+   "key": "0061:026224738",
+   "kind": "tree",
+   "z": [
+    1,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "plane": [
+    [
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     -1,
+     0,
+     0,
+     1,
+     0,
+     1,
+     1,
+     0,
+     0
+    ]
+   ],
+   "dual_length": "67075/104446",
+   "dual_area_squared": "173421/417784",
+   "mark_det": "534763520/531441",
+   "c_1e4": 9815,
+   "exact_reference_excluded": true,
+   "exact_orientation_at_reference": [
+    true,
+    true
+   ]
+  }
+ ]
+}

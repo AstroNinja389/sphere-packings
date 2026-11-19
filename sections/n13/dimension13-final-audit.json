@@ -1,0 +1,33 @@
+{
+ "status": "conditional target coverage only",
+ "target": "5% of old upper to achieved lower",
+ "old_density": "[0.04202351356257739127818231637445918549739799059491396 +/- 4.35e-54]",
+ "known_lattice_density": "[0.029208430928107901937672106346871987729215295820923946 +/- 5.01e-55]",
+ "target_density": "[0.04138275943085391681115680587307982560898885585621446 +/- 4.97e-54]",
+ "sufficient_floor": "242111/500",
+ "conservative_density_fence": "[0.041382726547926945368285904335713548386371310657799854 +/- 4.17e-55]",
+ "starting_marks": 1746860,
+ "excluded": 1739119,
+ "remaining": 7741,
+ "remaining_by_kind": {
+  "domain": 385,
+  "reverse_trace_open": 7214,
+  "tree": 70,
+  "glue": 62,
+  "virtual": 10
+ },
+ "old_trace_replay": 1042245,
+ "joint_flag_trace": 689660,
+ "finite_vector_exclusions": 323,
+ "full_mark_cone_exclusions": 524,
+ "reverse_vector_exclusions": 6367,
+ "completeness_input": "Geraud-Stewart and Naccache, Theorems 3,14,17 and cited census/computational premises",
+ "sha256": {
+  "dimension13-open-keys.txt": "68f392050446e8a76fbc9c3981971b86a5e1781ba93111dd8060a660866adf64",
+  "flag-open-v1.txt": "2089e30ab870233eea5d422c65b861fe4e7d7d7cad1a275df24f032a4bfbc540",
+  "two-flag-audit-v1.json": "f9c5dd0d6cbdfabf6363a4c3bff811257560fbb7d888c4509c426c93debf7aee",
+  "mixed-mark-all.audit.json": "2dbe91a4c3f48afae9760657853ef53702b6b55b86695e6e334cd18af3bedb5d",
+  "cone-audit-v1.json": "734747c2502a6b4dbd97f4732214279ede17619eb4783b2a107873130d58fc83",
+  "reverse-audit-v1.json": "43b38527cb1cc218b73a781fd76d0cea8bc396c680c19d0b8dbf8ae5ebcfb8fd"
+ }
+}

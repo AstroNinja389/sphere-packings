@@ -9,8 +9,8 @@ Nothing here is a claim of optimality, of priority, or about non-lattice packing
 |---:|---|---|---|---|
 | 11 | 0.090771844556272 (conditional) | none (general packings: ≈0.10664) | 0.066238 | `count/n11` |
 | 12 | 0.065276234098413 (conditional) | none (general packings: ≈0.079503) | 0.049454 | `count/n12` |
-| 13 | 0.047947694667495 (conditional) | none (general packings: ≈0.059905) | 0.032014 | `frame/n13` |
-| 14 | 0.034664418153345 (conditional) | 0.0347128 | 0.0216240 | `frame/n14` |
+| 13 | **0.042023513562578** (Mordell and cited rank-12 theorem) | none (general packings: ≈0.059905) | 0.029208430928107 (K₁₃) | [Section proof and replay](sections/README.md) |
+| 14 | **0.033997010427326** (uses cited rank-12 theorem) | 0.0347128 | 0.0216240 (Λ₁₄) | [Geometry, Fourier and angular certificates](sections/n14/FOURTEEN.md) |
 | 15 | 0.025212337452388 (conditional) | 0.0255112 | 0.0168575 | `dim15` |
 | 16 | 0.0172314323416 | 0.0186552 | 0.0147081 | not yet, see [dim16](dim16/README.md) |
 | 17 | 0.013763319803959 (conditional) | 0.0138325 | 0.00881131 | `frame/n17` |
@@ -27,6 +27,11 @@ as read on 18 November 2026 (its release notes are dated 17 November 2026). Thos
 That table starts at dimension 14; for 11–13 the value in brackets is the upper bound for general packings in the same
 repository (`RESULTS.md`), which also bounds lattices.
 "Best known lattice" is the density of the densest lattice known, rounded down, for orientation only.
+
+**Dimension 13.** The stronger target **0.041382759430854 remains open**. At that target, 1,746,828 of 1,746,860 candidate rank-nine markings are excluded. The **32 remaining families** can each contain continuous choices of section metric and gluing. The competitor's general-packing lower of approximately 0.032014 comes from a periodic packing with 72 spheres per cell. Our lattice comparison uses K₁₃. [Remaining markings](sections/n13/FINAL-OPEN-MARKS.txt) · [Competing general table](https://github.com/alexlegeartis/SpherePackings/blob/9a9851887da20ca75825342bfb09e8ab031f4153/RESULTS.md) · [Lattice catalogue](https://www.math.rwth-aachen.de/~Gabriele.Nebe/LATTICES/density.html)
+
+**Dimension 14.** Against the competitor's displayed lattice upper of 0.0347128 and the Λ₁₄ lower of approximately 0.021624096082447, our upper closes **5.47% of their remaining gap**. The final refinement alone lowered our previous upper of 0.033997149607843 by 0.000000139180517. Both dimension-13 and dimension-14 bounds use the sharp rank-12 result with its stated classification and computational inputs. [Competing lattice table](https://github.com/alexlegeartis/SpherePackings/blob/9a9851887da20ca75825342bfb09e8ab031f4153/LATTICE_RESULTS.md) · [Lower-dimensional theorem](https://eprint.iacr.org/2026/2825) · [Proofs and reproduction commands](sections/README.md)
+
 Weaker bounds that are also in this repository and are checked by other programs:
 
 | n | Upper bound | Check it here | Method |
@@ -36,7 +41,9 @@ Weaker bounds that are also in this repository and are checked by other programs
 | 11 | 0.094565500874952 | `joint/n11` | certificate plus one joint cut (unconditional) |
 | 12 | 0.066670465797823 | `frame/n12` | bootstrapped frame floor with odd-order exclusion (conditional) |
 | 12 | 0.06770167234454 | `joint/n12` | certificate plus one joint cut (unconditional) |
+| 13 | 0.047947694667495 | `frame/n13` | earlier conditional frame calculation |
 | 13 | 0.0486832075907 | `joint/n13` | certificate plus one joint cut (unconditional) |
+| 14 | 0.034664418153345 | `frame/n14` | earlier conditional frame calculation |
 | 17 | 0.013875579669877 | `joint/n17` | certificate plus one joint cut (unconditional; weaker than the comparison value 0.0138325) |
 | 19 | 0.0078055517781953 | `joint/n19` | certificate plus joint cuts |
 | 20 | 0.0059269594018778 | `joint/n20` | certificate plus one joint cut |
@@ -260,3 +267,4 @@ No licence has been chosen yet; none is granted by this checkout.
 - `dim16/` – statement, documents, final audit outputs (paths inside them are replaced by `<TREE-A>`, `<TREE-B>`).
 - `results.json` – the table above in machine-readable form.
 - `SHA256SUMS` – hashes of every file in the repository.
+- `sections/` – dimension-13 Mordell bound, finite exclusions and 32 open families; dimension-14 global proof with geometry and angular replays.

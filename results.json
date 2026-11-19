@@ -4,7 +4,12 @@
     "name": "alexlegeartis/SpherePackings, LATTICE_RESULTS.md",
     "url": "https://github.com/alexlegeartis/SpherePackings/blob/main/LATTICE_RESULTS.md",
     "read_on": "2026-11-18",
-    "replayed_here": false
+    "replayed_here": false,
+    "sections_comparison": {
+      "as_of": "2026-11-19",
+      "lattice_table": "https://github.com/alexlegeartis/SpherePackings/blob/9a9851887da20ca75825342bfb09e8ab031f4153/LATTICE_RESULTS.md",
+      "general_table": "https://github.com/alexlegeartis/SpherePackings/blob/9a9851887da20ca75825342bfb09e8ab031f4153/RESULTS.md"
+    }
   },
   "results": [
     {
@@ -87,6 +92,30 @@
     },
     {
       "n": 13,
+      "density_upper": "0.042023513562578",
+      "conditional_on": "Rank-12 determinant floor 729 at squared minimum four, with the classification and finite computations in Géraud-Stewart and Naccache, ePrint 2026/2825.",
+      "location": "sections/n13",
+      "method": "Mordell from sharp rank 12",
+      "comparison": null,
+      "lattice_lower_approx": "0.029208430928108",
+      "lattice_lower_construction": "K13",
+      "competing_general_packing_lower_approx": "0.032014",
+      "remaining_lattice_gap_approx": "0.012815082634470",
+      "replayable_from_this_repository": "Yes for the deduction from the external theorem.",
+      "comparison_general_packings_approx": "0.059905",
+      "competing_lower_scope": "Periodic packing with 72 spheres per cell",
+      "stronger_target": {
+        "density_approx": "0.041382759430854",
+        "status": "open",
+        "initial_markings": 1746860,
+        "excluded_markings": 1746828,
+        "open_families": 32,
+        "open_markings_path": "sections/n13/FINAL-OPEN-MARKS.txt",
+        "replay": "sections/replay13.py with the published rank-eleven SQLite input from Zenodo 23979316"
+      }
+    },
+    {
+      "n": 13,
       "density_upper": "0.047947694667495",
       "hermite_upper": "2.5430585317551",
       "comparison": null,
@@ -94,7 +123,8 @@
       "method": "Theorem 1 certificate plus joint cut plus bootstrapped frame floor with odd-order exclusion",
       "conditional_on": "determinant lemma in dimension 13 and Lemma O (no glue element of order 3, 5); automated review only",
       "replayable_from_this_repository": true,
-      "location": "frame/n13"
+      "location": "frame/n13",
+      "superseded_in_this_repository_by": "sections/"
     },
     {
       "n": 13,
@@ -109,13 +139,29 @@
     },
     {
       "n": 14,
+      "density_upper": "0.033997010427326",
+      "conditional_on": "Rank-12 determinant floor 729 at squared minimum four, with the classification and finite computations in Géraud-Stewart and Naccache, ePrint 2026/2825.",
+      "location": "sections/n14",
+      "method": "Parity-class geometry and Fourier budgets, coupled by angular inequalities on differences between classes",
+      "comparison": "0.0347128",
+      "lattice_lower_approx": "0.021624096082447",
+      "lattice_lower_construction": "Lambda14",
+      "competing_general_packing_lower_approx": "0.021624",
+      "remaining_lattice_gap_approx": "0.012372914344879",
+      "replayable_from_this_repository": "Yes for the deduction from the external theorem.",
+      "competing_lower_scope": "Lattice",
+      "fraction_of_displayed_competitor_gap_closed_approx": 0.05468758
+    },
+    {
+      "n": 14,
       "density_upper": "0.034664418153345",
       "hermite_upper": "2.6622004624735",
       "comparison": "0.0347128",
       "method": "Theorem 1 certificate plus one joint cut plus the frame theorem of dimension 14 (floor 5/8, index of the frame at most 14)",
       "conditional_on": "frame theorem of dimension 14 (frame/n14/r1/FRAME-PREMISE-n14-v2.txt): determinant lemma at range 5/16 and a computer-checked hybrid lemma (two programs of the same author); no second-party review",
       "replayable_from_this_repository": "audit and determinant check yes; the hybrid lemma certificates no (logs, bookkeeping files and programs are here, the tables and cell files are not)",
-      "location": "frame/n14"
+      "location": "frame/n14",
+      "superseded_in_this_repository_by": "sections/"
     },
     {
       "n": 15,
