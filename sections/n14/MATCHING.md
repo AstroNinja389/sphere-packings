@@ -6,6 +6,6 @@ Let \(F\) be an even polynomial with nonnegative spherical coefficients, \(f_0\)
 \[
  (f_0-\epsilon)m\ \le\ F(1)-\epsilon+\sum_j p_j m_j.
 \]
-The empty source also satisfies this equation as an inequality when \(F(1)\ge\epsilon\). All source windows use the same \(m_j\). Each difference shorter than two is in a distinct nonzero parity class. Summing several paid inequalities therefore retains the original population and all of the original conditional determinant hypotheses.
+The empty source also satisfies this equation as an inequality when \(F(1)\ge\epsilon\). All source windows use the same \(m_j\). Each difference shorter than two is in a distinct nonzero parity class. Summing several paid inequalities therefore retains the original population and all of the original determinant ranges in the case split.
 
 The existing rank-14 polynomial verification bounds the cosine for every pair of actual squared lengths at each possible difference length. The new search can reprice the existing polynomials and choose new ones jointly. The joint verifier computes exact upper bounds by Bernstein coefficients on closed intervals and independently tests the resulting threshold polynomials by Sturm variations. The final budget is evaluated both by sorting the scores and by sorting cumulative parity-class capacities. The physical complement is \(\pi^7/(5040\sqrt{314})\). The lower-dimensional classification cited by the earlier section proof is still an input. [Certificate](tightmatching14-final-packing-proof.json) · [Sturm verifier](check_matching.py)

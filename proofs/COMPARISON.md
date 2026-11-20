@@ -1,12 +1,12 @@
 # Lattice density bounds through dimension 48
 
-The table covers dimensions 13–48. Gap closed is (competing lattice upper − our upper) / (competing lattice upper − named lattice lower). Displayed upper bounds are rounded upward. The lower column quotes comparison values at their source precision. [Pinned SpherePackings table](https://github.com/alexlegeartis/SpherePackings/blob/9a9851887da20ca75825342bfb09e8ab031f4153/LATTICE_RESULTS.json) · [Exact values and proof locations](comparison.json) · [Reproduction instructions](README.md)
+The table covers dimensions 13–48. Gap closed is (previously established upper − our upper) / (previously established upper − named lattice lower). Displayed upper bounds are rounded upward. The lower column quotes comparison values at their source precision. [Pinned SpherePackings table](https://github.com/alexlegeartis/SpherePackings/blob/9a9851887da20ca75825342bfb09e8ab031f4153/LATTICE_RESULTS.json) · [Exact values and proof locations](comparison.json) · [Reproduction instructions](README.md)
 
-Dimensions **13 and 14** directly use the sharp rank-12 determinant bound from Géraud-Stewart and Naccache, including the classification and computations cited there. In dimension 13 the proved upper is **0.042023513562578**. The stronger target **0.041382759430854** still has **32 open families**, each of which can have continuous metric and gluing parameters. [Rank-12 input](https://eprint.iacr.org/2026/2825) · [Open-family list](../sections/n13/FINAL-OPEN-MARKS.txt)
+Dimensions **13 and 14** directly use the sharp rank-12 determinant bound from Géraud-Stewart and Naccache, including the classification and computations cited there. In dimension 13 the proved upper is **0.042023513562578**. The stronger target **0.041382759430854** still has **15 open families**, each of which can have continuous metric and gluing parameters. [Rank-12 input](https://eprint.iacr.org/2026/2825) · [Open-family list](../sections/n13/OPEN-AFTER-CONTACT-PRICES.txt)
 
-| Dimension | Our lattice upper | Competing lattice upper | Named lattice lower | Gap closed | Proof |
+| Dimension | Our lattice upper | Previously established upper | Named lattice lower | Gap closed | Proof |
 |---:|---:|---:|---:|---:|---|
-| 13 | 0.042023513562578 | — | 0.029208430928108 (K₁₃) | — | [Mordell from rank 12](../sections/README.md) |
+| 13 | 0.042023513562578 | 0.059905026 (all packings) | 0.029208430928108 (K₁₃) | 58.252% | [Mordell from rank 12](../sections/README.md) |
 | 14 | 0.03399687961750058 | 0.034712755778 | 0.0216240960824471 | 5.469% | [Matching bound using rank 12](../sections/n14/MATCHING.md) |
 | 15 | 0.02516391576531848 | 0.025511135431 | 0.0168575706567626 | 4.012% | [Certificate and census](native/minfix-lift15a-final-packing-proof.json) |
 | 16 | 0.0172314323416 | 0.018655117428 | 0.0147081643974308 | 36.070% | [Published bound, external proof files](../dim16/README.md) |
@@ -17,7 +17,7 @@ Dimensions **13 and 14** directly use the sharp rank-12 determinant bound from G
 | 21 | 0.0044091934148595 | 0.004557959175 | 0.0024658847115024 | 7.111% | [Certificate and census](native/minfix-mix21a-final-packing-proof.json) |
 | 22 | 0.00333006729411059 | 0.003482932334 | 0.0021276601452758 | 11.279% | [Certificate and census](native/minfix-mix22a-final-packing-proof.json) |
 | 23 | 0.00252656520190481 | 0.002608401581 | 0.001905328193426 | 11.640% | [Certificate and census](native/flag23a-final-packing-proof.json) |
-| 24 | π¹²/12! | — | π¹²/12! (Leech) | — | [Exact Leech density](https://arxiv.org/abs/1603.06518) |
+| 24 | π¹²/12! | π¹²/12! | π¹²/12! (Leech) | Exact | [Exact Leech density](https://arxiv.org/abs/1603.06518) |
 | 25 | 0.001286558046689577 | 0.001325232433 | 0.0006772120097731 | 5.968% | [Offline certificate](bounds-25-48.json) |
 | 26 | 0.000869110293813701 | 0.000907209997 | 0.0002692200504338 | 5.972% | [Offline certificate](bounds-25-48.json) |
 | 27 | 0.000580593927514536 | 0.000622938953 | 0.0001286752812026 | 8.567% | [Offline certificate](bounds-25-48.json) |
@@ -43,4 +43,6 @@ Dimensions **13 and 14** directly use the sharp rank-12 determinant bound from G
 | 47 | 0.00000051272563331981912 | 0.0000005130033534 | 0.0000000214660782 | 0.057% | [Offline certificate](bounds-25-48.json) |
 | 48 | 0.00000034530564242393278 | 0.00000034559190288 | 0.0000000231782953 | 0.089% | [Offline certificate](bounds-25-48.json) |
 
-The pinned project has no dimension-13 lattice upper row. Its general-packing lower of about 0.032014 is for a periodic construction with 72 spheres per cell. The dimension-13 lattice lower in this table is K₁₃. Dimension 16 carries forward the published result with its external proof dependencies. [Competing general-packing table](https://github.com/alexlegeartis/SpherePackings/blob/9a9851887da20ca75825342bfb09e8ab031f4153/RESULTS.md) · [Lattice catalogue](https://www.math.rwth-aachen.de/~Gabriele.Nebe/LATTICES/density.html)
+The pinned lattice table starts at dimension 14. For dimension 13, the same authors give **0.059905026** for all sphere packings, which also bounds every lattice packing. The **58.252%** uses this external benchmark and the lattice lower K₁₃. This repository had already obtained a lattice-specific upper of **0.047947694667495** using its frame and glue lemmas. The periodic density of about 0.032014 uses 72 spheres per cell. [Previously established general upper](https://github.com/alexlegeartis/SpherePackings/blob/9a9851887da20ca75825342bfb09e8ab031f4153/RESULTS.json) · [Earlier lattice certificates](../EARLIER-CERTIFICATES.md)
+
+Dimension 24 had an exact value already, so the gap is zero. Dimension 16 carries forward the published result with its external proof dependencies. [Previously established general-packing bounds](https://github.com/alexlegeartis/SpherePackings/blob/9a9851887da20ca75825342bfb09e8ab031f4153/RESULTS.md) · [Lattice catalogue](https://www.math.rwth-aachen.de/~Gabriele.Nebe/LATTICES/density.html)

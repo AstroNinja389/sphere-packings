@@ -11,7 +11,7 @@ common denominator), with one more ingredient, the frame floor of N15-FRAME-FLOO
 so for the multiplier mu >= 0 of the bundle the class budget is the maximum of
    case A: fewer than `count` pairs up to cap                      (no extra term),
    case B: at least `count` pairs up to cap, plus mu * (sum v - floor).
-The floor is CONDITIONAL: it holds for lattices denser than `complement_density`; the reported bound is
+The floor applies to lattices denser than `complement_density`; the reported bound is
 max(class bound, complement). The class maximum is computed here by an exact integer dynamic programme written for
 this file (it shares no code with the search oracle). With no floor in the bundle the result must equal that of
 audit_full_dimension_bound_v2.py; --selftest compares the dynamic programme with explicit enumeration.

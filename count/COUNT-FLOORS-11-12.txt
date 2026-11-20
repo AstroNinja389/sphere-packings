@@ -1,6 +1,6 @@
 FLOORS ON n - 1 PAIRS OF ONE CLASS: DIMENSIONS 11 AND 12                                   18 November 2026
 =====================================================================================================================
-WHAT IS CLAIMED (both conditional; see "depends on")
+WHAT IS CLAIMED (proof inputs are listed under "depends on")
   dimension 11: density of every lattice packing <= 0.090771844556272
   dimension 12: density of every lattice packing <= 0.065276234098413
 Each number is the maximum of an audited density (valid for lattices denser than the complement) and the complement

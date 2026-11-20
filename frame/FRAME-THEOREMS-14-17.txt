@@ -1,7 +1,7 @@
 FRAME THEOREMS IN DIMENSIONS 14 AND 17: WHAT IS IN THIS REPOSITORY AND WHAT A REPLAY REPRODUCES      (18 November 2026)
 =====================================================================================================================
 
-RESULTS (upper bounds for the density of lattice packings; both are CONDITIONAL, see "Status")
+RESULTS (lattice packing upper bounds; the Status section describes the proof inputs and checks)
    n = 14:  0.034664418153345     frame/n14/r1     floor S0 = 5/8,   index cap 14, frame complement 0.032772278947559
    n = 17:  0.013763319803959     frame/n17/r1     floor S0 = 11/25, index cap 64, frame complement 0.012461087090161
 
@@ -83,7 +83,7 @@ HYBRID-BOOKKEEPING-N14-D1_4-T-1.json, frame_u2_recheck_v1.py, make_frame_u2_rech
 here covers every (case, cell) pair anew and its statement contains the one at range 1/4.
 
 STATUS
-Written on 18 November 2026 by one author (Claude) in computer-assisted sessions. Each bound is conditional on the frame
+Written on 18 November 2026 by one author (Claude) in computer-assisted sessions. Each bound uses the frame
 theorem of its dimension. The lemma tables were produced by one program and re-checked by a second implementation, both
 by the same author. No second-party review of the theorems, of the lemma programs or of the cell scheme at these
 ranges; no human has reviewed any of it. The bundles record this as

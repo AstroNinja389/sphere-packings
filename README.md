@@ -1,18 +1,18 @@
 # Lattice sphere-packing density bounds through dimension 48
 
-The current comparison covers dimensions 13–48. It gives each lattice density upper bound, the competing upper, the named lattice lower, and the fraction of the gap closed. The certificates improve the pinned competing upper in every dimension from 25 through 48. In each dimension from 25 through 32 they close at least 5% of that gap. [Full comparison table](proofs/COMPARISON.md) · [Machine-readable table](proofs/comparison.json) · [Proofs and replay commands](proofs/README.md)
+The current comparison covers dimensions 13–48. It gives each lattice density upper bound, a previously established upper, the named lattice lower, and the fraction of the gap closed. The certificates improve the previously established upper in the pinned table in every dimension from 25 through 48. In each dimension from 25 through 32 they close at least 5% of that gap. [Full comparison table](proofs/COMPARISON.md) · [Machine-readable table](proofs/comparison.json) · [Proofs and replay commands](proofs/README.md)
 
-**Dimensions 13 and 14 use an external rank-12 theorem.** Both deductions use the minimum-four Gram determinant floor 729 and inherit the classification and computational inputs of Géraud-Stewart and Naccache. Dimension 13 gives **0.042023513562578** by Mordell. The stronger target **0.041382759430854** still has **32 open families** of possible section metrics and gluing data. Dimension 14 gives **0.03399687961750058** after the fixed-difference matching refinement. [Rank-12 theorem](https://eprint.iacr.org/2026/2825) · [32 remaining families](sections/n13/FINAL-OPEN-MARKS.txt) · [Dimension-14 refinement](sections/n14/MATCHING.md)
+**Dimensions 13 and 14 use an external rank-12 theorem.** Both deductions use the minimum-four Gram determinant floor 729 and inherit the classification and computational inputs of Géraud-Stewart and Naccache. Dimension 13 gives **0.042023513562578** by Mordell. The stronger target **0.041382759430854** still has **15 open families** of possible section metrics and gluing data. Dimension 14 gives **0.03399687961750058** after the fixed-difference matching refinement. [Rank-12 theorem](https://eprint.iacr.org/2026/2825) · [17 new whole-family exclusions](sections/n13/CONTACT-PRICES.md) · [15 remaining families](sections/n13/OPEN-AFTER-CONTACT-PRICES.txt) · [Dimension-14 refinement](sections/n14/MATCHING.md)
 
 The dimension-16 row carries forward the previously published upper **0.0172314323416**. Its full certificate chain requires external files. Dimension 24 records the exact Leech lattice density. [Dimension-16 proof status](dim16/README.md) · [Dimension-24 theorem](https://arxiv.org/abs/1603.06518)
 
 ## Current bounds
 
-Gap closed is the fraction of the interval from the competing lattice upper to its named lattice lower that our upper removes. The upper decimals are rounded upward. The dimension-13 lower uses K₁₃. The competing 72-sphere periodic construction has a separate general-packing comparison. [Pinned source](https://github.com/alexlegeartis/SpherePackings/blob/9a9851887da20ca75825342bfb09e8ab031f4153/LATTICE_RESULTS.json)
+Gap closed measures progress from the specified earlier upper toward the named lattice lower. Upper decimals are rounded upward. The pinned lattice table starts at dimension 14. For dimension 13, the same authors give **0.059905026** for all sphere packings, which also bounds every lattice packing. The **58.252%** uses this external benchmark and the lattice lower K₁₃. This repository had already obtained a lattice-specific upper of **0.047947694667495** using its frame and glue lemmas. The periodic density of about 0.032014 uses 72 spheres per cell. [Previously established general upper](https://github.com/alexlegeartis/SpherePackings/blob/9a9851887da20ca75825342bfb09e8ab031f4153/RESULTS.json) · [Earlier lattice certificates](EARLIER-CERTIFICATES.md) · [Pinned source](https://github.com/alexlegeartis/SpherePackings/blob/9a9851887da20ca75825342bfb09e8ab031f4153/LATTICE_RESULTS.json)
 
-| Dimension | Our lattice upper | Competing lattice upper | Named lattice lower | Gap closed | Proof |
+| Dimension | Our lattice upper | Previously established upper | Named lattice lower | Gap closed | Proof |
 |---:|---:|---:|---:|---:|---|
-| 13 | 0.042023513562578 | — | 0.029208430928108 (K₁₃) | — | [Mordell from rank 12](sections/README.md) |
+| 13 | 0.042023513562578 | 0.059905026 (all packings) | 0.029208430928108 (K₁₃) | 58.252% | [Mordell from rank 12](sections/README.md) |
 | 14 | 0.03399687961750058 | 0.034712755778 | 0.0216240960824471 | 5.469% | [Matching bound using rank 12](sections/n14/MATCHING.md) |
 | 15 | 0.02516391576531848 | 0.025511135431 | 0.0168575706567626 | 4.012% | [Certificate and census](proofs/native/minfix-lift15a-final-packing-proof.json) |
 | 16 | 0.0172314323416 | 0.018655117428 | 0.0147081643974308 | 36.070% | [Published bound, external proof files](dim16/README.md) |
@@ -23,7 +23,7 @@ Gap closed is the fraction of the interval from the competing lattice upper to i
 | 21 | 0.0044091934148595 | 0.004557959175 | 0.0024658847115024 | 7.111% | [Certificate and census](proofs/native/minfix-mix21a-final-packing-proof.json) |
 | 22 | 0.00333006729411059 | 0.003482932334 | 0.0021276601452758 | 11.279% | [Certificate and census](proofs/native/minfix-mix22a-final-packing-proof.json) |
 | 23 | 0.00252656520190481 | 0.002608401581 | 0.001905328193426 | 11.640% | [Certificate and census](proofs/native/flag23a-final-packing-proof.json) |
-| 24 | π¹²/12! | — | π¹²/12! (Leech) | — | [Exact Leech density](https://arxiv.org/abs/1603.06518) |
+| 24 | π¹²/12! | π¹²/12! | π¹²/12! (Leech) | Exact | [Exact Leech density](https://arxiv.org/abs/1603.06518) |
 | 25 | 0.001286558046689577 | 0.001325232433 | 0.0006772120097731 | 5.968% | [Offline certificate](proofs/bounds-25-48.json) |
 | 26 | 0.000869110293813701 | 0.000907209997 | 0.0002692200504338 | 5.972% | [Offline certificate](proofs/bounds-25-48.json) |
 | 27 | 0.000580593927514536 | 0.000622938953 | 0.0001286752812026 | 8.567% | [Offline certificate](proofs/bounds-25-48.json) |

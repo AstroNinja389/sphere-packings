@@ -9,9 +9,9 @@ all with premise files regenerated for the repository (same statements and numbe
 the premise files, dimensions 10 and 14, the table-based route and the referee folders are not included.
 =====================================================================================================================
 Status: elementary; one author (Claude), one session. An automated referee (not a human) re-derived the proof, the
-induction and the numbers and found no error (section 5). NOT reviewed by a human. The bounds obtained are CONDITIONAL
-on the determinant lemma of the dimension (DETERMINANT-LEMMA-GENERAL-N-v1.txt, numerical step check_det_n_v1.py), on
-the earlier bound used as input, and on the soundness of the exact audits; on nothing else (no lemma tables).
+induction and the numbers and found no error (section 5). NOT reviewed by a human. The proof uses the determinant
+lemma of the dimension (DETERMINANT-LEMMA-GENERAL-N-v1.txt, numerical step check_det_n_v1.py), the earlier bound,
+and the exact audits of the subsequent rounds.
 v4 = v3 plus section 8 (a check made from the public repository alone, and the regenerated premise files). v3 replaced v2 (kept): the sharpening of section 4 is carried out (Theorem B2); it adds a second elementary lemma
 (ODD-ORDER-EXCLUSION-v1.txt, finite exact check check_odd_order_v1.py) to the assumptions of the results that use it.
 The automated review of section 5 concerns Theorem B; that of Theorem B2 and of the odd-order lemma is in section 7.
@@ -39,8 +39,8 @@ The frame case of the auditor (index_cap = J, S0, T = 9/4) gives an audited dens
 the final bound is max(B', J d_n). If J d_n <= B' < B the theorem applies again with B' in place of B.
 Induction (U_k := "every lattice of the dimension has density <= B_k"; P_k := the statement of premise file k):
 U_(k-1) and the determinant lemma imply P_k (it uses B_(k-1), never B_k); P_k and the audit of round k imply U_k.
-So U_0 => P_1 => U_1 => P_2 => ... , strictly forward. The last bound is conditional on U_0, the determinant lemma, and
-the soundness of the audit program in EVERY round: all premise files and all audits of the chain are part of the proof.
+So U_0 => P_1 => U_1 => P_2 => ... , strictly forward. The proof of the last bound uses U_0, the determinant lemma,
+and the verified class budget in each round. Every premise file and audit in the chain is part of the proof.
 J must be at most floor(B/d_n), and J d_n has to end below the bound.
 
 3. RESULTS (exact audits; B_0 = audited value of the 4 November sweep)

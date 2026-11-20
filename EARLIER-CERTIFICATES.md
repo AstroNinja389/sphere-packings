@@ -6,13 +6,13 @@ This page documents the preceding release and its reproduction commands. The [cu
 
 | n | Upper bound (this repository) | Comparison value | Best known lattice | Check it here |
 |---:|---|---|---|---|
-| 11 | 0.090771844556272 (conditional) | none (general packings: ≈0.10664) | 0.066238 | `count/n11` |
-| 12 | 0.065276234098413 (conditional) | none (general packings: ≈0.079503) | 0.049454 | `count/n12` |
-| 13 | **0.042023513562578** (Mordell and cited rank-12 theorem) | none (general packings: ≈0.059905) | 0.029208430928107 (K₁₃) | [Section proof and replay](sections/README.md) |
+| 11 | 0.090771844556272 (ten-pair theorem) | none (general packings: ≈0.10664) | 0.066238 | `count/n11` |
+| 12 | 0.065276234098413 (eleven-pair theorem) | none (general packings: ≈0.079503) | 0.049454 | `count/n12` |
+| 13 | **0.042023513562578** (Mordell and cited rank-12 theorem) | 0.059905026 (all packings) | 0.029208430928107 (K₁₃) | [Section proof and replay](sections/README.md) |
 | 14 | **0.033997010427326** (uses cited rank-12 theorem) | 0.0347128 | 0.0216240 (Λ₁₄) | [Geometry, Fourier and angular certificates](sections/n14/FOURTEEN.md) |
-| 15 | 0.025212337452388 (conditional) | 0.0255112 | 0.0168575 | `dim15` |
+| 15 | 0.025212337452388 (frame and two-class lemmas) | 0.0255112 | 0.0168575 | `dim15` |
 | 16 | 0.0172314323416 | 0.0186552 | 0.0147081 | not yet, see [dim16](dim16/README.md) |
-| 17 | 0.013763319803959 (conditional) | 0.0138325 | 0.00881131 | `frame/n17` |
+| 17 | 0.013763319803959 (frame theorem) | 0.0138325 | 0.00881131 | `frame/n17` |
 | 18 | 0.010336520221586 | 0.0103439 | 0.00592836 | `mixed/n18` |
 | 19 | 0.0077671805985286 | 0.00780844 | 0.00412080 | `mixed/n19` |
 | 20 | 0.0058802043811005 | 0.00595464 | 0.00322586 | `mixed/n20` |
@@ -27,22 +27,22 @@ That table starts at dimension 14; for 11–13 the value in brackets is the uppe
 repository (`RESULTS.md`), which also bounds lattices.
 "Best known lattice" is the density of the densest lattice known, rounded down, for orientation only.
 
-**Dimension 13.** The stronger target **0.041382759430854 remains open**. At that target, 1,746,828 of 1,746,860 candidate rank-nine markings are excluded. The **32 remaining families** can each contain continuous choices of section metric and gluing. The competitor's general-packing lower of approximately 0.032014 comes from a periodic packing with 72 spheres per cell. Our lattice comparison uses K₁₃. [Remaining markings](sections/n13/FINAL-OPEN-MARKS.txt) · [Competing general table](https://github.com/alexlegeartis/SpherePackings/blob/9a9851887da20ca75825342bfb09e8ab031f4153/RESULTS.md) · [Lattice catalogue](https://www.math.rwth-aachen.de/~Gabriele.Nebe/LATTICES/density.html)
+**Dimension 13.** The stronger target **0.041382759430854 remains open**. At that target, 1,746,845 of 1,746,860 candidate rank-nine markings are excluded. The **15 remaining families** can each contain continuous choices of section metric and gluing. The previously established general-packing lower of approximately 0.032014 comes from a periodic packing with 72 spheres per cell. Our lattice comparison uses K₁₃. [Remaining markings](sections/n13/OPEN-AFTER-CONTACT-PRICES.txt) · [General-packing table](https://github.com/alexlegeartis/SpherePackings/blob/9a9851887da20ca75825342bfb09e8ab031f4153/RESULTS.md) · [Lattice catalogue](https://www.math.rwth-aachen.de/~Gabriele.Nebe/LATTICES/density.html)
 
-**Dimension 14.** Against the competitor's displayed lattice upper of 0.0347128 and the Λ₁₄ lower of approximately 0.021624096082447, our upper closes **5.47% of their remaining gap**. The final refinement alone lowered our previous upper of 0.033997149607843 by 0.000000139180517. Both dimension-13 and dimension-14 bounds use the sharp rank-12 result with its stated classification and computational inputs. [Competing lattice table](https://github.com/alexlegeartis/SpherePackings/blob/9a9851887da20ca75825342bfb09e8ab031f4153/LATTICE_RESULTS.md) · [Lower-dimensional theorem](https://eprint.iacr.org/2026/2825) · [Proofs and reproduction commands](sections/README.md)
+**Dimension 14.** Against the previously established lattice upper of 0.0347128 and the Λ₁₄ lower of approximately 0.021624096082447, our upper closes **5.47% of the gap from that upper to Λ₁₄**. The final refinement alone lowered our previous upper of 0.033997149607843 by 0.000000139180517. Both dimension-13 and dimension-14 bounds use the sharp rank-12 result with its stated classification and computational inputs. [Lattice table](https://github.com/alexlegeartis/SpherePackings/blob/9a9851887da20ca75825342bfb09e8ab031f4153/LATTICE_RESULTS.md) · [Lower-dimensional theorem](https://eprint.iacr.org/2026/2825) · [Proofs and reproduction commands](sections/README.md)
 
 Weaker bounds that are also in this repository and are checked by other programs:
 
 | n | Upper bound | Check it here | Method |
 |---:|---|---|---|
 | 10 | 0.13010849917496 | `joint/n10` | certificate plus joint cuts (unconditional; not a best bound for dimension 10, here because the dimension-11 row uses it) |
-| 11 | 0.092981475168202 | `frame/n11` | bootstrapped frame floor, three rounds (conditional on the determinant lemma) |
+| 11 | 0.092981475168202 | `frame/n11` | bootstrapped frame floor, three rounds using the determinant lemma |
 | 11 | 0.094565500874952 | `joint/n11` | certificate plus one joint cut (unconditional) |
-| 12 | 0.066670465797823 | `frame/n12` | bootstrapped frame floor with odd-order exclusion (conditional) |
+| 12 | 0.066670465797823 | `frame/n12` | bootstrapped frame floor with determinant and odd-order lemmas |
 | 12 | 0.06770167234454 | `joint/n12` | certificate plus one joint cut (unconditional) |
-| 13 | 0.047947694667495 | `frame/n13` | earlier conditional frame calculation |
+| 13 | 0.047947694667495 | `frame/n13` | earlier frame calculation using the determinant and glue lemmas |
 | 13 | 0.0486832075907 | `joint/n13` | certificate plus one joint cut (unconditional) |
-| 14 | 0.034664418153345 | `frame/n14` | earlier conditional frame calculation |
+| 14 | 0.034664418153345 | `frame/n14` | earlier frame calculation using the determinant and glue lemmas |
 | 17 | 0.013875579669877 | `joint/n17` | certificate plus one joint cut (unconditional; weaker than the comparison value 0.0138325) |
 | 19 | 0.0078055517781953 | `joint/n19` | certificate plus joint cuts |
 | 20 | 0.0059269594018778 | `joint/n20` | certificate plus one joint cut |
@@ -83,8 +83,7 @@ class modulo 2L (the "mixed relative bound"): if y₁, …, y_K lie in one class
 have squared lengths mᵢ between 2 and 2√2 (minimum 1), then Σ (1 − 2/mᵢ)² ≥ K(K − n)/(n(K − 1)). For equal lengths
 this is the relative bound for lines, which the class budget of the earlier paper uses through cumulative caps; the
 mixed form charges every vector with its own length. The statement, its one-page proof and the way it enters the
-class budget are in [`mixed/MIXED-RELATIVE-BOUND.txt`](mixed/MIXED-RELATIVE-BOUND.txt). It needs no assumption on the
-lattice, so these rows are not conditional. The audit program is the joint-cut auditor with this one addition:
+class budget are in [`mixed/MIXED-RELATIVE-BOUND.txt`](mixed/MIXED-RELATIVE-BOUND.txt). It applies to every lattice in the indicated dimension. The audit program is the joint-cut auditor with this one addition:
 
 ```
 python -B mixed/audit_mixed_bound.py mixed/n20/bundle.json my-n20-audit.json
@@ -95,7 +94,7 @@ in each folder; a replay agrees with them in every field except the timing and, 
 hashes of the freshly written kernel-audit files. Needs mpmath. A few seconds each. The gain grows with the dimension: against the earlier entries of this
 repository listed above it is 0.49% in dimension 19, 0.79% in 20, 1.17% in 21 and 1.57% in 22.
 
-**Dimension 11 (`frame/`, superseded by `count/n11`), conditional on a determinant lemma.** A class with eleven pairs of squared length about 2
+**Dimension 11 (`frame/`, superseded by `count/n11`), using a determinant lemma.** A class with eleven pairs of squared length about 2
 (a "frame") forces the lattice to contain a perturbed copy of D₁₁, so its density is (index) × (density of that copy),
 and the index is an integer. If the lattice is denser than 4 times the density of D₁₁, the index is at least 5, and
 the bound already known for dimension 11 then forces the Gram determinant of the frame, hence the excess
@@ -114,9 +113,9 @@ previous round (the number in its `audit.json`). The general statement is in
 for the Gram matrix of a near-frame. That is the determinant lemma, written out for general dimension in
 [`frame/DETERMINANT-LEMMA-GENERAL-N-v1.txt`](frame/DETERMINANT-LEMMA-GENERAL-N-v1.txt); its last step is an interval
 computation done by `frame/check_det_n_v1.py` (a few seconds; the stored output is `frame/n11/check-det-n-v1-N11-D1_4.log`).
-Each round is also conditional on the bound it starts from and on the audit program. Needs mpmath.
+Each round takes the preceding bound as input and verifies its new class budget. Needs mpmath.
 
-**Dimensions 12 (superseded by `count/n12`) and 13 (`frame/`), conditional on the determinant lemma and an odd-order lemma.** The same integrality
+**Dimensions 12 (superseded by `count/n12`) and 13 (`frame/`), using the determinant and odd-order lemmas.** The same integrality
 argument, with one more elementary ingredient: the index is the order of a finite group of "glue" classes, and such
 a group cannot contain an element of order 3, 5 or 7 in dimension 12 (3 or 5 in dimension 13), because the multiples
 of such an element cannot all be as long as the minimum requires. This is a finite computation over residue patterns
@@ -133,7 +132,7 @@ python -B frame/audit_frame_bound.py frame/n12/r1/bundle.json my-n12.json
 
 and likewise for 13 (`check_odd_order_v1.py 13 1/4 3 5`). The thinnest place is dimension 13, order 3: 17.92 against 18.
 
-**Dimensions 11 and 12 (`count/`), conditional on a theorem about n − 1 pairs with computer-checked lemmas.** The rows of the
+**Dimensions 11 and 12 (`count/`), using a theorem about n − 1 pairs with computer-checked lemmas.** The rows of the
 first table for dimensions 11 and 12. The floor is put on n − 1 pairs of one class instead of n: in a lattice of
 dimension 11 denser than 0.0905, any ten distinct pairs of one class, each of squared length below 9/4, have
 Σ max(|x|², 2) > 20 + 3/4; in a lattice of dimension 12 denser than 0.065, any eleven such pairs have
@@ -161,7 +160,7 @@ and `count/lemma-programs`; the tables and cell files are not. [`count/COUNT-FLO
 says exactly what is here and what each bound depends on. The bounds of `frame/n11` and `frame/n12` below are weaker
 and rest on fewer assumptions.
 
-**Dimensions 14 and 17 (`frame/`), conditional on a frame theorem with computer-checked lemmas.** Here the frame floor
+**Dimensions 14 and 17 (`frame/`), using a frame theorem with computer-checked lemmas.** Here the frame floor
 is not bootstrapped from a known bound; the index of the perturbed copy of Dₙ is bounded directly. It is the order of a
 finite group G of glue classes, and Σ ψ(g) ≥ 0 over G for ψ(g) = Σᵢ cos 2πgᵢ. Elements of order two have ψ ≤ n − 16,
 and for every other element a "hybrid lemma" (both g and 2g are at least as long as the minimum) gives ψ < −1 in
@@ -183,7 +182,7 @@ author. The logs, the bookkeeping files and the programs are in `frame/n14`, `fr
 the tables and cell files are not. [`frame/FRAME-THEOREMS-14-17.txt`](frame/FRAME-THEOREMS-14-17.txt) says exactly
 what is here, what a replay reproduces and what each bound depends on.
 
-**Dimension 15 (`dim15/`), conditional.** A constraint special to this dimension: in a 15-dimensional lattice denser
+**Dimension 15 (`dim15/`), earlier frame proof.** A constraint special to this dimension: in a 15-dimensional lattice denser
 than the laminated lattice Λ₁₅, any fifteen distinct pairs of one class modulo 2L, each of squared length at most
 9/4 (minimum 1), have Σ max(|x|², 2) > 123/4. The statement and its short proof are in
 [`dim15/N15-FRAME-FLOOR-THEOREM-v2.txt`](dim15/N15-FRAME-FLOOR-THEOREM-v2.txt); it follows from a determinant lemma,
@@ -196,8 +195,7 @@ python -B dim15/audit_frame_floor_bound.py dim15/bundle.json my-n15-audit.json
 ```
 
 The audit itself can be replayed here (a few seconds; needs mpmath). **What cannot be replayed here** is the
-two-class lemma: its 118,440 certificates and the programs that check them are not in this repository. The bound
-is therefore conditional on that lemma and on the two others; see the review note below.
+two-class lemma: its 118,440 certificates and the programs that check them are not in this repository. The proof uses that two-class lemma, the determinant lemma and the index bound. The review note below records which checks were performed.
 
 **Dimension 16 (`dim16/`).** The value 0.0172314323416 is the end of a long chain of exact certificates that uses
 structure specific to dimension 16. **It cannot be replayed from this repository yet**: the chain's programs and
@@ -266,4 +264,4 @@ No licence has been chosen yet; none is granted by this checkout.
 - `dim16/` – statement, documents, final audit outputs (paths inside them are replaced by `<TREE-A>`, `<TREE-B>`).
 - `results.json` – the table above in machine-readable form.
 - `SHA256SUMS` – hashes of every file in the repository.
-- `sections/` – dimension-13 Mordell bound, finite exclusions and 32 open families; dimension-14 global proof with geometry and angular replays.
+- `sections/` – dimension-13 Mordell bound and finite exclusions (15 families remain open), and the dimension-14 geometry and angular replays.

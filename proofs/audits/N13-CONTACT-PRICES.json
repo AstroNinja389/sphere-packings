@@ -1,0 +1,40 @@
+{
+  "source_sha256": "8a7bc85eba100f0ab3af3ba009d4a78a848ff5399664c27ce1ad480d077fdad9",
+  "rational_price_leaves": 60,
+  "certified_intervals": 89,
+  "whole_markings": [
+    "0000:015145001",
+    "0000:020386920",
+    "0007:023890612",
+    "0009:026215416",
+    "0011:018652060",
+    "0015:030875226",
+    "0017:003493538",
+    "0025:025636711",
+    "0028:033214179",
+    "0039:006991833",
+    "0041:023884003",
+    "0042:027377870",
+    "0046:021552255",
+    "0048:005197823",
+    "0052:016324042",
+    "0058:002326188",
+    "0060:026796245"
+  ],
+  "previous_markings": 32,
+  "remaining_markings": 15,
+  "rank9_database_sha256": "982eaf73232af64ccf3ad2123d5e1f3eef169976cb1a90b2f45eaae4389c59e8",
+  "negative_controls_rejected": [
+    "missing phase child",
+    "zero contact multiplier"
+  ],
+  "comparison_revision": "9a9851887da20ca75825342bfb09e8ab031f4153",
+  "checked_external_lattice_rows": 34,
+  "checked_external_general_rows": 1,
+  "scope": "All 17 whole-family proofs, their prior interval prefixes and both signed-flag cases covered by the interval inequalities. Earlier census stages use the cited prior replay.",
+  "verifier_sha256": {
+    "sections/n13/audit_contact_prices.py": "a46b5d38aecb1fef581a75be63a7e76bbd88d5e21513b058871b014fdf87b7f8",
+    "sections/replay13.py": "21a90c9b212e2e6681a282e322433a4a95c68ff94a8c08f70f5cdf057a81b2d6",
+    "proofs/check_tables.py": "cd63304b777876c0c3855bb62644c76a3edacdcb9977b1096211fc4eee13734e"
+  }
+}

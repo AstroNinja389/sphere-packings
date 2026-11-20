@@ -1,9 +1,10 @@
 {
   "status": "PASS",
+  "repository_revision_at_this_replay": "631a6ef3a912a5c5f672ce8eeb21aacb2771fdd8",
   "comparison_revision": "9a9851887da20ca75825342bfb09e8ab031f4153",
   "comparison_rows": 36,
-  "pairs_checked_against_competing_git_object": 34,
-  "stronger_dimension_13_open_families": 32,
+  "lattice_pairs_checked_against_pinned_git_object": 34,
+  "dimension_13_open_families_at_this_replay": 32,
   "rank12_direct_inputs": [
     13,
     14
@@ -58,7 +59,7 @@
       "sha256": "bd9490675ecc38e96c4dddbc484ee7a99bae0a231902d5f3ac974eae9d2143b6"
     }
   },
-  "entry_points": {
+  "entry_points_at_this_replay": {
     "proofs/replay_native.py": "b1e0b7787cfbaac476647d10e65612b8f55e0366672b67083e9d7635d4e8f68f",
     "proofs/check_tables.py": "886d43b581b4c77167b0ac91f825616930a5ed04d71f8a26d886c67800e404f1",
     "sections/replay14.py": "bee546244a8a24662391270aad69412bf2edecd1446fd52c1d8213a5a866686e",

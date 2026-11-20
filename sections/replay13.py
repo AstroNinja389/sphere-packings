@@ -32,6 +32,14 @@ def remove(frontier, keys):
     for key in keys:
         del frontier[key]
 
+def contact_prices(work, frontier):
+    report = json.loads(subprocess.check_output([sys.executable, "-B", str(work/"audit_contact_prices.py")], cwd=work))
+    remove(frontier, report["whole_markings"])
+    assert frontier == records(SOURCE / "OPEN-AFTER-CONTACT-PRICES.txt")
+    assert Counter(frontier.values()) == {"virtual": 10, "tree": 5}
+    print(f"PASS. {len(report['whole_markings'])} additional whole markings excluded. "
+          f"{1746860-len(frontier):,} excluded in total. {len(frontier)} remain open.")
+
 def mordell():
     ctx.prec = 180
     volume = 128 * arb.pi() ** 6 / 135135
@@ -94,20 +102,32 @@ def replay(work):
     run("audit_neighborhoods.py")
     partial = set(read("neighborhood-audit-v1.json")["passed_keys"]) & frontier.keys()
     assert len(partial) == 19
-    print("PASS. 1,746,828 markings excluded at the stronger target. 32 families remain open.")
+    contact_prices(work, frontier)
 
 if __name__ == "__main__":
     if not __debug__:
         sys.exit("Replay requires assertions. Run without -O.")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--database", type=Path, help="Extracted k11_certificates_v3.sqlite from Zenodo 23979316")
+    parser.add_argument("--contact-prices-only", action="store_true",
+                        help="Recheck the latest exclusions and their earlier interval prefixes from the 32-mark frontier")
     args = parser.parse_args()
+    if args.contact_prices_only and not args.database:
+        parser.error("--contact-prices-only requires --database")
     mordell()
     if args.database:
         os.environ["RANK9_CERTIFICATE_DB"] = str(args.database.resolve(strict=True))
-        with TemporaryDirectory() as directory:
-            work = Path(directory) / "n13"
-            shutil.copytree(SOURCE, work)
-            replay(work)
+        if args.contact_prices_only:
+            import hashlib
+            sys.path.insert(0, str(SOURCE))
+            from database import DATABASE_SHA256
+            with args.database.open("rb") as db:
+                assert hashlib.file_digest(db, "sha256").hexdigest() == DATABASE_SHA256
+            contact_prices(SOURCE, records(SOURCE/"FINAL-OPEN-MARKS.txt"))
+        else:
+            with TemporaryDirectory() as directory:
+                work = Path(directory) / "n13"
+                shutil.copytree(SOURCE, work)
+                replay(work)
     else:
         print("Mordell calculation only. Supply --database to replay the finite exclusions.")

@@ -48,6 +48,6 @@ Multiply by the same nonnegative marking weights and sum. The independent checke
 
 ## Coverage before the cofactor and interval certificates
 
-The later certificates reduce the open list to 32 markings. [Combined results](../README.md)
+The cofactor and plane certificates reduced the list to 32 markings. Joint contact and lift certificates leave 15. [Combined results](../README.md)
 
 The disjoint ledger and the list of keys still open are in [the audit at this stage](dimension13-final-audit.json) and [the residual list](dimension13-open-keys.txt). The audit rules out 1,739,119 of 1,746,860 potential marks at the target. It leaves 7,214 reverse-orientation trace marks, 385 domain marks, 62 glue marks, 70 tree marks and ten exceptional marks. A surviving mark represents possible section metrics and extensions. It furnishes no packing witness. The general dimension-13 upper bound at the displayed precision remains 0.042023513562578.
