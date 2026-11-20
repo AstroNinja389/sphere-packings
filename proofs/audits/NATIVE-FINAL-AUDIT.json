@@ -1,0 +1,146 @@
+{
+ "status": "PASS",
+ "dimensions": [
+  15,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23
+ ],
+ "rows": {
+  "15": {
+   "n": 15,
+   "bound": "minfix-lift15a-final-packing-proof.json",
+   "upper": "1006556630612739000177/40000000000000000000000",
+   "references": {
+    "minfix-lift15a-final-packing-proof.json": "5da662e6394462c11e336d740b670f80fd55e90fce959b38102ab5c5339e43b7",
+    "lift15a-final-packing-proof.json": "2f1703d5f2adfc46ab9edfd60f184f414f9a4c74c952ea71abdd0d1a7d8345a6",
+    "native-15-lift-input.json": "a224a0a4f2640873b29e964b8ee552f686b65f0557c713bb247d32f76c7a215e",
+    "native-full-15-a.json": "3597995bc55298246d6848814ebfeb03ffd9011535686099200e746f6407d259",
+    "lift15a.json": "c90d09eab7f4c899c63300a21230b676100174f1e1ef66e54279124a83f19127",
+    "lift15a-enclosures.json": "4fe63b28b6c8afd1e0aae19b2afab3fedcf290fd8935a48f52779983312219b7"
+   },
+   "method": "exact-minimum endpoint"
+  },
+  "17": {
+   "n": 17,
+   "bound": "minfix-oracle17a-final-packing-proof.json",
+   "upper": "2725247678620912140311/200000000000000000000000",
+   "references": {
+    "minfix-oracle17a-final-packing-proof.json": "b363e975c0dcbe596132d9efdcbb18d9562945faa0e40a0f5937abd16e491fd6",
+    "oracle17a-final-packing-proof.json": "87ce9daddb2a2d5dedd33426da21c5a110c10ada3b4f29468e41dbc54d4b417f",
+    "native-17-lift-input.json": "de324299896bb062e506f6f2af6fac07f0cc9c53c848b9bc32cb41e24cb7d0d7",
+    "native-full-17-a.json": "76e5912e33695e342bb757b7572ffa60d23e9fe5677014ed598cb27d47c9c7d8",
+    "rp17u0-row.json": "5c048c434a5aab41ed63f577051bc1392230c06493b4dcac2f76d99f3d37210b",
+    "CAPTURE17-FIELD-REVIEW-v1.json": "845d5cbcf1fa3b4a7fdefc6f3174bf742a751beb501536a89b4f0f5885bab349",
+    "oracle17a.json": "1a99b6f5935df4ec3f5c073d90ab1e35c1771fd694da666cf72baea91f7ff08e",
+    "oracle17a-enclosures.json": "76fcb9dc81dc8adce0d94917cd2cf2ee3e3bd75d84c2759a2b01ca3b7a782ede"
+   },
+   "method": "exact-minimum endpoint"
+  },
+  "18": {
+   "n": 18,
+   "bound": "minfix-oracle18a-final-packing-proof.json",
+   "upper": "1276226174580710577047/125000000000000000000000",
+   "references": {
+    "minfix-oracle18a-final-packing-proof.json": "8d833d324b9a5bba98641f8b4ce0c05dc5464c9cfbd2524ee35773623834d63b",
+    "oracle18a-final-packing-proof.json": "0e6e512a4c0a65da2b18551f19b3caae7c0ef7de5e9822f62d4393deaacdfcd4",
+    "native-18-lift-input.json": "f4db6362eee8c0a45b19d2017f8fa1d279fafdccac332fc4e75a60559dacbba4",
+    "native-full-18-a.json": "6dbd0c26ddfd7ca1bfcdd149a04034d437e4daab8148b5b1f141c81219fdd18e",
+    "rp18u2-row.json": "5b6a8fef2c8554541023ba519102bd70087608e9e84f40b8978dd83b05ffb8fe",
+    "CAPTURE18-FIELD-REVIEW-v1.json": "95b0e71013cd6a3ccb72ba9b39af8c5b12a589336f659e1b1368498bc2b7dbd3",
+    "oracle18a.json": "d24fbfd49584b08101875124b45481f6a171508016df0aa4eae62f927061a8d0",
+    "oracle18a-enclosures.json": "ccb2d38b92c503a3a2d47aa6971380460f25417fb09f7459e13fd061a70735c9"
+   },
+   "method": "exact-minimum endpoint"
+  },
+  "19": {
+   "n": 19,
+   "bound": "nativeflag19v2-final-packing-proof.json",
+   "upper": "76312827957449064955623/10000000000000000000000000",
+   "source": "nativeflag19v2.json",
+   "references": {
+    "nativeflag19v2-final-packing-proof.json": "a055e86d8f57b36e045f96c6f990fe11597628de59a48b7db487f50fdf0f2d87",
+    "oracle19b-final-packing-proof.json": "2cc836225aec051db578cfc30c31ae8e39397933543255f355baf21c123f698d",
+    "native-19-lift-input.json": "df8bf767a9c226c1dae0b9803279972a1ce175ae2f34ae81490f01294dbd7ac4",
+    "native-full-19-a.json": "1c9d8a081f9cf54cf75a875f54ce4cda79d0171e6e9f0faa71f9f0de341a74b1",
+    "rp19t1b0-row.json": "1837c9a8b3472f7f597e7b97e00a341ebb664d16af8b531297e11bb019640ce1",
+    "CAPTURE19-FIELD-REVIEW-v1.json": "d18f66c9a25f241df8edfaa8af6fcc3ad149b7302444dc79e76828a679ba1db5",
+    "oracle19b.json": "569fc11474b833146349a3200333c9668a5f588617b026328d0a580c9868543f",
+    "oracle19b-enclosures.json": "1a37fd697dbd12070d75a92b97ef19f306c4ccf7ca648bebc7fc320c03ef166e",
+    "nativeflag19v2-reciprocal-flag.json": "ca8d7e839a8125039e5a945b8683876231caf3ecb7644230975e26facddc2490",
+    "nativeflag19v2-reciprocal-bins.json": "9fe6b4371ef4233abef6ab6446cdbf9aa4ff59d19a2a733ab777269e895b44c7",
+    "nativeflag19v2.json": "bb103d85c9ca38dd8a66acd4ab872a618b604f2c26c5ac7f4e755a21507b4e76",
+    "nativeflag19v2-enclosures.json": "a504b271abecc64a06cf6510c18eee02721c3de6e7b36980c5a79de737b9c9dd"
+   },
+   "bin_checks": 4619,
+   "method": "native Fourier and parity ledger"
+  },
+  "20": {
+   "n": 20,
+   "bound": "minfix-mix20a-final-packing-proof.json",
+   "upper": "181652332700022964217/31250000000000000000000",
+   "references": {
+    "minfix-mix20a-final-packing-proof.json": "0c32108a22b02b9dd4b3bedee4f75229040aa0b6acdb7e032575e5ae414f475d",
+    "mix20a-final-packing-proof.json": "a65239ae419416e4f0b39817f689587837c94cee06a8e6936c839baafb3ebaa1",
+    "native-20-lift-input.json": "4bed4c9a99ce6c6bd2e4658dbc8de6c590fe4e54cc9dc7fa55ea9afdcf382e72",
+    "native-full-20-a.json": "ef39e2b69dc82f4836770e38f2a637b27c5ada44c07a0e1ac934e264097f5528",
+    "native-20-anchor-prices.json": "94db263f107f0a6e54ad1333fef0cbb307641a68745f68f2ac06b58b8b1bf641",
+    "mix20a.json": "66286ddfa34dcbe130a200ffa2551960bb7fa5f0d68312208dab50659ebf9514",
+    "mix20a-enclosures.json": "ea8718e082eda058d4db385e9d4c2f19de745822be182c7d15291b50cb9632a0"
+   },
+   "method": "exact-minimum endpoint"
+  },
+  "21": {
+   "n": 21,
+   "bound": "minfix-mix21a-final-packing-proof.json",
+   "upper": "4409193414859492185613/1000000000000000000000000",
+   "references": {
+    "minfix-mix21a-final-packing-proof.json": "bb829dcea862550f47817d61e5dc3bf1e08667bc75c3e1f60b7c62b416fda3d9",
+    "mix21a-final-packing-proof.json": "f923f51bf744a0d49826a8b06689b4a51531467370fa1d52268f215c0067809e",
+    "native-21-lift-input.json": "8e0099149a2114413a01a9ca99b0524e546d1bd6a520c9b8260f43733bd0d63a",
+    "native-full-21-b.json": "f36d8955c3c63021c958177194e6a7564d61d32f00c922c93f5010e0274c79cc",
+    "native-21-anchor-prices.json": "8e0ffcf16e3b41a2b0338cb6a88c6157987ca46f534726045dbe8a5dffc1f327",
+    "mix21a.json": "be044bb7fdbeaae6dc7b0d3519baef7a7f6954353a38d9e81786b3156f27234e",
+    "mix21a-enclosures.json": "c3634e04993efc2daec6b2c1709fcafc1ac6c6c37ef4792f13e4c2138eabd7ce"
+   },
+   "method": "exact-minimum endpoint"
+  },
+  "22": {
+   "n": 22,
+   "bound": "minfix-mix22a-final-packing-proof.json",
+   "upper": "3330067294110580827843/1000000000000000000000000",
+   "references": {
+    "minfix-mix22a-final-packing-proof.json": "99f157571e5ab5ae01d5f56abc860e838b184662b004b75bc3b338af7a28f3f7",
+    "mix22a-final-packing-proof.json": "1fb88353d4148e8fe46dab238a4dfef061d1b1b6aa738dfa47eab137dc6e3b84",
+    "native-22-lift-input.json": "b646a486879fdbdc0eb7c1862e102884a655bace4bf9133bc10e31250cc42d7c",
+    "native-full-22-c.json": "ba894722ee32b4babbb3761169fcad58950f1933ff511aa1d9446c4f2e86046e",
+    "native-22-anchor-prices.json": "6a0eec4197d1d3709440b0c270d463b34ea958c6f1ad175e9d9d2088c9241655",
+    "mix22a.json": "ca4aef7cd8974898c1f53cbebeae58edd952fd02e7299a7fc589451b1698c772",
+    "mix22a-enclosures.json": "e498731bd7bc15438085611625e03a08498802c5b9d54fed766226576321a6e3"
+   },
+   "method": "exact-minimum endpoint"
+  },
+  "23": {
+   "n": 23,
+   "bound": "flag23a-final-packing-proof.json",
+   "upper": "22968774562790877353124593519630912902436267/9090909090916991603246905395844000000000000000",
+   "references": {
+    "flag23a-final-packing-proof.json": "4f44ab572e30580be03a6b4d6993211bb0819229d428e804857462829d676691",
+    "mix23a-final-packing-proof.json": "8a8daf01c7080ec22cd45718606120a6d1d0b73281ee77e2bfc9a2bdbd0cdea6",
+    "native-23-lift-input.json": "3248ae1fb229ca3a3ce7e853740f6775d4a91b1cbe2e8d49a7d2ae28652030d4",
+    "native-full-23-b.json": "2c638bd0f340aef07600c3da4392e8a89fe8e0eb0af530eb4446f82d69ceeca7",
+    "native-23-anchor-prices.json": "f92a3100bc346edcaf480efd06c4422ee9f912cbb1d633e6a084cfa4d2892fad",
+    "mix23a.json": "4d657da8e6f4d702d8a2fdf4b13071bf90f919e241553568e8c6bfc4fed1b4ce",
+    "mix23a-enclosures.json": "c731373973fdef73573fc3d859e40c08ea08aae24c296d8d177455da604eddc8",
+    "flag23a-dual-plane.json": "7ec5fb1812421eea492ddf6853d6a59981af54e158000f4a53a7de8b6e074503",
+    "dual-mesh-mix23a-12-160.json": "9d630a2dc335509c9fd2999fb0deacd133dda74c5160ceac657c38838b128312"
+   },
+   "method": "dual section and native ledger"
+  }
+ },
+ "native_input_replay": "bddff030ae45496968b5076c6929319f457ac533aacf477621caa59af42a0d68"
+}

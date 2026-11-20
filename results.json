@@ -1,15 +1,16 @@
 {
   "quantity": "upper bound for the density of lattice sphere packings",
   "comparison_source": {
-    "name": "alexlegeartis/SpherePackings, LATTICE_RESULTS.md",
-    "url": "https://github.com/alexlegeartis/SpherePackings/blob/main/LATTICE_RESULTS.md",
-    "read_on": "2026-11-18",
-    "replayed_here": false,
+    "name": "alexlegeartis/SpherePackings, LATTICE_RESULTS.json",
+    "url": "https://github.com/alexlegeartis/SpherePackings/blob/9a9851887da20ca75825342bfb09e8ab031f4153/LATTICE_RESULTS.json",
+    "read_on": "2026-11-19",
     "sections_comparison": {
       "as_of": "2026-11-19",
       "lattice_table": "https://github.com/alexlegeartis/SpherePackings/blob/9a9851887da20ca75825342bfb09e8ab031f4153/LATTICE_RESULTS.md",
       "general_table": "https://github.com/alexlegeartis/SpherePackings/blob/9a9851887da20ca75825342bfb09e8ab031f4153/RESULTS.md"
-    }
+    },
+    "revision": "9a9851887da20ca75825342bfb09e8ab031f4153",
+    "scope": "Comparison columns quote the pinned lattice table. The proof archive independently checks the upstream certificate inputs it uses."
   },
   "results": [
     {
@@ -112,7 +113,8 @@
         "open_families": 32,
         "open_markings_path": "sections/n13/FINAL-OPEN-MARKS.txt",
         "replay": "sections/replay13.py with the published rank-eleven SQLite input from Zenodo 23979316"
-      }
+      },
+      "current_comparison": "proofs/comparison.json"
     },
     {
       "n": 13,
@@ -139,6 +141,19 @@
     },
     {
       "n": 14,
+      "density_upper": "0.03399687961750058",
+      "hermite_upper": "2.6548155106755904",
+      "comparison": "0.034712755778",
+      "lattice_lower_approx": "0.0216240960824471",
+      "gap_closed_percent": 5.46943825533684,
+      "method": "Rank-14 section proof uses the external rank-12 determinant floor 729 at squared minimum four.",
+      "location": "sections/n14/MATCHING.md",
+      "current_comparison": "proofs/comparison.json",
+      "conditional_on": "Rank-12 determinant floor 729 at squared minimum four, with the classification and finite computations in Géraud-Stewart and Naccache, ePrint 2026/2825.",
+      "replayable_from_this_repository": "See the replay entry point and the geometric prerequisites in the proof guide."
+    },
+    {
+      "n": 14,
       "density_upper": "0.033997010427326",
       "conditional_on": "Rank-12 determinant floor 729 at squared minimum four, with the classification and finite computations in Géraud-Stewart and Naccache, ePrint 2026/2825.",
       "location": "sections/n14",
@@ -150,7 +165,8 @@
       "remaining_lattice_gap_approx": "0.012372914344879",
       "replayable_from_this_repository": "Yes for the deduction from the external theorem.",
       "competing_lower_scope": "Lattice",
-      "fraction_of_displayed_competitor_gap_closed_approx": 0.05468758
+      "fraction_of_displayed_competitor_gap_closed_approx": 0.05468758,
+      "superseded_in_this_repository_by": "sections/n14/MATCHING.md"
     },
     {
       "n": 14,
@@ -165,13 +181,28 @@
     },
     {
       "n": 15,
+      "density_upper": "0.02516391576531848",
+      "hermite_upper": "2.7838110762195291",
+      "comparison": "0.025511135431",
+      "lattice_lower_approx": "0.0168575706567626",
+      "gap_closed_percent": 4.012446601373292,
+      "method": "Inherited parity-class census and its geometric inputs, with the final profile and Fourier certificate.",
+      "location": "proofs/native/minfix-lift15a-final-packing-proof.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "See the replay entry point and the geometric prerequisites in the proof guide.",
+      "geometric_input": "The referenced frame and section census and its checked determinant complement.",
+      "certificate_archive": "proofs/native-proofs.zip"
+    },
+    {
+      "n": 15,
       "density_upper": "0.025212337452388",
       "hermite_upper": "2.7845247148532",
       "comparison": "0.0255112",
       "method": "Theorem 1 certificate plus one joint cut plus a fifteen-pair frame floor",
       "conditional_on": "determinant lemma, index bound and two-class lemma DV(21/52) (project lemmas; automated review only)",
       "replayable_from_this_repository": "audit yes; the two-class lemma certificates no",
-      "location": "dim15"
+      "location": "dim15",
+      "superseded_in_this_repository_by": "proofs/native/minfix-lift15a-final-packing-proof.json"
     },
     {
       "n": 16,
@@ -180,7 +211,22 @@
       "comparison": "0.0186552",
       "method": "class linear programme with dimension-16 length floors, count branches and frame branch",
       "replayable_from_this_repository": false,
-      "location": "dim16"
+      "location": "dim16",
+      "current_comparison": "proofs/comparison.json"
+    },
+    {
+      "n": 17,
+      "density_upper": "0.01362623839310457",
+      "hermite_upper": "3.0385999655159245",
+      "comparison": "0.013832417384",
+      "lattice_lower_approx": "0.0088113191823211",
+      "gap_closed_percent": 4.106252907511338,
+      "method": "Inherited parity-class census and its geometric inputs, with the final profile and Fourier certificate.",
+      "location": "proofs/native/minfix-oracle17a-final-packing-proof.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "See the replay entry point and the geometric prerequisites in the proof guide.",
+      "geometric_input": "The referenced frame and section census and its checked determinant complement.",
+      "certificate_archive": "proofs/native-proofs.zip"
     },
     {
       "n": 17,
@@ -190,7 +236,8 @@
       "method": "Theorem 1 certificate plus one joint cut plus the frame theorem of dimension 17 (floor 11/25, index of the frame at most 64)",
       "conditional_on": "frame theorem of dimension 17 (frame/n17/r1/FRAME-PREMISE-n17-v1.txt): determinant lemma, a computer-checked hybrid lemma (two programs of the same author) and the bound of joint/n17 as a priori input; no second-party review",
       "replayable_from_this_repository": "audit, determinant check and a priori index cap yes; the hybrid lemma certificates no (logs, bookkeeping files and programs are here, the tables and cell files are not)",
-      "location": "frame/n17"
+      "location": "frame/n17",
+      "superseded_in_this_repository_by": "proofs/native/minfix-oracle17a-final-packing-proof.json"
     },
     {
       "n": 17,
@@ -205,13 +252,40 @@
     },
     {
       "n": 18,
+      "density_upper": "0.01020980939664569",
+      "hermite_upper": "3.1727898235015966",
+      "comparison": "0.010343803448",
+      "lattice_lower_approx": "0.0059283687184694",
+      "gap_closed_percent": 3.0346740369222975,
+      "method": "Inherited parity-class census and its geometric inputs, with the final profile and Fourier certificate.",
+      "location": "proofs/native/minfix-oracle18a-final-packing-proof.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "See the replay entry point and the geometric prerequisites in the proof guide.",
+      "certificate_archive": "proofs/native-proofs.zip"
+    },
+    {
+      "n": 18,
       "density_upper": "0.010336520221586",
       "hermite_upper": "3.1771410470473",
       "comparison": "0.0103439",
       "method": "Theorem 1 certificate, joint cuts where they help, plus mixed relative bound cuts",
       "rests_on": "mixed/MIXED-RELATIVE-BOUND.txt (elementary; automated review only)",
       "replayable_from_this_repository": true,
-      "location": "mixed/n18"
+      "location": "mixed/n18",
+      "superseded_in_this_repository_by": "proofs/native/minfix-oracle18a-final-packing-proof.json"
+    },
+    {
+      "n": 19,
+      "density_upper": "0.00763128279574491",
+      "hermite_upper": "3.3061628393450498",
+      "comparison": "0.007808430327",
+      "lattice_lower_approx": "0.0041208062797686",
+      "gap_closed_percent": 4.803839246793409,
+      "method": "Inherited parity-class census and its geometric inputs, with the final profile and Fourier certificate.",
+      "location": "proofs/native/nativeflag19v2-final-packing-proof.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "See the replay entry point and the geometric prerequisites in the proof guide.",
+      "certificate_archive": "proofs/native-proofs.zip"
     },
     {
       "n": 19,
@@ -221,7 +295,8 @@
       "method": "Theorem 1 certificate, joint cuts where they help, plus mixed relative bound cuts",
       "rests_on": "mixed/MIXED-RELATIVE-BOUND.txt (elementary; automated review only)",
       "replayable_from_this_repository": true,
-      "location": "mixed/n19"
+      "location": "mixed/n19",
+      "superseded_in_this_repository_by": "proofs/native/nativeflag19v2-final-packing-proof.json"
     },
     {
       "n": 19,
@@ -235,13 +310,27 @@
     },
     {
       "n": 20,
+      "density_upper": "0.00581287464640074",
+      "hermite_upper": "3.4460812886086370",
+      "comparison": "0.005954630716",
+      "lattice_lower_approx": "0.0032258614237517",
+      "gap_closed_percent": 5.194871915407288,
+      "method": "Inherited parity-class census and its geometric inputs, with the final profile and Fourier certificate.",
+      "location": "proofs/native/minfix-mix20a-final-packing-proof.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "See the replay entry point and the geometric prerequisites in the proof guide.",
+      "certificate_archive": "proofs/native-proofs.zip"
+    },
+    {
+      "n": 20,
       "density_upper": "0.0058802043811005",
       "hermite_upper": "3.4500521838708",
       "comparison": "0.00595464",
       "method": "Theorem 1 certificate, joint cuts where they help, plus mixed relative bound cuts",
       "rests_on": "mixed/MIXED-RELATIVE-BOUND.txt (elementary; automated review only)",
       "replayable_from_this_repository": true,
-      "location": "mixed/n20"
+      "location": "mixed/n20",
+      "superseded_in_this_repository_by": "proofs/native/minfix-mix20a-final-packing-proof.json"
     },
     {
       "n": 20,
@@ -265,13 +354,27 @@
     },
     {
       "n": 21,
+      "density_upper": "0.0044091934148595",
+      "hermite_upper": "3.5844537504397473",
+      "comparison": "0.004557959175",
+      "lattice_lower_approx": "0.0024658847115024",
+      "gap_closed_percent": 7.110920893886169,
+      "method": "Inherited parity-class census and its geometric inputs, with the final profile and Fourier certificate.",
+      "location": "proofs/native/minfix-mix21a-final-packing-proof.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "See the replay entry point and the geometric prerequisites in the proof guide.",
+      "certificate_archive": "proofs/native-proofs.zip"
+    },
+    {
+      "n": 21,
       "density_upper": "0.0044694365948149",
       "hermite_upper": "3.5890894251631",
       "comparison": "0.00455796",
       "method": "Theorem 1 certificate, joint cuts where they help, plus mixed relative bound cuts",
       "rests_on": "mixed/MIXED-RELATIVE-BOUND.txt (elementary; automated review only)",
       "replayable_from_this_repository": true,
-      "location": "mixed/n21"
+      "location": "mixed/n21",
+      "superseded_in_this_repository_by": "proofs/native/minfix-mix21a-final-packing-proof.json"
     },
     {
       "n": 21,
@@ -285,13 +388,27 @@
     },
     {
       "n": 22,
+      "density_upper": "0.00333006729411059",
+      "hermite_upper": "3.7212832682152466",
+      "comparison": "0.003482932334",
+      "lattice_lower_approx": "0.0021276601452758",
+      "gap_closed_percent": 11.279287006790888,
+      "method": "Inherited parity-class census and its geometric inputs, with the final profile and Fourier certificate.",
+      "location": "proofs/native/minfix-mix22a-final-packing-proof.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "See the replay entry point and the geometric prerequisites in the proof guide.",
+      "certificate_archive": "proofs/native-proofs.zip"
+    },
+    {
+      "n": 22,
       "density_upper": "0.0033989364209325",
       "hermite_upper": "3.7282147034722",
       "comparison": "0.00348294",
       "method": "Theorem 1 certificate, joint cuts where they help, plus mixed relative bound cuts",
       "rests_on": "mixed/MIXED-RELATIVE-BOUND.txt (elementary; automated review only)",
       "replayable_from_this_repository": true,
-      "location": "mixed/n22"
+      "location": "mixed/n22",
+      "superseded_in_this_repository_by": "proofs/native/minfix-mix22a-final-packing-proof.json"
     },
     {
       "n": 22,
@@ -305,13 +422,354 @@
     },
     {
       "n": 23,
+      "density_upper": "0.00252656520190481",
+      "hermite_upper": "3.8595877878422674",
+      "comparison": "0.002608401581",
+      "lattice_lower_approx": "0.001905328193426",
+      "gap_closed_percent": 11.639806105815065,
+      "method": "Inherited parity-class census and its geometric inputs, with the final profile and Fourier certificate.",
+      "location": "proofs/native/flag23a-final-packing-proof.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "See the replay entry point and the geometric prerequisites in the proof guide.",
+      "certificate_archive": "proofs/native-proofs.zip"
+    },
+    {
+      "n": 23,
       "density_upper": "0.002581019409686",
       "hermite_upper": "3.8667510049625",
       "comparison": "0.00260841",
       "method": "Theorem 1 certificate, joint cuts where they help, plus mixed relative bound cuts",
       "rests_on": "mixed/MIXED-RELATIVE-BOUND.txt (elementary; automated review only)",
       "replayable_from_this_repository": true,
-      "location": "mixed/n23"
+      "location": "mixed/n23",
+      "superseded_in_this_repository_by": "proofs/native/flag23a-final-packing-proof.json"
+    },
+    {
+      "n": 24,
+      "density_upper": "0.001929574309403923047904",
+      "hermite_upper": "4",
+      "comparison": null,
+      "lattice_lower_approx": null,
+      "gap_closed_percent": null,
+      "method": "Classical exact value from Cohn, Kumar, Miller, Radchenko and Viazovska.",
+      "location": "https://arxiv.org/abs/1603.06518",
+      "current_comparison": "proofs/comparison.json",
+      "density_exact": "pi^12/12!",
+      "lattice_lower_exact": "pi^12/12!",
+      "replayable_from_this_repository": "Classical theorem; see primary source."
+    },
+    {
+      "n": 25,
+      "density_upper": "0.001286558046689577",
+      "hermite_upper": "4.0955777054936407",
+      "comparison": "0.001325232433",
+      "lattice_lower_approx": "0.0006772120097731",
+      "gap_closed_percent": 5.968081394385655,
+      "method": "Offline Fourier, parity and plane certificate, with the selected refinements.",
+      "location": "proofs/bounds-25-48.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "Offline certificate archive and verifier.",
+      "certificate_archive": "proofs/n25-48-proofs-r9.zip"
+    },
+    {
+      "n": 26,
+      "density_upper": "0.000869110293813701",
+      "hermite_upper": "4.1962419335931154",
+      "comparison": "0.000907209997",
+      "lattice_lower_approx": "0.0002692200504338",
+      "gap_closed_percent": 5.9718344139057615,
+      "method": "Offline Fourier, parity and plane certificate, with the selected refinements.",
+      "location": "proofs/bounds-25-48.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "Offline certificate archive and verifier.",
+      "certificate_archive": "proofs/n25-48-proofs-r9.zip"
+    },
+    {
+      "n": 27,
+      "density_upper": "0.000580593927514536",
+      "hermite_upper": "4.2939920003698760",
+      "comparison": "0.000622938953",
+      "lattice_lower_approx": "0.0001286752812026",
+      "gap_closed_percent": 8.567294725804055,
+      "method": "Offline Fourier, parity and plane certificate, with the selected refinements.",
+      "location": "proofs/bounds-25-48.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "Offline certificate archive and verifier.",
+      "certificate_archive": "proofs/n25-48-proofs-r9.zip"
+    },
+    {
+      "n": 28,
+      "density_upper": "0.000391850205807269",
+      "hermite_upper": "4.3956114125656262",
+      "comparison": "0.000429639101",
+      "lattice_lower_approx": "0.0000697587366165",
+      "gap_closed_percent": 10.500404837998474,
+      "method": "Offline Fourier, parity and plane certificate, with the selected refinements.",
+      "location": "proofs/bounds-25-48.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "Offline certificate archive and verifier.",
+      "certificate_archive": "proofs/n25-48-proofs-r9.zip"
+    },
+    {
+      "n": 29,
+      "density_upper": "0.000271857852999427",
+      "hermite_upper": "4.5062875994549530",
+      "comparison": "0.000298025039",
+      "lattice_lower_approx": "0.0000278789874568",
+      "gap_closed_percent": 9.686310738615205,
+      "method": "Offline Fourier, parity and plane certificate, with the selected refinements.",
+      "location": "proofs/bounds-25-48.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "Offline certificate archive and verifier.",
+      "certificate_archive": "proofs/n25-48-proofs-r9.zip"
+    },
+    {
+      "n": 30,
+      "density_upper": "0.000189146062526746",
+      "hermite_upper": "4.6180990802963308",
+      "comparison": "0.000207932946",
+      "lattice_lower_approx": "0.0000144286438425",
+      "gap_closed_percent": 9.708767848460072,
+      "method": "Offline Fourier, parity and plane certificate, with the selected refinements.",
+      "location": "proofs/bounds-25-48.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "Offline certificate archive and verifier.",
+      "certificate_archive": "proofs/n25-48-proofs-r9.zip"
+    },
+    {
+      "n": 31,
+      "density_upper": "0.000135429606979112",
+      "hermite_upper": "4.7388899669364241",
+      "comparison": "0.000146087217",
+      "lattice_lower_approx": "0.0000118377651859",
+      "gap_closed_percent": 7.938661854386366,
+      "method": "Offline Fourier, parity and plane certificate, with the selected refinements.",
+      "location": "proofs/bounds-25-48.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "Offline certificate archive and verifier.",
+      "certificate_archive": "proofs/n25-48-proofs-r9.zip"
+    },
+    {
+      "n": 32,
+      "density_upper": "0.000095876900128018",
+      "hermite_upper": "4.8563051395717262",
+      "comparison": "0.000101511777",
+      "lattice_lower_approx": "0.0000110407493088",
+      "gap_closed_percent": 6.228377211780935,
+      "method": "Offline Fourier, parity and plane certificate, with the selected refinements.",
+      "location": "proofs/bounds-25-48.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "Offline certificate archive and verifier.",
+      "certificate_archive": "proofs/n25-48-proofs-r9.zip"
+    },
+    {
+      "n": 33,
+      "density_upper": "0.000073452496873459",
+      "hermite_upper": "4.9976767584028187",
+      "comparison": "0.000073827123",
+      "lattice_lower_approx": "0.0000041406882896",
+      "gap_closed_percent": 0.5375883098321749,
+      "method": "Offline Fourier, parity and plane certificate, with the selected refinements.",
+      "location": "proofs/bounds-25-48.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "Offline certificate archive and verifier.",
+      "certificate_archive": "proofs/n25-48-proofs-r9.zip"
+    },
+    {
+      "n": 34,
+      "density_upper": "0.000052765505427207",
+      "hermite_upper": "5.1195154838386022",
+      "comparison": "0.000053148401",
+      "lattice_lower_approx": "0.0000017669738891",
+      "gap_closed_percent": 0.7452022925857364,
+      "method": "Offline Fourier, parity and plane certificate, with the selected refinements.",
+      "location": "proofs/bounds-25-48.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "Offline certificate archive and verifier.",
+      "certificate_archive": "proofs/n25-48-proofs-r9.zip"
+    },
+    {
+      "n": 35,
+      "density_upper": "0.000037469507068664",
+      "hermite_upper": "5.2379297924163089",
+      "comparison": "0.000037664745",
+      "lattice_lower_approx": "0.0000009461904151",
+      "gap_closed_percent": 0.5317146427570557,
+      "method": "Offline Fourier, parity and plane certificate, with the selected refinements.",
+      "location": "proofs/bounds-25-48.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "Offline certificate archive and verifier.",
+      "certificate_archive": "proofs/n25-48-proofs-r9.zip"
+    },
+    {
+      "n": 36,
+      "density_upper": "0.00002714588225649163623",
+      "hermite_upper": "5.3623735230004158",
+      "comparison": "0.00002727705",
+      "lattice_lower_approx": "0.0000007330347783",
+      "gap_closed_percent": 0.49415185461893807,
+      "method": "Offline Fourier, parity and plane certificate, with the selected refinements.",
+      "location": "proofs/bounds-25-48.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "Offline certificate archive and verifier.",
+      "certificate_archive": "proofs/n25-48-proofs-r9.zip"
+    },
+    {
+      "n": 37,
+      "density_upper": "0.00001824556297305869842",
+      "hermite_upper": "5.4646172917936273",
+      "comparison": "0.000018268708324",
+      "lattice_lower_approx": "0.0000003213562007",
+      "gap_closed_percent": 0.12896248305761676,
+      "method": "Offline Fourier, parity and plane certificate, with the selected refinements.",
+      "location": "proofs/bounds-25-48.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "Offline certificate archive and verifier.",
+      "certificate_archive": "proofs/n25-48-proofs-r9.zip"
+    },
+    {
+      "n": 38,
+      "density_upper": "0.00001234290484423536589",
+      "hermite_upper": "5.5690250497916550",
+      "comparison": "0.0000123521549304",
+      "lattice_lower_approx": "0.0000002175667308912894917825935149131191",
+      "gap_closed_percent": 0.07622909004039062,
+      "method": "Offline Fourier, parity and plane certificate, with the selected refinements.",
+      "location": "proofs/bounds-25-48.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "Offline certificate archive and verifier.",
+      "certificate_archive": "proofs/n25-48-proofs-r9.zip"
+    },
+    {
+      "n": 39,
+      "density_upper": "0.0000084768372418329309",
+      "hermite_upper": "5.6780446862746996",
+      "comparison": "0.0000084799401622",
+      "lattice_lower_approx": "0.0000001680281773654323233692192288852917",
+      "gap_closed_percent": 0.03733100606371324,
+      "method": "Offline Fourier, parity and plane certificate, with the selected refinements.",
+      "location": "proofs/bounds-25-48.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "Offline certificate archive and verifier.",
+      "certificate_archive": "proofs/n25-48-proofs-r9.zip"
+    },
+    {
+      "n": 40,
+      "density_upper": "0.00000597599547629544025",
+      "hermite_upper": "5.7947787984137780",
+      "comparison": "0.0000059777359372",
+      "lattice_lower_approx": "0.0000001479833993134267670269835311956182",
+      "gap_closed_percent": 0.02985479903733131,
+      "method": "Offline Fourier, parity and plane certificate, with the selected refinements.",
+      "location": "proofs/bounds-25-48.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "Offline certificate archive and verifier.",
+      "certificate_archive": "proofs/n25-48-proofs-r9.zip"
+    },
+    {
+      "n": 41,
+      "density_upper": "0.00000439153950072801255",
+      "hermite_upper": "5.9235443083633013",
+      "comparison": "0.0000043927514316",
+      "lattice_lower_approx": "0.000000086368303579508263682954666249428",
+      "gap_closed_percent": 0.02814266255368099,
+      "method": "Offline Fourier, parity and plane certificate, with the selected refinements.",
+      "location": "proofs/bounds-25-48.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "Offline certificate archive and verifier.",
+      "certificate_archive": "proofs/n25-48-proofs-r9.zip"
+    },
+    {
+      "n": 42,
+      "density_upper": "0.00000347235461086162196",
+      "hermite_upper": "6.0734072493739970",
+      "comparison": "0.000003473037643",
+      "lattice_lower_approx": "0.000000057516899055409684372481767125146",
+      "gap_closed_percent": 0.01999789167110169,
+      "method": "Offline Fourier, parity and plane certificate, with the selected refinements.",
+      "location": "proofs/bounds-25-48.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "Offline certificate archive and verifier.",
+      "certificate_archive": "proofs/n25-48-proofs-r9.zip"
+    },
+    {
+      "n": 43,
+      "density_upper": "0.00000253598810939750405",
+      "hermite_upper": "6.2002532030492175",
+      "comparison": "0.0000025363822051",
+      "lattice_lower_approx": "0.000000040157190248136217874583418475867",
+      "gap_closed_percent": 0.01578766738379702,
+      "method": "Offline Fourier, parity and plane certificate, with the selected refinements.",
+      "location": "proofs/bounds-25-48.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "Offline certificate archive and verifier.",
+      "certificate_archive": "proofs/n25-48-proofs-r9.zip"
+    },
+    {
+      "n": 44,
+      "density_upper": "0.00000176674994051655333",
+      "hermite_upper": "6.3135133625418049",
+      "comparison": "0.0000017676809433",
+      "lattice_lower_approx": "0.0000000320085352655056342054972210802435",
+      "gap_closed_percent": 0.053639314604358744,
+      "method": "Offline Fourier, parity and plane certificate, with the selected refinements.",
+      "location": "proofs/bounds-25-48.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "Offline certificate archive and verifier.",
+      "certificate_archive": "proofs/n25-48-proofs-r9.zip"
+    },
+    {
+      "n": 45,
+      "density_upper": "0.00000117272262219493074",
+      "hermite_upper": "6.4130429700601952",
+      "comparison": "0.0000011728551765",
+      "lattice_lower_approx": "0.0000000252315067",
+      "gap_closed_percent": 0.011550328610106507,
+      "method": "Offline Fourier, parity and plane certificate, with the selected refinements.",
+      "location": "proofs/bounds-25-48.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "Offline certificate archive and verifier.",
+      "certificate_archive": "proofs/n25-48-proofs-r9.zip"
+    },
+    {
+      "n": 46,
+      "density_upper": "0.00000077176742457565235",
+      "hermite_upper": "6.5103590251065693",
+      "comparison": "0.0000007721596228",
+      "lattice_lower_approx": "0.0000000227179803",
+      "gap_closed_percent": 0.05233205657472635,
+      "method": "Offline Fourier, parity and plane certificate, with the selected refinements.",
+      "location": "proofs/bounds-25-48.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "Offline certificate archive and verifier.",
+      "certificate_archive": "proofs/n25-48-proofs-r9.zip"
+    },
+    {
+      "n": 47,
+      "density_upper": "0.00000051272563331981912",
+      "hermite_upper": "6.6105678843026801",
+      "comparison": "0.0000005130033534",
+      "lattice_lower_approx": "0.0000000214660782",
+      "gap_closed_percent": 0.05650030917144302,
+      "method": "Offline Fourier, parity and plane certificate, with the selected refinements.",
+      "location": "proofs/bounds-25-48.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "Offline certificate archive and verifier.",
+      "certificate_archive": "proofs/n25-48-proofs-r9.zip"
+    },
+    {
+      "n": 48,
+      "density_upper": "0.00000034530564242393278",
+      "hermite_upper": "6.7147730908778775",
+      "comparison": "0.00000034559190288",
+      "lattice_lower_approx": "0.0000000231782953",
+      "gap_closed_percent": 0.08878671660785636,
+      "method": "Offline Fourier, parity and plane certificate, with the selected refinements.",
+      "location": "proofs/bounds-25-48.json",
+      "current_comparison": "proofs/comparison.json",
+      "replayable_from_this_repository": "Offline certificate archive and verifier.",
+      "certificate_archive": "proofs/n25-48-proofs-r9.zip"
     }
-  ]
+  ],
+  "current_comparison": "proofs/comparison.json"
 }

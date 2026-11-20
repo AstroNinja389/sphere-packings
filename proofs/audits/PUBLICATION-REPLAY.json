@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "comparison_revision": "9a9851887da20ca75825342bfb09e8ab031f4153",
+  "comparison_rows": 36,
+  "pairs_checked_against_competing_git_object": 34,
+  "stronger_dimension_13_open_families": 32,
+  "rank12_direct_inputs": [
+    13,
+    14
+  ],
+  "dimension_13_publication_check": "Mordell arithmetic and final open-family list",
+  "dimension_14_publication_check": "Full original geometry and both 577-anchor budgets, followed by the 194-interval matching refinement",
+  "native_full_publication_replays": {
+    "15": {
+      "upper": "0.02516391576531848",
+      "certificate_sha256": "5da662e6394462c11e336d740b670f80fd55e90fce959b38102ab5c5339e43b7"
+    },
+    "17": {
+      "upper": "0.01362623839310457",
+      "certificate_sha256": "b363e975c0dcbe596132d9efdcbb18d9562945faa0e40a0f5937abd16e491fd6"
+    },
+    "18": {
+      "upper": "0.01020980939664569",
+      "certificate_sha256": "8d833d324b9a5bba98641f8b4ce0c05dc5464c9cfbd2524ee35773623834d63b"
+    },
+    "19": {
+      "upper": "0.00763128279574491",
+      "certificate_sha256": "a055e86d8f57b36e045f96c6f990fe11597628de59a48b7db487f50fdf0f2d87"
+    },
+    "20": {
+      "upper": "0.00581287464640074",
+      "certificate_sha256": "0c32108a22b02b9dd4b3bedee4f75229040aa0b6acdb7e032575e5ae414f475d"
+    },
+    "21": {
+      "upper": "0.0044091934148595",
+      "certificate_sha256": "bb829dcea862550f47817d61e5dc3bf1e08667bc75c3e1f60b7c62b416fda3d9"
+    },
+    "22": {
+      "upper": "0.00333006729411059",
+      "certificate_sha256": "99f157571e5ab5ae01d5f56abc860e838b184662b004b75bc3b338af7a28f3f7"
+    },
+    "23": {
+      "upper": "0.00252656520190481",
+      "certificate_sha256": "4f44ab572e30580be03a6b4d6993211bb0819229d428e804857462829d676691"
+    }
+  },
+  "high_archive_extracted_publication_replays": {
+    "32": "0.000095876900128018",
+    "48": "0.00000034530564242393278"
+  },
+  "archives": {
+    "native-proofs.zip": {
+      "bytes": 2629647,
+      "sha256": "4cae881e275464d6555a9beff843c887141830da8978fd4ee8b75f0b4d968b8f"
+    },
+    "n25-48-proofs-r9.zip": {
+      "bytes": 22588032,
+      "sha256": "bd9490675ecc38e96c4dddbc484ee7a99bae0a231902d5f3ac974eae9d2143b6"
+    }
+  },
+  "entry_points": {
+    "proofs/replay_native.py": "b1e0b7787cfbaac476647d10e65612b8f55e0366672b67083e9d7635d4e8f68f",
+    "proofs/check_tables.py": "886d43b581b4c77167b0ac91f825616930a5ed04d71f8a26d886c67800e404f1",
+    "sections/replay14.py": "bee546244a8a24662391270aad69412bf2edecd1446fd52c1d8213a5a866686e",
+    "sections/n14/check_matching.py": "18ed6a2cb9f02a2d3c5bfa30626380eddf9ccb08fddbd616279c98f3ff078ec9"
+  }
+}

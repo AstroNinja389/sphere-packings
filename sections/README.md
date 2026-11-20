@@ -3,11 +3,15 @@
 | Dimension | Lattice density upper bound | What the proof establishes |
 |---|---:|---|
 | 13 | **0.042023513562578** | Mordell's inequality applied to the sharp rank-12 input. The separate five-percent target **0.041382759430854** still has **32 open families**. |
-| 14 | **0.033997010427326** | A bound for every lattice, combining the rank-12 input, length constraints within each parity class, and differences across classes. |
+| 14 | **0.03399687961750058** | A bound for every lattice, combining the rank-12 input, length constraints within each parity class, and differences across classes. |
 
 Both bounds use the rank-12 result of Géraud-Stewart and Naccache with the classification and finite checks specified in their preprint. The finer dimension-13 exclusions also use their rank-10 and rank-11 results. The original rank-nine classification is an external input. [Hermite constants in dimensions 10–12](https://eprint.iacr.org/2026/2825) · [Rank-eleven paper](https://eprint.iacr.org/2026/2826)
 
+The latest dimension-14 refinement bounds the number of pairs with each fixed short difference by a matching. [Proof](n14/MATCHING.md) · [Exact certificate](n14/tightmatching14-final-packing-proof.json)
+
 ## Reproduce
+
+The full rank-14 replay also runs the final matching check. To check just the refinement against the archived Fourier budgets, run `python -B sections/n14/check_matching.py` from the repository root.
 
 Run from the repository root with Python 3.11 or later and assertions enabled. The release was tested with Python 3.14.6. The verifiers use temporary working directories and leave the archived evidence intact.
 
@@ -32,9 +36,9 @@ Values below are packing densities. The comparison uses the November 19 snapshot
 | Dimension | Competing general-packing lower | Best known lattice lower | Competing lattice upper | Lattice upper here | Remaining lattice gap |
 |---|---:|---:|---:|---:|---:|
 | 13 | ≈0.032014 | ≈0.029208430928108 | No row | 0.042023513562578 | ≈0.012815082634470 |
-| 14 | ≈0.021624 | ≈0.021624096082447 | 0.0347128 | 0.033997010427326 | ≈0.012372914344879 |
+| 14 | ≈0.021624 | ≈0.021624096082447 | 0.0347128 | 0.03399687961750058 | ≈0.012372783535054 |
 
-The 13-dimensional general-packing lower comes from the periodic packing with 72 spheres per unit cell. The lattice comparison and five-percent target use the density of K₁₃. In dimension 14, Λ₁₄ supplies the lower in both tables. Relative to the competitor's displayed lattice upper, the new upper closes approximately **5.47%** of the gap to Λ₁₄. The last angular refinement lowered our own preceding upper of 0.033997149607843 by 0.000000139180517. [Cohn's packing table](https://cohn.mit.edu/sphere-packing/) · [Nebe–Sloane lattice catalogue](https://www.math.rwth-aachen.de/~Gabriele.Nebe/LATTICES/density.html)
+The 13-dimensional general-packing lower comes from the periodic packing with 72 spheres per unit cell. The lattice comparison and five-percent target use the density of K₁₃. In dimension 14, Λ₁₄ supplies the lower in both tables. Relative to the competitor's displayed lattice upper, the new upper closes approximately **5.47%** of the gap to Λ₁₄. The matching refinement lowered the preceding upper of 0.033997010427326 to 0.03399687961750058. [Cohn's packing table](https://cohn.mit.edu/sphere-packing/) · [Nebe–Sloane lattice catalogue](https://www.math.rwth-aachen.de/~Gabriele.Nebe/LATTICES/density.html)
 
 ## The open dimension-13 target
 

@@ -76,7 +76,8 @@ def verify(work):
         assert exact[key] == ref[key], key
     checked = read(work/"angle-price-v1-sturm-audit.json")
     assert checked["domain_checks"] == 194 and checked["upper_integer_1e15"] == 33997010427326
-    print("PASS. Dimension 14 lattice density at most 0.033997010427326, using the cited rank-12 theorem.")
+    print("PASS. Original dimension-14 angular certificate.")
+    subprocess.run([sys.executable, "-B", str(SOURCE / "check_matching.py")], check=True)
 
 if __name__ == "__main__":
     if not __debug__:

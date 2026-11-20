@@ -1,0 +1,21 @@
+controls 46 (40, 37, 31) (39, 36, 30) seconds 0.5
+{'status': 'PASS', 'n': 46, 'frozen_sha': '0e729c4d88219b0bebfd96c3b662c334cc414456e562c7ec066c6c09b9c208ac', 'cube_degrees': [39, 36, 30], 'cap_tests': 153, 'nodes': 87, 'pending': 0, 'max_depth': 17, 'seconds': 5.79}
+Verified dimension 46: 0.00000077208052184872; 1081 compulsory minimum pairs; 24.8 seconds
+controls 47 (40, 37, 31) (39, 36, 30) seconds 0.6
+{'status': 'PASS', 'n': 47, 'frozen_sha': '7fc2f64d9318eefcca244a97fa2bb35dfc288368c413299f935e2a6cadc0756e', 'cube_degrees': [39, 36, 30], 'cap_tests': 153, 'nodes': 87, 'pending': 0, 'max_depth': 17, 'seconds': 6.47}
+Verified dimension 47: 0.00000051291306433158; 1128 compulsory minimum pairs; 29.0 seconds
+controls 48 (40, 37, 31) (39, 36, 30) seconds 0.4
+{'status': 'PASS', 'n': 48, 'frozen_sha': '169ea8d0e2ec662e7d450641894d1e3ba5f280623d2d6a659d1308401d45a728', 'cube_degrees': [39, 36, 30], 'cap_tests': 153, 'nodes': 87, 'pending': 0, 'max_depth': 17, 'seconds': 5.78}
+Verified dimension 48: 0.00000034543696801191; 1176 compulsory minimum pairs; 28.8 seconds
+Verified final rank 31, upper 0.00013608731723029, population, 24.0 seconds
+Verified final rank 32, upper 0.00009894707019231, population, 39.6 seconds
+Verified final rank 46, upper 0.00000077208052184872, baseline, 0.0 seconds
+Verified final rank 47, upper 0.00000051291306433158, baseline, 0.0 seconds
+Verified final rank 48, upper 0.00000034543696801191, flag, 3.8 seconds
+Verified final rank 31, upper 0.00013622183754981, population, 19.2 seconds
+Verified final rank 32, upper 0.00009587690012802, population, 60.7 seconds
+Final exact bound 31 0.000135429606979112 origin-reallocation
+Final exact bound 32 0.000095876900128018 new-parent
+Final exact bound 46 0.00000077176742457565235 origin-reallocation
+Final exact bound 47 0.00000051272563331981912 origin-reallocation
+Final exact bound 48 0.00000034530564242393278 origin-reallocation

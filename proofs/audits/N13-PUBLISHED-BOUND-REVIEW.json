@@ -1,0 +1,21 @@
+{
+ "status": "PASS",
+ "published_upper": "0.042023513562578",
+ "mordell_ball": "[0.042023513562577391278182316374459185497397990594913956197560452626897250586832013885322468416101055190229373432575493661 +/- 7.41e-121]",
+ "remaining_families": {
+  "tree": 15,
+  "glue": 3,
+  "virtual": 10,
+  "domain": 3,
+  "reverse_trace_open": 1
+ },
+ "controls": "Mordell arithmetic and the exact final two set differences. Earlier marking certificate inputs and external rank-12 result retained.",
+ "dependencies": {
+  "dimension13-open-after-cofactors.txt": "4e76bef72b26cf229cd1529f70ed9af04db2af8cdb73da2532d04845e0886f66",
+  "cells-a-audit.json": "1ac9074c4fb8719fc5d5bafbb1f12d9c4672111fd00e9fde40a3a8121bbadea7",
+  "cells-b-audit.json": "01293dc81d90113a0093a42f1dc1a5726fb756e035decd11b6e8d0e8579fdd59",
+  "planes-a-audit.json": "2ff7cb6f098a8287e8668295d0dc7e3b3af675992fcc9a13bf4edfa53d4d561a",
+  "planes-b-audit.json": "01d6ddb147c1e1900dc0c40a3b3dbb40d6afa3f036f3c690372e1c0926627dce",
+  "FINAL-OPEN-MARKS.txt": "953dbd856717a318ebb9d54919e9a9393f2b3b8d03a8c39de75f69a46a6a7030"
+ }
+}

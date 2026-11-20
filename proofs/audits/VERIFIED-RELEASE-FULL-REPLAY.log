@@ -1,0 +1,80 @@
+Verified dimension 33: 0.00007345249687346; 561 compulsory minimum pairs; 14.0 seconds
+Verified dimension 34: 0.00005276550542721; 595 compulsory minimum pairs; 11.6 seconds
+Verified dimension 35: 0.00003746950706867; 630 compulsory minimum pairs; 24.5 seconds
+controls 39 (40, 37, 31) (39, 36, 30) seconds 0.5
+{'status': 'PASS', 'n': 39, 'frozen_sha': '92ed03ddae93106b39c79c583b9e6adac7aafc7600d408848fb9d849339e9ffa', 'cube_degrees': [39, 36, 30], 'cap_tests': 153, 'nodes': 103, 'pending': 0, 'max_depth': 20, 'seconds': 6.6}
+Verified dimension 38: 0.00001234290484423537; 741 compulsory minimum pairs; 28.1 seconds
+Verified dimension 39: 0.00000847683724183294; 780 compulsory minimum pairs; 23.9 seconds
+controls 40 (40, 37, 31) (39, 36, 30) seconds 0.5
+{'status': 'PASS', 'n': 40, 'frozen_sha': 'fb7b8b04c23006dd56282013aa38a867f0d2552aace230cbffe8f55bc4336f5d', 'cube_degrees': [39, 36, 30], 'cap_tests': 153, 'nodes': 159, 'pending': 0, 'max_depth': 28, 'seconds': 11.34}
+Verified dimension 40: 0.00000597599547629559; 820 compulsory minimum pairs; 32.7 seconds
+controls 41 (40, 37, 31) (39, 36, 30) seconds 0.5
+{'status': 'PASS', 'n': 41, 'frozen_sha': '312bb8e9c7bb637505048a7b28516b48dbc15add44494159552e7bc7e9535680', 'cube_degrees': [39, 36, 30], 'cap_tests': 153, 'nodes': 119, 'pending': 0, 'max_depth': 28, 'seconds': 8.35}
+Verified dimension 41: 0.00000439153950072812; 861 compulsory minimum pairs; 33.3 seconds
+controls 42 (40, 37, 31) (39, 36, 30) seconds 0.4
+{'status': 'PASS', 'n': 42, 'frozen_sha': 'bd730f1b4d529af26ce3e33c9cb470ac050b16c02b06db67a2ed8838c8235d82', 'cube_degrees': [39, 36, 30], 'cap_tests': 153, 'nodes': 127, 'pending': 0, 'max_depth': 26, 'seconds': 8.92}
+Verified dimension 42: 0.00000347235461086163; 903 compulsory minimum pairs; 30.8 seconds
+controls 43 (40, 37, 31) (39, 36, 30) seconds 0.5
+{'status': 'PASS', 'n': 43, 'frozen_sha': '0619be767fbb2d7b15b157af8bd282126425442d1339ce24ec33f250aed61615', 'cube_degrees': [39, 36, 30], 'cap_tests': 153, 'nodes': 93, 'pending': 0, 'max_depth': 24, 'seconds': 6.46}
+Verified dimension 43: 0.00000253598810939751; 946 compulsory minimum pairs; 32.3 seconds
+controls 45 (40, 37, 31) (39, 36, 30) seconds 0.5
+{'status': 'PASS', 'n': 45, 'frozen_sha': '37696a57e65b6658cf4af3e514ed9b37b09fefb87bf1c074596f70f0865636a6', 'cube_degrees': [39, 36, 30], 'cap_tests': 153, 'nodes': 87, 'pending': 0, 'max_depth': 17, 'seconds': 5.93}
+Verified dimension 45: 0.00000117272262219496; 1035 compulsory minimum pairs; 27.6 seconds
+controls 46 (40, 37, 31) (39, 36, 30) seconds 0.5
+{'status': 'PASS', 'n': 46, 'frozen_sha': '0e729c4d88219b0bebfd96c3b662c334cc414456e562c7ec066c6c09b9c208ac', 'cube_degrees': [39, 36, 30], 'cap_tests': 153, 'nodes': 87, 'pending': 0, 'max_depth': 17, 'seconds': 5.97}
+Verified dimension 46: 0.00000077208052184872; 1081 compulsory minimum pairs; 25.6 seconds
+controls 47 (40, 37, 31) (39, 36, 30) seconds 0.5
+{'status': 'PASS', 'n': 47, 'frozen_sha': '7fc2f64d9318eefcca244a97fa2bb35dfc288368c413299f935e2a6cadc0756e', 'cube_degrees': [39, 36, 30], 'cap_tests': 153, 'nodes': 87, 'pending': 0, 'max_depth': 17, 'seconds': 5.74}
+Verified dimension 47: 0.00000051291306433158; 1128 compulsory minimum pairs; 28.9 seconds
+controls 48 (40, 37, 31) (39, 36, 30) seconds 0.5
+{'status': 'PASS', 'n': 48, 'frozen_sha': '169ea8d0e2ec662e7d450641894d1e3ba5f280623d2d6a659d1308401d45a728', 'cube_degrees': [39, 36, 30], 'cap_tests': 153, 'nodes': 87, 'pending': 0, 'max_depth': 17, 'seconds': 5.95}
+Verified dimension 48: 0.00000034543696801191; 1176 compulsory minimum pairs; 30.1 seconds
+Verified final rank 25, upper 0.00128655804799992, population, 32.5 seconds
+Verified final rank 26, upper 0.00086911029424442, population, 31.3 seconds
+Verified final rank 27, upper 0.00058059392775857, population, 22.0 seconds
+Verified final rank 28, upper 0.0003918502059418, population, 15.4 seconds
+Verified final rank 29, upper 0.00027185785300181, population, 25.3 seconds
+Verified final rank 30, upper 0.0001891460625422, population, 29.0 seconds
+Verified final rank 31, upper 0.00013608731723029, population, 23.9 seconds
+Verified final rank 32, upper 0.00009894707019231, population, 40.7 seconds
+Verified final rank 33, upper 0.00007345249687346, baseline, 0.0 seconds
+Verified final rank 34, upper 0.00005276550542721, baseline, 0.0 seconds
+Verified final rank 35, upper 0.00003746950706867, baseline, 0.0 seconds
+Verified final rank 36, upper 0.00002714588225649164, reciprocal-plane, 8.7 seconds
+mixscale37a exact positive mixture 5 1.8245562973089806e-05 (276, 9) (234, 9)
+Verified final rank 37, upper 0.00001824556297308981, mixed-scale, 28.8 seconds
+Verified final rank 38, upper 0.00001234290484423537, baseline, 0.0 seconds
+Verified final rank 39, upper 0.00000847683724183294, baseline, 0.0 seconds
+Verified final rank 40, upper 0.00000597599547629559, baseline, 0.0 seconds
+Verified final rank 41, upper 0.00000439153950072812, baseline, 0.0 seconds
+Verified final rank 42, upper 0.00000347235461086163, flag, 4.1 seconds
+Verified final rank 43, upper 0.00000253598810939751, baseline, 0.0 seconds
+Verified final rank 44, upper 0.00000176674994051656, plane, 17.9 seconds
+Verified final rank 45, upper 0.00000117272262219496, baseline, 0.0 seconds
+Verified final rank 46, upper 0.00000077208052184872, baseline, 0.0 seconds
+Verified final rank 47, upper 0.00000051291306433158, baseline, 0.0 seconds
+Verified final rank 48, upper 0.00000034543696801191, flag, 4.0 seconds
+Final exact bound 25 0.001286558046689577 minimum-plane
+Final exact bound 26 0.000869110293813701 minimum-plane
+Final exact bound 27 0.000580593927514536 minimum-plane
+Final exact bound 28 0.000391850205807269 minimum-plane
+Final exact bound 29 0.000271857852999427 minimum-plane
+Final exact bound 30 0.000189146062526746 minimum-plane
+Final exact bound 31 0.000135438074657022 origin-reallocation
+Final exact bound 32 0.00009894707018733 minimum-plane
+Final exact bound 33 0.000073452496873459 ordinary
+Final exact bound 34 0.000052765505427207 ordinary
+Final exact bound 35 0.000037469507068664 ordinary
+Final exact bound 36 0.00002714588225649163623 ordinary
+Final exact bound 37 0.00001824556297305869842 minimum-plane
+Final exact bound 38 0.00001234290484423536589 ordinary
+Final exact bound 39 0.0000084768372418329309 ordinary
+Final exact bound 40 0.00000597599547629544025 minimum-plane
+Final exact bound 41 0.00000439153950072801255 minimum-plane
+Final exact bound 42 0.00000347235461086162196 ordinary
+Final exact bound 43 0.00000253598810939750405 ordinary
+Final exact bound 44 0.00000176674994051655333 minimum-plane
+Final exact bound 45 0.00000117272262219493074 minimum-plane
+Final exact bound 46 0.00000077208052184870181 minimum-plane
+Final exact bound 47 0.00000051291306433157332 minimum-plane
+Final exact bound 48 0.00000034530564242393278 origin-reallocation

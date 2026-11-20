@@ -1,0 +1,11 @@
+# Improving the angular difference payment in dimension 14
+
+Work with minimum squared length one. Take a source window with squared lengths strictly below two. Choose one endpoint line \(x\) from the source and fix an unordered line \(\{\pm z\}\) representing a difference. The only two possible partner lines are represented by \(x+z\) and \(x-z\). Their mean squared length is \(|x|^2+|z|^2\ge2\). They cannot both be in the source. For every fixed difference line the resulting graph on \(m\) source lines is a matching. It has at most \(m/2\) edges.
+
+Let \(F\) be an even polynomial with nonnegative spherical coefficients, \(f_0\) its constant coefficient, and let \(\epsilon\ge0\) pay its values on all pairs whose smaller signed difference has squared length at least two. For each shorter-difference bin let \(p_j\ge0\) pay the extra part of \(F\), and let \(m_j\) count the actual opposite pairs in that bin in the same lattice. Comparing the lower bound \(f_0m^2\) for the ordered angular sum with its diagonal, the uncharged terms and the matching bound gives
+\[
+ (f_0-\epsilon)m\ \le\ F(1)-\epsilon+\sum_j p_j m_j.
+\]
+The empty source also satisfies this equation as an inequality when \(F(1)\ge\epsilon\). All source windows use the same \(m_j\). Each difference shorter than two is in a distinct nonzero parity class. Summing several paid inequalities therefore retains the original population and all of the original conditional determinant hypotheses.
+
+The existing rank-14 polynomial verification bounds the cosine for every pair of actual squared lengths at each possible difference length. The new search can reprice the existing polynomials and choose new ones jointly. The joint verifier computes exact upper bounds by Bernstein coefficients on closed intervals and independently tests the resulting threshold polynomials by Sturm variations. The final budget is evaluated both by sorting the scores and by sorting cumulative parity-class capacities. The physical complement is \(\pi^7/(5040\sqrt{314})\). The lower-dimensional classification cited by the earlier section proof is still an input. [Certificate](tightmatching14-final-packing-proof.json) · [Sturm verifier](check_matching.py)

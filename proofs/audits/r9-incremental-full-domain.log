@@ -1,0 +1,27 @@
+Verified final rank 32, upper 0.00009587690012802, population, 60.0 seconds
+Verified final rank 31, upper 0.00013622183754981, population, 19.1 seconds
+Final exact bound 25 0.001286558046689577 minimum-plane
+Final exact bound 26 0.000869110293813701 minimum-plane
+Final exact bound 27 0.000580593927514536 minimum-plane
+Final exact bound 28 0.000391850205807269 minimum-plane
+Final exact bound 29 0.000271857852999427 minimum-plane
+Final exact bound 30 0.000189146062526746 minimum-plane
+Final exact bound 31 0.000135429606979112 origin-reallocation
+Final exact bound 32 0.000095876900128018 new-parent
+Final exact bound 33 0.000073452496873459 ordinary
+Final exact bound 34 0.000052765505427207 ordinary
+Final exact bound 35 0.000037469507068664 ordinary
+Final exact bound 36 0.00002714588225649163623 ordinary
+Final exact bound 37 0.00001824556297305869842 minimum-plane
+Final exact bound 38 0.00001234290484423536589 ordinary
+Final exact bound 39 0.0000084768372418329309 ordinary
+Final exact bound 40 0.00000597599547629544025 minimum-plane
+Final exact bound 41 0.00000439153950072801255 minimum-plane
+Final exact bound 42 0.00000347235461086162196 ordinary
+Final exact bound 43 0.00000253598810939750405 ordinary
+Final exact bound 44 0.00000176674994051655333 minimum-plane
+Final exact bound 45 0.00000117272262219493074 minimum-plane
+Final exact bound 46 0.00000077176742457565235 origin-reallocation
+Final exact bound 47 0.00000051272563331981912 origin-reallocation
+Final exact bound 48 0.00000034530564242393278 origin-reallocation
+Additional dimensions improved [31, 32, 46, 47] after exact equality of every ordinary proof file

@@ -1,0 +1,41 @@
+{
+ "status": "PASS",
+ "package": "r8",
+ "dimensions": [
+  25,
+  26,
+  27,
+  28,
+  29,
+  30,
+  31,
+  32,
+  33,
+  34,
+  35,
+  36,
+  37,
+  38,
+  39,
+  40,
+  41,
+  42,
+  43,
+  44,
+  45,
+  46,
+  47,
+  48
+ ],
+ "unique_files": 313,
+ "manifest_sha256": "314086b550326c064953f7c061eb10d5b3d593f2de50ebd2029841375d7e199b",
+ "table_sha256": "95811ab4becab0ad2dd03fddea2466c3bafbcad885247f3ee663aca004988304",
+ "replay_log": "VERIFIED-RELEASE-FULL-REPLAY.log",
+ "replay_log_sha256": "f6d30b7ba5e5fe38f176d1cd1959cc7592723c2d03435ca5adc519b974aa63bb",
+ "completed_utc": "2026-11-19T19:49:21.893937+00:00",
+ "methods": {
+  "minimum-plane": 14,
+  "ordinary": 8,
+  "origin-reallocation": 2
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "status": "PASS",
+ "upper": "169984398087502876851/5000000000000000000000",
+ "source": "tightmatching14-final-packing-proof.json",
+ "source_sha": "0b85c72fc27c26e862d5dcea6988dcfd78ad6f3d0c6b4dc985b254fde701f1fe",
+ "checked_intervals": 194,
+ "determinant_complement": "[0.0338184538673948862182475783429732307990392028097961994845278824988852234158972908914342072477355430724185773446342 +/- 3.37e-116]",
+ "external_premise": "Geraud-Stewart and Naccache rank-12 determinant floor, with the source classification and computational inputs."
+}
