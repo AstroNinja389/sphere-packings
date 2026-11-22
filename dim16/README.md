@@ -4,11 +4,24 @@
 (equivalently γ₁₆ ≤ 2.88496372280). The Barnes–Wall lattice has density 0.0147081…, so the bound is about 1.172
 times the best known lattice.
 
-**Status: not replayable from this repository.** The bound was obtained on 11 November 2026 as the output of a
-chain of exact certificates. The final audit re-checked the SHA-256 of 10,005 files (programs, certificates,
-intermediate audits) that live in two working trees outside this repository; several of the programs refer to
-those trees by absolute path. Packaging that chain so that a third party can run it is still to be done. Until
-then this folder documents the claim; it does not let you verify it.
+**Status: the last stage can be re-run with the check kit.** The bound was obtained on 11 November 2026 as the output
+of a chain of exact certificates whose files live in two working trees outside this repository. The check kit is
+published as the release [`dim16-check-kit-v6`](https://github.com/AstroNinja389/sphere-packings/releases/tag/dim16-check-kit-v6):
+one zip file of 676 MB, holding 12,191 files (2.6 GB unpacked). They are the 10,005 files the final audit bound and
+2,186 further files that the last stage reads. One command (`python n16kit.py all C:\n16check`; Windows, Python 3 with
+mpmath, numpy, scipy, sympy and python-flint, and PARI/GP) checks every hash, writes a runnable copy, re-runs the last
+stage (both branches and the final audit, about an hour on one core) and compares every output with the stored one.
+The kit's README says what this does not re-compute: about 36 hours of earlier audits that are only hash-checked, the
+60 theorem notes, and results from outside. Two automated checkers that had nothing but the kit ran earlier versions
+of it (the same files, with an older tool) from a fresh copy and got the same bound; the published version fixes what
+they found.
+
+In the kit the machine paths of the original files are replaced by neutral ones, and the hashes the files record of
+each other are recomputed accordingly. The hash lists in `outputs/` here are those of the original files: for 7,460 of
+the 10,005 bound files they differ from the kit's. The kit's `verify` confirms 3,006 of the published hashes (2,545
+files are unchanged, and 461 give their published hash when the published hashes are put back in place of the
+recomputed ones); the other 6,999 files contain a machine path and cannot be compared without the original files.
+`SHA256SUMS-CHECK-KIT-v6.txt` gives the SHA-256 of the archive and of the files at the top of the kit.
 
 ## What is here
 
@@ -20,6 +33,8 @@ then this folder documents the claim; it does not let you verify it.
   the union and of the two branches, including the full list of bound files and hashes. The only change from the
   originals is that the two working-tree prefixes are replaced by `<TREE-A>` and `<TREE-B>`; `PROVENANCE.json`
   gives the SHA-256 of each original and of each scrubbed text.
+- `SHA256SUMS-CHECK-KIT-v6.txt` – the SHA-256 of the check-kit archive `n16-check-kit-v6.zip` and of the files at
+  the top of the kit (the kit's README says how to use them).
 - `DEPENDENCIES.md` – how many bound files sit in which folder, and the names of the theorem and proof notes among
   them (59 notes).
 

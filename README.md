@@ -4,7 +4,7 @@ The current comparison covers dimensions 13–48. It gives each lattice density 
 
 **Dimensions 13 and 14 use an external rank-12 theorem.** Both deductions use the minimum-four Gram determinant floor 729 and inherit the classification and computational inputs of Géraud-Stewart and Naccache. Dimension 13 gives **0.042023513562578** by Mordell. The stronger target **0.041382759430854** still has **15 open families** of possible section metrics and gluing data. Dimension 14 gives **0.03399687961750058** after the fixed-difference matching refinement. [Rank-12 theorem](https://eprint.iacr.org/2026/2825) · [17 new whole-family exclusions](sections/n13/CONTACT-PRICES.md) · [15 remaining families](sections/n13/OPEN-AFTER-CONTACT-PRICES.txt) · [Dimension-14 refinement](sections/n14/MATCHING.md)
 
-The dimension-16 row carries forward the previously published upper **0.0172314323416**. Its full certificate chain requires external files. Dimension 24 records the exact Leech lattice density. [Dimension-16 proof status](dim16/README.md) · [Dimension-24 theorem](https://arxiv.org/abs/1603.06518)
+The dimension-16 row carries forward the previously published upper **0.0172314323416**. Its last stage can be re-run with a check kit published as a release. Dimension 24 records the exact Leech lattice density. [Dimension-16 proof status](dim16/README.md) · [Dimension-24 theorem](https://arxiv.org/abs/1603.06518)
 
 ## Current bounds
 
@@ -15,7 +15,7 @@ Gap closed measures progress from the specified earlier upper toward the named l
 | 13 | 0.042023513562578 | 0.059905026 (all packings) | 0.029208430928108 (K₁₃) | 58.252% | [Mordell from rank 12](sections/README.md) |
 | 14 | 0.03399687961750058 | 0.034712755778 | 0.0216240960824471 | 5.469% | [Matching bound using rank 12](sections/n14/MATCHING.md) |
 | 15 | 0.02516391576531848 | 0.025511135431 | 0.0168575706567626 | 4.012% | [Certificate and census](proofs/native/minfix-lift15a-final-packing-proof.json) |
-| 16 | 0.0172314323416 | 0.018655117428 | 0.0147081643974308 | 36.070% | [Published bound, external proof files](dim16/README.md) |
+| 16 | 0.0172314323416 | 0.018655117428 | 0.0147081643974308 | 36.070% | [Published bound, check kit](dim16/README.md) |
 | 17 | 0.01362623839310457 | 0.013832417384 | 0.0088113191823211 | 4.106% | [Certificate and census](proofs/native/minfix-oracle17a-final-packing-proof.json) |
 | 18 | 0.01020980939664569 | 0.010343803448 | 0.0059283687184694 | 3.035% | [Certificate and census](proofs/native/minfix-oracle18a-final-packing-proof.json) |
 | 19 | 0.00763128279574491 | 0.007808430327 | 0.0041208062797686 | 4.804% | [Certificate and census](proofs/native/nativeflag19v2-final-packing-proof.json) |
